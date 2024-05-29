@@ -1,4 +1,5 @@
 
+import { width } from "@fortawesome/free-solid-svg-icons/fa0";
 import React from "react";
 import DataTable from "react-data-table-component";
 
@@ -22,43 +23,59 @@ const ProjectListTable =()=>{
         {
             name: <b>Main Contractor</b>,
             selector: (row) => row.mainContactor,
+            wrap:"true"
         },
         {
             name: <b>Package Typology</b>,
             selector: (row) => row.packageTypology,
+            wrap:"true"
         },
         {
             name: <b>Package Current Progress</b>,
             selector: (row) => row.packageCurrentProgress,
+            wrap:"true"
         },
 
         {
             name: <b>Cumulative Manhour</b>,
             selector: (row) => row.CumulativeManhour,
+            wrap:"true"
         },
         {
             name: <b>Plot Area (m2)</b>,
             selector: (row) => row.PloatArea,
+            wrap:"true"
         },
         {
             name: <b>GFA (m2)</b>,
             selector: (row) => row.GFA,
+            wrap:"true"
         },
         {
             name: <b>Road Length (km)</b>,
             selector: (row) => row.RoadLength,
+            wrap:"true"
         },
         {
             name: <b>Infrastructure (Ha)</b>,
             selector: (row) => row.InfraStructure,
+            wrap:"true"
         },
         {
             name: <b>Subscription Category</b>,
             selector: (row) => row.SubscriptionCategory,
+            wrap:"true"
         },
         {
             name: <b>Subscription Tier</b>,
             selector: (row) => row.SubscriptionTier,
+            wrap:"true"
+        },
+        {
+            name: <b>Action</b>,
+            selector: (row) => row.Action,
+            wrap:"true",
+            width:"180px"
         },
     ];
     
@@ -76,7 +93,8 @@ const ProjectListTable =()=>{
             RoadLength: "-",
             InfraStructure: "2.5",
             SubscriptionCategory:"Infrastructure",
-            SubscriptionTier:"Tier 1 - 100Ha"    
+            SubscriptionTier:"Tier 1 - 100Ha",
+            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>   
          },
          {
             personID: "002",
@@ -91,7 +109,8 @@ const ProjectListTable =()=>{
             RoadLength: "-",
             InfraStructure: "-",
             SubscriptionCategory:"Building",
-            SubscriptionTier:"Tier 3 - 50,000sqm"    
+            SubscriptionTier:"Tier 3 - 50,000sqm",
+            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>    
          },
          {
             personID: "003",
@@ -106,7 +125,8 @@ const ProjectListTable =()=>{
             RoadLength: "-",
             InfraStructure: "-",
             SubscriptionCategory:"Building",
-            SubscriptionTier:"Tier 1 - 20,000sqm"    
+            SubscriptionTier:"Tier 1 - 20,000sqm",
+            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>      
          },
          {
             personID: "004",
@@ -121,7 +141,8 @@ const ProjectListTable =()=>{
             RoadLength: "5",
             InfraStructure: "-",
             SubscriptionCategory:"Road",
-            SubscriptionTier:"Tier 1 - 8km"    
+            SubscriptionTier:"Tier 1 - 8km",
+            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>     
          },
         
          {
@@ -137,7 +158,8 @@ const ProjectListTable =()=>{
             RoadLength: "5",
             InfraStructure: "-",
             SubscriptionCategory:"Road",
-            SubscriptionTier:"Tier 1 - 8km"    
+            SubscriptionTier:"Tier 1 - 8km",
+            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>     
          },
          {
             personID: "006",
@@ -152,7 +174,8 @@ const ProjectListTable =()=>{
             RoadLength: "5",
             InfraStructure: "-",
             SubscriptionCategory:"Road",
-            SubscriptionTier:"Tier 1 - 8km"    
+            SubscriptionTier:"Tier 1 - 8km",
+            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>    
          },
          {
             personID: "007",
@@ -167,7 +190,8 @@ const ProjectListTable =()=>{
             RoadLength: "5",
             InfraStructure: "-",
             SubscriptionCategory:"Road",
-            SubscriptionTier:"Tier 1 - 8km"    
+            SubscriptionTier:"Tier 1 - 8km",
+            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>     
          },
          {
             personID: "008",
@@ -182,7 +206,8 @@ const ProjectListTable =()=>{
             RoadLength: "5",
             InfraStructure: "-",
             SubscriptionCategory:"Road",
-            SubscriptionTier:"Tier 1 - 8km"    
+            SubscriptionTier:"Tier 1 - 8km",
+            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>     
          },
          {
             personID: "009",
@@ -197,7 +222,8 @@ const ProjectListTable =()=>{
             RoadLength: "5",
             InfraStructure: "-",
             SubscriptionCategory:"Road",
-            SubscriptionTier:"Tier 1 - 8km"    
+            SubscriptionTier:"Tier 1 - 8km",
+            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>      
          },
          {
             personID: "010",
@@ -212,7 +238,8 @@ const ProjectListTable =()=>{
             RoadLength: "5",
             InfraStructure: "-",
             SubscriptionCategory:"Road",
-            SubscriptionTier:"Tier 1 - 8km"    
+            SubscriptionTier:"Tier 1 - 8km",
+            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>     
          },
     ];
 
