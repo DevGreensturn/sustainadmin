@@ -105,3 +105,9 @@ a {
     color-scheme: dark;
   }
 }
+
+/* New Css */
+.dashboardContainer {
+  margin: 10px;
+  background-color: #F5F6FA;
+}
