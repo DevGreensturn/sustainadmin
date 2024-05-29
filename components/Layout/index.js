@@ -13,10 +13,8 @@ const Layout = ({ children, width, height, color }) => {
       <div >
       <Sidebar/>
       </div>
-      <div
-        style={{
-          margin:"10px"
-        }}
+      <div className="dashboardContainer"
+        
       >
         {children}
       </div>

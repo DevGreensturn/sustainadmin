@@ -7,6 +7,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { RiFilter2Fill } from "react-icons/ri";
 import { useState } from "react";
 import Link from "next/link";
+import ProjectListTable from "./projectList";
 
 
 const ProjectsContainer = () => {
@@ -147,28 +148,45 @@ const ProjectsContainer = () => {
   return (
     <>
       <div className={styles.projectContainer}>
-        <p>Project Lists</p>
+      <div className="row">
+        <div className="col-md-12">
+          <div className="d-flex align-items-center justify-content-between">
+          <div>
+            <h2>Project Lists</h2>
+          </div>
+            <div className="d-flex">
+            <button type="btn" className="btn btn-outline-success mx-2"> <RiFilter2Fill />Filters</button>
+            <Link href="/addProject"><button type="btn" className="btn btn-outline-success">
+            Add New </button></Link>
+            </div>
+          </div>
+
+        </div>
+      </div>
+        
+
+
         <div>
-         <span className={styles.deleteIcon}><MdDeleteForever icon={faTimes} /></span>
-          <span className={styles.editIcon}><FaRegEdit /></span>
-          <span className={styles.filter}><RiFilter2Fill /> Filters</span>
+         {/* <span className={styles.deleteIcon}><MdDeleteForever icon={faTimes} /></span>
+          <span className={styles.editIcon}><FaRegEdit /></span> */}
+          {/* <span className={styles.filter}><RiFilter2Fill /> Filters</span> */}
+
           {/* <span className={styles.addNew} onClick={() => handleShow(true)}>Add New</span> */}
-          <Link
-                            href="/addProject"
-                            className={styles.addNew}                           >
-                           {"Add New"}
-                          </Link>
+          {/* <Link
+              href="/addProject"
+              className={styles.addNew}                           >
+              {"Add New"}
+            </Link> */}
         </div>
         
       </div>
       <div className={styles.tableWrapper}>
         {/* <Card width="" height=""> */}
           <div>
-            <table>
+            <ProjectListTable />
+            {/* <table>
               <thead>
-                <tr
-                  style={{ borderBottom: "1px solid #D3D3D3", color: "black" }}
-                >
+                <tr style={{ borderBottom: "1px solid #D3D3D3", color: "black" }}>
                   <th>Project Reference No.</th>
                   <th>Project Package</th>
                   <th>Package Typology</th>
@@ -224,9 +242,9 @@ const ProjectsContainer = () => {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </table> */}
           </div>
-        {/* </Card> */}
+       
       </div>
       
 
