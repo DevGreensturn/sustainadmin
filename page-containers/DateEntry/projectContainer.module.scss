@@ -1,0 +1,70 @@
+.projectContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 20px 0px 0px;
+  p {
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .filter {
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    border: 1px solid green;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: green;
+  }
+  .addNew {
+    margin-left: 10px;
+    background: green;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .deleteIcon {
+    margin-left: 10px;
+    color: rgb(139, 9, 9);
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    height: 100px;
+    border: 2px solid red; /* Red border */
+  }
+  .editIcon {
+    margin-left: 10px;
+    background: transparent; /* Set background to transparent */
+    color: black;             /* Set icon color to black */
+    padding: 10px 20px;
+    border: 2px solid black; /* Add a black border */
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+.tableWrapper {
+  background-color: white;
+  border-radius: 8px;
+  margin: 80px 30px 20px 20px;
+  overflow-x: auto;
+  max-width: 1350px;
+  width: 100%;
+  align-items: center;
+  margin-left: 140px;
+}
+
+.selectBar {
+  font-size: 18px;
+  font-weight: 600;
+  border: 1px solid green;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: rgb(2, 6, 2);
+  width: 400px;
+}
+
