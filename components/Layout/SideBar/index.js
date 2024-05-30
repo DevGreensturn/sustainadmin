@@ -9,26 +9,26 @@ const Sidebar = () => {
       <ul className={styles.listWrapper}>
 
       <li key={sidebarItems[0].id} className={styles.list}>
-            <Link href={sidebarItems[0].link}>{sidebarItems[0].title}</Link>
+            <Link href={sidebarItems[0].link}><img src="../Images/dashboard.png" alt=""/> {sidebarItems[0].title}</Link>
           </li>
           <li key={sidebarItems[1].id} className={styles.list}>
-            <Link href={sidebarItems[1].link}>{sidebarItems[1].title}</Link>
+            <Link href={sidebarItems[1].link}><img src="../Images/project.png" alt="" /> {sidebarItems[1].title}</Link>
           </li>
           <li key={sidebarItems[2].id} className={styles.list}>
-            <Link href={sidebarItems[2].link}>{sidebarItems[2].title}</Link>
+            <Link href={sidebarItems[2].link}><img src="../Images/supplier.png" alt="" /> {sidebarItems[2].title}</Link>
           </li>
           <li key={sidebarItems[3].id} className={styles.list}>
-            <Link href={sidebarItems[3].link}>{sidebarItems[3].title}</Link>
+            <Link href={sidebarItems[3].link}><img src="../Images/dataEntry.png" alt="" /> {sidebarItems[3].title}</Link>
           </li>
 
           <li key={sidebarItems[4].id} className={styles.list}>
-            <Link href={sidebarItems[4].link}>{sidebarItems[4].title}</Link>
+            <Link href={sidebarItems[4].link}><img src="../Images/sustainaliblityData.png" alt="" /> {sidebarItems[4].title}</Link>
           </li> 
           <li key={sidebarItems[5].id} className={styles.list}>
-            <Link href={sidebarItems[5].link}>{sidebarItems[5].title}</Link>
+            <Link href={sidebarItems[5].link}><img src="../Images/settings.png" alt="" /> {sidebarItems[5].title}</Link>
           </li>
           <li key={sidebarItems[6].id} className={styles.list}>
-            <Link href={sidebarItems[6].link}>{sidebarItems[6].title}</Link>
+            <Link href={sidebarItems[6].link}><img src="../Images/logout.png" alt="" /> {sidebarItems[6].title}</Link>
           </li>
         {/* {sidebarItems.map((item) => (
           <li key={item.id} className={styles.list}>
