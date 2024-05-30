@@ -39,15 +39,15 @@ export default function AddProject() {
     
 
   return (
-    <div>
-        <div style={{ textAlign: "center" }}>
+    <div >
+        <div style={{ textAlign: "center" }} className='my-3'>
     <h1>Add Project Details</h1>
 </div>
 
-        <form onSubmit={handleSubmit} className="container mt-4 form-border"style={{color : "blue" }} >
+  <form onSubmit={handleSubmit} className=" mt-4 p-4" >
   <div className="row mb-3">
-    <div className="col-sm-4" style={{ height: "80px" }}>
-      <label>sdfghjk</label>
+    <div className="col-md-4">
+      <label>First Name</label>
       <input
         type="text"
         className="form-control"
@@ -56,7 +56,8 @@ export default function AddProject() {
         onChange={(e) => setFirstName(e.target.value)}
       />
     </div>
-    <div className="col-sm-4" style={{ height: "80px" }}>
+    <div className="col-md-4">
+    <label>Last Name</label>
       <input
         type="text"
         className="form-control"
@@ -65,7 +66,8 @@ export default function AddProject() {
         onChange={(e) => setLastName(e.target.value)}
       />
     </div>
-    <div className="col-sm-4" style={{ height: "80px" }}>
+    <div className="col-md-4">
+    <label>Email</label>
       <input
         type="text"
         className="form-control"
@@ -75,8 +77,10 @@ export default function AddProject() {
       />
     </div>
   </div>
-  <div className="row mb-3">
-    <div className="col-sm-4" style={{ height: "80px" }}>
+
+  <div className="row my-3">
+    <div className="col-md-4">
+    <label>Project Reference No</label>
       <input
         type="text"
         className="form-control"
@@ -85,7 +89,9 @@ export default function AddProject() {
         onChange={(e) => setFirstName(e.target.value)}
       />
     </div>
-    <div className="col-sm-4" style={{ height: "80px" }}>
+
+    <div className="col-md-4">
+    <label>Project Package</label>
       <input
         type="text"
         className="form-control"
@@ -94,7 +100,8 @@ export default function AddProject() {
         onChange={(e) => setLastName(e.target.value)}
       />
     </div>
-    <div className="col-sm-4" style={{ height: "80px" }}>
+    <div className="col-md-4">
+    <label>Package Typology</label>
       <input
         type="text"
         className="form-control"
@@ -104,8 +111,9 @@ export default function AddProject() {
       />
     </div>
   </div>
-  <div className="row mb-3">
-    <div className="col-sm-4" style={{ height: "80px" }}>
+  <div className="row my-3">
+    <div className="col-md-4">
+    <label>Package Current Progress</label>
       <input
         type="text"
         className="form-control"
@@ -114,16 +122,18 @@ export default function AddProject() {
         onChange={(e) => setFirstName(e.target.value)}
       />
     </div>
-    <div className="col-sm-4" style={{ height: "80px" }}>
+    <div className="col-md-4">
+    <label>Cumulative Man hour</label>
       <input
         type="text"
         className="form-control"
-        placeholder="Cumulative Manhour"
+        placeholder="Cumulative Man hour"
         value={lastName}
         onChange={(e) => setLastName(e.target.value)}
       />
     </div>
-    <div className="col-sm-4" style={{ height: "80px" }}>
+    <div className="col-md-4">
+    <label>Plot Area(m2)</label>
       <input
         type="text"
         className="form-control"
@@ -133,8 +143,9 @@ export default function AddProject() {
       />
     </div>
   </div>
-  <div className="row mb-3">
-    <div className="col-sm-4" style={{ height: "80px" }}>
+  <div className="row my-3">
+    <div className="col-md-4">
+    <label>GFA(m2)</label>
       <input
         type="text"
         className="form-control"
@@ -143,7 +154,8 @@ export default function AddProject() {
         onChange={(e) => setFirstName(e.target.value)}
       />
     </div>
-    <div className="col-sm-4" style={{ height: "80px" }}>
+    <div className="col-md-4">
+    <label>Road Length(km)</label>
       <input
         type="text"
         className="form-control"
@@ -152,7 +164,8 @@ export default function AddProject() {
         onChange={(e) => setLastName(e.target.value)}
       />
     </div>
-    <div className="col-sm-4" style={{ height: "80px" }}>
+    <div className="col-md-4">
+    <label>Infrastructure(Ha)</label>
       <input
         type="text"
         className="form-control"
@@ -163,7 +176,8 @@ export default function AddProject() {
     </div>
   </div>
   <div className="row mb-3">
-    <div className="col-sm-4" style={{ height: "80px" }}>
+    <div className="col-md-4">
+    <label>Subscription Category</label>
       <input
         type="text"
         className="form-control"
@@ -172,7 +186,8 @@ export default function AddProject() {
         onChange={(e) => setFirstName(e.target.value)}
       />
     </div>
-    <div className="col-sm-4" style={{ height: "80px" }}>
+    <div className="col-md-4">
+    <label>Subscription Tier</label>
       <input
         type="text"
         className="form-control"
@@ -181,7 +196,8 @@ export default function AddProject() {
         onChange={(e) => setLastName(e.target.value)}
       />
     </div>
-    <div className="col-sm-4" style={{ height: "80px" }}>
+    <div className="col-md-4">
+    <label>Email</label>
       <input
         type="text"
         className="form-control"
