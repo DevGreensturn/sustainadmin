@@ -186,14 +186,15 @@ let inpData = {}
 let errors = {}
 
   return (
-    <section className={styles.adminLogin}>
+    <section className={styles.adminLogin}>      
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-12 col-lg-9 col-xl-8">
             <div  className={styles.adminLoginBox}>
               <div className="row" style={{marginTop:"200px"}}>
                 <div className="col-md-6">
-                  <div className="py-5 ps-4 pe-3" style={EMAIL_TEXT?{}:{height:'100vh'}}>
+                <div><img src="./logo.png" alt=""/></div>
+                  <div className="py-5 ps-4 pe-3" style={EMAIL_TEXT?{}:{height:'100vh'}}>             
                   {!EMAIL_TEXT ?  
                      <div className="text-center align-middle">
                      <MDBSpinner className="mx-2" color="secondary" >
