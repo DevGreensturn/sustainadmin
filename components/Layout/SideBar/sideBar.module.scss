@@ -5,7 +5,15 @@
   .listWrapper {
     .list {
       padding: 30px !important;
+      list-style-type: none;
+      text-decoration: none;
       :hover{
+        background: green;
+        padding: 10px;
+        color: white;
+        border-radius: 8px;
+      }
+      :active{
         background: green;
         padding: 10px;
         color: white;

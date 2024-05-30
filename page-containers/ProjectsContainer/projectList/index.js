@@ -1,7 +1,10 @@
 
-import { width } from "@fortawesome/free-solid-svg-icons/fa0";
 import React from "react";
 import DataTable from "react-data-table-component";
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { MdDeleteForever } from "react-icons/md";
+import { FaRegEdit } from "react-icons/fa";
+import { RiFilter2Fill } from "react-icons/ri";
 
 const ProjectListTable =()=>{
     
@@ -94,8 +97,8 @@ const ProjectListTable =()=>{
             InfraStructure: "2.5",
             SubscriptionCategory:"Infrastructure",
             SubscriptionTier:"Tier 1 - 100Ha",
-            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>   
-         },
+            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>
+        },
          {
             personID: "002",
             project: "Downtown Tower",
@@ -110,7 +113,7 @@ const ProjectListTable =()=>{
             InfraStructure: "-",
             SubscriptionCategory:"Building",
             SubscriptionTier:"Tier 3 - 50,000sqm",
-            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>    
+            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
          },
          {
             personID: "003",
@@ -126,7 +129,7 @@ const ProjectListTable =()=>{
             InfraStructure: "-",
             SubscriptionCategory:"Building",
             SubscriptionTier:"Tier 1 - 20,000sqm",
-            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>      
+            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>     
          },
          {
             personID: "004",
@@ -142,7 +145,7 @@ const ProjectListTable =()=>{
             InfraStructure: "-",
             SubscriptionCategory:"Road",
             SubscriptionTier:"Tier 1 - 8km",
-            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>     
+            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
          },
         
          {
@@ -159,7 +162,7 @@ const ProjectListTable =()=>{
             InfraStructure: "-",
             SubscriptionCategory:"Road",
             SubscriptionTier:"Tier 1 - 8km",
-            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>     
+            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
          },
          {
             personID: "006",
@@ -175,7 +178,7 @@ const ProjectListTable =()=>{
             InfraStructure: "-",
             SubscriptionCategory:"Road",
             SubscriptionTier:"Tier 1 - 8km",
-            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>    
+            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>   
          },
          {
             personID: "007",
@@ -191,7 +194,7 @@ const ProjectListTable =()=>{
             InfraStructure: "-",
             SubscriptionCategory:"Road",
             SubscriptionTier:"Tier 1 - 8km",
-            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>     
+            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>   
          },
          {
             personID: "008",
@@ -207,7 +210,7 @@ const ProjectListTable =()=>{
             InfraStructure: "-",
             SubscriptionCategory:"Road",
             SubscriptionTier:"Tier 1 - 8km",
-            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>     
+            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>  
          },
          {
             personID: "009",
@@ -223,7 +226,7 @@ const ProjectListTable =()=>{
             InfraStructure: "-",
             SubscriptionCategory:"Road",
             SubscriptionTier:"Tier 1 - 8km",
-            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>      
+            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>  
          },
          {
             personID: "010",
@@ -239,12 +242,9 @@ const ProjectListTable =()=>{
             InfraStructure: "-",
             SubscriptionCategory:"Road",
             SubscriptionTier:"Tier 1 - 8km",
-            Action :<div className="d-flex align-items-center"><button type="btn" className="btn btn-sm btn-outline-secondary">Edit</button>, <button type="btn" className="btn btn-sm btn-outline-danger">Delete</button></div>     
+            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>   
          },
     ];
-
-
-    
 
     return(
         <section>
