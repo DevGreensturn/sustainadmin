@@ -5,6 +5,7 @@ import styles from "./projectContainer.module.scss";
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { MdDeleteForever } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
+import DataEntryTable from "./datatList";
 
 
 function formatMonthYear(dateString) {
@@ -122,7 +123,48 @@ const DataEntryContainer = () => {
 
   return (
     <>
-      <div className={styles.projectContainer}>
+     <section>
+      <div className="p-4">
+        <div className="row">
+          <div className="col-md-12">
+            <div className="my-5">
+              <h3>Select Project</h3>
+            <select className="form-select" aria-label="Default select example">
+              <option selected>Downtown Tower - Building</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            </div>
+          </div>
+        </div>
+        
+        <div className="row my-3">
+          <div className="col-md-12">
+            <div className="d-flex align-items-center justify-content-between">
+              <div>
+              <h2>Monthly Reports </h2>
+              </div>
+              <div className="d-flex">
+                <button type="btn" className="btn btn-outline-success mx-3">Filters</button>
+                <button type="btn" className="btn btn-outline-success">Add Monthly Report</button>
+              </div>
+            </div>
+
+            </div>
+        </div>
+
+        <div className="row my-3">
+          <div className="col-md-12">
+            <div>
+              <DataEntryTable />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      {/* <div className={styles.projectContainer}>
         <p>Monthly Reports</p>
         <select className={styles.selectBar} id="dummySelect">
     <option value="option1">Downtown Tower - Buildings</option>
@@ -137,7 +179,6 @@ const DataEntryContainer = () => {
         </div>
       </div>
       <div className={styles.tableWrapper}>
-  {/* <Card width="" height=""> */}
   <div>
     <table>
       <thead>
@@ -184,8 +225,8 @@ const DataEntryContainer = () => {
       </tbody>
     </table>
   </div>
-  {/* </Card> */}
-</div>
+ 
+</div> */}
 
     </>
   );
