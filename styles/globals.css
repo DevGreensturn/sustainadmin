@@ -111,3 +111,8 @@ a {
   margin: 10px;
   background-color: #F5F6FA;
 }
+.headerSection{
+  display: flex;
+  align-items: center;
+
+}

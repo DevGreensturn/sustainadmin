@@ -13,9 +13,7 @@ const Layout = ({ children, width, height, color }) => {
       <div >
       <Sidebar/>
       </div>
-      <div className="dashboardContainer"
-        
-      >
+      <div className="dashboardContainer">
         {children}
       </div>
     </div>

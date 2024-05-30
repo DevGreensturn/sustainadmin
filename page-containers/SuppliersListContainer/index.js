@@ -1,5 +1,6 @@
 import Card from "@/components/Card.js";
 import { useEffect, useState } from "react";
+import ProjectListTable from "./projectList";
 
 const SuppliersList = () => {
   const [users, setUsers] = useState([]);
@@ -137,14 +138,54 @@ const SuppliersList = () => {
 
   return (
     <>
-      <div
+    <section>
+      <div className="p-4">
+        <div className="row">
+          <div className="col-md-12">
+            <div className="my-5">
+              <h3>Select Project</h3>
+            <select className="form-select" aria-label="Default select example">
+              <option selected>Downtown Tower - Building</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            </div>
+          </div>
+        </div>
+        
+        <div className="row my-3">
+          <div className="col-md-12">
+            <div className="d-flex align-items-center justify-content-between">
+              <div>
+              <h2>Supplier & Subcontractor List</h2>
+              </div>
+              <div className="d-flex">
+                <button type="btn" className="btn btn-outline-success mx-3">Filters</button>
+                <button type="btn" className="btn btn-outline-success">Add New</button>
+              </div>
+            </div>
+
+            </div>
+        </div>
+
+        <div className="row my-3">
+          <div className="col-md-12">
+            <div>
+              <ProjectListTable />
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+      {/* <div
         style={{
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
           justifyContent: "center",
           margin: "10px 0px 0px 0px",
-          // gap: "20px",
         }}
       >
         <div
@@ -226,7 +267,6 @@ const SuppliersList = () => {
                   <th style={{padding:"0px 60px"}}>Address</th>
                   <th style={{padding:"0px 60px"}}>Date</th>
                   <th style={{padding:"0px 60px"}}>Type</th>
-                  {/* <th style={{padding:"0px 60px"}}>Status</th> */}
                 </tr>
               </thead>
               <tbody>
@@ -240,14 +280,13 @@ const SuppliersList = () => {
                     <td style={{ height: "50px", padding:"0px 60px" }}>{supplier.address}</td>
                     <td style={{ height: "50px", padding:"0px 60px" }}>{supplier.date}</td>
                     <td style={{ height: "50px", padding:"0px 60px" }}>{supplier.type}</td>
-                    {/* <td style={{ height: "50px", padding:"0px 60px" }}>{supplier.status}</td> */}
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          {/* </div> */}
+          
           {showPopup && (
             <div
               style={{
@@ -260,12 +299,11 @@ const SuppliersList = () => {
               }}
             >
               <h2>Filter Popup</h2>
-              {/* Add filter options and other content here */}
               <button onClick={togglePopup}>Close</button>
             </div>
           )}
         </Card>
-      </div>
+      </div> */}
     </>
   );
 };
