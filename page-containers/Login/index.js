@@ -191,7 +191,7 @@ let errors = {}
         <div className="row justify-content-center">
           <div className="col-md-12 col-lg-9 col-xl-8">
             <div  className={styles.adminLoginBox}>
-              <div className="row">
+              <div className="row" style={{marginTop:"200px"}}>
                 <div className="col-md-6">
                   <div className="py-5 ps-4 pe-3" style={EMAIL_TEXT?{}:{height:'100vh'}}>
                   {!EMAIL_TEXT ?  
@@ -323,8 +323,8 @@ let errors = {}
                   <div className="footBallImg">
                     <img
                       className="img-fluid"
-                      src="../../images/football.png"
-                      alt=""
+                      src="../images/login.jpg"
+                      alt="./login.jpg"
                     />
                   </div>
                 </div>

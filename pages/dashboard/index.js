@@ -5,11 +5,12 @@ import Header from "@/components/Layout/Header"
 const Dashboard=({childern})=> {
   return (
     <>
-   
+   <Header/>
+  <Layout> 
     <div >
       <h1 >"No data available."</h1>
     </div>
-   
+   </Layout>
     </>
   )
 }
