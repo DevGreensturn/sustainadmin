@@ -6,7 +6,11 @@ const Dashboard=({childern})=> {
   return (
     <>
    <Header/>
-   <Layout>Dashboard</Layout>
+   <Layout>
+    <div >
+      <h1 >"No data available."</h1>
+    </div>
+   </Layout>
     </>
   )
 }
