@@ -16,12 +16,12 @@ const DataEntryTable =()=>{
             wrap:"true"
         },
         {
-            name: <b>Packages Progress This Month </b>,
+            name: <b className="text-center">Packages Progress <br />This Month </b>,
             selector: (row) => row.projectPackage,
             wrap:"true"
         },
         {
-            name: <b>Manhour During This Month</b>,
+            name: <b className="text-center">Manhour During <br />This Month</b>,
             selector: (row) => row.mainContactor,
             wrap:"true"
         },
@@ -51,63 +51,63 @@ const DataEntryTable =()=>{
             project: "Sep 2023",
             projectPackage: "33%",
             mainContactor: "5,500 Manhour",
-            packageTypology: "UserName",
-            reportStatus :"Submitted",
+            packageTypology: "User Name",
+            reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-secondary">Submitted</button></div>,
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>
         },
          {
             
             project: "Oct 2023",
-            projectPackage: "Building",
-            mainContactor: "Company Y",
-            packageTypology: "Building",
-            reportStatus :"Submitted",
+            projectPackage: "36%",
+            mainContactor: "6,500 Manhour",
+            packageTypology: "User Name",
+            reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-success">Audited</button></div>,
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
          },
          {
            
             project: "Nov 2023",
-            projectPackage: "Community Facility",
-            mainContactor: "Company Z",
-            packageTypology: "Building",
-            reportStatus :"Submitted",
+            projectPackage: "56%",
+            mainContactor: "6,000 Manhour",
+            packageTypology: "User Name",
+            reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-secondary">Submitted</button></div>,
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>     
          },
          {
             
             project: "Dec 2023",
-            projectPackage: "Main Works",
-            mainContactor: "Company G",
-            packageTypology: "Road",
-            reportStatus :"Submitted",
+            projectPackage: "60%",
+            mainContactor: "65,00 Manhour",
+            packageTypology: "User Name",
+            reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-danger">Returned</button></div>,
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
          },
         
          {
            
             project: "Jan 2024",
-            projectPackage: "Main Works",
-            mainContactor: "Company G",
-            packageTypology: "Road",
-            reportStatus :"Submitted",
+            projectPackage: "66%",
+            mainContactor: "60,00 Manhour",
+            packageTypology: "User Name",
+            reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-secondary">Submitted</button></div>,
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
          },
          {
             
             project: "Feb 2024",
-            projectPackage: "Main Works",
-            mainContactor: "Company G",
-            packageTypology: "Road",
-            reportStatus :"Submitted",
+            projectPackage: "70%",
+            mainContactor: "10,00 Manhour",
+            packageTypology: "User Name",
+            reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-secondary">Submitted</button></div>,
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>   
          },
          {
             
             project: "Mar 2024",
-            projectPackage: "Main Works",
-            mainContactor: "Company G",
-            packageTypology: "Road",
-            reportStatus :"Submitted",
+            projectPackage: "75%",
+            mainContactor: "12,000 Manhour",
+            packageTypology: "User Name",
+            reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-secondary">Drafts</button></div>,
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>   
          },
          {
@@ -116,25 +116,23 @@ const DataEntryTable =()=>{
             projectPackage: "Main Works",
             mainContactor: "Company G",
             packageTypology: "Road",
-            reportStatus :"Submitted",
+            reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-secondary">Submitted</button></div>,
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>  
          },
          {
-            
             project: "May 2024",
             projectPackage: "Main Works",
             mainContactor: "Company G",
             packageTypology: "Road",
-            reportStatus :"Submitted",
+            reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-secondary">Submitted</button></div>,
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>  
          },
-         {  
-            
+         {
             project: "Jun 2023",
             projectPackage: "Main Works",
             mainContactor: "Company G",
             packageTypology: "Road",
-            reportStatus :"Submitted",
+            reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-secondary">Submitted</button></div>,
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>   
          },
     ];

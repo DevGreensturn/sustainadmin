@@ -116,3 +116,87 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+/* =========Login======== */
+.text-base {
+  line-height: 1;
+  margin: 0;
+  /* height: 20px; */
+  padding: 5px 8px;
+  border: 2px solid #aaa;
+  border-radius: 6px;
+  transition: all .3s;
+}
+
+.text-base:focus {
+  border: 2px solid #00AD3B;
+  outline: 0;
+}
+
+.text-field {
+  position: relative;
+}
+
+.text-field input,
+.text-field textarea {
+  display: inline-block;
+  padding: 10px;
+}
+
+.text-field span {
+  color: #aaa;
+  position: absolute;
+  pointer-events: none;
+  left: 10px;
+  top: 23px;
+  transition: 0.3s;
+}
+
+.text-field input:focus+span,
+.text-field input:not(:placeholder-shown)+span,
+.text-field textarea:focus+span,
+.text-field textarea:not(:placeholder-shown)+span {
+  top: 2px;
+  left: 10px;
+  font-size: small;
+  background-color: #fff;
+  padding: 0 5px 0 5px;
+}
+
+.text-field input:focus:invalid+span,
+.text-field input:not(:placeholder-shown):invalid+span,
+.text-field textarea:focus:invalid+span,
+.text-field textarea:not(:placeholder-shown):invalid+span {
+  color: #00AD3B;
+}
+
+.w100p {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.w100p textarea {
+  height: 120px;
+}
+/* ======Before After Line ======= */
+span.loginWith_Section {
+  font-size: 16px;
+}
+.loginWith_Section::before,
+.loginWith_Section::after {
+  display: inline-block;
+  content: "";
+  border-top: 0.1rem solid black;
+  width: 39%;
+  margin: 0 1rem;
+  transform: translateY(-0.2rem);
+  opacity: .5;
+}
+/* ===========Login Section =========== */
+.loginSection .loginSection_EnterEmail{
+  font-size: 16px;
+  opacity: .5;
+}
+.loginSection button.customeLogin{
+  height: 3rem;
+  background-color: #00AD3B;
+}
