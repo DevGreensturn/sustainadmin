@@ -128,7 +128,7 @@ const DataEntryTable =()=>{
             reportStatus :"Submitted",
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>  
          },
-         {
+         {  
             
             project: "Jun 2023",
             projectPackage: "Main Works",
