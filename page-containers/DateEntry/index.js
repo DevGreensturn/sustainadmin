@@ -6,7 +6,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { MdDeleteForever } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import DataEntryTable from "./datatList";
-
+import Link from "next/link";
 
 function formatMonthYear(dateString) {
   const date = new Date(dateString);
@@ -147,7 +147,7 @@ const DataEntryContainer = () => {
               </div>
               <div className="d-flex">
                 <button type="btn" className="btn btn-outline-success mx-3">Filters</button>
-                <button type="btn" className="btn btn-outline-success">Add Monthly Report</button>
+                <Link href="/addprojectdataentry"><button type="btn" className="btn btn-outline-success">Add Monthly Report</button></Link>
               </div>
             </div>
 
