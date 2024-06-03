@@ -58,7 +58,7 @@ const Header = () => {
         onHide={handleClose}
         backdrop="static"
         centered
-        size="lg"
+        
         >
         <Modal.Header closeButton style={{border:"0"}}>
         </Modal.Header>
@@ -107,8 +107,9 @@ const Header = () => {
             <span className="loginWith_Section">or login with</span>
           </div>
           <div className="d-flex justify-content-evenly mt-3">
+          <button type="btn" className="btn btn-outline-primary p-1 mx-3"><img src="../Images/icons8-microsoft-365.svg" alt="" /></button>
             <button type="btn" className="btn btn-outline-primary p-1"><img src="../Images/icons8-google.svg" alt="" /></button>
-            <button type="btn" className="btn btn-outline-primary p-1 mx-3"><img src="../Images/icons8-microsoft-365.svg" alt="" /></button>
+           
           </div>
             </div>
             </div>
