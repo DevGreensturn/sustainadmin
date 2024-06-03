@@ -147,7 +147,7 @@ const DataEntryContainer = () => {
               </div>
               <div className="d-flex">
                 <button type="btn" className="btn btn-outline-success mx-3">Filters</button>
-                <Link href="/addprojectdataentry"><button type="btn" className="btn btn-outline-success">Add Monthly Report</button></Link>
+                <Link href="/addMonthlyData"><button type="btn" className="btn btn-outline-success">Add Monthly Report</button></Link>
               </div>
             </div>
 
