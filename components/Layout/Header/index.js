@@ -116,7 +116,7 @@ const Header = () => {
 
             <div className="d-flex justify-content-between mt-4">
             <div>
-              <span>Don't have an Account? </span>  
+              {/* <span>Don't have an Account? </span>   */}
             </div>
             <div>
               <button type="btn" className="btn btn-outline-success">Create Account </button>
