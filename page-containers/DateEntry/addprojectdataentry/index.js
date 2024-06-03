@@ -1,4 +1,5 @@
 import React from "react";
+import EnergyComsuption from "../EnergyComsuption";
 
 const AddprojectEntry =()=>{
     return(
@@ -41,7 +42,7 @@ const AddprojectEntry =()=>{
                 </div>
             </div>
 
-            <div className="row mt-3 ">
+            <div className="row mt-3">
                 <div className="col-md-12 ">
                     <div className="d-flex justify-content-end">
                         <button type="btn" className="btn btn-outline-secondary mx-3">Cancel</button>
@@ -50,6 +51,13 @@ const AddprojectEntry =()=>{
                 </div>
                 
             </div>
+
+            <div className="row mt-3">
+                <div className="col-md-12">
+                   <EnergyComsuption />
+                </div>
+            </div>
+
         </div>
         </section>
     )

@@ -150,7 +150,6 @@ const DataEntryContainer = () => {
                 <Link href="/addMonthlyData"><button type="btn" className="btn btn-outline-success">Add Monthly Report</button></Link>
               </div>
             </div>
-
             </div>
         </div>
 
