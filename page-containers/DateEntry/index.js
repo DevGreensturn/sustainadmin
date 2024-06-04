@@ -1,7 +1,6 @@
 import Card from "@/components/Card.js";
 import React from "react";
 import styles from "./projectContainer.module.scss";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { MdDeleteForever } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";

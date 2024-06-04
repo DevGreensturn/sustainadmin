@@ -1,8 +1,8 @@
-import styles from "./Card.module.scss";
+// import styles from "./Card.module.scss";
 
 const Card = ({ children, width, height, color }) => {
   return (
-    <div className={styles.cardWrapper}
+    <div 
       style={{
 //         width: { width },
 //         height: { height },
