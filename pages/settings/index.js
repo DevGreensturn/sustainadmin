@@ -8,7 +8,7 @@ const Dashboard=({childern})=> {
    <Header/>
    <Layout>
     <div >
-      <h1 >"No data available."</h1>
+      <h1 >{"No data available."}</h1>
     </div>
    </Layout>
     </>
