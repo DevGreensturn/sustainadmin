@@ -82,31 +82,28 @@ const NonrenowableTable =()=>{
     
     const rows = [
         {
-            
-            energyType: "Electricity",
-            meterNumber: "00001",
-            accountNumber: "1234567890",
-            serviceProvider: "DEWA",
-            readingDate: "10 March 2024",
-            meterReading: "1344",
-            consumption: "1344",
-            unit:"Joule",
-            supportingDocument:"2 attachments",
-            reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-secondary">Submitted</button></div>,
+            fuelType: "Diesel",
+            usage: "Equipment",
+            volume: "200",
+            unite:"Liter",
+            EnergyOutput: "-",
+            TotalSpending: "1344",
+            supportingDocument: "2 Attachments",
+            numberOfTrips:"1",
+            fuelUsed:"10",
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}} onClick={handleShowEdit}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}} onClick={handleShowDelete}/> </div>
         },
+
          {
-            
-            energyType: "Cooling",
-            meterNumber: "00002",
-            accountNumber: "1234567890",
-            serviceProvider: "DEWA",
-            readingDate: "23rd March 2024",
-            meterReading: "1452",
-            consumption: "1452",
-            unit:"kWh",
-            supportingDocument:"2 attachments",
-            reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-success">Audited</button></div>,
+            fuelType: "Diesel",
+            usage: "Generator",
+            volume: "300",
+            unite:"Liter",
+            EnergyOutput: "1,000",
+            TotalSpending: "1452",
+            supportingDocument: "1 Attachment",
+            numberOfTrips:"2",
+            fuelUsed:"25",
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
          },
     ];
@@ -260,19 +257,18 @@ const NonrenowableTable =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/EnergyComsuption_Modal.png" alt="" className="img-fluid"/>
+                            <img src="../Images/nonRenowable_Modal.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>Energy Consumption</h4>
-                                <h5>Utility Provider Energy</h5>
+                                <h5>Non Renewable Sources</h5>
                             </div>
-
                         </div>
 
                         <div className="row mt-3">
                             <div className="col-md-4">
-                                <label htmlFor="">Energy Type</label>
+                                <label htmlFor="">Fuel Type</label>
                                 <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
+                                    <option selected>Diesel</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
@@ -280,49 +276,57 @@ const NonrenowableTable =()=>{
                             </div>
 
                             <div className="col-md-4">
-                                <label htmlFor="">Meter No.</label>
-                                <input type="text" className="form-control" placeholder="12345" />
+                            <label htmlFor="">Usage</label>
+                                <select className="form-select" aria-label="Default select example">
+                                    <option selected>Equipment</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
                             </div>
 
                             <div className="col-md-4">
-                                <label htmlFor="">Account No.</label>
+                                <label htmlFor="">Total Spending(AED)</label>
                                 <input type="text" className="form-control" placeholder="1234567890" />
                             </div>
+
 
                         </div>
 
                         <div className="row mt-3">
                             <div className="col-md-4">
-                                <label htmlFor="">Service Provider</label>
-                                <input type="text" className="form-control" placeholder="DAWA" />
+                                <label htmlFor="">Volume</label>
+                                <input type="text" className="form-control" placeholder="200" />
                             </div>
 
                             <div className="col-md-4">
-                                <label htmlFor="">Reading Date</label>
-                                <input type="text" className="form-control" placeholder="10 March 2024" />
-                            </div>
-
-                            <div className="col-md-4">
-                                <label htmlFor="">Meter Reading</label>
-                                <input type="text" className="form-control" placeholder="1234" />
-                            </div>
-
-                        </div>
-
-                        <div className="row my-3 ">
-                            <div className="col-md-4">
-                                <label htmlFor="">Consumption</label>
-                                <input type="text" className="form-control" placeholder="123456" />
-                            </div>
-
-                            <div className="col-md-4">
-                                <label htmlFor="">Unite Type</label>
+                            <label htmlFor="">Unite Type</label>
                                 <select className="form-select" aria-label="Default select example">
-                                    <option selected>Joule</option>
-                                    <option value="1">kWh</option>
+                                    <option selected>Litter</option>
+                                    <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
+                            </div>
+                            <div className="col-md-4">
+                                <label htmlFor="">Energy output(kWh)</label>
+                                <input type="text" className="form-control" placeholder="-" />
+                            </div>
+                        </div>
+
+                        <hr className="my-4"/>
+                        
+                        <div className="row my-3 ">
+                            <h2>Logistics</h2>
+
+                            <div className="col-md-4">
+                                <label htmlFor="">No. of Trips</label>
+                                <input type="text" className="form-control" placeholder="1" />
+                            </div>
+
+                            <div className="col-md-4">
+                                <label htmlFor="">Fuel Used by Trucks(L)(One full trip)</label>
+                                <input type="text" className="form-control" placeholder="10" />
                             </div>
 
                             <div className="col-md-4">
@@ -331,6 +335,8 @@ const NonrenowableTable =()=>{
                             </div>
                         </div>
                        </div>
+
+
                     <div className="my-4 d-flex justify-content-between">
                     <div>
                     <button type="btn" className="btn btn-outline-secondary" onClick={handleCloseEdit}> Close </button>
@@ -340,6 +346,7 @@ const NonrenowableTable =()=>{
                     </div>
                     </div>
                        </>
+
                         </Modal.Body>
                 </Modal>
 
@@ -359,7 +366,7 @@ const NonrenowableTable =()=>{
                     <Modal.Body>
                         <>
                        <div className=" text-center">
-                        <h5>Are you sire want to delete this record.</h5>
+                        <h5>Are you sure want to delete this record.</h5>
                     </div>
                     <div className="mt-4 d-flex justify-content-between">
                     <div>
