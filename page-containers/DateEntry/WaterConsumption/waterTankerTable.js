@@ -6,7 +6,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { RiFilter2Fill } from "react-icons/ri";
 import { Modal, Button } from 'react-bootstrap';
 
-const NonrenowableTable =()=>{
+const WaterTankerTable =()=>{
     const [show, setShow] = useState(false);
     const handleClose =()=> setShow(false);
     const handleShow =()=>setShow(true);
@@ -20,93 +20,81 @@ const NonrenowableTable =()=>{
     const handleShowDelete =()=> setShowDelete(true);
 
     const columns = [
-    	
         {
-            name: <b>Fuel Type</b>,
-            selector: (row) => row.fuelType,
+            name: <b>Water Type</b>,
+            selector: (row) => row.WaterType,
             wrap:"true"
         },
         {
-            name: <b className="text-center">Usage </b>,
-            selector: (row) => row.usage,
+            name: <b className="text-center">Drinking <br/>Non Drinking Water</b>,
+            selector: (row) => row.Drinking,
             wrap:"true"
         },
         {
-            name: <b className="text-center">Volume</b>,
-            selector: (row) => row.volume,
+            name: <b className="text-center">Water Consumption<br />Amount</b>,
+            selector: (row) => row.WaterConsumption,
             wrap:"true"
         },
         {
-            name: <b>Unite</b>,
-            selector: (row) => row.unite,
+            name: <b>Unit</b>,
+            selector: (row) => row.unit,
             wrap:"true"
         },
         
         {
-            name: <b>Energy Output <br/>(kWh) </b>,
-            selector: (row) => row.EnergyOutput,
+            name: <b>Tanker Capacity <br />(US Gallons)</b>,
+            selector: (row) => row.TankerCapacity,
             wrap:"true"
         },
 
         {
-            name: <b>Total Spending <br/>(AED)</b>,
-            selector: (row) => row.TotalSpending,
+            name: <b>No. of Trips</b>,
+            selector: (row) => row.nooftrips,
             wrap:"true"
         },
 
         {
-            name: <b>Supporting Document</b>,
-            selector: (row) => row.supportingDocument,
+            name: <div style={{textAlign:"center"}}><b>Fuel Used</b> <br /><span>by Trucks(litres)(one full trip,
+                from source)</span></div>,
+            selector: (row) => row.FuelUsed,
             wrap:"true"
         },
 
         {
-            name: <b>No. Of Trips </b>,
-            selector: (row) => row.numberOfTrips,
-            wrap:"true"
-        },
-
-        {
-            name: <b>Fuel Used <span>by Trucks(L) (One full Trip)</span></b>,
-            selector: (row) => row.fuelUsed,
+            name: <b style={{textAlign:"center"}}>Supporting <br/>Document</b>,
+            selector: (row) => row.supporting,
             wrap:"true"
         },
 
         {
             name: <b>Action</b>,
             selector: (row) => row.Action,
-            wrap:"true",
-           
+            wrap:"true",           
         },
     ];
     
     const rows = [
         {
-            
-            energyType: "Electricity",
-            meterNumber: "00001",
-            accountNumber: "1234567890",
-            serviceProvider: "DEWA",
-            readingDate: "10 March 2024",
-            meterReading: "1344",
-            consumption: "1344",
-            unit:"Joule",
-            supportingDocument:"2 attachments",
-            reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-secondary">Submitted</button></div>,
+            WaterType: "Third Party Water",
+            Drinking: "Non Drinking Water",
+            WaterConsumption: "1344",
+            unit:"US Gallon",
+            TankerCapacity: "1344",
+            nooftrips:"1344",
+            FuelUsed: "1344",
+            supporting: "1 Attachment",
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}} onClick={handleShowEdit}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}} onClick={handleShowDelete}/> </div>
         },
+
          {
-            
-            energyType: "Cooling",
-            meterNumber: "00002",
-            accountNumber: "1234567890",
-            serviceProvider: "DEWA",
-            readingDate: "23rd March 2024",
-            meterReading: "1452",
-            consumption: "1452",
-            unit:"kWh",
-            supportingDocument:"2 attachments",
-            reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-success">Audited</button></div>,
+            WaterType: "Third Party Water",
+            Drinking: "Non Drinking Water",
+            WaterConsumption: "1344",
+            unit:"Liter",
+            TankerCapacity: "1452",
+            nooftrips:"1452",
+            FuelUsed: "1452",
+            supporting: "1 Attachment",
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
          },
     ];
@@ -116,8 +104,8 @@ const NonrenowableTable =()=>{
         <section>
                 <div className="d-flex align-items-center justify-content-between">
                     <div className="d-flex align-items-center">
-                    <img src="../Images/nonRenowable.png" alt="" />
-                    <h5 className="mx-2">Non Renewable Energy</h5>
+                    <img src="../Images/WaterTanker.png" alt="" />
+                    <h5 className="mx-2">Water Tanker</h5>
                     </div>
                     <div>
                         <button type="btn" className="btn btn-outline-success" onClick={handleShow}>
@@ -151,83 +139,88 @@ const NonrenowableTable =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/nonRenowable_Modal.png" alt="" className="img-fluid"/>
+                            <img src="../Images/waterTanker_Modal.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
-                                <h4>Energy Consumption</h4>
-                                <h5>Non Renewable Sources</h5>
+                                <h4>Water Consumption</h4>
+                                <h5>Water Tanker</h5>
                             </div>
                         </div>
 
                         <div className="row mt-3">
                             <div className="col-md-4">
-                                <label htmlFor="">Fuel Type</label>
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Diesel</option>
-                                    <option value="1">One</option>
+                                <label htmlFor="">Water Type</label>
+                                <input type="text" className="form-control" placeholder="Third Party Water" />
+                            </div>
+
+                            <div className="col-md-4">
+                            <label htmlFor="">Drinking/Non Drinking Water</label>
+                            <select className="form-select" aria-label="Default select example">
+                                    <option selected>Drinking/Non Drinking Water</option>
+                                    <option value="1">Drinking Water</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
                             </div>
-
-                            <div className="col-md-4">
-                            <label htmlFor="">Usage</label>
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Equipment</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                            </div>
-
-                            <div className="col-md-4">
-                                <label htmlFor="">Total Spending(AED)</label>
-                                <input type="text" className="form-control" placeholder="1234567890" />
-                            </div>
-
 
                         </div>
 
                         <div className="row mt-3">
                             <div className="col-md-4">
-                                <label htmlFor="">Volume</label>
-                                <input type="text" className="form-control" placeholder="200" />
+                                <label htmlFor="">Water Consumption</label>
+                                <input type="text" className="form-control" placeholder="1344" />
                             </div>
 
                             <div className="col-md-4">
-                            <label htmlFor="">Unite Type</label>
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Litter</option>
+                            <label htmlFor="">Unit</label>
+                            <select className="form-select" aria-label="Default select example">
+                                    <option selected>US Gallon</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
                             </div>
+
                             <div className="col-md-4">
-                                <label htmlFor="">Energy output(kWh)</label>
-                                <input type="text" className="form-control" placeholder="-" />
+                            <label htmlFor="">Tanker Capacity (US Gallons)</label>
+                            <input type="date" className="form-control" placeholder="1344" />
+
+                            
                             </div>
                         </div>
 
-                        <hr className="my-4"/>
-                        
-                        <div className="row my-3 ">
-                            <h2>Logistics</h2>
 
+                        <div className="row mt-3">
                             <div className="col-md-4">
                                 <label htmlFor="">No. of Trips</label>
-                                <input type="text" className="form-control" placeholder="1" />
+                                <input type="text" className="form-control" placeholder="1322" />
                             </div>
 
                             <div className="col-md-4">
-                                <label htmlFor="">Fuel Used by Trucks(L)(One full trip)</label>
-                                <input type="text" className="form-control" placeholder="10" />
+                            <label htmlFor="">Fuel Used by Trucks (Liters)</label>
+                            <select className="form-select" aria-label="Default select example">
+                                    <option selected>1344</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
                             </div>
 
                             <div className="col-md-4">
+                            <label htmlFor="">Tanker Capacity (US Gallons)</label>
+                            <input type="date" className="form-control" placeholder="1344" />
+
+                            
+                            </div>
+
+
+                            
+
+                            {/* <div className="col-md-4">
                                 <label htmlFor="">Support Document (If Any)</label>
                                 <input type="file" className="form-control" placeholder="Upload document" />
-                            </div>
+                            </div> */}
                         </div>
+
                        </div>
 
 
@@ -260,19 +253,41 @@ const NonrenowableTable =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/EnergyComsuption_Modal.png" alt="" className="img-fluid"/>
+                            <img src="../Images/waterTanker_Modal.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
-                                <h4>Energy Consumption</h4>
-                                <h5>Utility Provider Energy</h5>
+                                <h4>Water Consumption</h4>
+                                <h5>Water Tanker</h5>
+                            </div>
+                        </div>
+
+                        <div className="row mt-3">
+                            <div className="col-md-4">
+                                <label htmlFor="">Water Type</label>
+                                <input type="text" className="form-control" placeholder="Third Party Water" />
+                            </div>
+
+                            <div className="col-md-4">
+                            <label htmlFor="">Drinking/Non Drinking Water</label>
+                            <select className="form-select" aria-label="Default select example">
+                                    <option selected>Drinking/Non Drinking Water</option>
+                                    <option value="1">Drinking Water</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
                             </div>
 
                         </div>
 
                         <div className="row mt-3">
                             <div className="col-md-4">
-                                <label htmlFor="">Energy Type</label>
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
+                                <label htmlFor="">Water Consumption</label>
+                                <input type="text" className="form-control" placeholder="1344" />
+                            </div>
+
+                            <div className="col-md-4">
+                            <label htmlFor="">Unit</label>
+                            <select className="form-select" aria-label="Default select example">
+                                    <option selected>US Gallon</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
@@ -280,57 +295,40 @@ const NonrenowableTable =()=>{
                             </div>
 
                             <div className="col-md-4">
-                                <label htmlFor="">Meter No.</label>
-                                <input type="text" className="form-control" placeholder="12345" />
-                            </div>
+                            <label htmlFor="">Tanker Capacity (US Gallons)</label>
+                            <input type="date" className="form-control" placeholder="1344" />
 
-                            <div className="col-md-4">
-                                <label htmlFor="">Account No.</label>
-                                <input type="text" className="form-control" placeholder="1234567890" />
+                            
                             </div>
-
                         </div>
+
 
                         <div className="row mt-3">
                             <div className="col-md-4">
-                                <label htmlFor="">Service Provider</label>
-                                <input type="text" className="form-control" placeholder="DAWA" />
+                                <label htmlFor="">No. of Trips</label>
+                                <input type="text" className="form-control" placeholder="1322" />
                             </div>
 
                             <div className="col-md-4">
-                                <label htmlFor="">Reading Date</label>
-                                <input type="text" className="form-control" placeholder="10 March 2024" />
-                            </div>
-
-                            <div className="col-md-4">
-                                <label htmlFor="">Meter Reading</label>
-                                <input type="text" className="form-control" placeholder="1234" />
-                            </div>
-
-                        </div>
-
-                        <div className="row my-3 ">
-                            <div className="col-md-4">
-                                <label htmlFor="">Consumption</label>
-                                <input type="text" className="form-control" placeholder="123456" />
-                            </div>
-
-                            <div className="col-md-4">
-                                <label htmlFor="">Unite Type</label>
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Joule</option>
-                                    <option value="1">kWh</option>
+                            <label htmlFor="">Fuel Used by Trucks (Liters)</label>
+                            <select className="form-select" aria-label="Default select example">
+                                    <option selected>1344</option>
+                                    <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
                             </div>
 
                             <div className="col-md-4">
-                                <label htmlFor="">Support Document (If Any)</label>
-                                <input type="file" className="form-control" placeholder="Upload document" />
+                            <label htmlFor="">Tanker Capacity (US Gallons)</label>
+                            <input type="date" className="form-control" placeholder="1344" />                            
                             </div>
+
                         </div>
+
                        </div>
+
+
                     <div className="my-4 d-flex justify-content-between">
                     <div>
                     <button type="btn" className="btn btn-outline-secondary" onClick={handleCloseEdit}> Close </button>
@@ -340,6 +338,7 @@ const NonrenowableTable =()=>{
                     </div>
                     </div>
                        </>
+
                         </Modal.Body>
                 </Modal>
 
@@ -359,7 +358,7 @@ const NonrenowableTable =()=>{
                     <Modal.Body>
                         <>
                        <div className=" text-center">
-                        <h5>Are you sire want to delete this record.</h5>
+                        <h5>Are you sure want to delete this record.</h5>
                     </div>
                     <div className="mt-4 d-flex justify-content-between">
                     <div>
@@ -377,4 +376,4 @@ const NonrenowableTable =()=>{
         </section>
     )
 }
-export default NonrenowableTable;
+export default WaterTankerTable;
