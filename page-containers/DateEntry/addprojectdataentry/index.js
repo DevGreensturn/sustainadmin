@@ -1,8 +1,15 @@
 import React from "react";
 
 import EnergyComsuption from "../EnergyConsumption";
+
+
 import WaterConsumption from "../WaterConsumption";
 import ConcereteMix from "../datatList/ConcreteMix";
+import WorkerTransportation from "../peopleTransportation/workerTransportation";
+import SiteVehicles from "../peopleTransportation/siteVehicles";
+import BusinessTravel from "../peopleTransportation/businessTravel";
+import PeopleTransportation from "../peopleTransportation";
+
 const AddprojectEntry =()=>{
     return(
         <section>
@@ -57,8 +64,14 @@ const AddprojectEntry =()=>{
             <div className="row mt-3">
                 <div className="col-md-12">
                    <EnergyComsuption />
+                   
                    <WaterConsumption />
                    <ConcereteMix />
+                   <PeopleTransportation/>
+                   {/* <WorkerTransportation />
+                   <SiteVehicles/>
+                   <BusinessTravel/> */}
+                  
                 </div>
             </div>
 

@@ -107,7 +107,7 @@ const Utilityprovidertable =()=>{
             meterReading: "1452",
             consumption: "1452",
             unit:"kWh",
-            supportingDocument:"2 attachments",
+            supportingDocument:"1 attachments",
             reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-success">Audited</button></div>,
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
          },

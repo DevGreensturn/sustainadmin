@@ -8,6 +8,7 @@ import { FaRegEdit } from "react-icons/fa";
 import DataEntryTable from "./datatList";
 import Link from "next/link";
 
+
 function formatMonthYear(dateString) {
   const date = new Date(dateString);
   const options = { month: 'long', year: 'numeric' };
