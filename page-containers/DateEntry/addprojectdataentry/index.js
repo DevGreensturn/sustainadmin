@@ -3,7 +3,7 @@ import React from "react";
 import EnergyComsuption from "../EnergyConsumption";
 import WaterConsumption from "../WaterConsumption";
 import ConcereteMix from "../datatList/ConcreteMix";
-const AddprojectEntry =()=>{
+const AddprojectEntry =()=>{   
     return(
         <section>
       <div className="p-4">
