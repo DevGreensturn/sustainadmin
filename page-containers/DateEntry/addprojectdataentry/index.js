@@ -5,7 +5,7 @@ import WaterConsumption from "../WaterConsumption";
 import ConcereteMix from "../datatList/ConcreteMix";
 const AddprojectEntry =()=>{  
     return(
-        <section>
+        <section>  
       <div className="p-4">
         <div className="row">
           <div className="col-md-12">
