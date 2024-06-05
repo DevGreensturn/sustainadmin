@@ -1,11 +1,16 @@
 import React from "react";
 
-import EnergyComsuption from "../EnergyConsumption";
-import WaterConsumption from "../WaterConsumption";
-import ConcereteMix from "../datatList/ConcreteMix";
+import EnergyComsuption from "./EnergyConsumption";
+import WaterConsumption from "./WaterConsumption";
+import ConcereteMix from "./ConcreteMix";
+import BuildingMaterial from "./BuildingMaterials";
+import WasteManagement from "./WasteManagement";
+import WasteDirected from "./WasteDiredted";
+import WasteDiverted from "./WasteDiverted";
+
 const AddprojectEntry =()=>{  
     return(
-        <section>
+        <section>  
       <div className="p-4">
         <div className="row">
           <div className="col-md-12">
@@ -56,9 +61,14 @@ const AddprojectEntry =()=>{
 
             <div className="row mt-3">
                 <div className="col-md-12">
+                    
                    <EnergyComsuption />
                    <WaterConsumption />
                    <ConcereteMix />
+                   <BuildingMaterial />
+                   <WasteManagement />
+                   <WasteDirected />
+                   <WasteDiverted />
                 </div>
             </div>
 

@@ -53,15 +53,6 @@ const WaterConsumption =()=>{
                 <BottledWaterTable />
                 </div>
 
-                <div className="mt-5">
-                <hr />
-                <h6>Sold Energy Table </h6>
-                </div>
-
-                <div className="mt-5">
-                <hr />
-                <h6> Reduction Energy Table </h6>
-                </div>
 
                 </div>
             </div>
