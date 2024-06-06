@@ -1,18 +1,16 @@
 import React from "react";
 
-import EnergyComsuption from "../EnergyConsumption";
+import EnergyComsuption from "./EnergyConsumption";
+import WaterConsumption from "./WaterConsumption";
+import ConcereteMix from "./ConcreteMix";
+import BuildingMaterial from "./BuildingMaterials";
+import WasteManagement from "./WasteManagement";
+import WasteDirected from "./WasteDiredted";
+import WasteDiverted from "./WasteDiverted";
 
-
-import WaterConsumption from "../WaterConsumption";
-import ConcereteMix from "../datatList/ConcreteMix";
-import WorkerTransportation from "../peopleTransportation/workerTransportation";
-import SiteVehicles from "../peopleTransportation/siteVehicles";
-import BusinessTravel from "../peopleTransportation/businessTravel";
-import PeopleTransportation from "../peopleTransportation";
-
-const AddprojectEntry =()=>{
+const AddprojectEntry =()=>{  
     return(
-        <section>
+        <section>  
       <div className="p-4">
         <div className="row">
           <div className="col-md-12">
@@ -63,15 +61,15 @@ const AddprojectEntry =()=>{
 
             <div className="row mt-3">
                 <div className="col-md-12">
+                    
                    <EnergyComsuption />
                    
                    <WaterConsumption />
                    <ConcereteMix />
-                   <PeopleTransportation/>
-                   {/* <WorkerTransportation />
-                   <SiteVehicles/>
-                   <BusinessTravel/> */}
-                  
+                   <BuildingMaterial />
+                   <WasteManagement />
+                   <WasteDirected />
+                   <WasteDiverted />
                 </div>
             </div>
 
