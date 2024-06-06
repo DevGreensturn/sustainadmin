@@ -122,7 +122,7 @@ const DataEntryContainer = () => {
   ];
 
   return (
-    <>
+    <> 
      <section>
       <div className="p-4">
         <div className="row">
