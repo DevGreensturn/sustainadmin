@@ -4,8 +4,8 @@ import { ADMINAPI } from "../../../apiWrapper";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import storage from "../../../comman/localstorage";
-
 import Dropdown from "react-bootstrap/Dropdown";
+import { validateEmail,isValid } from "../../../comman/helper";
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -13,6 +13,7 @@ const Header = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useRouter();
+  const [apiErrors, setApiErrors] = useState({ message: "", response: "" });
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -30,18 +31,27 @@ const Header = () => {
       alert("Invalid email or password");
     }
   };
+  const validateAll = () => {
+    let err1 = {};
+    err1.email = validateEmail(email);
+    return err1;
+  };
 
 
   const handleLogin = async (e) => {
+    console.log(e.target,"HHHH",email,">>>",password);
+    let vsl = validateEmail(email);
+    console.log(vsl,"KKKKKKKK");
     e.preventDefault();
     try {
       let payload = {
-          "email":"admin.insight@yopmail.com",
+          "email": email ,//"admin.insight@yopmail.com",
           "loginType":"SUPERADMIN",
-          "password":"Admin@123"
+          "password":password , //"Admin@123"
       }
-      
-      if (true) {
+      let err = validateAll();
+console.log(err,"llllll",isValid(err));
+      if (isValid(err)) {
         await ADMINAPI({
           url: `http://3.108.58.161:3001/api/v1/users/login`,
           method: "POST",
@@ -64,9 +74,12 @@ const Header = () => {
             toast.error(data?.message);
           }
         });
+      }else{
+        setApiErrors({ message: err });
       }
     } catch (error) {
-      console.log(error, "error");
+      console.log(error, "errorooo");
+      setApiErrors({ message: error });
       toast.error(error);
     }
   }; 
@@ -201,7 +214,18 @@ const handleLogOut = (e) => {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <span>E-Mail *</span>
+                  {console.log(apiErrors,"llll")}
+                 
+
                 </div>
+                {apiErrors.message && apiErrors.message.email && (
+  <span
+    className="text-danger mb-2 d-block"
+    style={{ fontSize: "14px" }}
+  >
+    {apiErrors.message.email}
+  </span>
+)}
                 <div className="text-field w100p">
                   <input
                     className="text-base w100p"
