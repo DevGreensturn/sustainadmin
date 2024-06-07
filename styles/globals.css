@@ -200,3 +200,27 @@ span.loginWith_Section {
   height: 3rem;
   background-color: #00AD3B;
 }
+/* ========button========= */
+.button {
+  padding: 5px 20px;
+  margin: 0px;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  color: #9291A5;
+  background-color: transparent;
+}
+
+
+.button.active {
+  background-color: #000;
+  color: white;
+  border-radius: 25px;
+}
+
+.content {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
