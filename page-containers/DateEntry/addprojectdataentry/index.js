@@ -7,6 +7,7 @@ import BuildingMaterial from "./BuildingMaterials";
 import WasteManagement from "./WasteManagement";
 import WasteDirected from "./WasteDiredted";
 import WasteDiverted from "./WasteDiverted";
+import PeopleTransportation from "../peopleTransportation";
 
 const AddprojectEntry =()=>{  
     return(
@@ -70,6 +71,7 @@ const AddprojectEntry =()=>{
                    <WasteManagement />
                    <WasteDirected />
                    <WasteDiverted />
+                   <PeopleTransportation/>
                 </div>
             </div>
 

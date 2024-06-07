@@ -1,4 +1,3 @@
-"use strict";
 /*
  * ATTENTION: An "eval-source-map" devtool has been used.
  * This devtool is neither made for production nor for readable output files.
@@ -19,27 +18,18 @@ exports.modules = {
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _react_oauth_google__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @react-oauth/google */ \"@react-oauth/google\");\n/* harmony import */ var _react_oauth_google__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_react_oauth_google__WEBPACK_IMPORTED_MODULE_2__);\n// import \"@/styles/globals.css\";\n// import 'bootstrap/dist/css/bootstrap.min.css';\n// export default function App({ Component, pageProps }) {\n//   return <Component {...pageProps} />;\n// }\n\n\n\nfunction App() {\n    const responseMessage = (response)=>{\n        console.log(response);\n    };\n    const errorMessage = (error)=>{\n        console.log(error);\n    };\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h2\", {\n                children: \"React Google Login\"\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\purch\\\\sustainadmin\\\\pages\\\\_app.js\",\n                lineNumber: 20,\n                columnNumber: 13\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"br\", {}, void 0, false, {\n                fileName: \"C:\\\\Users\\\\purch\\\\sustainadmin\\\\pages\\\\_app.js\",\n                lineNumber: 21,\n                columnNumber: 13\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"br\", {}, void 0, false, {\n                fileName: \"C:\\\\Users\\\\purch\\\\sustainadmin\\\\pages\\\\_app.js\",\n                lineNumber: 22,\n                columnNumber: 13\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_react_oauth_google__WEBPACK_IMPORTED_MODULE_2__.GoogleLogin, {\n                onSuccess: responseMessage,\n                onError: errorMessage\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\purch\\\\sustainadmin\\\\pages\\\\_app.js\",\n                lineNumber: 23,\n                columnNumber: 13\n            }, this)\n        ]\n    }, void 0, true, {\n        fileName: \"C:\\\\Users\\\\purch\\\\sustainadmin\\\\pages\\\\_app.js\",\n        lineNumber: 19,\n        columnNumber: 9\n    }, this);\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9fYXBwLmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFBQSxpQ0FBaUM7QUFDakMsaURBQWlEO0FBRWpELDBEQUEwRDtBQUMxRCx5Q0FBeUM7QUFDekMsSUFBSTs7QUFFc0I7QUFDd0I7QUFFbEQsU0FBU0U7SUFDTCxNQUFNQyxrQkFBa0IsQ0FBQ0M7UUFDckJDLFFBQVFDLEdBQUcsQ0FBQ0Y7SUFDaEI7SUFDQSxNQUFNRyxlQUFlLENBQUNDO1FBQ2xCSCxRQUFRQyxHQUFHLENBQUNFO0lBQ2hCO0lBQ0EscUJBQ0ksOERBQUNDOzswQkFDRyw4REFBQ0M7MEJBQUc7Ozs7OzswQkFDSiw4REFBQ0M7Ozs7OzBCQUNELDhEQUFDQTs7Ozs7MEJBQ0QsOERBQUNWLDREQUFXQTtnQkFBQ1csV0FBV1Q7Z0JBQWlCVSxTQUFTTjs7Ozs7Ozs7Ozs7O0FBRzlEO0FBQ0EsaUVBQWVMLEdBQUdBLEVBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zdXN0YWluYWRtaW4vLi9wYWdlcy9fYXBwLmpzP2UwYWQiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gaW1wb3J0IFwiQC9zdHlsZXMvZ2xvYmFscy5jc3NcIjtcclxuLy8gaW1wb3J0ICdib290c3RyYXAvZGlzdC9jc3MvYm9vdHN0cmFwLm1pbi5jc3MnO1xyXG5cclxuLy8gZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gQXBwKHsgQ29tcG9uZW50LCBwYWdlUHJvcHMgfSkge1xyXG4vLyAgIHJldHVybiA8Q29tcG9uZW50IHsuLi5wYWdlUHJvcHN9IC8+O1xyXG4vLyB9XHJcblxyXG5pbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xyXG5pbXBvcnQgeyBHb29nbGVMb2dpbiB9IGZyb20gJ0ByZWFjdC1vYXV0aC9nb29nbGUnO1xyXG5cclxuZnVuY3Rpb24gQXBwKCkge1xyXG4gICAgY29uc3QgcmVzcG9uc2VNZXNzYWdlID0gKHJlc3BvbnNlKSA9PiB7XHJcbiAgICAgICAgY29uc29sZS5sb2cocmVzcG9uc2UpO1xyXG4gICAgfTtcclxuICAgIGNvbnN0IGVycm9yTWVzc2FnZSA9IChlcnJvcikgPT4ge1xyXG4gICAgICAgIGNvbnNvbGUubG9nKGVycm9yKTtcclxuICAgIH07XHJcbiAgICByZXR1cm4gKFxyXG4gICAgICAgIDxkaXY+XHJcbiAgICAgICAgICAgIDxoMj5SZWFjdCBHb29nbGUgTG9naW48L2gyPlxyXG4gICAgICAgICAgICA8YnIgLz5cclxuICAgICAgICAgICAgPGJyIC8+XHJcbiAgICAgICAgICAgIDxHb29nbGVMb2dpbiBvblN1Y2Nlc3M9e3Jlc3BvbnNlTWVzc2FnZX0gb25FcnJvcj17ZXJyb3JNZXNzYWdlfSAvPlxyXG4gICAgICAgIDwvZGl2PlxyXG4gICAgKVxyXG59XHJcbmV4cG9ydCBkZWZhdWx0IEFwcDsiXSwibmFtZXMiOlsiUmVhY3QiLCJHb29nbGVMb2dpbiIsIkFwcCIsInJlc3BvbnNlTWVzc2FnZSIsInJlc3BvbnNlIiwiY29uc29sZSIsImxvZyIsImVycm9yTWVzc2FnZSIsImVycm9yIiwiZGl2IiwiaDIiLCJiciIsIm9uU3VjY2VzcyIsIm9uRXJyb3IiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./pages/_app.js\n");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ App)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _styles_globals_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/styles/globals.css */ \"./styles/globals.css\");\n/* harmony import */ var _styles_globals_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_globals_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nfunction App({ Component, pageProps }) {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(Component, {\n        ...pageProps\n    }, void 0, false, {\n        fileName: \"C:\\\\Users\\\\purch\\\\sustainadmin\\\\pages\\\\_app.js\",\n        lineNumber: 5,\n        columnNumber: 10\n    }, this);\n} // import React from 'react';\n // import { GoogleLogin } from '@react-oauth/google';\n // function App() {\n //     const responseMessage = (response) => {\n //         console.log(response);\n //     };\n //     const errorMessage = (error) => {\n //         console.log(error);\n //     };\n //     return (\n //         <div>\n //             <h2>React Google Login</h2>\n //             <br />\n //             <br />\n //             <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />\n //         </div>\n //     )\n // }\n // export default App;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9fYXBwLmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7O0FBQThCO0FBQ2dCO0FBRS9CLFNBQVNBLElBQUksRUFBRUMsU0FBUyxFQUFFQyxTQUFTLEVBQUU7SUFDbEQscUJBQU8sOERBQUNEO1FBQVcsR0FBR0MsU0FBUzs7Ozs7O0FBQ2pDLEVBRUEsNkJBQTZCO0NBQzdCLHFEQUFxRDtDQUVyRCxtQkFBbUI7Q0FDbkIsOENBQThDO0NBQzlDLGlDQUFpQztDQUNqQyxTQUFTO0NBQ1Qsd0NBQXdDO0NBQ3hDLDhCQUE4QjtDQUM5QixTQUFTO0NBQ1QsZUFBZTtDQUNmLGdCQUFnQjtDQUNoQiwwQ0FBMEM7Q0FDMUMscUJBQXFCO0NBQ3JCLHFCQUFxQjtDQUNyQixpRkFBaUY7Q0FDakYsaUJBQWlCO0NBQ2pCLFFBQVE7Q0FDUixJQUFJO0NBQ0osc0JBQXNCIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vc3VzdGFpbmFkbWluLy4vcGFnZXMvX2FwcC5qcz9lMGFkIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBcIkAvc3R5bGVzL2dsb2JhbHMuY3NzXCI7XHJcbmltcG9ydCAnYm9vdHN0cmFwL2Rpc3QvY3NzL2Jvb3RzdHJhcC5taW4uY3NzJztcclxuXHJcbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIEFwcCh7IENvbXBvbmVudCwgcGFnZVByb3BzIH0pIHtcclxuICByZXR1cm4gPENvbXBvbmVudCB7Li4ucGFnZVByb3BzfSAvPjtcclxufVxyXG5cclxuLy8gaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcclxuLy8gaW1wb3J0IHsgR29vZ2xlTG9naW4gfSBmcm9tICdAcmVhY3Qtb2F1dGgvZ29vZ2xlJztcclxuXHJcbi8vIGZ1bmN0aW9uIEFwcCgpIHtcclxuLy8gICAgIGNvbnN0IHJlc3BvbnNlTWVzc2FnZSA9IChyZXNwb25zZSkgPT4ge1xyXG4vLyAgICAgICAgIGNvbnNvbGUubG9nKHJlc3BvbnNlKTtcclxuLy8gICAgIH07XHJcbi8vICAgICBjb25zdCBlcnJvck1lc3NhZ2UgPSAoZXJyb3IpID0+IHtcclxuLy8gICAgICAgICBjb25zb2xlLmxvZyhlcnJvcik7XHJcbi8vICAgICB9O1xyXG4vLyAgICAgcmV0dXJuIChcclxuLy8gICAgICAgICA8ZGl2PlxyXG4vLyAgICAgICAgICAgICA8aDI+UmVhY3QgR29vZ2xlIExvZ2luPC9oMj5cclxuLy8gICAgICAgICAgICAgPGJyIC8+XHJcbi8vICAgICAgICAgICAgIDxiciAvPlxyXG4vLyAgICAgICAgICAgICA8R29vZ2xlTG9naW4gb25TdWNjZXNzPXtyZXNwb25zZU1lc3NhZ2V9IG9uRXJyb3I9e2Vycm9yTWVzc2FnZX0gLz5cclxuLy8gICAgICAgICA8L2Rpdj5cclxuLy8gICAgIClcclxuLy8gfVxyXG4vLyBleHBvcnQgZGVmYXVsdCBBcHA7Il0sIm5hbWVzIjpbIkFwcCIsIkNvbXBvbmVudCIsInBhZ2VQcm9wcyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./pages/_app.js\n");
 
 /***/ }),
 
-/***/ "@react-oauth/google":
-/*!**************************************!*\
-  !*** external "@react-oauth/google" ***!
-  \**************************************/
-/***/ ((module) => {
+/***/ "./styles/globals.css":
+/*!****************************!*\
+  !*** ./styles/globals.css ***!
+  \****************************/
+/***/ (() => {
 
-module.exports = require("@react-oauth/google");
 
-/***/ }),
-
-/***/ "react":
-/*!************************!*\
-  !*** external "react" ***!
-  \************************/
-/***/ ((module) => {
-
-module.exports = require("react");
 
 /***/ }),
 
@@ -49,6 +39,7 @@ module.exports = require("react");
   \****************************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("react/jsx-dev-runtime");
 
 /***/ })
@@ -60,7 +51,7 @@ module.exports = require("react/jsx-dev-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__("./pages/_app.js"));
+var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/bootstrap"], () => (__webpack_exec__("./pages/_app.js")));
 module.exports = __webpack_exports__;
 
 })();
