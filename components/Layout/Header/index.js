@@ -82,7 +82,7 @@ let token = storage().get("token")
 const handleLogOut = (e) => {
   localStorage.clear();
 
-  handleLogOut();
+  handleLogOutShow();
   navigate.push("/")
 };
   return (
