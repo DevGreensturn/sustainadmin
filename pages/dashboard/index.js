@@ -1,15 +1,26 @@
 import Layout from "@/components/Layout"
 import Header from "@/components/Layout/Header"
-// import SuppliersListContainer from "@/page-containers/SuppliersListContainer"
+
+
+import { ThreeContainers, DashPage } from '../../components/DashboardPage'; 
+
+
+
+
 
 const Dashboard=({childern})=> {
   return (
     <>
    <Header/>
+   
+
+
+  
   <Layout> 
-    <div >
-     
-    </div>
+  <ThreeContainers/>
+
+<DashPage/>
+
    </Layout>
     </>
   )
