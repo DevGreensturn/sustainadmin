@@ -1,7 +1,10 @@
 import Layout from "@/components/Layout"
 import Header from "@/components/Layout/Header"
-// import SuppliersListContainer from "@/page-containers/SuppliersListContainer"
-import DashboardPage from "../../components/DashboardPage"
+
+
+import { ThreeContainers, DashPage } from '../../components/DashboardPage'; 
+
+
 
 
 
@@ -9,11 +12,15 @@ const Dashboard=({childern})=> {
   return (
     <>
    <Header/>
- 
-   <DashboardPage/>
+   
+
+
   
   <Layout> 
-    
+  <ThreeContainers/>
+
+<DashPage/>
+
    </Layout>
     </>
   )

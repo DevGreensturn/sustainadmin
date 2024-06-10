@@ -1,100 +1,204 @@
 
+
 .body {
-    background-color: lightblue; 
-  }
-
-
+  background-color: lightblue; 
+}
 
 .container {
-    position: relative;
-   
-  }
+  position: relative;
+}
+
+.box {
   
+  width: 370px;
+  height: 230px;
+  position: absolute;
+  border: 2px solid  skyblue;
+  background-color: white;
+}
+
+.centeredText {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.redText {
+  color: red;
+  margin-right: 5px; 
+}
+
+.topRightText {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 20px; 
+  height: 20px; 
+  margin-right: 5px; 
+}
+
+.box:nth-child(1) {
+  top: 170px;
+  left: 270px;
+  border-radius: 20px;
+}
+
+.box:nth-child(2) {
+  top: 170px;
+  left: 650px; 
+}
+
+.box:nth-child(3) {
+  top: 170px;
+  left: 1030px; 
+}
+
+.text {
+  position: absolute;
+  top: -140px; 
+  left: 10px; 
+  color: black;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.smallText {
+  position: absolute;
+  top: -111px; 
+  left: 10px; 
+  color: black;
+  font-size: 12px; 
+}
+
+.bottomLeftImages {
+  position: absolute;
+  bottom: 10px; 
+  left: 10px; 
+}
+
+.leftImage {
+  width: 50px; 
+  height: 50px; 
+  margin-right: 5px; 
+}
+
+.co2png {
+  width: 70%;
+  height: 70%; 
+  border-radius: 50%; 
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+  margin: 10px auto;
+}
+/* Dashboard.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box {
+  width: 370px;
+  height: 230px;
+  margin-bottom: 20px; /* Add margin between boxes */
+  border: 2px solid skyblue;
+  background-color: white;
+}
+
+.rectangle {
+  height: 50px; /* Adjust height to match the navbar's height */
+}
+
+.centeredText {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.redText {
+  color: red;
+  margin-right: 5px; 
+}
+
+.topRightText {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 20px; 
+  height: 20px; 
+  margin-right: 5px; 
+}
+
+.text {
+  position: absolute;
+  top: -140px; 
+  left: 10px; 
+  color: black;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.smallText {
+  position: absolute;
+  top: -111px; 
+  left: 10px; 
+  color: black;
+  font-size: 12px; 
+}
+
+.bottomLeftImages {
+  position: absolute;
+  bottom: 10px; 
+  left: 10px; 
+}
+
+.leftImage {
+  width: 50px; 
+  height: 50px; 
+  margin-right: 5px; 
+}
+
+.co2png {
+  width: 70%;
+  height: 70%; 
+  border-radius: 50%; 
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+  margin: 10px auto;
+}
+
+/* Add media query for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
   .box {
-    width: 370px;
-    height: 230px;
-    position: absolute;
-    border: 2px solid  skyblue;
-    background-color: white;
+    width: calc(100% - 40px); /* Adjust width for smaller screens */
+    margin: 10px 0; /* Adjust margin for smaller screens */
   }
-  .centeredText {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    text-align: center;
-  }
-  .redText {
-    color: red;
-    margin-right: 5px; 
-  }
-  .topRightText {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    align-items: center;
-  }
-  .icon {
-    width: 20px; 
-    height: 20px; 
-    margin-right: 5px; 
-  }
- 
-  
-  .box:nth-child(1) {
-    top: 170px;
-    left: 270px;
-    border-radius: 20px;
-  }
-  
-  .box:nth-child(2) {
-    top: 170px;
-    left: 650px; 
-  }
-  
-  .box:nth-child(3) {
-    top: 170px;
-    left: 1030px; 
-  }
-  .text {
-    position: absolute;
-    top: -140px; 
-    left: 10px; 
-    color: black;
-    font-size:larger;
-    font-weight: bold;
-  }
-  .smallText {
-    position: absolute;
-    top: -111px; 
-    left: 10px; 
-    color: black;
-    font-size: 12px; 
-  }
-  .bottomLeftImages {
-    position: absolute;
-    bottom: 10px; 
-    left: 10px; 
-  }
-  
+}
+.dashboardContainer{
+  background-color: #6671c8;
+}
 
 
-  .leftImage {
-    width: 50px; 
-    height: 50px; 
-    margin-right: 5px; 
-  }
-  .co2png {
-    width: 70%;
-    height: 70%; 
-    border-radius: 50%; 
- 
-  
-    display: flex; 
-    justify-content: center;
-    align-items: center; 
-    margin: 10px auto;
-  }
-  
