@@ -9,6 +9,9 @@ import EnergyComsuption from "./EnergyComsumption";
 import WaterComsuption from "./WaterComsumption";
 import ConcreteMixChart from "./ConcreteMix";
 import BuildingMaterialChart from "./BuildingMaterials";
+import WasteManagementChart from "./WasteManagement";
+import FuelComsumptionChart from "./FuelConsumption";
+import EmissionManagementChart from "./Emissions";
 
 const SustainabilityDataContainer = () => {
  
@@ -52,6 +55,15 @@ const SustainabilityDataContainer = () => {
       </div>
       <div className="mt-5">
         <BuildingMaterialChart />
+      </div>
+      <div className="mt-5">
+      <WasteManagementChart />
+      </div>
+      <div className="mt-5">
+      <FuelComsumptionChart />
+      </div>
+      <div className="mt-5">
+      <EmissionManagementChart />
       </div>
       </div>
       </section>
