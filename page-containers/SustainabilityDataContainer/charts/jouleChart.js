@@ -60,7 +60,7 @@ const JouleCharts = ()=>{
           }
       }
       };
-
+   
     return(
         <>
         <Line data={data} options={options} />
