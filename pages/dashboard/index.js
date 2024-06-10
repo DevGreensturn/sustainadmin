@@ -19,7 +19,7 @@ const Dashboard=({childern})=> {
   <Layout> 
   <ThreeContainers/>
 
-<DashPage/>
+{/* <DashPage/> */}
 
    </Layout>
     </>

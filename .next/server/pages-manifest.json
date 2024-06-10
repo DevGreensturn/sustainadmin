@@ -3,8 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/projects": "pages/projects.js",
-  "/": "pages/index.js",
-  "/dashboard": "pages/dashboard.js",
-  "/suppliersList": "pages/suppliersList.js",
-  "/addProject": "pages/addProject.js"
+  "/dashboard": "pages/dashboard.js"
 }
