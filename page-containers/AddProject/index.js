@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ADMINAPI } from '../../apiWrapper';
+import { useRouter } from "next/navigation";
 
 export default function AddProject() {
     // <th>Project Reference No.</th>
@@ -13,15 +15,21 @@ export default function AddProject() {
     // <th>Infrastructure(Ha)</th>
     // <th>Subscription Category</th>
     // <th>Subscription Tier</th>
+    const navigate = useRouter();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [projectRef, setProjectRef] = useState('');
     const [projectPack, setProjectPack] = useState('');
     const [packageType, setPackage] = useState('');
-    // const [cumulative,setCumulative] =  useState('');
-    // const [cumulative,setCumulative] =  useState('');
-    // const [cumulative,setCumulative] =  useState('');
+    const [cumulative,setCumulative] =  useState('');
+    const [plot,setPlot] =  useState('');
+    const [Road,setRoad] =  useState('');
+    const [infrastructure,setInfrastructure] =  useState('');
+    const [subscriptionCatagory,setSubscriptionCatagory] =  useState('');
+    const [subscriptionTier,setSubscriptionTier] =  useState('');
+
+
 
 
 
@@ -34,6 +42,44 @@ export default function AddProject() {
       // Here you can add your logic to submit the form data to a server or API
       console.log(`First name: ${firstName}`);
       console.log(`Last name: ${lastName}`);
+      let payload = {
+        "referenceNo": 145,
+        "projectName": "New Project tesr",
+        "projectPackageId": "665486fbed3a1b1774f9ae40",
+        "mainContractor": "Main Contractor Inc.",
+        "topology": "Urban",
+        "packageCurrentPackage": "Package891",
+        "manHours": "2000",
+        "plotArea": "5000 sqm",
+        "gfa": "4500 sqm",
+        "roadLength": "2 km",
+        "infrastructure": "Basic",
+        "SubscriptionCategory": "Building",
+        "subscriptionTier": "Gold",
+        "SustainabilityRating": "High"
+      }
+      
+      try {
+        
+        await ADMINAPI({
+          url: `http://3.108.58.161:3002/api/v1/projects`,
+          method: "POST",
+          body: { ...payload },
+        }).then((data) => {
+         
+          if (data.status == true) {
+            setTimeout(() => {
+              navigate.push("/projects", { scroll: false });
+            }, 100);
+          } else {
+            toast.error(data?.message);
+          }
+        });
+      } catch (error) {
+        
+        console.log(error,"TTTTTT");
+      }
+
     };
 
     
