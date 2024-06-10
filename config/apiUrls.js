@@ -10,7 +10,6 @@ const config = {
   ecommerce_microservice: "ecommerce",
   reels_microservice: "reels",
 };
-
 export const apiUrls = {
   login: `/${config.user_microservice}/${config.version2}/login`,
   getProject: `/${config.ecommerce_microservice}/${config.version3}/api/team/lists`,
@@ -21,6 +20,7 @@ export const apiUrls = {
   addSupplierAndcontactor: `/${config.ecommerce_microservice}/${config.version3}/api/team/lists`,
   addMonthlyReport: `/${config.ecommerce_microservice}/${config.version2}/api/carts`,
   addSustainabilityData: `/${config.ecommerce_microservice}/${config.version2}/api/carts`,
+  getPakages : `http://3.108.58.161:3002/api/v1/packages`
 
 
 
