@@ -179,115 +179,115 @@ function Login() {
   // useEffect(() => {
   //   console.log('lakshayVerrma', EMAIL_TEXT);
   // }, [EMAIL_TEXT])
-let EMAIL_TEXT = "Email"
- let PASSWORD_TEXT = "Password"
- let showPassword = "text"
-let inpData = {}
-let errors = {}
+  let EMAIL_TEXT = "Email"
+  let PASSWORD_TEXT = "Password"
+  let showPassword = "text"
+  let inpData = {}
+  let errors = {}
 
   return (
-    <section className={styles.adminLogin}>      
+    <section className={styles.adminLogin}>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-12 col-lg-9 col-xl-8">
-            <div  className={styles.adminLoginBox}>
-              <div className="row" style={{marginTop:"200px"}}>
+            <div className={styles.adminLoginBox}>
+              <div className="row" style={{ marginTop: "200px" }}>
                 <div className="col-md-6">
-                <div><img src="./logo.png" alt=""/></div>
-                  <div className="py-5 ps-4 pe-3" style={EMAIL_TEXT?{}:{height:'100vh'}}>             
-                  {!EMAIL_TEXT ?  
-                     <div className="text-center align-middle">
-                     <MDBSpinner className="mx-2" color="secondary" >
-                       <span className="visually-hidden">Loading...</span>
-                     </MDBSpinner>                  
-                    </div>: <>
-                  <form
-                      action=""
-                      method="post"
-                      // onSubmit={handleSubmit}
-                      // onKeyDown={handleKeyDown}
-                    >
-                      <div className="form-group mb-1">
-                        <label>{EMAIL_TEXT || ''}</label>
-                        <input
-                          type="email"
-                          className="form-control"
-                          name="email"
-                          // placeholder="Enter Email"
-                          autoComplete={false}
-                          required
-                          value={inpData.email}
-                          // onChange={handleChange}
-                          // onBlur={handleValidate}
-                        />
-                      </div>
-                      {errors.email ? (
-                        <span
-                          className="text-danger"
-                          style={{ fontSize: "14px" }}
+                  <div><img src="./logo.png" alt="" /></div>
+                  <div className="py-5 ps-4 pe-3" style={EMAIL_TEXT ? {} : { height: '100vh' }}>
+                    {!EMAIL_TEXT ?
+                      <div className="text-center align-middle">
+                        <MDBSpinner className="mx-2" color="secondary" >
+                          <span className="visually-hidden">Loading...</span>
+                        </MDBSpinner>
+                      </div> : <>
+                        <form
+                          action=""
+                          method="post"
+                        // onSubmit={handleSubmit}
+                        // onKeyDown={handleKeyDown}
                         >
-                          {errors.email}
-                        </span>
-                      ) : (
-                        ""
-                      )}
-                      {/* Login Hide and Show */}
-                      <div className="form-group mt-lg-4 mt-3 position-relative mb-1">
-                        <label>{PASSWORD_TEXT || ''}</label>
-                        <input
-                          type={showPassword ? 'text' : 'password'}
-                          //type="password"
-                          className="form-control"
-                          name="password"
-                          // placeholder="Enter Password"
-                          autoComplete={false}
-                          required
-                          // value={password}
-                          //onChange={(e) => setPassword(e.target.value)}
-                          value={inpData.password}
-                          // onChange={handleChange}
-                          // onBlur={handleValidate}
-                        />
+                          <div className="form-group mb-1">
+                            <label>{EMAIL_TEXT || ''}</label>
+                            <input
+                              type="email"
+                              className="form-control"
+                              name="email"
+                              // placeholder="Enter Email"
+                              autoComplete={false}
+                              required
+                              value={inpData.email}
+                            // onChange={handleChange}
+                            // onBlur={handleValidate}
+                            />
+                          </div>
+                          {errors.email ? (
+                            <span
+                              className="text-danger"
+                              style={{ fontSize: "14px" }}
+                            >
+                              {errors.email}
+                            </span>
+                          ) : (
+                            ""
+                          )}
+                          {/* Login Hide and Show */}
+                          <div className="form-group mt-lg-4 mt-3 position-relative mb-1">
+                            <label>{PASSWORD_TEXT || ''}</label>
+                            <input
+                              type={showPassword ? 'text' : 'password'}
+                              //type="password"
+                              className="form-control"
+                              name="password"
+                              // placeholder="Enter Password"
+                              autoComplete={false}
+                              required
+                              // value={password}
+                              //onChange={(e) => setPassword(e.target.value)}
+                              value={inpData.password}
+                            // onChange={handleChange}
+                            // onBlur={handleValidate}
+                            />
 
-                        <div className="showPasswordLogin">
-                          <span
-                            onClick={() => setShowPassword(!showPassword)}
-                            style={{ cursor: "pointer" }}
-                          >
-                           
-                          </span>
-                        </div>
+                            <div className="showPasswordLogin">
+                              <span
+                                onClick={() => setShowPassword(!showPassword)}
+                                style={{ cursor: "pointer" }}
+                              >
 
-                        {/* <img className="showPasswordLogin"src="../Images/dashboard.png" alt="" /> */}
+                              </span>
+                            </div>
 
-                      </div>
-                      {errors.password ? (
-                        <span
-                          className="text-danger"
-                          style={{ fontSize: "14px" }}
-                        >
-                          {errors.password}
-                        </span>
-                      ) : (
-                        ""
-                      )}
-                      <div className="form-group forget-password text-end mt-3 forgot">
-                        <Link href="/admin/forget" className="inline-block">
-                        {"Forgot Password?" || ''}
-                        </Link>
-                      </div>
-                      <div className="form-group mt-lg-4 mt-3">
-                        <button
-                          className="btn btn-primary btn-lg btn-block"
-                          // onClick={handleSubmit}
-                        >
-                          {"Login" || ''} {" "}
-                        </button>
-                      </div>
-                      {/* <div className="or">
+                            {/* <img className="showPasswordLogin"src="../Images/dashboard.png" alt="" /> */}
+
+                          </div>
+                          {errors.password ? (
+                            <span
+                              className="text-danger"
+                              style={{ fontSize: "14px" }}
+                            >
+                              {errors.password}
+                            </span>
+                          ) : (
+                            ""
+                          )}
+                          <div className="form-group forget-password text-end mt-3 forgot">
+                            <Link href="/admin/forget" className="inline-block">
+                              {"Forgot Password?" || ''}
+                            </Link>
+                          </div>
+                          <div className="form-group mt-lg-4 mt-3">
+                            <button
+                              className="btn btn-primary btn-lg btn-block"
+                            // onClick={handleSubmit}
+                            >
+                              {"Login" || ''} {" "}
+                            </button>
+                          </div>
+                          {/* <div className="or">
                         <span>{OR_TEXT||''}</span>
                       </div> */}
-                      {/* <ul className="loginOption">
+                          {/* <ul className="loginOption">
                         <li>
                           <a className="pointer" onClick={()=>handleProiderLogin('google')}>
                           
@@ -309,15 +309,15 @@ let errors = {}
                           </a>
                         </li>
                       </ul> */}
-                      <p className="dontAccount mt-2">
-                        {"Don’t have an account?" || '' + " "}
-                        <Link href="/admin/signup" className="mx-2">
-                          {"SignUp" || ''}
-                        </Link>
-                      </p>
-                    </form>
-                  </>}
-                  
+                          <p className="dontAccount mt-2">
+                            {"Don’t have an account?" || '' + " "}
+                            <Link href="/admin/signup" className="mx-2">
+                              {"SignUp" || ''}
+                            </Link>
+                          </p>
+                        </form>
+                      </>}
+
                   </div>
                 </div>
                 <div className="col-md-6 d-none d-md-block">
