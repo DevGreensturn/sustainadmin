@@ -24,7 +24,7 @@ const PieChart = ({ data }) => {
       if (chartInstance.current !== null) {
         chartInstance.current.destroy();
       }
-    };
+    };  
   }, [data]);
 
   return <canvas ref={chartRef} />;
