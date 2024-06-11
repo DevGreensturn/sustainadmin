@@ -1,12 +1,24 @@
+import Link from "next/link";
 import React, {useState} from "react";
 import { Modal, Button } from 'react-bootstrap';
 
 const Header = () => {
 
-  const [show, setShow] = useState(false);
-  
+  const [show, setShow] = useState(false);  
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [shows, setShows] = useState(false);  
+  const handleCloses = () => setShows(false);
+  const handleShows = () => setShows(true);
+
+
+  const[password, setPassword] = useState('');
+  const[showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <div>
@@ -58,7 +70,6 @@ const Header = () => {
         onHide={handleClose}
         backdrop="static"
         centered
-        
         >
         <Modal.Header closeButton style={{border:"0"}}>
         </Modal.Header>
@@ -76,7 +87,15 @@ const Header = () => {
           </div>
 
           <div class="text-field w100p">
-            <input className="text-base w100p" type="text" required placeholder=" " />
+            <div className="position-relative--">
+            <input className="text-base w100p" type={showPassword ? 'text' : 'password'}  onChange={(e) => setPassword(e.target.value)} name="password"/>
+            <div className="togglePasswordVisibility">
+            <div onClick={togglePasswordVisibility} style={{maxWidth:"30px"}}>
+              {showPassword ? <img src="../Images/showPassword.png" alt="" /> : <img src="../Images/hidePassword.png" alt="" />}
+            </div>
+            </div>
+          </div>
+
             <span>Password *</span>
           </div>
 
@@ -106,17 +125,26 @@ const Header = () => {
           <div className="text-center">
             <span className="loginWith_Section">or login with</span>
           </div>
-          <div className="d-flex justify-content-evenly mt-3">
-          <button type="btn" className="btn btn-outline-primary p-1 mx-3"><img src="../Images/icons8-microsoft-365.svg" alt="" /></button>
-            <button type="btn" className="btn btn-outline-primary p-1"><img src="../Images/icons8-google.svg" alt="" /></button>
-           
-          </div>
+
+            <div className="row mt-4">
+              <div className="col-md-6">
+                <div className="loginWith_button">
+                <img src="../Images/icons8-microsoft-365.svg" alt="" />
+                </div>
+              </div>
+              <div className="col-md-6 text-end">
+              <div className="loginWith_button">
+                <img src="../Images/icons8-google.svg" alt="" />
+              </div>
+              </div>
+            </div>
+          
             </div>
             </div>
 
-            <div className="d-flex justify-content-between mt-4">
-            <div>
-              {/* <span>Don't have an Account? </span>   */}
+            <div className="d-flex justify-content-between mt-4 align-items-baseline">
+            <div className="dont_have-account" onClick={handleShows}>
+               <span>Don't have an Account? </span>
             </div>
             <div>
               <button type="btn" className="btn btn-outline-success">Create Account </button>
@@ -126,15 +154,138 @@ const Header = () => {
             </div>
           </div>
           </Modal.Body>
-        {/* <Modal.Footer style={{border:"0"}}>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-           <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button> 
-        </Modal.Footer> */}
       </Modal>
+
+      {/* ========Signup Page======== */}
+
+      <Modal
+        show={shows}
+        onHide={handleCloses}
+        backdrop="static"
+        centered
+        >
+        <Modal.Header closeButton style={{border:"0"}}> </Modal.Header>
+        <Modal.Body className="loginSection">
+          <div>
+          <div>
+            <h1>Sign up</h1>
+            <h6 className="mt-3 loginSection_EnterEmail">Let{"’"}s get you all setup so you can access
+            your personal account.</h6>
+          </div>
+
+          <div className="row mt-4">
+          <div className="col-md-12 ">
+          <div className="text-field w100p">
+            <input className="text-base w100p" type="text" required placeholder=" " />
+            <span>First Name</span>
+          </div>
+          </div>
+
+          <div className="col-md-12 ">
+          <div className="text-field w100p">
+            <input className="text-base w100p" type="text" required placeholder=" " />
+            <span>Last Name</span>
+          </div>
+          </div>
+
+          <div className="col-md-12 ">
+          <div className="text-field w100p">
+            <input className="text-base w100p" type="email" required placeholder=" " />
+            <span>Email</span>
+          </div>
+          </div>
+
+          <div className="col-md-12 ">
+          <div className="text-field w100p">
+            <input className="text-base w100p" type="number" required placeholder=" " />
+            <span>Phone Number</span>
+          </div>
+          </div>
+
+          <div className="col-md-12 ">
+          <div class="text-field w100p">
+            <div className="position-relative">
+            <input className="text-base w100p" type={showPassword ? 'text' : 'password'}  onChange={(e) => setPassword(e.target.value)} name="password" placeholder=" "/>
+            <span>Password</span>
+            <div className="togglePasswordVisibility">
+            <div onClick={togglePasswordVisibility} style={{maxWidth:"30px"}}>
+              {showPassword ? <img src="../Images/showPassword.png" alt="" /> : <img src="../Images/hidePassword.png" alt="" />}
+            </div>
+            </div>
+          </div>
+            
+          </div>
+        </div>
+
+        <div className="col-md-12 ">
+          <div class="text-field w100p">
+            <div className="position-relative">
+            <input className="text-base w100p" type={showPassword ? 'text' : 'password'}  onChange={(e) => setPassword(e.target.value)}  placeholder=" "/>
+            <span>Confirm Password</span>
+            <div className="togglePasswordVisibility">
+            <div onClick={togglePasswordVisibility} style={{maxWidth:"30px"}}>
+              {showPassword ? <img src="../Images/showPassword.png" alt="" /> : <img src="../Images/hidePassword.png" alt="" />}
+            </div>
+            </div>
+          </div>
+            
+          </div>
+        </div>
+
+          <div className="d-flex justify-content-between my-3">
+            <div>
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+            <label class="form-check-label" for="flexCheckDefault">
+            I agree to all the <span style={{fontWeight:"600"}}>Terms</span> and <span style={{fontWeight:"600"}}>Privacy Policies</span>
+            </label>
+          </div>  
+            </div>
+            
+          </div>
+          <div className="row">
+            <div className="col-md-12"> 
+          <div className="my-3">
+            <button type="btn" className="btn btn-success customeLogin" style={{width:"100%"}}>Create account <img src="../Images/arrow-right.png" alt=""/></button>
+          </div>
+            </div>
+            </div>
+
+            <div className="row my-3">
+            <div className="col-md-12"> 
+          <div className="text-center">
+            <span className="signWith_Section">Or Sign up with</span>
+          </div>
+            <div className="row mt-4">
+              <div className="col-md-6">
+                <div className="loginWith_button">
+                <img src="../Images/icons8-microsoft-365.svg" alt="" />
+                </div>
+              </div>
+              <div className="col-md-6 text-end">
+              <div className="loginWith_button">
+                <img src="../Images/icons8-google.svg" alt="" />
+              </div>
+              </div>
+            </div>
+          
+            </div>
+            </div>
+
+            <div className="d-flex justify-content-between mt-4 align-items-baseline">
+            <div className="dont_have-account" >
+               <span>All ready have an account </span>
+            </div>
+            <div>
+              <button type="btn" className="btn btn-outline-success">Login </button>
+            </div>
+          </div>
+
+            </div>
+          </div>
+          </Modal.Body>
+      </Modal>
+
       </header>
     </div>
   );
