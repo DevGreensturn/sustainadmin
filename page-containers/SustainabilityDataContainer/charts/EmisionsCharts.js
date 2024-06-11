@@ -3,35 +3,28 @@ import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend } from 'chart.js';
 import { width } from "@fortawesome/free-solid-svg-icons/fa0";
 
-const JouleCharts = ()=>{
+const EmissionsCharts = ()=>{
 
     const data = {
         labels: ['Dec 2023', 'Jan 2024', 'Feb 2024', 'March 2024', 'Apr 2024', 'May 2024'],
         datasets: [
             {
-              label: 'Utility Provider Energy',
-              data: [65, 59, 80, 81, 56, 35],
+              label: 'Construction Emission',
+              data: [0, 30, 20, 15, 25, 5, 10],
               fill: false,
-              backgroundColor: 'rgba(75,192,192,0.4)',
-              borderColor: 'rgba(75,192,192,1)',
+              backgroundColor: 'rgba(0,173,59,0.4)',
+              borderColor: 'rgba(0,173,59,1)',
               // tension: 0.1
             },
             {
-              label: 'Non Renewable Sources',
-              data: [30, 70, 60, 91, 66, 5],
+              label: 'Transportation Emission',
+              data: [0, 17, 10, 25, 15, 5, 35],
               fill: false,
-              backgroundColor: 'rgba(153,102,255,0.4)',
-              borderColor: 'rgba(153,102,255,1)',
+              backgroundColor: 'rgba(255,113,139,0.4)',
+              borderColor: 'rgba(255,113,139,1)',
               // tension: 0.1
             },
-            {
-                label: 'Renewable Sources',
-                data: [10, 20, 60, 91, 66, 75],
-                fill: false,
-                backgroundColor: 'rgba(242, 242, 49,0.4)',
-                borderColor: 'rgb(242, 242, 49,1)',
-                // tension: 0.1
-              },
+            
           ],
       };
     
@@ -47,6 +40,9 @@ const JouleCharts = ()=>{
           },
           
         },
+
+        
+          
         scales: {
           x: {
             grid:{
@@ -59,6 +55,8 @@ const JouleCharts = ()=>{
             }
           }
       }
+
+      
       };
    
     return(
@@ -67,4 +65,28 @@ const JouleCharts = ()=>{
         </>
     )
 }
-export default JouleCharts;
+export default EmissionsCharts;
+
+
+const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: true,
+      },
+      title: {
+        display: true,
+        text: 'Line Chart with Advanced Animations',
+      },
+    },
+    animation: {
+      duration: 2000,
+      easing: 'easeInOutBounce',
+      onProgress: function(animation) {
+        console.log('Animation progress: ', animation.currentStep / animation.numSteps);
+      },
+      onComplete: function(animation) {
+        console.log('Animation complete');
+      },
+    },
+  };
