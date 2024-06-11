@@ -1,0 +1,8 @@
+.footersection{
+    background: #263238;
+}
+.footerstart{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
