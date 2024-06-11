@@ -1,0 +1,67 @@
+.header {
+    position: relative;
+    padding: 0px;
+    background-color: green;
+    transition: background-color 0.3s ease;
+    color: #000;
+    background-size: cover;
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* ======================= */
+  /* components/Navbar.module.css */
+
+.navbar {
+  background-color: #333;
+  padding: 10px;
+}
+
+.navbarNav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navItem {
+  margin-right: 20px;
+}
+
+.navLink {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.navLink:hover {
+  background-color: #555;
+}
+
+.hasDropdown {
+  position: relative;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #444;
+  padding: 10px;
+  z-index: 111;
+  width: 200px;
+}
+
+
+.hasDropdown:hover .dropdown {
+  display: block;
+}
