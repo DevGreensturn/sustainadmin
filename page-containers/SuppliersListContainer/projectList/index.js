@@ -5,34 +5,81 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { MdDeleteForever } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import { RiFilter2Fill } from "react-icons/ri";
+import { useState,useEffect } from "react";
+import { ADMINAPI } from "../../../apiWrapper";
 
-const ProjectListTable =()=>{
-    
+
+const ProjectListTable =(projectId,packageId)=>{
+    console.log(projectId,"YYY");
+    const [row ,setRow] = useState([]);
+    const [isLoader, setIsLoader] = useState(false);
+
+    const handleFetchProject = async () => {
+        setIsLoader(true)
+        try {
+         
+       await ADMINAPI({
+             url: `http://3.108.58.161:3001/api/v1/suppliers?projectId=${projectId.projectId}`,
+             method: "GET",
+            
+            }).then((data) => {
+              let userData = data.response;
+              setRow(userData)
+              setIsLoader(false)
+            console.log(userData,"ooooooo");
+            });
+          
+        } catch (error) {
+          console.log(error, "errorooo");
+          setIsLoader(false)
+
+        }
+      };
+    //   {
+    //     "_id": "6666c1178add944435c850da",
+    //     "supplierId": 1,
+    //     "name": "Acme Corporation",
+    //     "address": "123 Elm Street",
+    //     "type": "Manufacturer",
+    //     "packageId": {
+    //         "_id": "665486deed3a1b1774f9ae63",
+    //         "name": "Building",
+    //         "status": "ACTIVE",
+    //         "createdAt": "2024-05-27T13:13:02.261Z",
+    //         "updatedAt": "2024-05-27T13:13:02.261Z",
+    //         "__v": 0
+    //     },
+
     const columns = [
     	{
             name: <b>ID</b>,
-            selector: (row) => row.personID,
+            selector: (row) => row.supplierId,
         },
         {
             name: <b>Supplier Name</b>,
-            selector: (row) => row.project,
+            selector: (row) => row.name,
             wrap:"true"
         },
         {
             name: <b>Address </b>,
-            selector: (row) => row.projectPackage,
+            selector: (row) => row.address,
             wrap:"true"
         },
         {
             name: <b>Type</b>,
-            selector: (row) => row.mainContactor,
+            selector: (row) => row.type,
             wrap:"true"
         },
         
         
         {
             name: <b>Action</b>,
-            selector: (row) => row.Action,
+            selector: row => (
+                <div className="d-flex align-items-center">
+                  <FaRegEdit style={{ color: "secondary", fontSize: "20px" }} />
+                  <MdDeleteForever className="mx-2" style={{ color: "red", fontSize: "20px" }} />
+                </div>
+              ),
             wrap:"true",
             width:"180px"
         },
@@ -113,6 +160,9 @@ const ProjectListTable =()=>{
          },
     ];
 
+    useEffect(() => {
+        handleFetchProject();
+      }, [projectId.projectId]);
     return(
         <section>
         <div className="">
@@ -121,7 +171,7 @@ const ProjectListTable =()=>{
                     <div>
                     <DataTable 
                     columns={columns} 
-                    data={rows} 
+                    data={row} 
                     fixedHeader
                     pagination
                     striped
