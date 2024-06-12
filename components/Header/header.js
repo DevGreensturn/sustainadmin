@@ -115,7 +115,7 @@ const HeaderSection =()=>{
                                   onClick={handleClick}
                                   href="/registration"
                                 >
-                                  Industries & Examples
+                                  Industries {"&"} Examples
                                 </Link>
                               </h3>
 
@@ -123,7 +123,7 @@ const HeaderSection =()=>{
                                 <Link
                                   onClick={handleClick}
                                   href="/ai-powered-live-stream">
-                                    Plans & pricing
+                                    Plans {"&"} pricing
                                 </Link>
                               </h3>
                             </div>
