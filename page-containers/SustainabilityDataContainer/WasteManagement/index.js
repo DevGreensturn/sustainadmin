@@ -47,15 +47,40 @@ const WasteManagementChart =()=>{
           <hr />
         </div>
       </div>
-      <div className="row mt-3">
-        <div className="col-md-6">
-        
-        <div className="card" style={{border:"0"}}>
+
+        <div className="row mt-3">
+          <div className="col-md-12">
+            <div className="row">
+              <div className="col-md-6">
+              <div className="card" style={{border:"0"}}>
+          <div className="card-body">
+            <div className="d-flex align-items-center justify-content-between">
+              <div className="d-flex align-items-baseline">
+                <div><img src="../Images/resycled.svg" alt="" /></div>
+                <div className="mx-2"><h4>Solid Waste Removed From Site</h4></div>
+              </div>
+              
+              <div>
+              <span>This Month</span>
+              <h5>April 2024</h5>
+              </div>
+            </div>
+            <hr style={{opacity:".1"}}/>
+          </div>
+          <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
+          <PieChart data={pieChartData5} />
+          </div>
+        </div> 
+              </div>
+
+
+              <div className="col-md-6">
+              <div className="card" style={{border:"0"}}>
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
                 <div><img src="../Images/Solid_Waste_Mgt.svg" alt="" /></div>
-                <div className="mx-2"><h4>Solid Waste Removed From Site</h4></div>
+                <div className="mx-2"><h4>Solid Waste Removed From Site </h4></div>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
@@ -118,6 +143,34 @@ const WasteManagementChart =()=>{
               
             </div>
           </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      <div className="row mt-3">
+        <div className="col-md-6">
+        
+        <div className="card" style={{border:"0"}}>
+          <div className="card-body">
+            <div className="d-flex align-items-center justify-content-between">
+              <div className="d-flex align-items-baseline">
+                <div><img src="../Images/resycled.svg" alt="" /></div>
+                <div className="mx-2"><h4>Liquid Waste Removed From Site</h4></div>
+              </div>
+              
+              <div>
+              <span>This Month</span>
+              <h5>April 2024</h5>
+              </div>
+            </div>
+            <hr style={{opacity:".1"}}/>
+          </div>
+          <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
+          <PieChart data={pieChartData5} />
+          </div>
+        </div> 
 
           
         </div>

@@ -9,7 +9,7 @@ const LatestNews =()=>{
                     <div className="col-md-12">
                         <div className="text-center latest_news">
                             <h2>Latest News</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry{"'"}s standard dummy text ever since the 1500s,</p>
                         </div>
                     </div>
 
