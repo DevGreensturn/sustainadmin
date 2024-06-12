@@ -122,13 +122,13 @@ body {
   margin: 0;
   /* height: 20px; */
   padding: 5px 8px;
-  border: 2px solid #aaa;
+  border: 1px solid #aaa;
   border-radius: 6px;
   transition: all .3s;
 }
 
 .text-base:focus {
-  border: 2px solid #00AD3B;
+  border: 1px solid #00AD3B;
   outline: 0;
 }
 
@@ -147,7 +147,7 @@ body {
   position: absolute;
   pointer-events: none;
   left: 10px;
-  top: 23px;
+  top: 14px;
   transition: 0.3s;
 }
 
@@ -171,7 +171,7 @@ body {
 
 .w100p {
   width: 100%;
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .w100p textarea {
@@ -181,6 +181,10 @@ body {
 span.loginWith_Section {
   font-size: 16px;
 }
+span.signUpWith_Section {
+  font-size: 16px;
+}
+
 .loginWith_Section::before,
 .loginWith_Section::after {
   display: inline-block;
@@ -189,7 +193,17 @@ span.loginWith_Section {
   width: 33%;
   margin: 0 1rem;
   transform: translateY(-0.2rem);
-  opacity: .5;
+  opacity: .2;
+}
+.signWith_Section::before,
+.signWith_Section::after {
+  display: inline-block;
+  content: "";
+  border-top: 0.1rem solid black;
+  width: 29%;
+  margin: 0 1rem;
+  transform: translateY(-0.2rem);
+  opacity: .2;
 }
 /* ===========Login Section =========== */
 .loginSection .loginSection_EnterEmail{
@@ -223,4 +237,31 @@ span.loginWith_Section {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+/* ==========login_credential========== */
+.loginWith_button{
+  border: 1px solid #eee;
+  text-align: center;
+  padding: 15px 0px;
+  border-radius: 5px;
+}
+.loginWith_button:hover{
+  border: 1px solid #515DEF;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.dont_have-account span{
+  color: #000;
+  opacity: .6;
+}
+/* =========Hide & Show Password========== */
+.togglePasswordVisibility{
+  position: absolute;
+  top: 13px;
+  bottom: 0;
+  right: 3%;
+  cursor: pointer;
+}
+.togglePasswordVisibility div img{
+  width: 30px;
 }

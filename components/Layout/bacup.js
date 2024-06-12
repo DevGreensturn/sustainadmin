@@ -57,8 +57,8 @@ console.log(err,"llllll",isValid(err));
           method: "POST",
           body: { ...payload },
         }).then((data) => {
-          let userData = data.data; 
-          if (userData.status) {   
+          let userData = data.data;
+          if (userData.status) {
             console.log(userData, "respnse data",data?.message);
             toast.success(data?.message);
             localStorage.clear();
@@ -136,6 +136,12 @@ const handleLogOut = (e) => {
                 </div>
                 {
        token ?(<>
+        {/* <div className="d-flex align-items-center" style={{ cursor: "pointer" }} onClick={handleShow}>
+                  <img src="./profileImg.png" alt="profile" width={40} height={40} />
+                  <div className="mx-2" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                    <span>{nameValue}</span>
+                  </div>
+                </div> */}
                 <li>
                           <Dropdown className="userLogin">
                             <Dropdown.Toggle
@@ -156,6 +162,19 @@ const handleLogOut = (e) => {
                                 Sign Out
                               </Dropdown.Item>
                              
+                              {/* <Dropdown.Item href="#">
+                             < Link href={"/myscheduler"}>
+                                  <img
+                                    src="/Images/schedules.svg"
+                                    alt=""
+                                    className="mx-2"
+                                  />{" "}
+                                   My Schedule
+                                </Link>
+
+                              </Dropdown.Item>
+                              <hr /> */}
+                              
                             </Dropdown.Menu>
                           </Dropdown>
                         </li>

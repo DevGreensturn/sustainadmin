@@ -86,30 +86,7 @@ const WaterComsuption =()=>{
                     Yearly
                   </button>
                   </div>
-      
-      
-
-
-      
-      
-
-                {/* <Tabs
-                  defaultActiveKey="Monthly"
-                  id="noanim-tab-example"
-                  className="tabBox"
-                  >
-              <Tab eventKey="Monthly" title="Monthly">
-                <h6>Monthly</h6>
-              </Tab>
-
-              <Tab eventKey="Quarterly" title="Quarterly" >
-                <h6>Quarterly</h6>
-              </Tab>
-
-              <Tab eventKey="Yearly" title="Yearly">
-                <h6>Yearly</h6>
-              </Tab>
-            </Tabs> */}
+    
                 </div>
 
                 <div className="col-md-6">

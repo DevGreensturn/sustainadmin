@@ -126,7 +126,121 @@ const ConcreteMixChart =()=>{
           </div>
         </div>  
         </div>
+        <div className="col-md-6">
+        <div className="card" style={{border:"0"}}>
+          <div className="card-body">
+            <div className="">
+              <div className="d-flex align-items-baseline">
+                <div><img src="../Images/water_Consumption.png" alt="" /></div>
+                <div className="mx-2"><h4>Concrete Mix</h4></div>
+              </div>
+              <div className="row mt-2">
+                <div className="col-md-6">
+
+            <div style={{backgroundColor:"#F8F8FF"}} className="d-flex justify-content-around p-2"> 
+                  <button 
+                  type="btn"
+                    className={`${activeButton === 'button1' ? 'button active' : 'button'}`} 
+                    onClick={() => handleButtonClick('button1')}
+                  >
+                    Monthly
+                </button>
+                <button 
+                  className={`${activeButton === 'button2' ? 'button active' : 'button'}`}
+                  onClick={() => handleButtonClick('button2')}
+                >
+                  Quarterly
+                </button>
+                  <button 
+                    className={`${activeButton === 'button3' ? 'button active' : 'button'}`} 
+                    onClick={() => handleButtonClick('button3')}
+                  >
+                    Yearly
+                  </button>
+                  </div>
+    
+                </div>
+
+                <div className="col-md-6">
+                  
+                <div style={{backgroundColor:"#F8F8FF"}} className="d-flex justify-content-around p-2"> 
+                  <button 
+                  type="btn"
+                    className={`${activeButton === 'button4' ? 'button active' : 'button'}`} 
+                    onClick={() => handleButtonClick('button4')}
+                  >
+                    Cubic meter
+                </button>
+                <button 
+                  className={`${activeButton === 'button5' ? 'button active' : 'button'}`}
+                  onClick={() => handleButtonClick('button5')}
+                >
+                  Cubic Feet
+                </button>
+                  <button 
+                    className={`${activeButton === 'button6' ? 'button active' : 'button'}`} 
+                    onClick={() => handleButtonClick('button6')}
+                  >
+                    Cubic Yards
+                  </button>
+                  </div>
+
+
+
+                
+                </div>
+
+                <div className="row mt-3">
+        <div className="col-md-12">
         
+        <div className="mt-3">
+      {activeButton === 'button1' && (
+        <div className="">
+         <JouleCharts />
+        </div>
+      )}
+      
+      {activeButton === 'button2' && (
+        <div className="">
+           <JouleCharts />
+        </div>
+      )}
+
+      {activeButton === 'button3' && (
+        <div className="">
+           <JouleCharts />
+        </div>
+      )}
+
+      {activeButton === 'button4' && (
+        <div className="">
+           <JouleCharts />
+        </div>
+      )}
+
+      {activeButton === 'button5' && (
+        <div className="">
+           <JouleCharts />
+        </div>
+      )}
+
+      {activeButton === 'button6' && (
+        <div className="">
+           <JouleCharts />
+        </div>
+      )}
+
+      </div>
+
+      </div>
+      </div>
+                
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
       </div>
         </section>
     )
