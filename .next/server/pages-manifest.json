@@ -3,5 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/suppliersList": "pages/suppliersList.js",
-  "/sustainabilityData": "pages/sustainabilityData.js"
+  "/sustainabilityData": "pages/sustainabilityData.js",
+  "/": "pages/index.js"
 }
