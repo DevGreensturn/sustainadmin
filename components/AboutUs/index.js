@@ -18,9 +18,9 @@ const AboutUs =()=>{
 <p>Join us as we pave the way for efficient and effective sustainability data management! Follow our page for updates and insights on maximizing your sustainability impact.</p>
 
 <h6>🌐 Get in Touch:</h6>
-<p>Let's collaborate to drive meaningful change. Contact us to discover how SustainInsight can elevate your sustainability initiatives.</p>
+<p>Let{"'"}s collaborate to drive meaningful change. Contact us to discover how SustainInsight can elevate your sustainability initiatives.</p>
 
-<p>Together, we'll shape a sustainable future, one streamlined data point at a time.</p> 
+<p>Together, we{"'"}ll shape a sustainable future, one streamlined data point at a time.</p> 
 
                     </div>
                 </div>

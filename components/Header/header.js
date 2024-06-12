@@ -115,7 +115,7 @@ const HeaderSection =()=>{
                                   onClick={handleClick}
                                   href="/registration"
                                 >
-                                  Industries & Examples
+                                  Industries {"&"} Examples
                                 </Link>
                               </h3>
 
@@ -123,7 +123,7 @@ const HeaderSection =()=>{
                                 <Link
                                   onClick={handleClick}
                                   href="/ai-powered-live-stream">
-                                    Plans & pricing
+                                    Plans {"&"} pricing
                                 </Link>
                               </h3>
                             </div>
@@ -304,7 +304,7 @@ const HeaderSection =()=>{
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <small id="emailHelp" class="form-text text-muted">We{"'"}ll never share your email with anyone else.</small>
                       </div>
                       <div class="form-group my-3">
                         <label for="exampleInputPassword1">Password</label>
@@ -344,7 +344,7 @@ const HeaderSection =()=>{
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <small id="emailHelp" class="form-text text-muted">We{"'"}ll never share your email with anyone else.</small>
                       </div>
                       <div class="form-group my-3">
                         <label for="exampleInputPassword1">Password</label>
