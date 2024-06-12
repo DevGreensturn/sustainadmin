@@ -11,19 +11,25 @@ const FuelComsumptionChart =()=>{
     
     const pieChartData5 = {
       labels: [
-        "Incineration(with energy recovery)",
-        "Incineration(without energy recovery)",
-        "Landfilling",
-        "Other Disposal Operations",
+        "Logistics: Fuel to site",
+        "Logistics: Building Material to site",
+        "Logistics: Concrete to site",
+        "Logistics: Water to site",
+        "Logistics: Waste from site",
+        "People Transportation: Workers from and to site",
+        "People Transportation: Employee Commuting",
+        "People Transportation: Site Vehicles",
+        "People Transportation: Business Travel"
       ],
       datasets: [
         {
           label: "My Dataset",
-          data: [40, 30, 15, 15],
-          backgroundColor: ["#007FFF", "#6495ED", "#03488A", "#3B4B61"],
+          data: [25, 10, 15, 10, 5, 5, 15, 5, 10],
+          backgroundColor: ["#007FFF", "#00B69B", "#03488A", "#3B4B61", "#5000B6", "#EE7722", "#A54CFF", "#6495ED", "#9D9D9D"],
         },
       ],
     };
+
     const pieChartData6 = {
       labels: [
         "Preparation for reuse",
