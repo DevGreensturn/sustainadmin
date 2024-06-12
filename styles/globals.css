@@ -273,3 +273,41 @@ span.signUpWith_Section {
 .sideBarWrapper ul.listWrapper{
   list-style-type: none;
 }
+.carbonEmmision {
+  display: flex;
+  align-items: baseline;
+  background-color: #FAFAFC;
+  padding: 5px;
+}
+.scope_section h5{
+  color: #555770;
+  font-weight: 600;
+}
+.scope_section p{
+  color: #696D7C;
+  font-weight: 400;
+}
+.box_bottom-img img{
+margin-right: 15px;
+}
+
+.Emission_carbon-percent{
+  display: flex;
+  justify-content: space-between;
+}
+/* ================================== */
+.box-container {
+  max-width: 200px;
+}
+.box-container::before,
+.box-container::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #000;
+  margin: 0 10px;
+}
+.box {
+  padding: 5px 40px;
+  border: 1px solid #000;
+  border-radius: 8px;
+}
