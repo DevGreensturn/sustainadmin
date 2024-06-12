@@ -466,13 +466,14 @@ const SuppliersList = () => {
       <Form.Group>
         <Row>
           <Col md={6}>
-            <label>Project</label>
+            <label>Project*</label>
             <Form.Control
               as="select"
               name="selectFieldProject"
               value={formData.selectFieldProject}
               onChange={handleChange}
               className="mb-2"
+              required
             >
               <option value="">Project</option>
               {row?.map((category, indexCat) => (
@@ -510,6 +511,8 @@ const SuppliersList = () => {
               value={formData.supplierId}
               onChange={handleChange}
               className="mb-2"
+              required
+
             />
           </Col>
           <Col md={6}>
@@ -521,6 +524,8 @@ const SuppliersList = () => {
               value={formData.supplierName}
               onChange={handleChange}
               className="mb-2"
+              required
+
             />
           </Col>
         </Row>
@@ -534,6 +539,8 @@ const SuppliersList = () => {
               value={formData.supplierAddress}
               onChange={handleChange}
               className="mb-2"
+              required
+
             />
           </Col>
           <Col md={6}>
@@ -545,6 +552,8 @@ const SuppliersList = () => {
               value={formData.type}
               onChange={handleChange}
               className="mb-2"
+              required
+
             />
           </Col>
         </Row>
