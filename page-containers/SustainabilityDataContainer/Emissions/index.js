@@ -32,8 +32,8 @@ const EmissionManagementChart =()=>{
     };
     const pieChartData6 = {
       labels: [
-        "People Transportation",
-        "Logistics",
+        "Transportation Emission",
+        "Construction Emission",
       ],
       datasets: [
         {
