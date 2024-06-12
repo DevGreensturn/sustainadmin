@@ -1,10 +1,132 @@
 import Card from "@/components/Card.js";
 import { useEffect, useState } from "react";
 import ProjectListTable from "./projectList";
+import { Modal, Button, Form , Row, Col} from 'react-bootstrap';
+import { ADMINAPI } from "../../apiWrapper/";
+import { useRouter } from "next/navigation";
+
 
 const SuppliersList = () => {
-  const [users, setUsers] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
+  const [row ,setRow] = useState([]);
+  const [pakageData, setPakageData] = useState([]);
+  const [projectPack, setProjectPack] = useState('');
+  const [projectPackNew, setProjectPackNew] = useState('');
+
+
+  const navigate = useRouter();
+  const handleChangeProject = (e) =>{
+    e.preventDefault();
+    const selectedValue = e.target.value;
+    console.log(selectedValue, "Selected Value");
+    setProjectPack(selectedValue);
+  }
+
+  const handleChangePackageNew = (e) =>{
+    e.preventDefault();
+    const selectedValue = e.target.value;
+    console.log(selectedValue, "Selected Value");
+    setProjectPackNew(selectedValue);
+  }
+  const handleFetchProject = async () => {
+    try {
+     
+   await ADMINAPI({
+         url: `http://3.108.58.161:3002/api/v1/projects?id=3&page=1`,
+         method: "GET",
+        
+        }).then((data) => {
+          let userData = data.response;
+          setRow(userData)
+        console.log(userData,"oooooooPPPP");
+        });
+      
+    } catch (error) {
+      console.log(error, "errorooo");
+
+    }
+  };
+  const fetchPackageList = async () => {
+
+    try {
+           
+      await ADMINAPI({
+            url: `http://3.108.58.161:3002/api/v1/packages`,
+            method: "GET",
+           
+           }).then((data) => {
+             let userData = data.response;
+             setPakageData(userData)
+           console.log(userData,"ooooooo");
+           });
+         
+       } catch (error) {
+         console.log(error, "errorooo");
+  
+       }
+    };
+  const handleClose = () => {
+    setShowPopup(false);
+  };
+  const openModel =  (val) => {
+    console.log(val);
+    setShowPopup(true)
+  };
+
+  const [formData, setFormData] = useState({
+    supplierId: '',
+    supplierName: '',
+    supplierAddress: '',
+    type: '',
+    loginType: 'SUPPLIER',
+    status: 'ACTIVE',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    console.log(formData);
+    let payload ={
+  "supplierId": formData.supplierId,//1,
+  "name": formData.supplierName ,//"Acme Corporation",
+  "address": formData.supplierAddress,//"123 Elm Street",
+  "type":formData.type,// "Manufacturer",
+  "packageId": formData.selectFieldPackage,//"665486deed3a1b1774f9ae63",
+  "projectId": formData.selectFieldProject,//"6655751e60d4032ac67d8b2b",
+  "loginType": formData.loginType,//"SUPPLIER",
+  "status": formData.status,//"ACTIVE"
+}
+    // Handle form submission logic here
+    try {
+        
+      await ADMINAPI({
+        url: `http://3.108.58.161:3001/api/v1/suppliers`,
+        method: "POST",
+        body: { ...payload },
+      }).then((data) => {
+        setShowPopup(false);
+
+        if (data.status == true) {
+          setTimeout(() => {
+            navigate.push("/suppliersList", { scroll: false });
+          }, 100);
+        } else {
+          setShowPopup(false);
+          toast.error(data?.message);
+        }
+      });
+    } catch (error) {
+      
+      console.log(error,"TTTTTT");
+    }
+  };
 
   const data = [
     {
@@ -114,23 +236,9 @@ const SuppliersList = () => {
   ];
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/users"
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const data = await response.json();
-        setUsers(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+    handleFetchProject();
+    fetchPackageList();
+      }, []);
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -141,15 +249,54 @@ const SuppliersList = () => {
     <section>
       <div className="p-4">
         <div className="row">
-          <div className="col-md-12">
-            <div className="my-5">
+          <div className="row my-3">
+            <div className="col-md-4">
               <h3>Select Project</h3>
-            <select className="form-select" aria-label="Default select example">
+            {/* <select className="form-select" aria-label="Default select example">
               <option selected>Downtown Tower - Building</option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
-            </select>
+            </select> */}
+            <select
+        className="form-select" 
+        aria-label="Default select example"
+        onChange={(e) => handleChangeProject(e)}
+        name="category"
+        id="category"
+        value={projectPack} // Bind the state variable to the value prop
+      >
+        <option value="">Project </option>
+        {row?.map((category, indexCat) => (
+          <option key={indexCat} value={category?._id}>
+            {category?.projectName}
+          </option>
+        ))}
+      </select>
+            </div>
+            <div className="col-md-4">
+              <h3>Select Package</h3>
+            {/* <select className="form-select" aria-label="Default select example">
+              <option selected>Downtown Tower - Building</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select> */}
+            <select
+        className="form-select" 
+        aria-label="Default select example"
+        onChange={(e) => handleChangePackageNew(e)}
+        name="category"
+        id="category"
+        value={projectPackNew} // Bind the state variable to the value prop
+      >
+        <option value="">Project Package</option>
+        {pakageData?.map((category, indexCat) => (
+          <option key={indexCat} value={category?._id}>
+            {category?.name}
+          </option>
+        ))}
+      </select>
             </div>
           </div>
         </div>
@@ -162,7 +309,7 @@ const SuppliersList = () => {
               </div>
               <div className="d-flex">
                 <button type="btn" className="btn btn-outline-success mx-3">Filters</button>
-                <button type="btn" className="btn btn-outline-success">Add New</button>
+                <button type="btn" className="btn btn-outline-success" onClick={openModel}>Add New</button>
               </div>
             </div>
 
@@ -172,7 +319,7 @@ const SuppliersList = () => {
         <div className="row my-3">
           <div className="col-md-12">
             <div>
-              <ProjectListTable />
+              <ProjectListTable projectId={projectPack} packageId ={projectPackNew}/>
             
             </div>
           </div>
@@ -304,6 +451,109 @@ const SuppliersList = () => {
           )}
         </Card>
       </div> */}
+       <Modal
+  show={showPopup}
+  className=""
+  onHide={handleClose}
+  centered
+  backdrop="static"
+  size="xs"
+>
+  <Modal.Header className="pb-0" closeButton></Modal.Header>
+  <Modal.Body className="pt-0">
+    <h6 className="text-center">Add New Supplier</h6>
+    <Form onSubmit={handleSubmit} className="mt-4 p-4">
+      <Form.Group>
+        <Row>
+          <Col md={6}>
+            <label>Project</label>
+            <Form.Control
+              as="select"
+              name="selectFieldProject"
+              value={formData.selectFieldProject}
+              onChange={handleChange}
+              className="mb-2"
+            >
+              <option value="">Project</option>
+              {row?.map((category, indexCat) => (
+                <option key={indexCat} value={category?._id}>
+                  {category?.projectName}
+                </option>
+              ))}
+            </Form.Control>
+          </Col>
+          <Col md={6}>
+            <label>Package</label>
+            <Form.Control
+              as="select"
+              name="selectFieldPackage"
+              value={formData.selectFieldPackage}
+              onChange={handleChange}
+              className="mb-2"
+            >
+              <option value="">Package</option>
+              {pakageData?.map((category, indexCat) => (
+                <option key={indexCat} value={category?._id}>
+                  {category?.name}
+                </option>
+              ))}
+            </Form.Control>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <label>Supplier Id</label>
+            <Form.Control
+              type="text"
+              name="supplierId"
+              placeholder="Supplier Id"
+              value={formData.supplierId}
+              onChange={handleChange}
+              className="mb-2"
+            />
+          </Col>
+          <Col md={6}>
+            <label>Supplier Name</label>
+            <Form.Control
+              type="text"
+              name="supplierName"
+              placeholder="Supplier Name"
+              value={formData.supplierName}
+              onChange={handleChange}
+              className="mb-2"
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <label>Supplier Address</label>
+            <Form.Control
+              type="text"
+              name="supplierAddress"
+              placeholder="Supplier Address"
+              value={formData.supplierAddress}
+              onChange={handleChange}
+              className="mb-2"
+            />
+          </Col>
+          <Col md={6}>
+            <label>Type</label>
+            <Form.Control
+              type="text"
+              name="type"
+              placeholder="Type"
+              value={formData.type}
+              onChange={handleChange}
+              className="mb-2"
+            />
+          </Col>
+        </Row>
+      </Form.Group>
+      <Button type="submit" variant="primary" className="w-100 mt-2">Submit</Button>
+    </Form>
+  </Modal.Body>
+</Modal>
+
     </>
   );
 };
