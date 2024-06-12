@@ -9,7 +9,10 @@ const Sidebar = () => {
       <ul className={styles.listWrapper}>
 
       <li key={sidebarItems[0].id} className={styles.list}>
-            <Link href={sidebarItems[0].link}><img src="../Images/dashboard.png" alt=""/> {sidebarItems[0].title}</Link>
+        <Link href={sidebarItems[0].link}>
+        
+        <img src="../Images/dashboard.png" alt=""/> {sidebarItems[0].title}
+      </Link>
           </li>
           <li key={sidebarItems[1].id} className={styles.list}>
             <Link href={sidebarItems[1].link}><img src="../Images/project.png" alt="" /> {sidebarItems[1].title}</Link>

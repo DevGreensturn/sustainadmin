@@ -104,11 +104,9 @@ const handleLogOut = (e) => {
         <div className="container-fluid">
           <div className="headerSection">
             <div className="d-flex align-items-center my-3">
-              <div><img src="./logo.png" alt="" /></div>
-              <div className="d-flex align-items-center mx-5">
-                <svg width="30px" height="30px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
-                  <path fill="#000000" fillRule="evenodd" d="M19 4a1 1 0 01-1 1H2a1 1 0 010-2h16a1 1 0 011 1zm0 6a1 1 0 01-1 1H2a1 1 0 110-2h16a1 1 0 011 1zm-1 7a1 1 0 100-2H2a1 1 0 100 2h16z"/>
-                </svg>
+              <div><img src="../Images/companyLogo.svg" alt="" /></div>
+              <div className="d-flex align-items-center mx-5" style={{cursor:"pointer"}}>
+                <img src="../Images/tripplehiphen.svg" alt="" />
                 <input
                   type="text"
                   className="search-bar form-control"

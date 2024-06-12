@@ -265,3 +265,11 @@ span.signUpWith_Section {
 .togglePasswordVisibility div img{
   width: 30px;
 }
+/* ==========Dashboard=========== */
+.dashboardList{
+  display: flex;
+  align-items: center;
+}
+.sideBarWrapper ul.listWrapper{
+  list-style-type: none;
+}
