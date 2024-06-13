@@ -1,0 +1,21 @@
+/* Layout.module.css */
+.container {
+    display: grid;
+    grid-template-columns: 200px auto;
+  }
+  
+  .sidebar {
+    background-color: #333;
+    color: white;
+  }
+  
+  .dashboardContainer {
+    padding: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      grid-template-columns: 100%;
+    }
+  }
+  

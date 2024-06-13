@@ -7,7 +7,6 @@ const ConcereteMix =()=>{
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
   };
-
     return(
         <section>
            <div className="row">

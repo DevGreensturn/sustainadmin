@@ -20,4 +20,5 @@ const Layout = ({ children, width, height, color }) => {
   );
 };
 
-export default Layout;
+ export default Layout;
+

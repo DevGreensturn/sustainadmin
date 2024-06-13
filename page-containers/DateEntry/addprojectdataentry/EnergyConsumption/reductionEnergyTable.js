@@ -137,7 +137,9 @@ const ReductionEnerguTable =()=>{
                             <label htmlFor="">Source</label>
                             <select className="form-select" aria-label="Default select example">
                                     <option selected>Energy Consumption - Utility Provider Energy</option>
-                                    <option value="1">Wind</option>
+                                
+                                    <option value="1">Non-Renewable Energy</option>
+                                    <option value="1">Renewable Energy</option>
                                 </select>
                             </div>
 
@@ -158,7 +160,8 @@ const ReductionEnerguTable =()=>{
                             <label htmlFor="">Unite</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Joule</option>
-                                    <option value="1">kWh</option>
+                                    <option value="1">Kh</option>
+                                    <option value="1">Wh</option>
                                 </select>
                             </div>
                            
@@ -166,7 +169,9 @@ const ReductionEnerguTable =()=>{
                             <label htmlFor="">calculation Method</label>
                             <select className="form-select" aria-label="Default select example">
                                     <option selected>Estimated</option>
-                                    <option value="1">kWh</option>
+                                    <option value="1">Measured</option>
+                                    <option value="1">Modeled</option>
+
                             </select>
                             </div>
 
@@ -222,7 +227,8 @@ const ReductionEnerguTable =()=>{
                             <label htmlFor="">Source</label>
                             <select className="form-select" aria-label="Default select example">
                                     <option selected>Energy Consumption - Utility Provider Energy</option>
-                                    <option value="1">Wind</option>
+                                    <option value="1">Renewable Energy</option>
+                                    <option value="1"> Non Renewable Energy</option>
                                 </select>
                             </div>
 
@@ -243,7 +249,9 @@ const ReductionEnerguTable =()=>{
                             <label htmlFor="">Unite</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Joule</option>
-                                    <option value="1">kWh</option>
+                                    <option value="1">Kwh</option>
+                                    <option value="1">Wh</option>
+
                                 </select>
                             </div>
                            
@@ -251,7 +259,8 @@ const ReductionEnerguTable =()=>{
                             <label htmlFor="">calculation Method</label>
                             <select className="form-select" aria-label="Default select example">
                                     <option selected>Estimated</option>
-                                    <option value="1">kWh</option>
+                                    <option value="1">Measured</option>
+                                    <option value="1">Modeled</option>
                             </select>
                             </div>
 

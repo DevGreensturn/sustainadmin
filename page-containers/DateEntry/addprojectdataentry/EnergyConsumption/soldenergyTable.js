@@ -131,7 +131,9 @@ const SoldenergyTable =()=>{
                                 <label htmlFor="">Energy Type</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Electricity</option>
-                                    <option value="1">Wind</option>
+                                    <option value="1">Steam</option>
+                                    <option value="1">Cooling</option>
+                                    <option value="1">Heating</option>
                                 </select>
                             </div>
 
@@ -152,7 +154,8 @@ const SoldenergyTable =()=>{
                             <label htmlFor="">Unite</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Joule</option>
-                                    <option value="1">kWh</option>
+                                    <option value="1">Kwh</option>
+                                    <option value="1">Wh</option>
                                 </select>
                             </div>
                            
@@ -208,7 +211,10 @@ const SoldenergyTable =()=>{
                                 <label htmlFor="">Energy Type</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Electricity</option>
-                                    <option value="1">Wind</option>
+                                    <option value="1">Steam</option>
+                                    <option value="1">Cooling</option>
+                                    <option value="1">Heating</option>
+                                  
                                 </select>
                             </div>
 
@@ -229,7 +235,9 @@ const SoldenergyTable =()=>{
                             <label htmlFor="">Unite</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Joule</option>
-                                    <option value="1">kWh</option>
+                                    <option value="1">Kwh</option>
+                                    <option value="1">Wh</option>
+
                                 </select>
                             </div>
                            

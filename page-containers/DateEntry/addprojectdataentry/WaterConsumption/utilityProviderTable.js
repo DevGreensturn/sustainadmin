@@ -191,9 +191,8 @@ const Utilityprovidertable =()=>{
                                 <label htmlFor="">Drinking/Non Drinking Water</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Drinking Water</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="1">Non Drinking Water</option>
+                                   
                                 </select>
                             </div>
                         </div>
@@ -210,9 +209,10 @@ const Utilityprovidertable =()=>{
                                 <label htmlFor="">Unit</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Us Gallon</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="1">Litre</option>
+                                    <option value="1">Cubic Meter</option>
+                                   
+                                 
                                 </select>
                             </div>
 
@@ -295,9 +295,8 @@ const Utilityprovidertable =()=>{
                                 <label htmlFor="">Drinking/Non Drinking Water</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Drinking Water</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="1">Non Drinking Water</option>
+                                   
                                 </select>
                             </div>
                         </div>
@@ -314,9 +313,9 @@ const Utilityprovidertable =()=>{
                                 <label htmlFor="">Unit</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Us Gallon</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="1">Litre</option>
+                                    <option value="1">Cubic Meter</option>
+                                   
                                 </select>
                             </div>
 

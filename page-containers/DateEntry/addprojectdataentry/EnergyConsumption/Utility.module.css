@@ -1,0 +1,44 @@
+/* Utility.module.css */
+
+
+.section {
+    padding: 20px;
+  }
+
+  .modalHeader {
+    border: 0;
+  }
+  
+  .modalBody {
+    padding: 20px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .icon {
+    margin-right: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .section {
+      padding: 10px;
+    }
+  
+    .dataTable {
+      overflow-x: auto;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .dataTable {
+      font-size: 12px;
+    }
+  
+    .button {
+      padding: 8px 16px;
+    }
+  }
+  

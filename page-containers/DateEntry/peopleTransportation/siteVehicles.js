@@ -150,9 +150,6 @@ const SiteVehicles =()=>{
                                 <label htmlFor="">Supporting Document (If Any)</label>
                                 <input type="file" className="form-control" placeholder="Upload document" />
                             </div>
-                        
-                   
-
 
                     <div className="my-4 d-flex justify-content-between">
                     <div>
@@ -211,11 +208,8 @@ const SiteVehicles =()=>{
                                 <label htmlFor="">Fuel Consumption </label>
                                 <input type="text" className="form-control" placeholder="43" />
                             </div>
-
                         </div>         
-
                         </div>
-
                             <div className="col-md-4">
                                 <label htmlFor="">Supporting Document (If Any)</label>
                                 <input type="file" className="form-control" placeholder="Upload document" />
@@ -232,7 +226,6 @@ const SiteVehicles =()=>{
                        </>
                         </Modal.Body>
                 </Modal>
-
 
                 {/* Delete section */}
 
@@ -262,7 +255,6 @@ const SiteVehicles =()=>{
                        </>
                         </Modal.Body>
                 </Modal>
-
                 </>
         </section>
     )

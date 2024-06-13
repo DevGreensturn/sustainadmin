@@ -183,12 +183,8 @@ const WaterTankerTable =()=>{
                             <div className="col-md-4">
                             <label htmlFor="">Tanker Capacity (US Gallons)</label>
                             <input type="date" className="form-control" placeholder="1344" />
-
-                            
                             </div>
                         </div>
-
-
                         <div className="row mt-3">
                             <div className="col-md-4">
                                 <label htmlFor="">No. of Trips</label>
@@ -211,9 +207,6 @@ const WaterTankerTable =()=>{
 
                             
                             </div>
-
-
-                            
 
                             {/* <div className="col-md-4">
                                 <label htmlFor="">Support Document (If Any)</label>
@@ -324,7 +317,6 @@ const WaterTankerTable =()=>{
                             </div>
 
                         </div>
-
                        </div>
 
                     <div className="my-4 d-flex justify-content-between">
@@ -375,3 +367,4 @@ const WaterTankerTable =()=>{
     )
 }
 export default WaterTankerTable;
+

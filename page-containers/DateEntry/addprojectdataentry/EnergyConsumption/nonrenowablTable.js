@@ -160,9 +160,9 @@ const NonrenowableTable =()=>{
                                 <label htmlFor="">Fuel Type</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Diesel</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="1">Petrol</option>
+                                    <option value="2">CNG</option>
+                                   
                                 </select>
                             </div>
 
@@ -170,9 +170,9 @@ const NonrenowableTable =()=>{
                             <label htmlFor="">Usage</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Equipment</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="1">Generator</option>
+                                    <option value="2">Others</option>
+                                   
                                 </select>
                             </div>
 
@@ -193,10 +193,10 @@ const NonrenowableTable =()=>{
                             <div className="col-md-4">
                             <label htmlFor="">Unite Type</label>
                                 <select className="form-select" aria-label="Default select example">
-                                    <option selected>Litter</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option selected>Litre</option>
+                                    <option value="1">US Gallon</option>
+                                    <option value="2">Cubic Meter</option>
+                                   
                                 </select>
                             </div>
                             <div className="col-md-4">
@@ -269,9 +269,9 @@ const NonrenowableTable =()=>{
                                 <label htmlFor="">Fuel Type</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Diesel</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="1">Petrol</option>
+                                   
+                                    <option value="3">CNG</option>
                                 </select>
                             </div>
 
@@ -279,9 +279,9 @@ const NonrenowableTable =()=>{
                             <label htmlFor="">Usage</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Equipment</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="1">Generator</option>
+                                    <option value="2">Others</option>
+                                  
                                 </select>
                             </div>
 
@@ -302,10 +302,10 @@ const NonrenowableTable =()=>{
                             <div className="col-md-4">
                             <label htmlFor="">Unite Type</label>
                                 <select className="form-select" aria-label="Default select example">
-                                    <option selected>Litter</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option selected>Litre</option>
+                                    <option value="1">US Gallon</option>
+                                    <option value="2">Cubic Meter</option>
+                                  
                                 </select>
                             </div>
                             <div className="col-md-4">

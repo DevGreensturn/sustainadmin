@@ -188,10 +188,20 @@
 
 
 
+
+
+
+
+
 // // Dashboard.js
+
 
 import React from 'react';
 import styles from './Dashboard.module.css';
+
+
+
+
 
 const ThreeContainers = () => {
   return (
@@ -316,9 +326,235 @@ const DashPage = () => {
         <img src="../Images/rightimg.png" alt="Image" style={{ position: 'absolute', bottom: 0, left: '530px', height: '100px', width: '100px' }} />
       </div>
     </div>
+    
   );
 };
-export { ThreeContainers, DashPage };
+// Additional Container
+// const AdditionalContainer = () => {
+//   return (
+//     <div style={{ 
+//       width: '1730px', 
+//       height: '500px', 
+//       marginTop: '20px', 
+//       display: 'flex', 
+//       flexDirection: 'column',
+//       backgroundColor: 'wheat', // Set background color to wheat
+//       borderRadius: '10px', // Round the corners
+//       padding: '10px' // Add padding for gap
+//     }}>
+//       {/* Row with Eight Boxes */}
+//       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+//         <div style={{ width: '90px', height: '50px', borderRadius: '20%', backgroundColor: 'white', border: '3px solid black', textAlign: 'center', fontSize: '16px', lineHeight: '40px' }}>50%</div>
+//         <div style={{ width: '90px', height: '50px', borderRadius: '20%', backgroundColor: 'white', border: '3px solid black', textAlign: 'center', fontSize: '16px', lineHeight: '40px' }}>5%</div>
+//         <div style={{ width: '90px', height: '50px', borderRadius: '20%', backgroundColor: 'white', border: '3px solid black', textAlign: 'center', fontSize: '16px', lineHeight: '40px' }}>5%</div>
+//         <div style={{ width: '90px', height: '50px', borderRadius: '20%', backgroundColor: 'white', border: '3px solid black', textAlign: 'center', fontSize: '16px', lineHeight: '40px' }}>5%</div>
+//         <div style={{ width: '90px', height: '50px', borderRadius: '20%', backgroundColor: 'white', border: '3px solid black', textAlign: 'center', fontSize: '16px', lineHeight: '40px' }}>5%</div>
+//         <div style={{ width: '90px', height: '50px', borderRadius: '20%', backgroundColor: 'white', border: '3px solid black', textAlign: 'center', fontSize: '16px', lineHeight: '40px' }}>10%</div>
+//         <div style={{ width: '90px', height: '50px', borderRadius: '20%', backgroundColor: 'white', border: '3px solid black', textAlign: 'center', fontSize: '16px', lineHeight: '40px' }}>10%</div>
+//         <div style={{ width: '90px', height: '50px', borderRadius: '20%', backgroundColor: 'white', border: '3px solid black', textAlign: 'center', fontSize: '16px', lineHeight: '40px' }}>10%</div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export { ThreeContainers, DashPage, AdditionalContainer };
+
+
+
+
+
+
+const AdditionalContainer = () => {
+  return (
+    <div style={{ 
+      width: '1730px', 
+      height: '500px', 
+      marginTop: '20px', 
+      display: 'flex', 
+      flexDirection: 'column',
+      backgroundColor: 'wheat',
+      borderRadius: '10px',
+      padding: '10px'
+    }}>
+      {/* Row with Eight Boxes */}
+      <div style={{position: "relative"}}>
+        <img src="../Images/Line34.png" alt="Image" className={ ""} style={{position:"absolute", marginTop:"25px", zIndex:"1", width:"101.5%",marginLeft:"-10px"}}/>
+        <div style={{ display: 'flex', justifyContent: 'space-between' ,zIndex:"13" , position:"relative" }}>
+     
+          {/* First Box */}
+          <div style={{ 
+            width: '90px', 
+            height: '50px', 
+            borderRadius: '20%', 
+            backgroundColor: 'white', 
+            border: '3px solid black', 
+            textAlign: 'center', 
+            fontSize: '16px', 
+            lineHeight: '40px'
+          }}>50%</div>
+
+          {/* Second Box */}
+          <div style={{ 
+            width: '90px', 
+            height: '50px', 
+            borderRadius: '20%', 
+            backgroundColor: 'white', 
+            border: '3px solid black', 
+            textAlign: 'center', 
+            fontSize: '16px', 
+            lineHeight: '40px'
+          }}>
+           <div>5%</div>
+            <ul style={{ listStyle: 'disc', paddingLeft: '10px', margin: '5px 0', textAlign: 'left', height: "150px" }}>
+              <li>Logistics</li>
+            </ul>
+            <img src="../Images/co2image.png" alt="Image1" style={{ width: '80px',  }} />
+            <p>1,000</p>
+            <p>tco2e</p>
+
+          </div>
+
+          {/* Third Box */}
+          <div style={{ 
+            width: '90px', 
+            height: '50px', 
+            borderRadius: '20%', 
+            backgroundColor: 'white', 
+            border: '3px solid black', 
+            textAlign: 'center', 
+            fontSize: '16px', 
+            lineHeight: '40px'
+          }}>
+            <div>5%</div>
+            <ul style={{ listStyle: 'disc', paddingLeft: '10px', margin: '5px 0', textAlign: 'left', height: "150px"  }}>
+              <li>People</li>
+              <li style={{listStyle:"none"}}>Transportation</li>
+              
+            </ul>
+            <img src="../Images/co2image.png" alt="Image1" style={{ width: '80px',  }} />
+            <p>1,000</p>
+             <p>tco2e</p>
+          </div>
+          {/* Fourth Box */}
+          <div style={{ 
+            width: '90px', 
+            height: '50px', 
+            borderRadius: '20%', 
+            backgroundColor: 'white', 
+            border: '3px solid black', 
+            textAlign: 'center', 
+            fontSize: '16px', 
+            lineHeight: '40px'
+          }}>
+            <div>5%</div>
+            <ul style={{ listStyle: 'disc', paddingLeft: '10px', margin: '5px 0', textAlign: 'left', height: "150px" }}>
+              <li>Energy by</li>
+              <li style={{listStyle:"none"}}>Utility provider</li>
+              
+            </ul>
+            <img src="../Images/co2image.png" alt="Image1" style={{ width: '80px',  }} />
+            <p>1,000</p>
+             <p>tco2e</p>
+          </div>
+          {/* Fifth Box */}
+          <div style={{ 
+            width: '90px', 
+            height: '50px', 
+            borderRadius: '20%', 
+            backgroundColor: 'white', 
+            border: '3px solid black', 
+            textAlign: 'center', 
+            fontSize: '16px', 
+            lineHeight: '40px'
+          }}>
+             <div>5%</div>
+            <ul style={{ listStyle: 'disc', paddingLeft: '10px', margin: '5px 0', textAlign: 'left', height: "150px" }}>
+              <li>Energy by Non-</li>
+              <li  style={{listStyle:"none"}}>
+              Renewable
+              Sources</li>
+            </ul>
+            <img src="../Images/co2image.png" alt="Image1" style={{ width: '80px',  }} />
+            <p>1,000</p>
+             <p>tco2e</p>
+          </div>
+          {/* Sixth Box */}
+          <div style={{ 
+            width: '90px', 
+            height: '50px', 
+            borderRadius: '20%', 
+            backgroundColor: 'white', 
+            border: '3px solid black', 
+            textAlign: 'center', 
+            fontSize: '16px', 
+            lineHeight: '40px'
+          }}>
+             <div>10%</div>
+            <ul style={{ listStyle: 'disc', paddingLeft: '10px', margin: '5px 0', textAlign: 'left', height: "150px" }}>
+              <li>Energy by</li>
+             <li style={{listStyle:'none'}}></li> Renewable Sources
+            </ul>
+            <img src="../Images/co2image.png" alt="Image1" style={{ width: '80px',  }} />
+            <p>1,000</p>
+             <p>tco2e</p>
+          </div>
+          {/* Seventh Box */}
+          <div style={{ 
+            width: '90px', 
+            height: '50px', 
+            borderRadius: '20%', 
+            backgroundColor: 'white', 
+            border: '3px solid black', 
+            textAlign: 'center', 
+            fontSize: '16px', 
+            lineHeight: '40px'
+          }}>
+             <div>10%</div>
+            <ul style={{ listStyle: 'disc', paddingLeft: '10px', margin: '5px 0', textAlign: 'left',height: "150px" }}>
+              <li>Water</li>
+             <li style={{listStyle:'none'}}></li> Consumption
+            </ul>
+            <img src="../Images/co2image.png" alt="Image1" style={{ width: '80px',  }} />
+            <p>1,000</p>
+            <p>tco2e</p>
+          </div>
+          {/* Eighth Box */}
+          <div style={{ 
+            width: '90px', 
+            height: '50px', 
+            borderRadius: '20%', 
+            backgroundColor: 'white', 
+            border: '3px solid black', 
+            textAlign: 'center', 
+            fontSize: '16px', 
+            lineHeight: '40px'
+          }}>
+             <div>10%</div>
+            <ul style={{ listStyle: 'disc', paddingLeft: '10px', margin: '5px 0', textAlign: 'left', height: "150px"}}>
+              <li>Waste</li>
+            </ul>
+            <img src="../Images/co2image.png" alt="Image1" style={{ width: '80px',  }} />
+            <p>1,000</p>
+             <p>tco2e</p>
+          </div>
+        </div>
+      </div>
+      {/* Lines between the boxes */}
+      <div  style={{
+      }}>
+      </div>
+      {/* Text with Bullet Points */}
+      <ul style={{marginLeft: '11px', marginTop: '10px', fontSize: '16px',height: "125px" }}>
+        <li>Concrete Mix</li>
+        <li>Building Material</li>
+      </ul>
+      <img src="../Images/co2image.png" alt="Image1" style={{ width: '80px',  }} />
+      <p>1,000</p>
+      <p>tco2e</p>
+    </div>
+  );
+};
+ export { ThreeContainers, DashPage, AdditionalContainer };
 
 
 

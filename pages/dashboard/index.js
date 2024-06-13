@@ -2,7 +2,8 @@ import Layout from "@/components/Layout"
 import Header from "@/components/Layout/Header"
 
 
-import { ThreeContainers, DashPage } from '../../components/DashboardPage'; 
+import { ThreeContainers, DashPage,AdditionalContainer } from '../../components/DashboardPage'; 
+
 
 
 
@@ -20,6 +21,7 @@ const Dashboard=({childern})=> {
   <ThreeContainers/>
 
 <DashPage/>
+<AdditionalContainer/>
 
    </Layout>
     </>

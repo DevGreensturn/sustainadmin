@@ -370,7 +370,6 @@ const Utilityprovidertable =()=>{
                        </>
                         </Modal.Body>
                 </Modal>
-
                 </>
         </section>
     )

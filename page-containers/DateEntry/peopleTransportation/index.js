@@ -10,7 +10,6 @@ const PeopleTransportation =()=>{
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
   };
-
     return(
         <section>
            <div className="row">
@@ -22,7 +21,6 @@ const PeopleTransportation =()=>{
                     <h4>PeopleTransportation</h4>
                 </div>
                 </div>
-
                 <div >
                     <button type="btn" className="btn btn-outline-success" onClick={toggleVisibility}>{isVisible ? 'Hide' : 'Show'}</button>
                 </div>
@@ -40,7 +38,6 @@ const PeopleTransportation =()=>{
                 <hr />
                     <SiteVehicles />
                 </div> 
-
                  <div className="mt-5">
                 <hr />
                     <BusinessTravel />
@@ -49,9 +46,6 @@ const PeopleTransportation =()=>{
                 <hr />
                     <EmployeeCommuting />
                 </div> 
-               
-               
-
                 </div>
             </div>
            </div>

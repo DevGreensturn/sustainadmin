@@ -123,6 +123,10 @@ const RenowableEnergyTable =()=>{
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Solar</option>
                                     <option value="1">Wind</option>
+                                    <option value="1">Biomass</option>
+                                    <option value="1">Geothermal</option>
+                                    <option value="1">Hydro</option>
+
                                 </select>
                             </div>
 
@@ -143,7 +147,8 @@ const RenowableEnergyTable =()=>{
                             <label htmlFor="">Unite</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Joule</option>
-                                    <option value="1">kWh</option>
+                                    <option value="1">Kwh</option>
+                                    <option value="1">Wh</option>
                                 </select>
                             </div>
                            
@@ -195,6 +200,10 @@ const RenowableEnergyTable =()=>{
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Solar</option>
                                     <option value="1">Wind</option>
+                                    <option value="1">Biomass</option>
+                                    <option value="1">Geothermal</option>
+                                    <option value="1">Hydro</option>
+                                   
                                 </select>
                             </div>
 
@@ -215,7 +224,8 @@ const RenowableEnergyTable =()=>{
                             <label htmlFor="">Unite</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Joule</option>
-                                    <option value="1">kWh</option>
+                                    <option value="1">Kwh</option>
+                                    <option value="1">Wh</option>
                                 </select>
                             </div>
                            
