@@ -1,20 +1,63 @@
-import Card from "@/components/Card.js";
 import React from "react";
-import styles from "./projectContainer.module.scss";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { MdDeleteForever } from "react-icons/md";
-import { FaRegEdit } from "react-icons/fa";
 import DataEntryTable from "./datatList";
 import Link from "next/link";
-
+import { useEffect, useState } from "react";
+import { ADMINAPI } from "../../apiWrapper/";
 
 function formatMonthYear(dateString) {
   const date = new Date(dateString);
-  const options = { month: 'long', year: 'numeric' };
-  return date.toLocaleDateString('en-US', options);
+  const options = { month: "long", year: "numeric" };
+  return date.toLocaleDateString("en-US", options);
 }
 const DataEntryContainer = () => {
+  const [project, setProject] = useState("");
+  const [projectList, setProjectList] = useState([]);
+  const [packageValue, setPackage] = useState("");
+  const [packageList, setpackageList] = useState([]);
+
+  const handleChangeProjectName = (e) => {
+    e.preventDefault();
+    const selectedValue = e.target.value;
+    console.log(selectedValue, "Selected Value");
+    setProject(selectedValue);
+  };
+
+  const handleChangePackage = (e) =>{
+    e.preventDefault();
+    const selectedValue = e.target.value;
+    console.log(selectedValue, "Selected Value");
+    setPackage(selectedValue);
+  } 
+
+  const fetchProject = async () => {
+    try {
+      await ADMINAPI({
+        url: `http://3.108.58.161:3002/api/v1/projects?id=3&page=1`,
+        method: "GET",
+      }).then((data) => {
+        let userData = data.response;
+        setProjectList(userData);
+        console.log(userData, "oooooooPPPP");
+      });
+    } catch (error) {
+      console.log(error, "errorooo");
+    }
+  };
+
+  const fetchPackageList = async () => {
+    try {
+      await ADMINAPI({
+        url: `http://3.108.58.161:3002/api/v1/packages`,
+        method: "GET",
+      }).then((data) => {
+        let userData = data.response;
+        setpackageList(userData);
+        console.log(userData, "ooooooo");
+      });
+    } catch (error) {
+      console.log(error, "errorooo");
+    }
+  };
   const data = [
     {
       id: 1,
@@ -122,47 +165,83 @@ const DataEntryContainer = () => {
     },
   ];
 
+  useEffect(() => {
+    fetchProject();
+    fetchPackageList();
+  }, []);
   return (
-    <> 
-     <section>
-      <div className="p-4">
-        <div className="row">
-          <div className="col-md-12">
-            <div className="my-5">
-              <h3>Select Project</h3>
-            <select className="form-select" aria-label="Default select example">
-              <option selected>Downtown Tower - Building</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-            </div>
+    <>
+      <section>
+        <div className="p-4">
+          <div className="row">
+              <div className="col-md-4">
+                <h3>Select Project</h3>
+                <select
+                  className="form-select"
+                  aria-label="Default select example"
+                  onChange={(e) => handleChangeProjectName(e)}
+                  name="category"
+                  id="category"
+                  value={project} // Bind the state variable to the value prop
+                >
+                  <option value="">Project </option>
+                  {projectList?.map((category, indexCat) => (
+                    <option key={indexCat} value={category?._id}>
+                      {category?.projectName}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="col-md-4">
+                <h3>Select Package</h3>
+                <select
+                  className="form-select"
+                  aria-label="Default select example"
+                  onChange={(e) => handleChangePackage(e)}
+                  name="package"
+                  id="package"
+                  value={packageValue} // Bind the state variable to the value prop
+                >
+                  <option value=""> Package</option>
+                  {packageList?.map((category, indexCat) => (
+                    <option key={indexCat} value={category?._id}>
+                      {category?.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            
           </div>
-        </div>
-        
-        <div className="row my-3">
-          <div className="col-md-12">
-            <div className="d-flex align-items-center justify-content-between">
-              <div>
-              <h2>Monthly Reports </h2>
-              </div>
-              <div className="d-flex">
-                <button type="btn" className="btn btn-outline-success mx-3">Filters</button>
-                <Link href="/addMonthlyData"><button type="btn" className="btn btn-outline-success">Add Monthly Report</button></Link>
-              </div>
-            </div>
-            </div>
-        </div>
 
-        <div className="row my-3">
-          <div className="col-md-12">
-            <div>
-              <DataEntryTable />
+          <div className="row my-3">
+            <div className="col-md-12">
+              <div className="d-flex align-items-center justify-content-between">
+                <div>
+                  <h2>Monthly Reports </h2>
+                </div>
+                <div className="d-flex">
+                  <button type="btn" className="btn btn-outline-success mx-3">
+                    Filters
+                  </button>
+                  <Link href="/addMonthlyData">
+                    <button type="btn" className="btn btn-outline-success">
+                      Add Monthly Report
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row my-3">
+            <div className="col-md-12">
+              <div>
+                <DataEntryTable />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* <div className={styles.projectContainer}>
         <p>Monthly Reports</p>
@@ -227,7 +306,6 @@ const DataEntryContainer = () => {
   </div>
  
 </div> */}
-
     </>
   );
 };

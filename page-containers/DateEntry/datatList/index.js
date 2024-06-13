@@ -5,41 +5,75 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { MdDeleteForever } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import { RiFilter2Fill } from "react-icons/ri";
+import { useState,useEffect } from "react";
+import { ADMINAPI } from "../../../apiWrapper";
+
 
 const DataEntryTable =()=>{
-    
+    const [row ,setRow] = useState([]);
+
+
+    const handleMonthlyReports = async () => {
+        try {
+         
+       await ADMINAPI({
+             url: `http://3.108.58.161:3002/api/v1/monthly-reports`,
+             method: "GET",
+            
+            }).then((data) => {
+              let userData = data.response;
+              setRow(userData)
+            console.log(userData,"monthly report");
+            });
+          
+        } catch (error) {
+          console.log(error, "new errr")
+
+        }
+      };
     const columns = [
     	
         {
             name: <b>Reporting Month</b>,
-            selector: (row) => row.project,
+            selector: (row) => row.reportingMonthYear,
             wrap:"true"
         },
         {
             name: <b className="text-center">Packages Progress <br />This Month </b>,
-            selector: (row) => row.projectPackage,
+            selector: (row) => row.packagesProgressThisMonth,
             wrap:"true"
         },
         {
             name: <b className="text-center">Manhour During <br />This Month</b>,
-            selector: (row) => row.mainContactor,
+            selector: (row) => (row.cumulativeManhour+" "+"Manhour"),
             wrap:"true"
         },
         {
             name: <b>Reported By</b>,
-            selector: (row) => row.packageTypology,
+            selector: (row) => (row.reportedBy.firstName+" "+row.reportedBy.lastName),
             wrap:"true"
         },
         
         {
             name: <b>Report Status</b>,
-            selector: (row) => row.reportStatus,
+            selector: (row) => (
+                <div>
+                    <button type="button" className="btn btn-sm btn-outline-secondary">
+                        {row.reportStatus}
+                    </button>
+                </div>
+            ),
             wrap:"true"
         },
 
         {
             name: <b>Action</b>,
-            selector: (row) => row.Action,
+            selector: row => (
+                <div className="d-flex align-items-center">
+                  <FaRegEdit style={{ color: "secondary", fontSize: "20px" }} />
+                  <MdDeleteForever className="mx-2" style={{ color: "red", fontSize: "20px" }} />
+                </div>
+              ),
             wrap:"true",
             width:"180px"
         },
@@ -136,7 +170,9 @@ const DataEntryTable =()=>{
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>   
          },
     ];
-
+    useEffect(() => {
+        handleMonthlyReports();
+      }, []);
     return(
         <section>
         <div className="">
@@ -145,7 +181,7 @@ const DataEntryTable =()=>{
                     <div>
                     <DataTable 
                     columns={columns} 
-                    data={rows} 
+                    data={row} 
                     fixedHeader
                     pagination
                     striped
