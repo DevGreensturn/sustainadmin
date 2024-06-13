@@ -35,22 +35,22 @@ const DataEntryTable =()=>{
     	
         {
             name: <b>Reporting Month</b>,
-            selector: (row) => row.reportingMonthYear,
+            selector: (row) => row?.reportingMonthYear,
             wrap:"true"
         },
         {
             name: <b className="text-center">Packages Progress <br />This Month </b>,
-            selector: (row) => row.packagesProgressThisMonth,
+            selector: (row) => row?.packagesProgressThisMonth,
             wrap:"true"
         },
         {
             name: <b className="text-center">Manhour During <br />This Month</b>,
-            selector: (row) => (row.cumulativeManhour+" "+"Manhour"),
+            selector: (row) => (row?.cumulativeManhour ? row?.cumulativeManhour+" "+"Manhour":row?.cumulativeManhour),
             wrap:"true"
         },
         {
             name: <b>Reported By</b>,
-            selector: (row) => (row.reportedBy.firstName+" "+row.reportedBy.lastName),
+            selector: (row) => (row?.reportedBy?.firstName ? row?.reportedBy?.firstName+" "+row?.reportedBy?.lastName:row?.reportedBy),
             wrap:"true"
         },
         
@@ -59,7 +59,7 @@ const DataEntryTable =()=>{
             selector: (row) => (
                 <div>
                     <button type="button" className="btn btn-sm btn-outline-secondary">
-                        {row.reportStatus}
+                        {row?.reportStatus}
                     </button>
                 </div>
             ),
