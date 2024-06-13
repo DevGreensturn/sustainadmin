@@ -1,6 +1,6 @@
 .adminLogin {
   padding: 70px 0;
-  background: url(../../../../../public/images/adminLoginBg.svg) 100%;
+  background: url(../../../../../public/Images/adminLoginBg.svg) 100%;
   background-repeat:repeat;
   background-position: top;
   background-size: 100%;
@@ -1209,7 +1209,7 @@ input:-moz-placeholder {
 .vchForm .date input {
   border: 1px solid #eaedf2;
   border-radius: 8px; /*background: #fff;*/
-  background: url(../../../../../public/images/dateIcon.svg) no-repeat 98%
+  background: url(../../../../../public/Images/dateIcon.svg) no-repeat 98%
     center #fff;
   height: 50px;
 }
@@ -1663,7 +1663,7 @@ input:-moz-placeholder {
 .MuiStack-root input {
   padding: 0 14px;
   border: 1px solid rgba(49, 108, 244, 0.15);
-  background: url(../../../../../public/images/dateIcon_2.png) no-repeat;
+  background: url(../../../../../public/Images/dateIcon_2.png) no-repeat;
   background-position: 98% 10px;
 }
 .MuiStack-root input:hover {
@@ -2019,7 +2019,7 @@ input:-moz-placeholder {
   border-radius: 5px;
   height: 40px;
   padding: 5px 10px;
-  background: url(../../../../../public/images/dateIcon.svg) #fff no-repeat;
+  background: url(../../../../../public/Images/dateIcon.svg) #fff no-repeat;
   background-position: 96% 8px;
 }
 
@@ -2324,3 +2324,4 @@ li.fillActive{
   align-items: center;
   justify-content: space-between;
 }
+/* =========== */

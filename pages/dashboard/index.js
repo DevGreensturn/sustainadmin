@@ -20,8 +20,12 @@ const Dashboard=({childern})=> {
   <Layout> 
   <ThreeContainers/>
 
+<<<<<<< HEAD
 <DashPage/>
 <AdditionalContainer/>
+=======
+{/* <DashPage/> */}
+>>>>>>> 0e8633ce01bafc7aa280d22aafcf37beb7ac6798
 
    </Layout>
     </>

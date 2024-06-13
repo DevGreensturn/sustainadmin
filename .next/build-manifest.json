@@ -12,11 +12,6 @@
   ],
   "rootMainFiles": [],
   "pages": {
-    "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
-    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -27,6 +22,7 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+<<<<<<< HEAD
     "/addMonthlyData": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -36,6 +32,12 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/dataEntry.js"
+=======
+    "/dashboard": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/dashboard.js"
+>>>>>>> 0e8633ce01bafc7aa280d22aafcf37beb7ac6798
     ]
   },
   "ampFirstPages": []
