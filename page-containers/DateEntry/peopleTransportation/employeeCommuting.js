@@ -78,7 +78,7 @@ const EmployeeCommuting =()=>{
         <section>
                 <div className="d-flex align-items-center justify-content-between">
                     <div className="d-flex align-items-center">
-                    <img src="../Images/EmployeeCommuting.png" alt="" />
+                    <img src="/images/EmployeeCommuting.png" alt="" />
                     <h5 className="mx-2">Employee Commuting</h5>
                     </div>
                     <div>
@@ -113,7 +113,7 @@ const EmployeeCommuting =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/PeopleTransportation.png" alt="" className="img-fluid"/>
+                            <img src="/images/PeopleTransportation.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>PeopleTransportation</h4>
                                 <h5>Employee Commuting</h5>
@@ -179,7 +179,7 @@ const EmployeeCommuting =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/PeopleTransportation.png" alt="" className="img-fluid"/>
+                            <img src="/images/PeopleTransportation.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>PeopleTransportation</h4>
                                 <h5>Employee Commuting</h5>

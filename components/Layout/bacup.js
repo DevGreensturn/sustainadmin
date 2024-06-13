@@ -185,7 +185,7 @@ const handleLogOut = (e) => {
                         style={{ width: "100%" }}
                         onClick={handleShow}
                       >
-                        Login <img src="../Images/arrow-right.png" alt="" />
+                        Login <img src="/images/arrow-right.png" alt="" />
                       </button>
                     </div> </>)
                 }
@@ -259,7 +259,7 @@ const handleLogOut = (e) => {
                         style={{ width: "100%" }}
                         onClick={handleLogin}
                       >
-                        Login <img src="../Images/arrow-right.png" alt="" />
+                        Login <img src="/images/arrow-right.png" alt="" />
                       </button>
                     </div>
                   </div>
@@ -270,8 +270,8 @@ const handleLogOut = (e) => {
                       <span className="loginWith_Section">or login with</span>
                     </div>
                     <div className="d-flex justify-content-evenly mt-3">
-                      <button type="button" className="btn btn-outline-primary p-1 mx-3"><img src="../Images/icons8-microsoft-365.svg" alt="" /></button>
-                      <button type="button" className="btn btn-outline-primary p-1"><img src="../Images/icons8-google.svg" alt="" /></button>
+                      <button type="button" className="btn btn-outline-primary p-1 mx-3"><img src="/images/icons8-microsoft-365.svg" alt="" /></button>
+                      <button type="button" className="btn btn-outline-primary p-1"><img src="/images/icons8-google.svg" alt="" /></button>
                     </div>
                   </div>
                 </div>

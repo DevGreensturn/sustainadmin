@@ -19,7 +19,7 @@ const EnergyComsuption =()=>{
             <div className="col-md-12">
                 <div className="d-flex align-items-center justify-content-between">
                 <div className="d-flex align-items-center">
-                <img src="../Images/EnergyComsuption.png" alt="" className="img-fluid"/>
+                <img src="/images/EnergyComsuption.png" alt="" className="img-fluid"/>
                 <div className="mx-2">
                     <h4>Energy Consumption</h4>
                 </div>

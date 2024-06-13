@@ -19,7 +19,7 @@ const LatestNews =()=>{
                                 <img src="./images/latest1.png" alt="" />
                                 <div className="latestNewSection-des">
                                     <h6>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</h6>
-                                    <a style={{color:"#4CAF4F", fontWeight:"600"}}>Readmore <img src="../Images/tail-right.png" alt="" style={{marginLeft:"10px"}}/></a>
+                                    <a style={{color:"#4CAF4F", fontWeight:"600"}}>Readmore <img src="/images/tail-right.png" alt="" style={{marginLeft:"10px"}}/></a>
                                 </div>
                             </div>
                         </div>
@@ -28,7 +28,7 @@ const LatestNews =()=>{
                             <img src="./images/latest2.png" alt="" />
                             <div className="latestNewSection-des">
                                 <h6>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</h6>
-                                <a style={{color:"#4CAF4F", fontWeight:"600"}}>Readmore <img src="../Images/tail-right.png" alt="" style={{marginLeft:"10px"}}/></a>
+                                <a style={{color:"#4CAF4F", fontWeight:"600"}}>Readmore <img src="/images/tail-right.png" alt="" style={{marginLeft:"10px"}}/></a>
                                 </div>
                         </div>
                         </div>
@@ -37,7 +37,7 @@ const LatestNews =()=>{
                             <img src="./images/latest3.png" alt="" />
                             <div className="latestNewSection-des">
                                 <h6>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</h6>
-                                <a style={{color:"#4CAF4F", fontWeight:"600"}}>Readmore <img src="../Images/tail-right.png" alt="" style={{marginLeft:"10px"}}/></a>
+                                <a style={{color:"#4CAF4F", fontWeight:"600"}}>Readmore <img src="/images/tail-right.png" alt="" style={{marginLeft:"10px"}}/></a>
                                 </div>
                         </div>
                         </div>

@@ -74,7 +74,7 @@ const HeaderSection =()=>{
                   width={227}
                   height={55}
                   className="newlogo"
-                  src="/Images/sustainLogo.png"
+                  src="/images/sustainLogo.png"
                 />
               </Link>
             </div>

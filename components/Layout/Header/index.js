@@ -104,9 +104,9 @@ const handleLogOut = (e) => {
         <div className="container-fluid">
           <div className="headerSection">
             <div className="d-flex align-items-center my-3">
-              <div><img src="../Images/companyLogo.svg" alt="" /></div>
+              <div><img src="/images/companyLogo.svg" alt="" /></div>
               <div className="d-flex align-items-center mx-5" style={{cursor:"pointer"}}>
-                <img src="../Images/tripplehiphen.svg" alt="" />
+                <img src="/images/tripplehiphen.svg" alt="" />
                 <input
                   type="text"
                   className="search-bar form-control"
@@ -164,7 +164,7 @@ const handleLogOut = (e) => {
                         style={{ width: "100%" }}
                         onClick={handleShow}
                       >
-                        Login <img src="../Images/arrow-right.png" alt="" />
+                        Login <img src="/images/arrow-right.png" alt="" />
                       </button>
                     </div> </>)
                 }
@@ -238,7 +238,7 @@ const handleLogOut = (e) => {
                         style={{ width: "100%" }}
                         onClick={handleLogin}
                       >
-                        Login <img src="../Images/arrow-right.png" alt="" />
+                        Login <img src="/images/arrow-right.png" alt="" />
                       </button>
                     </div>
                   </div>
@@ -249,8 +249,8 @@ const handleLogOut = (e) => {
                       <span className="loginWith_Section">or login with</span>
                     </div>
                     <div className="d-flex justify-content-evenly mt-3">
-                      <button type="button" className="btn btn-outline-primary p-1 mx-3"><img src="../Images/icons8-microsoft-365.svg" alt="" /></button>
-                      <button type="button" className="btn btn-outline-primary p-1"><img src="../Images/icons8-google.svg" alt="" /></button>
+                      <button type="button" className="btn btn-outline-primary p-1 mx-3"><img src="/images/icons8-microsoft-365.svg" alt="" /></button>
+                      <button type="button" className="btn btn-outline-primary p-1"><img src="/images/icons8-google.svg" alt="" /></button>
                     </div>
                   </div>
                 </div>

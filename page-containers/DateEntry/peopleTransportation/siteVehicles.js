@@ -78,7 +78,7 @@ const SiteVehicles =()=>{
         <section>
                 <div className="d-flex align-items-center justify-content-between">
                     <div className="d-flex align-items-center">
-                    <img src="../Images/SiteVehicles.png" alt="" />
+                    <img src="/images/SiteVehicles.png" alt="" />
                     <h5 className="mx-2">Site Vehicles</h5>
                     </div>
                     <div>
@@ -113,7 +113,7 @@ const SiteVehicles =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/PeopleTransportation.png" alt="" className="img-fluid"/>
+                            <img src="/images/PeopleTransportation.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>PeopleTransportation</h4>
                                 <h5>Site Vehicles</h5>
@@ -183,7 +183,7 @@ const SiteVehicles =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/PeopleTransportation.png" alt="" className="img-fluid"/>
+                            <img src="/images/PeopleTransportation.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>PeopleTransportation</h4>
                                 <h5>Site Vehicles</h5>

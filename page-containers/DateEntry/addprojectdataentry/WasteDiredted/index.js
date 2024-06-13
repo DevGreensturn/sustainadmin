@@ -16,7 +16,7 @@ const WasteDirected =()=>{
             <div className="col-md-12">
                 <div className="d-flex align-items-center justify-content-between">
                 <div className="d-flex align-items-center">
-                <img src="../Images/wasteDirected.png" alt="" className="img-fluid"/>
+                <img src="/images/wasteDirected.png" alt="" className="img-fluid"/>
                 <div className="mx-2">
                     <h4>Waste Directed to Disposal</h4>
                 </div>

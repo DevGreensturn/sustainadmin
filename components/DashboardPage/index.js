@@ -23,10 +23,10 @@ const ThreeContainers = () => {
               <div className="card-body">
                 <div className='d-flex align-items-center justify-content-between'>
                   <div>
-                    <img src='../Images/CARBON.svg' alt='' />
+                    <img src='/images/CARBON.svg' alt='' />
                   </div>
                   <div className='carbonEmmision'>
-                    <img src='../Images/trending-down.svg' alt='' />  
+                    <img src='/images/trending-down.svg' alt='' />  
                     <div className='d-flex mx-2'>
                     <span style={{color:"red"}}>1%</span>
                       <p className='mx-2' style={{color:"#555770;", fontWeight:"600"}}>tCO2e</p>
@@ -41,8 +41,8 @@ const ThreeContainers = () => {
 
                 <div className='mt-5'>
                   <div className='d-flex box_bottom-img'>
-                    <img src='../Images/gallon.svg' alt='' />
-                    <img src='../Images/starMark.svg' alt='' />
+                    <img src='/images/gallon.svg' alt='' />
+                    <img src='/images/starMark.svg' alt='' />
                   </div>
                 </div>
               </div>
@@ -55,10 +55,10 @@ const ThreeContainers = () => {
               <div className="card-body">
                 <div className='d-flex align-items-center justify-content-between'>
                   <div>
-                    <img src='../Images/carbon_dark.svg' alt='' />
+                    <img src='/images/carbon_dark.svg' alt='' />
                   </div>
                   <div className='carbonEmmision'>
-                    <img src='../Images/trending-down.svg' alt='' />  
+                    <img src='/images/trending-down.svg' alt='' />  
                     <div className='d-flex mx-2'>
                     <span style={{color:"red"}}>20%</span>
                       <p className='mx-2' style={{color:"#555770;", fontWeight:"600"}}>tCO2e</p>
@@ -73,9 +73,9 @@ const ThreeContainers = () => {
 
                 <div className='mt-5'>
                   <div className='d-flex box_bottom-img'>
-                    <img src='../Images/tap.svg' alt='' className='img-fluid'/>
-                    <img src='../Images/electricTower.svg' alt='' className='img-fluid'/>
-                    <img src='../Images/windMill.svg' alt='' className='img-fluid' />
+                    <img src='/images/tap.svg' alt='' className='img-fluid'/>
+                    <img src='/images/electricTower.svg' alt='' className='img-fluid'/>
+                    <img src='/images/windMill.svg' alt='' className='img-fluid' />
                   </div>
                 </div>
               </div>
@@ -88,10 +88,10 @@ const ThreeContainers = () => {
               <div className="card-body">
                 <div className='d-flex align-items-center justify-content-between'>
                   <div>
-                    <img src='../Images/scop3Image.svg' alt='' />
+                    <img src='/images/scop3Image.svg' alt='' />
                   </div>
                   <div className='carbonEmmision'>
-                    <img src='../Images/trending-down.svg' alt='' />  
+                    <img src='/images/trending-down.svg' alt='' />  
                     <div className='d-flex mx-2'>
                     <span style={{color:"red"}}>70%</span>
                       <p className='mx-2' style={{color:"#555770;", fontWeight:"600"}}>tCO2e</p>
@@ -106,7 +106,7 @@ const ThreeContainers = () => {
 
                 <div className='mt-5'>
                   <div className='d-flex box_bottom-img'>
-                    <img src='../Images/crane.svg' alt='' className='img-fluid'/>
+                    <img src='/images/crane.svg' alt='' className='img-fluid'/>
                     
                   </div>
                 </div>
@@ -164,7 +164,7 @@ const ThreeContainers = () => {
     {/* <div className={styles.container}>
       <div className={styles.box}>
         <div className={styles.topRightText}>
-          <img src="../Images/trending-down.png" alt="Image" className={styles.icon} /> 
+          <img src="/images/trending-down.png" alt="Image" className={styles.icon} /> 
           <p className={styles.redText}>1%</p>
           <p>tCO2e</p>
         </div>
@@ -174,39 +174,39 @@ const ThreeContainers = () => {
         <p className={styles.text}>GHG Emissions 2,000 tCO2e</p>
         <p className={styles.smallText}>Project Package</p>
         <div className={styles.bottomLeftImages}>
-          <img src="../Images/yellow.png" alt="Left Image 1" className={styles.leftImage} />
-          <img src="../Images/image 17.png" alt="Left Image 2" className={styles.leftImage} />
+          <img src="/images/yellow.png" alt="Left Image 1" className={styles.leftImage} />
+          <img src="/images/image 17.png" alt="Left Image 2" className={styles.leftImage} />
         </div>
-        <img src="../Images/image 20.png" alt="Image 1" className={styles.image20} />
+        <img src="/images/image 20.png" alt="Image 1" className={styles.image20} />
       </div>
       <div className={styles.box}>
         <div className={styles.topRightText}>
-          <img src="../Images/trending-down.png" alt="Icon" className={styles.icon} />
+          <img src="/images/trending-down.png" alt="Icon" className={styles.icon} />
           <p className={styles.redText}>20%</p>
           <p>tCO2e</p>
         </div>
         <p className={styles.centeredText}>
           Indirect emissions associated with the consumption of purchased electricity, steam, heating, or cooling by the reporting entity
         </p>
-        <img src="../Images/image 21.png" alt="Image 2" className={styles.image21} />
+        <img src="/images/image 21.png" alt="Image 2" className={styles.image21} />
         <div className={styles.bottomLeftImages}>
-          <img src="../Images/secbox1.png" alt="Left Image 1" className={styles.leftImage} />
-          <img src="../Images/secbox2.png" alt="Left Image 2" className={styles.leftImage} />
-          <img src="../Images/secbox3.png" alt="Left Image 2" className={styles.leftImage} />
+          <img src="/images/secbox1.png" alt="Left Image 1" className={styles.leftImage} />
+          <img src="/images/secbox2.png" alt="Left Image 2" className={styles.leftImage} />
+          <img src="/images/secbox3.png" alt="Left Image 2" className={styles.leftImage} />
         </div>
       </div>
       <div className={styles.box}>
         <div className={styles.topRightText}>
-          <img src="../Images/trending-down.png" alt="Icon" className={styles.icon} /> 
+          <img src="/images/trending-down.png" alt="Icon" className={styles.icon} /> 
           <p className={styles.redText}>70%</p>
           <p>tCO2e</p>
         </div>
         <div className={styles.centeredText}>
           Emissions that occur in the organization’s value chain but they are not owned or controlled by the reporting entity
         </div>
-        <img src="../Images/image 22.png" alt="Image 3" className={styles.image22} />
+        <img src="/images/image 22.png" alt="Image 3" className={styles.image22} />
         <div className={styles.bottomLeftImages}>
-          <img src="../Images/thirdboximg.png" alt="Left Image 1" className={styles.leftImage} />
+          <img src="/images/thirdboximg.png" alt="Left Image 1" className={styles.leftImage} />
         </div>
       </div>
       <div className={styles.rectangle}></div> 
@@ -255,7 +255,7 @@ const ThreeContainers = () => {
 //             {/* Inner Circle */}
 //             <div style={{ width: '65%', height: '65%', borderRadius: '50%', border: '3px solid white', position: 'relative' }}>
 //               {/* Image */}
-//               <img src='../Images/co2img.png' alt="Image Missing" className={styles.co2png} />
+//               <img src='/images/co2img.png' alt="Image Missing" className={styles.co2png} />
 //             </div>
 //           </div>
 //         </div>
@@ -271,16 +271,16 @@ const ThreeContainers = () => {
 //       </div>
 
 //       {/* Image Section with green grass background */}
-//       <div style={{ height: '157px', position: 'relative', display: 'flex', alignItems: 'flex-end', backgroundImage: `url('../Images/grass.png')`, backgroundSize: 'auto 100%', backgroundRepeat: 'repeat-x', bottom: 0 }}>
-//         <img src="../Images/tree.png" alt="Image" style={{ position: 'absolute', bottom: 0, left: 0, height: '100px', width: '100px' }} />
+//       <div style={{ height: '157px', position: 'relative', display: 'flex', alignItems: 'flex-end', backgroundImage: `url('/images/grass.png')`, backgroundSize: 'auto 100%', backgroundRepeat: 'repeat-x', bottom: 0 }}>
+//         <img src="/images/tree.png" alt="Image" style={{ position: 'absolute', bottom: 0, left: 0, height: '100px', width: '100px' }} />
 //         {/* Second Image */}
-//         <img src="../Images/truck.png" alt="Image" style={{ position: 'absolute', bottom: 0, left: '120px', height: '100px', width: '100px' }} />
+//         <img src="/images/truck.png" alt="Image" style={{ position: 'absolute', bottom: 0, left: '120px', height: '100px', width: '100px' }} />
 //         {/* Third Image */}
-//         <img src="../Images/home.png" alt="Image" style={{ position: 'absolute', bottom: 0, left: '260px', height: '100px', width: '100px' }} />
+//         <img src="/images/home.png" alt="Image" style={{ position: 'absolute', bottom: 0, left: '260px', height: '100px', width: '100px' }} />
 //         {/* Fourth Image */}
-//         <img src="../Images/truck2.png" alt="Image" style={{ position: 'absolute', bottom: 0, left: '400px', height: '100px', width: '100px' }} />
+//         <img src="/images/truck2.png" alt="Image" style={{ position: 'absolute', bottom: 0, left: '400px', height: '100px', width: '100px' }} />
 //         {/* Fifth Image */}
-//         <img src="../Images/rightimg.png" alt="Image" style={{ position: 'absolute', bottom: 0, left: '530px', height: '100px', width: '100px' }} />
+//         <img src="/images/rightimg.png" alt="Image" style={{ position: 'absolute', bottom: 0, left: '530px', height: '100px', width: '100px' }} />
 //       </div>
 //     </div>
 //   );

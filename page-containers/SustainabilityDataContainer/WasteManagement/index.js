@@ -56,7 +56,7 @@ const WasteManagementChart =()=>{
           <div className="card-body">
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/resycled.svg" alt="" /></div>
+                <div><img src="/images/resycled.svg" alt="" /></div>
                 <div className="mx-2"><h4>Solid Waste Removed From Site</h4></div>
               </div>
               
@@ -79,7 +79,7 @@ const WasteManagementChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/Solid_Waste_Mgt.svg" alt="" /></div>
+                <div><img src="/images/Solid_Waste_Mgt.svg" alt="" /></div>
                 <div className="mx-2"><h4>Solid Waste Removed From Site </h4></div>
               </div>
               <div className="row mt-2">
@@ -156,7 +156,7 @@ const WasteManagementChart =()=>{
           <div className="card-body">
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/resycled.svg" alt="" /></div>
+                <div><img src="/images/resycled.svg" alt="" /></div>
                 <div className="mx-2"><h4>Liquid Waste Removed From Site</h4></div>
               </div>
               
@@ -180,7 +180,7 @@ const WasteManagementChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/Liquid_Waste_Mgt.svg" alt="" /></div>
+                <div><img src="/images/Liquid_Waste_Mgt.svg" alt="" /></div>
                 <div className="mx-2"><h4>Liquid Waste Removed From Site</h4></div>
               </div>
               <div className="row mt-2">
@@ -255,7 +255,7 @@ const WasteManagementChart =()=>{
           <div className="card-body">
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/resycled.svg" alt="" /></div>
+                <div><img src="/images/resycled.svg" alt="" /></div>
                 <div className="mx-2"><h4>Solid Waste Diverted from Disposal</h4></div>
               </div>
               
@@ -277,7 +277,7 @@ const WasteManagementChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/water_Consumption.png" alt="" /></div>
+                <div><img src="/images/water_Consumption.png" alt="" /></div>
                 <div className="mx-2"><h4>Solid Waste Diverted from Disposal</h4></div>
               </div>
               <div className="row mt-2">
@@ -400,7 +400,7 @@ const WasteManagementChart =()=>{
           <div className="card-body">
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/wasteDirected.png" alt="" /></div>
+                <div><img src="/images/wasteDirected.png" alt="" /></div>
                 <div className="mx-2"><h4>Solid Waste Directed to Disposal</h4></div>
               </div>
             
@@ -422,7 +422,7 @@ const WasteManagementChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/water_Consumption.png" alt="" /></div>
+                <div><img src="/images/water_Consumption.png" alt="" /></div>
                 <div className="mx-2"><h4>Solid Waste Diverted from Disposal</h4></div>
               </div>
               <div className="row mt-2">

@@ -155,7 +155,7 @@ const BuildingMaterialTable =()=>{
         <section>
                 <div className="d-flex align-items-center justify-content-between">
                     <div className="d-flex align-items-center">
-                    <img src="../Images/BuildingMaterials.png" alt="" />
+                    <img src="/images/BuildingMaterials.png" alt="" />
                     <h5 className="mx-2">Building Materials</h5>
                     </div>
                     <div>
@@ -190,7 +190,7 @@ const BuildingMaterialTable =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/BuildingMaterials_Modal.png" alt="" className="img-fluid"/>
+                            <img src="/images/BuildingMaterials_Modal.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>Building Materials</h4>
                              
@@ -312,7 +312,7 @@ const BuildingMaterialTable =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/BuildingMaterials_Modal.png" alt="" className="img-fluid"/>
+                            <img src="/images/BuildingMaterials_Modal.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>Building Materials</h4>
                              

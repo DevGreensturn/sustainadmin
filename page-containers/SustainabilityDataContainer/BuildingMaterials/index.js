@@ -78,7 +78,7 @@ const pieChartData5 = {
           <div className="card-body">
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/BuildingMaterials.png" alt="" /></div>
+                <div><img src="/images/BuildingMaterials.png" alt="" /></div>
                 <div className="mx-2"><h4>Material Purchased </h4></div>
               </div>
               
@@ -99,7 +99,7 @@ const pieChartData5 = {
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/Solid_Waste_Mgt.svg" alt="" /></div>
+                <div><img src="/images/Solid_Waste_Mgt.svg" alt="" /></div>
                 <div className="mx-2"><h4>Solid Waste Removed From Site</h4></div>
               </div>
               <div className="row mt-2">
@@ -172,7 +172,7 @@ const pieChartData5 = {
           <div className="card-body">
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/BuildingMaterials.png" alt="" /></div>
+                <div><img src="/images/BuildingMaterials.png" alt="" /></div>
                 <div className="mx-2"><h4>Material Purchased Type</h4></div>
               </div>
               
@@ -193,7 +193,7 @@ const pieChartData5 = {
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/Solid_Waste_Mgt.svg" alt="" /></div>
+                <div><img src="/images/Solid_Waste_Mgt.svg" alt="" /></div>
                 <div className="mx-2"><h4>Solid Waste Removed From Site</h4></div>
               </div>
               <div className="row mt-2">

@@ -34,7 +34,7 @@ const WaterComsuption =()=>{
           <div className="card-body">
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/water_Consumption.png" alt="" /></div>
+                <div><img src="/images/water_Consumption.png" alt="" /></div>
                 <div className="mx-2"><h4>Water Consumption</h4></div>
               </div>
               
@@ -59,7 +59,7 @@ const WaterComsuption =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/water_Consumption.png" alt="" /></div>
+                <div><img src="/images/water_Consumption.png" alt="" /></div>
                 <div className="mx-2"><h4>Water Consumption</h4></div>
               </div>
               <div className="row mt-2">

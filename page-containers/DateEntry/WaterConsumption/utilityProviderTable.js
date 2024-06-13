@@ -114,7 +114,7 @@ const Utilityprovidertable =()=>{
         <section>
                 <div className="d-flex align-items-center justify-content-between">
                     <div className="d-flex align-items-center">
-                    <img src="../Images/utilityProviderWater.png" alt="" />
+                    <img src="/images/utilityProviderWater.png" alt="" />
                     <h5 className="mx-2">Utility Provider Water</h5>
                     </div>
                     <div>
@@ -149,7 +149,7 @@ const Utilityprovidertable =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/WaterComsuption_Modal.png" alt="" className="img-fluid"/>
+                            <img src="/images/WaterComsuption_Modal.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>Water Consumption</h4>
                                 <h5>Non Renewable Sources</h5>
@@ -253,7 +253,7 @@ const Utilityprovidertable =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/WaterComsuption_Modal.png" alt="" className="img-fluid"/>
+                            <img src="/images/WaterComsuption_Modal.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>Water Consumption</h4>
                                 <h5>Non Renewable Sources</h5>

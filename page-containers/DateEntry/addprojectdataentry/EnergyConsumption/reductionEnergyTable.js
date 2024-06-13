@@ -85,7 +85,7 @@ const ReductionEnerguTable =()=>{
         <section>
                 <div className="d-flex align-items-center justify-content-between">
                     <div className="d-flex align-items-center">
-                    <img src="../Images/ReductionEnergyTable.png" alt="" />
+                    <img src="/images/ReductionEnergyTable.png" alt="" />
                     <h5 className="mx-2">Reduction of Energy Consumption</h5>
                     </div>
                     <div>
@@ -120,7 +120,7 @@ const ReductionEnerguTable =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/soldEnergy_Modal.png" alt="" className="img-fluid"/>
+                            <img src="/images/soldEnergy_Modal.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>Energy Consumption</h4>
                                 <h5>Reduction of Energy Consumption</h5>
@@ -205,7 +205,7 @@ const ReductionEnerguTable =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/soldEnergy_Modal.png" alt="" className="img-fluid"/>
+                            <img src="/images/soldEnergy_Modal.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>Energy Consumption</h4>
                                 <h5>Reduction of Energy Consumption</h5>

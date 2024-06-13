@@ -24,14 +24,14 @@ const SubscriptionPlan =()=>{
                                 
                                 <div>
                                     <ul className="list_pricing">
-                                        <li><img src="../Images/tik_success.png" alt="" className=""/> <span className="mx-3">Commercial License </span></li>
-                                        <li><img src="../Images/tik_success.png" alt=""/> <span className="mx-3">100+ HTML UI Elements</span></li>
-                                        <li><img src="../Images/tik_success.png" alt=""/> <span className="mx-3">01 Domain Support</span></li>
-                                        <li><img src="../Images/corss_secondary.png" alt=""/> <span className="mx-3">6 Month Premium Support</span></li>
-                                        <li><img src="../Images/corss_secondary.png" alt=""/> <span className="mx-3">Lifetime Updates</span></li>
+                                        <li><img src="/images/tik_success.png" alt="" className=""/> <span className="mx-3">Commercial License </span></li>
+                                        <li><img src="/images/tik_success.png" alt=""/> <span className="mx-3">100+ HTML UI Elements</span></li>
+                                        <li><img src="/images/tik_success.png" alt=""/> <span className="mx-3">01 Domain Support</span></li>
+                                        <li><img src="/images/corss_secondary.png" alt=""/> <span className="mx-3">6 Month Premium Support</span></li>
+                                        <li><img src="/images/corss_secondary.png" alt=""/> <span className="mx-3">Lifetime Updates</span></li>
                                     </ul>
                                     <div className="start_free_trial my-3">
-                                        <button type="btn" className="btn btn-outline-success">Start free Trail <img src="../Images/tail-right.png" alt="" style={{marginLeft:"45px"}}/></button>
+                                        <button type="btn" className="btn btn-outline-success">Start free Trail <img src="/images/tail-right.png" alt="" style={{marginLeft:"45px"}}/></button>
                                     </div>
                                     <div className="no_credit_required mt-3">
                                         <p>No credit card required</p>
@@ -53,14 +53,14 @@ const SubscriptionPlan =()=>{
                                 
                                 <div>
                                     <ul className="list_pricing">
-                                        <li><img src="../Images/tik_success.png" alt="" className=""/> <span className="mx-3">Commercial License </span></li>
-                                        <li><img src="../Images/tik_success.png" alt=""/> <span className="mx-3">100+ HTML UI Elements</span></li>
-                                        <li><img src="../Images/tik_success.png" alt=""/> <span className="mx-3">01 Domain Support</span></li>
-                                        <li><img src="../Images/tik_success.png" alt=""/> <span className="mx-3">6 Month Premium Support</span></li>
-                                        <li><img src="../Images/corss_secondary.png" alt=""/> <span className="mx-3">Lifetime Updates</span></li>
+                                        <li><img src="/images/tik_success.png" alt="" className=""/> <span className="mx-3">Commercial License </span></li>
+                                        <li><img src="/images/tik_success.png" alt=""/> <span className="mx-3">100+ HTML UI Elements</span></li>
+                                        <li><img src="/images/tik_success.png" alt=""/> <span className="mx-3">01 Domain Support</span></li>
+                                        <li><img src="/images/tik_success.png" alt=""/> <span className="mx-3">6 Month Premium Support</span></li>
+                                        <li><img src="/images/corss_secondary.png" alt=""/> <span className="mx-3">Lifetime Updates</span></li>
                                     </ul>
                                     <div className="start_free_trial my-3">
-                                        <button type="btn" className="btn btn-outline-success">Start free Trail <img src="../Images/tail-right.png" alt="" style={{marginLeft:"45px"}}/></button>
+                                        <button type="btn" className="btn btn-outline-success">Start free Trail <img src="/images/tail-right.png" alt="" style={{marginLeft:"45px"}}/></button>
                                     </div>
                                     <div className="no_credit_required mt-3">
                                         <p>No credit card required</p>
@@ -80,14 +80,14 @@ const SubscriptionPlan =()=>{
                                 
                                 <div>
                                     <ul className="list_pricing">
-                                        <li><img src="../Images/tik_success.png" alt="" className=""/> <span className="mx-3">Commercial License </span></li>
-                                        <li><img src="../Images/tik_success.png" alt=""/> <span className="mx-3">100+ HTML UI Elements</span></li>
-                                        <li><img src="../Images/tik_success.png" alt=""/> <span className="mx-3">01 Domain Support</span></li>
-                                        <li><img src="../Images/tik_success.png" alt=""/> <span className="mx-3">6 Month Premium Support</span></li>
-                                        <li><img src="../Images/tik_success.png" alt=""/> <span className="mx-3">Lifetime Updates</span></li>
+                                        <li><img src="/images/tik_success.png" alt="" className=""/> <span className="mx-3">Commercial License </span></li>
+                                        <li><img src="/images/tik_success.png" alt=""/> <span className="mx-3">100+ HTML UI Elements</span></li>
+                                        <li><img src="/images/tik_success.png" alt=""/> <span className="mx-3">01 Domain Support</span></li>
+                                        <li><img src="/images/tik_success.png" alt=""/> <span className="mx-3">6 Month Premium Support</span></li>
+                                        <li><img src="/images/tik_success.png" alt=""/> <span className="mx-3">Lifetime Updates</span></li>
                                     </ul>
                                     <div className="start_free_trial my-3">
-                                        <button type="btn" className="btn btn-outline-success">Start free Trail <img src="../Images/tail-right.png" alt="" style={{marginLeft:"45px"}}/></button>
+                                        <button type="btn" className="btn btn-outline-success">Start free Trail <img src="/images/tail-right.png" alt="" style={{marginLeft:"45px"}}/></button>
                                     </div>
                                     <div className="no_credit_required mt-3">
                                         <p>No credit card required</p>

@@ -89,7 +89,7 @@ const BottledWaterTable =()=>{
         <section>
                 <div className="d-flex align-items-center justify-content-between">
                     <div className="d-flex align-items-center">
-                    <img src="../Images/bottled_water.png" alt="" />
+                    <img src="/images/bottled_water.png" alt="" />
                     <h5 className="mx-2">Bottled Water</h5>
                     </div>
                     <div>
@@ -124,7 +124,7 @@ const BottledWaterTable =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/bottled_water_Modal.png" alt="" className="img-fluid"/>
+                            <img src="/images/bottled_water_Modal.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>Water Consumption</h4>
                                 <h5>Bottled Water</h5>
@@ -213,7 +213,7 @@ const BottledWaterTable =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/bottled_water_Modal.png" alt="" className="img-fluid"/>
+                            <img src="/images/bottled_water_Modal.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>Water Consumption</h4>
                                 <h5>Bottled Water</h5>

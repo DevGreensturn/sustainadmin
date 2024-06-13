@@ -104,7 +104,7 @@ const WasteManagementTable =()=>{
         <section>
                 <div className="d-flex align-items-center justify-content-between">
                     <div className="d-flex align-items-center">
-                    <img src="../Images/wasteManagement.png" alt="" />
+                    <img src="/images/wasteManagement.png" alt="" />
                     <h5 className="mx-2">Waste Management</h5>
                     </div>
                     <div>
@@ -139,7 +139,7 @@ const WasteManagementTable =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/wasteManagement_Modal.png" alt="" className="img-fluid"/>
+                            <img src="/images/wasteManagement_Modal.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>Waste Management</h4>
                              
@@ -246,7 +246,7 @@ const WasteManagementTable =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/wasteManagement_Modal.png" alt="" className="img-fluid"/>
+                            <img src="/images/wasteManagement_Modal.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>Waste Management</h4>
                              

@@ -15,7 +15,7 @@ const BuildingMaterial =()=>{
             <div className="col-md-12">
                 <div className="d-flex align-items-center justify-content-between">
                 <div className="d-flex align-items-center">
-                <img src="../Images/BuildingMaterials.png" alt="" className="img-fluid"/>
+                <img src="/images/BuildingMaterials.png" alt="" className="img-fluid"/>
                 <div className="mx-2">
                     <h4>Building Material</h4>
                 </div>

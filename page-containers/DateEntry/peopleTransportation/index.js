@@ -17,7 +17,7 @@ const PeopleTransportation =()=>{
             <div className="col-md-12">
                 <div className="d-flex align-items-center justify-content-between">
                 <div className="d-flex align-items-center">
-                <img src="../Images/PeopleTransportation.png" alt="" className="img-fluid"/>
+                <img src="/images/PeopleTransportation.png" alt="" className="img-fluid"/>
                 <div className="mx-2">
                     <h4>PeopleTransportation</h4>
                 </div>

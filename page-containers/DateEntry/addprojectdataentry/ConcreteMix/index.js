@@ -14,7 +14,7 @@ const ConcereteMix =()=>{
             <div className="col-md-12">
                 <div className="d-flex align-items-center justify-content-between">
                 <div className="d-flex align-items-center">
-                <img src="../Images/ConcentrixMix.png" alt="" className="img-fluid"/>
+                <img src="/images/ConcentrixMix.png" alt="" className="img-fluid"/>
                 <div className="mx-2">
                     <h4>Concrete Mix</h4>
                 </div>

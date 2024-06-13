@@ -59,7 +59,7 @@ const EmissionManagementChart =()=>{
           <div className="card-body">
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/ConstructionImg.svg" alt="" /></div>
+                <div><img src="/images/ConstructionImg.svg" alt="" /></div>
                 <div className="mx-2"><h4>Construction Emission</h4></div>
               </div>
               
@@ -80,7 +80,7 @@ const EmissionManagementChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/Emission.svg" alt="" /></div>
+                <div><img src="/images/Emission.svg" alt="" /></div>
                 <div className="mx-2"><h4>Monthly Construction Emission</h4></div>
               </div>
               <div className="row mt-2">
@@ -152,7 +152,7 @@ const EmissionManagementChart =()=>{
           <div className="card-body">
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/TranspotaionImssion.svg" alt="" /></div>
+                <div><img src="/images/TranspotaionImssion.svg" alt="" /></div>
                 <div className="mx-2"><h4>Transportation Emission</h4></div>
               </div>
             
@@ -174,7 +174,7 @@ const EmissionManagementChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/Emission.svg" alt="" /></div>
+                <div><img src="/images/Emission.svg" alt="" /></div>
                 <div className="mx-2"><h4>Monthly Transportation Emission</h4></div>
               </div>
               <div className="row mt-2">
@@ -248,7 +248,7 @@ const EmissionManagementChart =()=>{
           <div className="card-body">
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/TranspotaionImssion.svg" alt="" /></div>
+                <div><img src="/images/TranspotaionImssion.svg" alt="" /></div>
                 <div className="mx-2"><h4> Emission</h4></div>
               </div>
             
@@ -270,7 +270,7 @@ const EmissionManagementChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="../Images/Emission.svg" alt="" /></div>
+                <div><img src="/images/Emission.svg" alt="" /></div>
                 <div className="mx-2"><h4>Emission</h4></div>
               </div>
               <div className="row mt-2">

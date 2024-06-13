@@ -169,7 +169,7 @@ const ConcentrixMixTable =()=>{
         <section>
                 <div className="d-flex align-items-center justify-content-between">
                     <div className="d-flex align-items-center">
-                    <img src="../Images/concereteMix.png" alt="" />
+                    <img src="/images/concereteMix.png" alt="" />
                     <h5 className="mx-2">Concerete Mix</h5>
                     </div>
                     <div>
@@ -204,7 +204,7 @@ const ConcentrixMixTable =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/ConcentrixMix_Modal.png" alt="" className="img-fluid"/>
+                            <img src="/images/ConcentrixMix_Modal.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>Concerete Mix</h4>
                              
@@ -341,7 +341,7 @@ const ConcentrixMixTable =()=>{
                         <>
                        <div>
                         <div className="d-flex align-items-center">
-                            <img src="../Images/ConcentrixMix_Modal.png" alt="" className="img-fluid"/>
+                            <img src="/images/ConcentrixMix_Modal.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>Concerete Mix</h4>
                              
