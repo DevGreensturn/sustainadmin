@@ -116,46 +116,177 @@ const ThreeContainers = () => {
           </div>
         </div>
         
-        <div className='row my-3 p-2'>
+        <div className='row my-0 p-2'>
           <div className='col-md-12'>
           <div className="card" style={{border:"0px", borderRadius:"20px"}}>
             <div className="card-body">
-              <div className='Emission_carbon-percent'>
-              <div class="box-container">
-                  <div class="box">50%</div>
-                  <div class="box">50%</div>                  
+           
+            <div className="breakfastSchedule">
+                <div className="d-flex">
+                <div className="dailySchduleBox">
+                  <div className='box-value'>
+                    <p>50%</p>
+                  </div>
+
+                    <div className="programedetails mt-4">
+                        <h5>Concrete Mix</h5>
+                    </div>
+
+                    <div className="programedetails mt-4">
+                        <div>
+                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <h5>1,000</h5>
+                          <span>tCO2e</span>
+                        </div>
+                    </div>
                 </div>
                 
+                <div className="dailySchduleBox">
+                <div className='box-value'>
+                    <p>5%</p>
+                    </div>
 
-                {/* <div class="box-container">
-                  <div class="box">5%</div>
-                </div> */}
+                    <div className="programedetails mt-4">
+                        <h5>Logistics</h5>
+                    </div>
+
+                    <div className="programedetails mt-4">
+                        <div>
+                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <h5>1,000</h5>
+                          <span>tCO2e</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="dailySchduleBox">
+                <div className='box-value'>
+                    <p>5%</p>
+                    </div>
+                    <div className="programedetails mt-4">
+                        <h5>People <br />Transportation</h5>
+                    </div>
+                    <div className="programedetails mt-4">
+                        <div>
+                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <h5>1,000</h5>
+                          <span>tCO2e</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="dailySchduleBox">
+                <div className='box-value'>
+                    <p>5%</p>
+                    </div>
+                    <div className="programedetails mt-4">
+                        <h5>Energy by <br />Utility provider</h5>
+                    </div>
+                    <div className="programedetails mt-4">
+                        <div>
+                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <h5>1,000</h5>
+                          <span>tCO2e</span>
+                        </div>
+                    </div>
+                </div>
                 
-                {/* <div class="box-container">
-                  <div class="box">5%</div>
-                </div> */}
+                <div className="dailySchduleBox">
+                <div className='box-value'>
+                    <p>5%</p>
+                    </div>
 
-                {/* <div class="box-container">
-                  <div class="box">5%</div>
-                </div> */}
-                
-                {/* <div class="box-container">
-                  <div class="box">5%</div>
-                </div> */}
+                    <div className="programedetails mt-4">
+                        <h5>Energy by <br />Non-Renewable<br />Sources</h5>
+                    </div>
 
-                {/* <div class="box-container">
-                  <div class="box">10%</div>
-                </div> */}
+                    <div className="programedetails mt-4">
+                        <div>
+                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <h5>1,000</h5>
+                          <span>tCO2e</span>
+                        </div>
+                    </div>
+                </div>
 
-                {/* <div class="box-container">
-                  <div class="box">10%</div>
-                </div> */}
+                <div className="dailySchduleBox">
+                <div className='box-value'>
+                      <p>5%</p>
+                    </div>
+                    <div className="programedetails mt-4">
+                        <h5>Energy by <br />Renewable<br />Sources</h5>
+                    </div>
 
-                {/* <div class="box-container">
-                  <div class="box">10%</div>
-                </div> */}
+                    <div className="programedetails mt-4">
+                        <div>
+                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <h5>1,000</h5>
+                          <span>tCO2e</span>
+                        </div>
+                    </div>
 
-              </div>
+                </div>
+
+                <div className="dailySchduleBox">
+                <div className='box-value'>
+                     <p>10%</p>
+                    </div>
+
+                    <div className="programedetails mt-4">
+                        <h5>Water<br />Consumption</h5>
+                    </div>
+                    <div className="programedetails mt-4">
+                        <div>
+                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <h5>1,000</h5>
+                          <span>tCO2e</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="dailySchduleBox">
+                <div className='box-value'>
+                  <p>10%</p>
+                    </div>
+
+                    <div className="programedetails mt-4">
+                        <h5>Waste</h5>
+                    </div>
+                    <div className="programedetails mt-4">
+                        <div>
+                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <h5>1,000</h5>
+                          <span>tCO2e</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="dailySchduleBox">
+                <div className='box-value'>
+                  <p>10%</p>
+                    </div>
+
+                    <div className="programedetails mt-4">
+                        <h5>Building Material</h5>
+                    </div>
+
+                    <div className="programedetails mt-4">
+                        <div>
+                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <h5>1,000</h5>
+                          <span>tCO2e</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                </div>
+            </div>
+           
+
+              {/* <div className='Emission_carbon-percent'>
+             
+              </div> */}
             </div>
           </div>
           </div>
