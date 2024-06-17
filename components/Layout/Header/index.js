@@ -256,7 +256,7 @@ const handleLogOut = (e) => {
                   </div>
                 </div>
                 <div className="d-flex justify-content-between mt-4">
-                  <div style={{cursor:"pointer"}}>Don't Have an Account?</div>
+                  <div style={{cursor:"pointer"}}>Don{"'"}t Have an Account?</div>
                   <div>
                     <button type="button" className="btn btn-outline-success">Create Account</button>
                   </div>
