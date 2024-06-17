@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import storage from "../../../comman/localstorage";
 import Dropdown from "react-bootstrap/Dropdown";
 import { validateEmail,isValid } from "../../../comman/helper";
+import Link from "next/link";
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -104,7 +105,7 @@ const handleLogOut = (e) => {
         <div className="container-fluid">
           <div className="headerSection">
             <div className="d-flex align-items-center my-3">
-              <div><img src="/images/companyLogo.svg" alt="" /></div>
+              <Link href="/"><div><img src="/Images/companyLogo.svg" alt="" /></div></Link>
               <div className="d-flex align-items-center mx-5" style={{cursor:"pointer"}}>
                 <img src="/images/tripplehiphen.svg" alt="" />
                 <input
@@ -173,7 +174,7 @@ const handleLogOut = (e) => {
             </div>
           </div>
         </div>
-        <Modal show={show} onHide={handleClose} backdrop="static" centered>
+        <Modal show={show} onHide={handleClose} backdrop="static" centered >
           <Modal.Header closeButton style={{ border: "0" }}>
           </Modal.Header>
           <Modal.Body className="loginSection">
@@ -198,13 +199,13 @@ const handleLogOut = (e) => {
 
                 </div>
                 {apiErrors.message && apiErrors.message.email && (
-  <span
-    className="text-danger mb-2 d-block"
-    style={{ fontSize: "14px" }}
-  >
-    {apiErrors.message.email}
-  </span>
-)}
+                    <span
+                      className="text-danger mb-2 d-block"
+                      style={{ fontSize: "14px" }}
+                    >
+                      {apiErrors.message.email}
+                    </span>
+                  )}
                 <div className="text-field w100p">
                   <input
                     className="text-base w100p"
@@ -234,11 +235,11 @@ const handleLogOut = (e) => {
                     <div className="my-3">
                       <button
                         type="button"
-                        className="btn btn-success customeLogin"
+                        className="btn btn-outline-success"
                         style={{ width: "100%" }}
                         onClick={handleLogin}
                       >
-                        Login <img src="/images/arrow-right.png" alt="" />
+                        Login &#x2192;
                       </button>
                     </div>
                   </div>
@@ -249,13 +250,13 @@ const handleLogOut = (e) => {
                       <span className="loginWith_Section">or login with</span>
                     </div>
                     <div className="d-flex justify-content-evenly mt-3">
-                      <button type="button" className="btn btn-outline-primary p-1 mx-3"><img src="/images/icons8-microsoft-365.svg" alt="" /></button>
-                      <button type="button" className="btn btn-outline-primary p-1"><img src="/images/icons8-google.svg" alt="" /></button>
+                      <div><img src="/images/icons8-microsoft-365.svg" alt="" className="img-fluid"/></div>
+                      <img src="/images/icons8-google.svg" alt="" className="img-fluid"/>
                     </div>
                   </div>
                 </div>
                 <div className="d-flex justify-content-between mt-4">
-                  <div></div>
+                  <div style={{cursor:"pointer"}}>Don't Have an Account?</div>
                   <div>
                     <button type="button" className="btn btn-outline-success">Create Account</button>
                   </div>

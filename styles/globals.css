@@ -296,18 +296,51 @@ margin-right: 15px;
   justify-content: space-between;
 }
 /* ================================== */
-.box-container {
-  max-width: 200px;
+
+.academyDaily {
+  display: flex;
+  justify-content: center;
 }
-.box-container::before,
-.box-container::after {
-  content: "";
-  flex: 1;
-  border-bottom: 1px solid #000;
-  margin: 0 10px;
+.dailySchduleBox {
+  margin: 0 24px;
+  text-align: center;
 }
-.box {
-  padding: 5px 40px;
+.dailySchduleBox{
+  position: relative;
+  border-radius: 5px;
+}
+
+.dailySchduleBox div.box-value {
+  height: 30px;
+  width: 100px;
+  position: relative;
+  text-align: center;
   border: 1px solid #000;
-  border-radius: 8px;
+  border-radius: 5px;
+}
+.dailySchduleBox div.box-value::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 47px;
+  height: 2px;
+  margin-top: -1px;
+  /* background: linear-gradient(90deg, #01a3f4 40%, #6fa515 60%); */
+  background-color: #000;
+}
+
+.academyDaily {
+  display: flex;
+  justify-content: center;
+}
+
+
+.programedetails h6 {
+  font-weight: 300;
+  font-size: 14px;
+}
+.programedetails h5 {
+  font-weight: 500;
+  font-size: 14px;
 }
