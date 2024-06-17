@@ -1,6 +1,11 @@
 import React, {useState} from "react";
 
 import WasteManagementTable from "./wasteManagementTable";
+import WasteDirected from "../WasteDiredted/wasteDirectedTable";
+
+import WasteDiverted from "../WasteDiverted/wasteDivertedTable";
+
+
 
 
 const WasteManagement =()=>{
@@ -33,7 +38,14 @@ const WasteManagement =()=>{
            <div className="row mt-3">
             <div className="col-md-12">
                 <div className="mb-0">
-                    <WasteManagementTable />
+                    {/* <WasteManagementTable /> */}
+                    <WasteDirected />
+                    
+
+                <div className="mt-5">
+                <hr />
+                    <WasteDiverted />
+                </div>
                 </div>
             </div>
            </div>

@@ -32,6 +32,11 @@ const WasteDivertedTable =()=>{
             wrap:"true"
         },
         {
+            name: <b className="text-center">Main Collection <br />Company</b>,
+            selector: (row) => row.MainCollection,
+            wrap:"true"
+        },
+        {
             name: <b className="text-center">Disposal Operation Type</b>,
             selector: (row) => row.MainCollection,
             wrap:"true"
@@ -52,7 +57,11 @@ const WasteDivertedTable =()=>{
             selector: (row) => row.NoOfTrips,
             wrap:"true"
         },
-        
+        {
+            name: <div><b>Fuel Used By</b><br /> Trucks(litres)(one full trip, from source)</div>,
+            selector: (row) => row.FuelUsedBy,
+            wrap:"true"
+        },
         {
             name: <b className="text-center">Supporting Document</b>,
             selector: (row) => row.SupportingDocument,
