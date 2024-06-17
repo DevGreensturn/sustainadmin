@@ -27,7 +27,7 @@
 }
 .showPasswordLogin {
   position: absolute;
-  bottom: 12px;
+  bottom: 0px;
   right: 0px;
 }
 
@@ -49,9 +49,9 @@
   /* border-style: solid; */
   border-color: 1px solid #e2e2e2;
   border-radius: 5px;
-  width: 100%;
+  /* width: 100%; */
   padding: 10px;
-  height: 40px;
+  /* height: 40px; */
   font-size: 20px;
   font-weight: 500;
   color: #393f51;
@@ -90,7 +90,7 @@
   );
 }
 .adminLoginBox form {
-  max-width: 322px;
+  /* max-width: 322px; */
   margin: 0 auto;
 }
 .or {
@@ -2017,7 +2017,7 @@ input:-moz-placeholder {
 .selectDate input {
   border: 1px solid #ccc;
   border-radius: 5px;
-  height: 40px;
+  /* height: 40px; */
   padding: 5px 10px;
   background: url(../../../../../public/Images/dateIcon.svg) #fff no-repeat;
   background-position: 96% 8px;
