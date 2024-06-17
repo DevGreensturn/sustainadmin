@@ -136,7 +136,7 @@ const ThreeContainers = () => {
                           <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
-                          <span>tCO2e</span>
+                          <span style={{fontWeight:"600"}}>tCO2e</span>
                           </div>
                         </div>
                     </div>
@@ -156,7 +156,7 @@ const ThreeContainers = () => {
                           <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
-                          <span>tCO2e</span>
+                          <span style={{fontWeight:"600"}}>tCO2e</span>
                           </div>
                         </div>
                     </div>
@@ -174,7 +174,7 @@ const ThreeContainers = () => {
                           <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
-                          <span>tCO2e</span>
+                          <span style={{fontWeight:"600"}}>tCO2e</span>
                           </div>
                         </div>
                     </div>
@@ -192,7 +192,7 @@ const ThreeContainers = () => {
                           <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
-                          <span>tCO2e</span>
+                          <span style={{fontWeight:"600"}}>tCO2e</span>
                           </div>
                         </div>
                     </div>
@@ -212,7 +212,7 @@ const ThreeContainers = () => {
                           <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
-                          <span>tCO2e</span>
+                          <span style={{fontWeight:"600"}}>tCO2e</span>
                           </div>
                         </div>
                     </div>
@@ -231,7 +231,7 @@ const ThreeContainers = () => {
                           <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
-                          <span>tCO2e</span>
+                          <span style={{fontWeight:"600"}}>tCO2e</span>
                           </div>
                         </div>
                     </div>
@@ -251,7 +251,7 @@ const ThreeContainers = () => {
                           <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
-                          <span>tCO2e</span>
+                          <span style={{fontWeight:"600"}}>tCO2e</span>
                           </div>
                         </div>
                     </div>
@@ -270,7 +270,7 @@ const ThreeContainers = () => {
                           <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
-                          <span>tCO2e</span>
+                          <span style={{fontWeight:"600"}}>tCO2e</span>
                           </div>
                         </div>
                     </div>
@@ -289,7 +289,7 @@ const ThreeContainers = () => {
                           <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
-                          <span>tCO2e</span>
+                          <span style={{fontWeight:"600"}}>tCO2e</span>
                         </div>
                         </div>
                     </div>

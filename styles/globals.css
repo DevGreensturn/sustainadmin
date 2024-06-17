@@ -244,6 +244,7 @@ span.signUpWith_Section {
   text-align: center;
   padding: 15px 0px;
   border-radius: 5px;
+  width: 45%;
 }
 .loginWith_button:hover{
   border: 1px solid #515DEF;
@@ -254,6 +255,7 @@ span.signUpWith_Section {
   color: #000;
   opacity: .6;
 }
+
 /* =========Hide & Show Password========== */
 .togglePasswordVisibility{
   position: absolute;
