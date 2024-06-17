@@ -146,14 +146,14 @@ const handleLogOut = (e) => {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu className="userLoginsection">
-                            <Dropdown.Item onClick={handleLogOut}>
+                            {/* <Dropdown.Item onClick={handleLogOut}>
                                 <img
                                   src="/Images/sign out.svg"
                                   alt=""
                                   className="mx-2"
                                 />{" "}
                                 Sign Out
-                              </Dropdown.Item>
+                              </Dropdown.Item> */}
                              
                             </Dropdown.Menu>
                           </Dropdown>
