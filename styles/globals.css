@@ -302,31 +302,71 @@ margin-right: 15px;
   justify-content: center;
 }
 .dailySchduleBox {
-  margin: 0 24px;
+  margin: 0 40px;
   text-align: center;
-}
-.dailySchduleBox{
   position: relative;
-  border-radius: 5px;
 }
-
+.greenDot{
+  font-size: 25px;
+  color: #00AD3B;
+}
 .dailySchduleBox div.box-value {
-  height: 30px;
+  height: 40px;
   width: 100px;
   position: relative;
   text-align: center;
   border: 1px solid #000;
   border-radius: 5px;
+  line-height: 38px;
 }
 .dailySchduleBox div.box-value::after {
   content: "";
   position: absolute;
   top: 50%;
   left: 100%;
-  width: 47px;
+  width: 83%;
   height: 2px;
   margin-top: -1px;
-  /* background: linear-gradient(90deg, #01a3f4 40%, #6fa515 60%); */
+  background-color: #000;
+}
+
+.dailySchduleBox div.box-value-first {
+  height: 40px;
+  width: 100px;
+  position: relative;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 5px;
+  line-height: 38px;
+}
+.dailySchduleBox div.box-value-first::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: 53%;
+  height: 2px;
+  margin-top: -1px;
+  background-color: #000;
+}
+
+
+.dailySchduleBox div.box-value-last {
+  height: 40px;
+  width: 100px;
+  position: relative;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+.dailySchduleBox div.box-value-last::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 50%;
+  height: 2px;
+  margin-top: -1px;
   background-color: #000;
 }
 
@@ -334,8 +374,6 @@ margin-right: 15px;
   display: flex;
   justify-content: center;
 }
-
-
 .programedetails h6 {
   font-weight: 300;
   font-size: 14px;
