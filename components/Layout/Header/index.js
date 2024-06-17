@@ -99,6 +99,17 @@ const handleLogOut = (e) => {
   handleLogOutShow();
   navigate.push("/")
 };
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div>
       <header>
@@ -207,16 +218,26 @@ const handleLogOut = (e) => {
                     </span>
                   )}
                 <div className="text-field w100p">
+                  <div className="position-relative">
                   <input
                     className="text-base w100p"
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     required
                     placeholder=" "
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
+
+                  <div className="togglePasswordVisibility" onClick={togglePasswordVisibility}>
+                    <div>
+                          {showPassword ? (<img src="/Images/showPassword.png" alt="" className="img-fluid"/>) : (<img src="/Images/hidePassword.png" alt="" className="img-fluid"/>)}
+                        </div>
+                  </div>
+                  </div>
                   <span>Password *</span>
                 </div>
+
+
                 <div className="d-flex justify-content-between my-3">
                   <div>
                     <div className="form-check">
@@ -235,7 +256,7 @@ const handleLogOut = (e) => {
                     <div className="my-3">
                       <button
                         type="button"
-                        className="btn btn-outline-success"
+                        className="btn btn-success"
                         style={{ width: "100%" }}
                         onClick={handleLogin}
                       >
@@ -250,8 +271,8 @@ const handleLogOut = (e) => {
                       <span className="loginWith_Section">or login with</span>
                     </div>
                     <div className="d-flex justify-content-evenly mt-3">
-                      <div><img src="/images/icons8-microsoft-365.svg" alt="" className="img-fluid"/></div>
-                      <img src="/images/icons8-google.svg" alt="" className="img-fluid"/>
+                      <div className="loginWith_button"><img src="/Images/icons8-microsoft-365.svg" alt="" className="img-fluid"/></div>
+                      <div className="loginWith_button"><img src="/Images/icons8-google.svg" alt="" className="img-fluid"/></div>
                     </div>
                   </div>
                 </div>
