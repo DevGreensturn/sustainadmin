@@ -69,8 +69,8 @@ const AddprojectEntry =()=>{
                    <ConcereteMix />
                    <BuildingMaterial />
                    <WasteManagement />
-                   <WasteDirected />
-                   <WasteDiverted />
+                   {/* <WasteDirected />
+                   <WasteDiverted /> */}
                    <PeopleTransportation/>
                 </div>
             </div>

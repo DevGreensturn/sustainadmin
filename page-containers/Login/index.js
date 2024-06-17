@@ -113,7 +113,7 @@ function Login() {
                         />
                         <div className="showPasswordLogin">
                           <span onClick={() => setShowPassword(!showPassword)} style={{ cursor: "pointer" }}>
-                            {showPassword ? "Hide" : "Show"}
+                          {showPassword ?  <img src='/images/eye.svg' alt='' /> :  <img src='/images/eyeClose.svg' alt='' />}
                           </span>
                         </div>
                       </div>

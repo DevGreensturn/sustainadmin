@@ -116,7 +116,7 @@ const handleLogOut = (e) => {
         <div className="container-fluid">
           <div className="headerSection">
             <div className="d-flex align-items-center my-3">
-              <Link href="/"><div><img src="/Images/companyLogo.svg" alt="" /></div></Link>
+              <Link href="/"><div><img src="/images/companyLogo.svg" alt="" /></div></Link>
               <div className="d-flex align-items-center mx-5" style={{cursor:"pointer"}}>
                 <img src="/images/tripplehiphen.svg" alt="" />
                 <input
@@ -157,14 +157,14 @@ const handleLogOut = (e) => {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu className="userLoginsection">
-                            <Dropdown.Item onClick={handleLogOut}>
+                            {/* <Dropdown.Item onClick={handleLogOut}>
                                 <img
                                   src="/Images/sign out.svg"
                                   alt=""
                                   className="mx-2"
                                 />{" "}
                                 Sign Out
-                              </Dropdown.Item>
+                              </Dropdown.Item> */}
                              
                             </Dropdown.Menu>
                           </Dropdown>

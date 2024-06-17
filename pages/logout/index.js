@@ -1,13 +1,13 @@
 import Layout from "@/components/Layout"
 import Header from "@/components/Layout/Header"
-// import SuppliersListContainer from "@/page-containers/SuppliersListContainer"
-
+import Logout  from "../../page-containers/Logout/index"
 const Dashboard=({childern})=> {
   return (
     <>
    <Header/>
    <Layout>
     <div >
+      <Logout/>
     </div>
    </Layout>
     </>

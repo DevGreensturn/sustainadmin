@@ -133,7 +133,7 @@ const ThreeContainers = () => {
 
                     <div className="programedetails mt-4">
                         <div>
-                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <img src='images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
                           <span style={{fontWeight:"600"}}>tCO2e</span>
@@ -153,7 +153,7 @@ const ThreeContainers = () => {
 
                     <div className="programedetails mt-4">
                         <div>
-                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <img src='images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
                           <span style={{fontWeight:"600"}}>tCO2e</span>
@@ -171,7 +171,7 @@ const ThreeContainers = () => {
                     </div>
                     <div className="programedetails mt-4">
                         <div>
-                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <img src='images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
                           <span style={{fontWeight:"600"}}>tCO2e</span>
@@ -189,7 +189,7 @@ const ThreeContainers = () => {
                     </div>
                     <div className="programedetails mt-4">
                         <div>
-                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <img src='images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
                           <span style={{fontWeight:"600"}}>tCO2e</span>
@@ -209,7 +209,7 @@ const ThreeContainers = () => {
 
                     <div className="programedetails mt-4">
                         <div>
-                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <img src='images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
                           <span style={{fontWeight:"600"}}>tCO2e</span>
@@ -228,7 +228,7 @@ const ThreeContainers = () => {
 
                     <div className="programedetails mt-4">
                         <div>
-                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <img src='images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
                           <span style={{fontWeight:"600"}}>tCO2e</span>
@@ -248,7 +248,7 @@ const ThreeContainers = () => {
                     </div>
                     <div className="programedetails mt-4">
                         <div>
-                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <img src='images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
                           <span style={{fontWeight:"600"}}>tCO2e</span>
@@ -267,7 +267,7 @@ const ThreeContainers = () => {
                     </div>
                     <div className="programedetails mt-4">
                         <div>
-                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <img src='images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
                           <span style={{fontWeight:"600"}}>tCO2e</span>
@@ -286,7 +286,7 @@ const ThreeContainers = () => {
 
                     <div className="programedetails mt-4">
                         <div>
-                          <img src='../Images/imageco.svg' alt='' className='img-fluid'/>
+                          <img src='images/imageco.svg' alt='' className='img-fluid'/>
                           <div className='mt-3'>
                           <h5>1,000</h5>
                           <span style={{fontWeight:"600"}}>tCO2e</span>
