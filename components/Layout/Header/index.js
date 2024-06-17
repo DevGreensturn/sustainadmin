@@ -105,7 +105,7 @@ const handleLogOut = (e) => {
         <div className="container-fluid">
           <div className="headerSection">
             <div className="d-flex align-items-center my-3">
-              <Link href="/"><div><img src="/Images/companyLogo.svg" alt="" /></div></Link>
+              <Link href="/"><div><img src="/images/companyLogo.svg" alt="" /></div></Link>
               <div className="d-flex align-items-center mx-5" style={{cursor:"pointer"}}>
                 <img src="/images/tripplehiphen.svg" alt="" />
                 <input
