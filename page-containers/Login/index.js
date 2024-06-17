@@ -83,7 +83,7 @@ function Login() {
               <div className="row" style={{ marginTop: "200px" }}>
                 <div className="col-md-12">
                   
-                  <div className="py-5 ps-4 pe-3">
+                  <div className="mt-5 ps-4 pe-3">
                     <h1>Login</h1>
                     <h6>Enter Your Email & Password</h6>
                     
@@ -133,7 +133,7 @@ function Login() {
                         
                         <div className="mb-3">
                           <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                          <label className="form-check-label mx-2 mt-1" for="exampleCheck1">Check me out</label>
+                          <label className="form-check-label mx-2 mt-1" for="exampleCheck1" style={{cursor:"pointer", color:"#999BA1"}}> Check me out</label>
                         </div>
                         
                         <div>
@@ -165,7 +165,7 @@ function Login() {
 
 
                       <div className="d-flex justify-content-between mt-4 align-items-center">
-                  <div style={{cursor:"pointer"}}>Don{"'"}t Have an Account?</div>
+                  <div style={{cursor:"pointer", color:"#999BA1"}}>Don{"'"}t Have an Account?</div>
                   
                   <div>
                   <Link href="/admin/signup"><button type="button" className="btn btn-outline-success">Create Account</button></Link>
