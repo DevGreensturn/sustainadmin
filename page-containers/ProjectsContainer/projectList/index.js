@@ -61,13 +61,13 @@ const ProjectListTable =()=>{
         },
         {
             name: <b>Package Current Progress</b>,
-            selector: (row) => row.packageCurrentPackage,
+            selector: (row) => (row.packageCurrentProgress?row.packageCurrentProgress+" "+"%":row.packageCurrentProgress),
             wrap:"true"
         },
 
         {
             name: <b>Cumulative Manhour</b>,
-            selector: (row) => row.manHours,
+            selector: (row) => row.cumulativeManhour,
             wrap:"true"
         },
         {
