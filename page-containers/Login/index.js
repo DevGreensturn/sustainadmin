@@ -172,13 +172,13 @@ function Login() {
                   </div>
                 </div>
 
-                      {/* <p className="dontAccount mt-2">
+                      <p className="dontAccount mt-2">
                         Don{"’"}t have an account?
 
-                        <Link href="/admin/signup" className="mx-2">
+                        <Link href="/signup" className="mx-2">
                           SignUp
                         </Link>
-                      </p> */}
+                      </p>
                     </form>
                   </div>
                 </div>
