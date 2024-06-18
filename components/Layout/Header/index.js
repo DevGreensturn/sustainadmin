@@ -269,8 +269,8 @@ const handleLogOut = (e) => {
                       <span className="loginWith_Section">or login with</span>
                     </div>
                     <div className="d-flex justify-content-evenly mt-3">
-                      <div className="loginWith_button"><img src="/Images/icons8-microsoft-365.svg" alt="" className="img-fluid"/></div>
-                      <div className="loginWith_button"><img src="/Images/icons8-google.svg" alt="" className="img-fluid"/></div>
+                      <div className="loginWith_button"><img src="/images/icons8-microsoft-365.svg" alt="" className="img-fluid"/></div>
+                      <div className="loginWith_button"><img src="/images/icons8-google.svg" alt="" className="img-fluid"/></div>
                     </div>
                   </div>
                 </div>
