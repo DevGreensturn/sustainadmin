@@ -118,6 +118,84 @@ const ThreeContainers = () => {
         
         <div className='row my-0 p-2'>
           <div className='col-md-12'>
+          <div className="card" style={{border:"0px", borderRadius:"8px", background:"#061D2B"}}>
+            <div className="card-body">
+              <div className='emission_by-carbon-'>
+              <div className='d-flex align-items-center justify-content-between'>
+                <div>
+                  <h5 style={{color:"#fff"}}>Emissions by Carbon<br />
+                  Life Cycle Stages</h5>
+                </div>
+                <div>
+                  <h6 style={{color:"#fff"}}>Project Package GHG Emissions</h6>
+                  <h6 style={{color:"#80F2A9", textAlign:"right"}}>2,000 <span style={{fontWeight:"400"}}>tCO2e</span></h6>
+                </div>  
+              </div>
+              <hr style={{color:"#fff"}} className='mb-5'/>
+
+              <div className='d-flex justify-content-evenly mt-5 align-items-center'>
+                <div className='text-center'>
+                  <h5 style={{color:"#fff"}}>Product Stage</h5>
+                  <div className='mt-5'>
+                    <h4 style={{color:"#80F2A9", textAlign:"center"}}>A1</h4>
+                    <h6 style={{color:"#fff"}}>Raw Materials Supply</h6>
+                  </div>
+                  <div className='mt-4'>
+                    <h4 style={{color:"#80F2A9", textAlign:"center"}}>A2</h4>
+                    <h6 style={{color:"#fff"}}>Transport Raw Materials</h6>
+                  </div>
+                  <div className='mt-4'>
+                    <h4 style={{color:"#80F2A9", textAlign:"center"}}>A3</h4>
+                    <h6 style={{color:"#fff"}}>Manufacturing</h6>
+                  </div>
+                </div>
+
+                <div className='first-outer-circle'>
+                <div className='second-outer-circle'>
+                  <img src='/Images/imageco2.svg' alt=''/>
+                </div>
+                </div>
+
+                <div>
+
+                <div className='text-center'>
+                  <h5 style={{color:"#fff"}}>Product Stage</h5>
+                  <div className='mt-5'>
+                    <h4 style={{color:"#80F2A9", textAlign:"center"}}>A4</h4>
+                    <h6 style={{color:"#fff"}}>Transport</h6>
+                  </div>
+                  <div className='mt-4'>
+                    <h4 style={{color:"#80F2A9", textAlign:"center"}}>A5</h4>
+                    <h6 style={{color:"#fff"}}>Site Works</h6>
+                  </div>
+                </div>
+
+                </div>
+              </div>
+              </div>
+
+              </div>
+
+
+              <div className='bottom_Emmission-carbon mt-5'>
+                <img src='/Images/treePlant.svg' alt='' className='img-fluid'/>
+                <img src='/Images/truck.svg' alt='' className='img-fluid' />
+                <img src='/Images/plant.svg' alt='' />
+                <img src='/Images/mixtureMAchine.svg' alt='' />
+                <img src='/Images/lifter.svg' alt='' />
+                </div>
+
+              <div className='emission_by-carbon'>
+               {/* <img src='/Images/treePlant.svg' alt='' className='img-fluid'/> */}
+              </div>
+                
+
+              </div>
+              </div>
+              </div>
+
+        <div className='row my-0 p-2'>
+          <div className='col-md-12'>
           <div className="card" style={{border:"0px", borderRadius:"20px"}}>
             <div className="card-body">
             <div className="breakfastSchedule mt-3">
