@@ -7,13 +7,59 @@ import { FaRegEdit } from "react-icons/fa";
 import { RiFilter2Fill } from "react-icons/ri";
 import { useState,useEffect } from "react";
 import { ADMINAPI } from "../../../apiWrapper";
+import { Modal, Button, Form , Row, Col} from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import { useRouter } from "next/navigation";
 
 
 const ProjectListTable =(projectId,packageId)=>{
     console.log(projectId,"YYY");
+    const navigate = useRouter();
     const [row ,setRow] = useState([]);
     const [isLoader, setIsLoader] = useState(false);
+    const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+    const [supplierId,setSupplierId] = useState("")
+    const [showPopup, setShowPopup] = useState(false);
+    const [pakageData, setPakageData] = useState([]);
+    const [projectData, setProjectData] = useState([]);
+    const [formData, setFormData] = useState({
+      supplierId: '',
+      supplierName: '',
+      supplierAddress: '',
+      type: '',
+      loginType: 'SUPPLIER',
+      status: 'ACTIVE',
+    });
 
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      console.log(name, "KKKK",value);
+      setFormData({
+        ...formData,
+        [name]: value
+      });
+    };
+    const handleFetchProjectOnly = async () => {
+      
+      try {
+       
+     await ADMINAPI({
+           url: `http://3.108.58.161:3002/api/v1/projects?id=3&page=1`,
+           method: "GET",
+          
+          }).then((data) => {
+            let userData = data.response;
+            setProjectData(userData)
+           
+          console.log(userData,"ooooooo");
+          });
+        
+      } catch (error) {
+        console.log(error, "errorooo");
+       
+
+      }
+    };
     const handleFetchProject = async () => {
         setIsLoader(true)
         try {
@@ -35,6 +81,33 @@ const ProjectListTable =(projectId,packageId)=>{
 
         }
       };
+      const fetchPackageList = async () => {
+
+        try {
+               
+          await ADMINAPI({
+                url: `http://3.108.58.161:3002/api/v1/packages`,
+                method: "GET",
+               
+               }).then((data) => {
+                 let userData = data.response;
+                 setPakageData(userData)
+               console.log(userData,"ooooooo");
+               });
+             
+           } catch (error) {
+             console.log(error, "errorooo");
+      
+           }
+        };
+      const handleClose = () => {
+        setShowPopup(false);
+      };
+      const openModel =  (val) => {
+        console.log(val);
+        setShowPopup(true)
+      };
+      
     //   {
     //     "_id": "6666c1178add944435c850da",
     //     "supplierId": 1,
@@ -74,17 +147,102 @@ const ProjectListTable =(projectId,packageId)=>{
         
         {
             name: <b>Action</b>,
-            selector: row => (
+            cell: row => (
                 <div className="d-flex align-items-center">
-                  <FaRegEdit style={{ color: "secondary", fontSize: "20px" }} />
-                  <MdDeleteForever className="mx-2" style={{ color: "red", fontSize: "20px" }} />
+                    <FaRegEdit 
+                        style={{ color: "secondary", fontSize: "20px", cursor: 'pointer' }} 
+                        onClick={() => handleEdit(row)} 
+                    />
+                    <MdDeleteForever 
+                        className="mx-2" 
+                        style={{ color: "red", fontSize: "20px", cursor: 'pointer' }} 
+                        onClick={() => handleDelete(row)} 
+                    />
                 </div>
-              ),
-            wrap:"true",
-            width:"180px"
+            ),
+            wrap: true,
+            width: "180px"
         },
     ];
-    
+    const handleEdit = async (row) => {
+        // Logic to handle editing the row
+      
+        console.log('Edit row:uuuuuu', row);
+        await fetchPackageList();
+        await  handleFetchProjectOnly();
+        setFormData({
+          ...formData,
+          supplierId: row?.supplierId,
+          supplierName: row?.name,
+          supplierAddress: row?.address,
+          type: row?.type,
+          packageId :row?.packageId?.name,
+          projectIdNew :row?.projectId?.projectName,
+          projectId :row?.projectId?._id,
+          loginType: 'SUPPLIER',
+          status: 'ACTIVE',
+          supplierIdNew :row?._id,
+
+        });
+        console.log("vvvvvv");
+        setShowPopup(true)
+        // For example, you might open a modal with a form to edit the row's details
+    };
+
+    const handleDelete = async(row) => {
+        // Logic to handle deleting the row
+        console.log('Delete row:', row);
+        setSupplierId(row._id)
+        setShowDeleteConfirmation(true)
+
+        
+        // For example, you might show a confirmation dialog before deleting
+    };
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      console.log(formData,"LLLLLL123");
+      let payload = {
+       "supplierId": formData.supplierId,
+     "name": formData.supplierName,//"Acme Corporation",
+     "address":formData.supplierAddress,// "123 Elm Street",
+     "type": formData.type,//"Manufacturer",
+     "packageId":formData.packageId,// "665486deed3a1b1774f9ae63",
+     "projectId":formData.projectId,// "6655751e60d4032ac67d8b2b",
+     "loginType": "SUPPLIER",
+     "status": "ACTIVE"
+
+      }
+      console.log(payload,"LLLLL");
+      try {
+        await ADMINAPI({
+          url: `http://3.108.58.161:3001/api/v1/suppliers/${formData.supplierIdNew}`,
+          method: "put",
+          body: { ...payload },
+        }).then((data) => {
+          console.log(data,"KKKKKKKKKKKK");
+          if (data.status === true) {
+              setShowPopup(false)
+              handleFetchProject();
+            setTimeout(() => {
+              navigate.push("/suppliersList", { scroll: false });
+            }, 100);
+          } else {
+              console.log(data?.message,"rtrttt");
+              setShowPopup(false)
+
+            toast.error(data?.message);
+          }
+        }).catch(err => {
+          setShowPopup(false)
+
+          console.log(err,"rtrttt");
+          toast.error(err?.message);
+        });
+      } catch (error) {
+          console.log(error,"KKKKK");
+        toast.error(error?.message);
+      }
+    };
     const rows = [
         {
             personID: "001",
@@ -159,11 +317,45 @@ const ProjectListTable =(projectId,packageId)=>{
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>   
          },
     ];
+    const handleDeleteConfirm = async() => {
+            
+        try {
+     
+            await ADMINAPI({
+                  url: `http://3.108.58.161:3001/api/v1/suppliers/${supplierId}`,
+                  method: "PATCH",
+                 
+                 }).then((data) => {
+                    if (data.status === true) {
+                        setShowDeleteConfirmation(false)
+                        handleFetchProject();
+                      setTimeout(() => {
+                        navigate.push("/suppliersList", { scroll: false });
+                      }, 100);
+                    } else {
+                        console.log(data?.message,"rtrttt");
+                        setShowDeleteConfirmation(false)
+        
+                      toast.error(data?.message);
+                    }
+                 }).catch(err =>{
+                    setShowDeleteConfirmation(false)
 
+            console.log(err,"rtrttt");
+            toast.error(err?.message);
+                 })
+               
+             } catch (error) {
+               console.log(error, "errorooo");
+               setIsLoader(false)
+     
+             }
+      };
     useEffect(() => {
         handleFetchProject();
       }, [projectId.projectId]);
     return(
+        <>
         <section>
         <div className="">
             <div className="row">
@@ -181,6 +373,141 @@ const ProjectListTable =(projectId,packageId)=>{
             </div>
         </div>
         </section>
+        <Modal
+        show={showDeleteConfirmation}
+        onHide={() => setShowDeleteConfirmation(false)}
+        centered
+        backdrop="static"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Deletion</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Are you sure you want to delete?</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowDeleteConfirmation(false)}>
+            No
+          </Button>
+          <Button variant="primary" onClick={handleDeleteConfirm}>
+            Yes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      <Modal
+  show={showPopup}
+  className=""
+  onHide={handleClose}
+  centered
+  backdrop="static"
+  size="xl"
+>
+  <Modal.Header className="pb-0" closeButton></Modal.Header>
+  <Modal.Body className="pt-0">
+    <h6 className="text-center">Edit Supplier </h6>
+    {console.log(row,"YYY",formData)}
+    <Form onSubmit={handleSubmit} className="mt-2 p-2">
+      <Form.Group>
+        <Row>
+        <Col md={6}>
+        <label>Project*</label>
+            <Form.Control
+              as="select"
+              name="projectId"
+              value={formData.projectIdNew}
+              onChange={handleChange}
+              className="mb-2"
+              required
+            >
+              {projectData?.map((category, indexCat) => (
+                <option key={indexCat} value={category?._id}>
+                  {category?.projectName}
+                </option>
+              ))}
+            </Form.Control>
+          </Col>
+          <Col md={6}>
+          <label>Package</label>
+            <Form.Control
+              as="select"
+              name="packageId"
+              value={formData.packageId}
+              onChange={handleChange}
+              className="mb-2"
+            >
+              {pakageData?.map((category, indexCat) => (
+                <option key={indexCat} value={category?._id}>
+                  {category?.name}
+                </option>
+              ))}
+              </Form.Control>
+          </Col>
+        
+        </Row>
+        <Row>
+          <Col md={6}>
+          <label>Supplier Id</label>
+            <Form.Control
+              type="text"
+              name="supplierId"
+              placeholder="Supplier Id"
+              value={formData.supplierId}
+              onChange={handleChange}
+              className="mb-2"
+              required
+
+            />
+          </Col>
+          <Col md={6}>
+          <label>Supplier Name</label>
+            <Form.Control
+              type="text"
+              name="supplierName"
+              placeholder="Supplier Name"
+              value={formData.supplierName}
+              onChange={handleChange}
+              className="mb-2"
+              required
+
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+          <label>Supplier Address</label>
+            <Form.Control
+              type="text"
+              name="supplierAddress"
+              placeholder="Supplier Address"
+              value={formData.supplierAddress}
+              onChange={handleChange}
+              className="mb-2"
+              required
+
+            />
+          </Col>
+          <Col md={6}>
+          <label>Type</label>
+            <Form.Control
+              type="text"
+              name="type"
+              placeholder="Type"
+              value={formData.type}
+              onChange={handleChange}
+              className="mb-2"
+              required
+
+            />
+          </Col>
+         
+        </Row>
+      
+      </Form.Group>
+      <Button type="submit" variant="primary" className="w-100 mt-2">Submit</Button>
+    </Form>
+  </Modal.Body>
+</Modal>
+        </>
     )
 }
 export default ProjectListTable;

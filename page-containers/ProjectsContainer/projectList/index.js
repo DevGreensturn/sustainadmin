@@ -274,7 +274,7 @@ const ProjectListTable =()=>{
          
                 await ADMINAPI({
                       url: `http://3.108.58.161:3002/api/v1/projects/${projectId}`,
-                      method: "patch",
+                      method: "PATCH",
                      
                      }).then((data) => {
                         if (data.status === true) {

@@ -177,7 +177,7 @@ export default function AddProject() {
         <div style={{ textAlign: "center" }} className='my-3'>
     <h1>Add Project Details</h1>
 </div>
-
+<ToastContainer/>
   <form onSubmit={handleSubmit} className=" mt-4 p-4" > 
   <div className="row my-3">
   <div className="col-md-4">
