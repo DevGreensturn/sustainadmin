@@ -3,7 +3,7 @@ import { useState } from "react";
 import JouleCharts from "../charts/jouleChart";
 
 const BuildingMaterialChart =()=>{
-    const [activeButton, setActiveButton] = useState(null);
+    const [activeButton, setActiveButton] = useState("button1");
     const handleButtonClick =(button)=>{
       setActiveButton(button);
     };

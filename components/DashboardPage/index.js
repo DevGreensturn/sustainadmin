@@ -134,9 +134,9 @@ const ThreeContainers = () => {
                     <div className="programedetails mt-4">
                         <div>
                           <img src='images/imageco.svg' alt='' className='img-fluid'/>
-                          <div className='mt-3'>
+                          <div className='mt-3' style={{lineHeight:"10px"}}>
                           <h5>1,000</h5>
-                          <span style={{fontWeight:"600"}}>tCO2e</span>
+                          <span style={{fontWeight:"600", opacity:".5"}}>tCO2e</span>
                           </div>
                         </div>
                     </div>
@@ -154,9 +154,9 @@ const ThreeContainers = () => {
                     <div className="programedetails mt-4">
                         <div>
                           <img src='images/imageco.svg' alt='' className='img-fluid'/>
-                          <div className='mt-3'>
+                          <div className='mt-3' style={{lineHeight:"10px"}}>
                           <h5>1,000</h5>
-                          <span style={{fontWeight:"600"}}>tCO2e</span>
+                          <span style={{fontWeight:"600", opacity:".5"}}>tCO2e</span>
                           </div>
                         </div>
                     </div>
@@ -167,14 +167,14 @@ const ThreeContainers = () => {
                     <p>5%</p>
                     </div>
                     <div className="programedetails mt-4">
-                    <h5> People Transportation</h5>
+                    <h5> People<br />Transportation</h5>
                     </div>
                     <div className="programedetails mt-4">
                         <div>
                           <img src='images/imageco.svg' alt='' className='img-fluid'/>
-                          <div className='mt-3'>
+                          <div className='mt-3' style={{lineHeight:"10px"}}>
                           <h5>1,000</h5>
-                          <span style={{fontWeight:"600"}}>tCO2e</span>
+                          <span style={{fontWeight:"600", opacity:".5"}}>tCO2e</span>
                           </div>
                         </div>
                     </div>
@@ -185,14 +185,14 @@ const ThreeContainers = () => {
                     <p>5%</p>
                     </div>
                     <div className="programedetails mt-4">
-                    <h5> Energy by Utility provider</h5>
+                    <h5> Energy by <br />Utility provider</h5>
                     </div>
                     <div className="programedetails mt-4">
                         <div>
                           <img src='images/imageco.svg' alt='' className='img-fluid'/>
-                          <div className='mt-3'>
+                          <div className='mt-3' style={{lineHeight:"10px"}}>
                           <h5>1,000</h5>
-                          <span style={{fontWeight:"600"}}>tCO2e</span>
+                          <span style={{fontWeight:"600", opacity:".5"}}>tCO2e</span>
                           </div>
                         </div>
                     </div>
@@ -204,15 +204,15 @@ const ThreeContainers = () => {
                     </div>
 
                     <div className="programedetails mt-4">
-                    <h5> Energy by Non-Renewable Sources</h5>
+                    <h5> Energy by <br />Non-Renewable<br /> Sources</h5>
                     </div>
 
                     <div className="programedetails mt-4">
                         <div>
                           <img src='images/imageco.svg' alt='' className='img-fluid'/>
-                          <div className='mt-3'>
+                          <div className='mt-3' style={{lineHeight:"10px"}}>
                           <h5>1,000</h5>
-                          <span style={{fontWeight:"600"}}>tCO2e</span>
+                          <span style={{fontWeight:"600", opacity:".5"}}>tCO2e</span>
                           </div>
                         </div>
                     </div>
@@ -223,15 +223,15 @@ const ThreeContainers = () => {
                       <p>5%</p>
                     </div>
                     <div className="programedetails mt-4">
-                    <h5> Energy by Renewable Sources</h5>
+                    <h5> Energy by <br />Renewable<br /> Sources</h5>
                     </div>
 
                     <div className="programedetails mt-4">
                         <div>
                           <img src='images/imageco.svg' alt='' className='img-fluid'/>
-                          <div className='mt-3'>
+                          <div className='mt-3' style={{lineHeight:"10px"}}>
                           <h5>1,000</h5>
-                          <span style={{fontWeight:"600"}}>tCO2e</span>
+                          <span style={{fontWeight:"600", opacity:".5"}}>tCO2e</span>
                           </div>
                         </div>
                     </div>
@@ -244,14 +244,14 @@ const ThreeContainers = () => {
                     </div>
 
                     <div className="programedetails mt-4">
-                    <h5> Water Consumption</h5>
+                    <h5> Water <br />Consumption</h5>
                     </div>
                     <div className="programedetails mt-4">
                         <div>
                           <img src='images/imageco.svg' alt='' className='img-fluid'/>
-                          <div className='mt-3'>
+                          <div className='mt-3' style={{lineHeight:"10px"}}>
                           <h5>1,000</h5>
-                          <span style={{fontWeight:"600"}}>tCO2e</span>
+                          <span style={{fontWeight:"600", opacity:".5"}}>tCO2e</span>
                           </div>
                         </div>
                     </div>
@@ -263,14 +263,14 @@ const ThreeContainers = () => {
                     </div>
 
                     <div className="programedetails mt-4">
-                    <h5> Waste</h5>
+                    <h5>Waste</h5>
                     </div>
                     <div className="programedetails mt-4">
                         <div>
                           <img src='images/imageco.svg' alt='' className='img-fluid'/>
-                          <div className='mt-3'>
+                          <div className='mt-3' style={{lineHeight:"10px"}}>
                           <h5>1,000</h5>
-                          <span style={{fontWeight:"600"}}>tCO2e</span>
+                          <span style={{fontWeight:"600", opacity:".5"}}>tCO2e</span>
                           </div>
                         </div>
                     </div>
@@ -281,15 +281,15 @@ const ThreeContainers = () => {
                   <p>10%</p>
                     </div>
                     <div className="programedetails mt-4">
-                    <h5> Building Material</h5>
+                    <h5> Building <br />Material</h5>
                     </div>
 
                     <div className="programedetails mt-4">
                         <div>
                           <img src='images/imageco.svg' alt='' className='img-fluid'/>
-                          <div className='mt-3'>
+                          <div className='mt-3' style={{lineHeight:"10px"}}>
                           <h5>1,000</h5>
-                          <span style={{fontWeight:"600"}}>tCO2e</span>
+                          <span style={{fontWeight:"600", opacity:".5"}}>tCO2e</span>
                         </div>
                         </div>
                     </div>

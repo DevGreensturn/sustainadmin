@@ -5,7 +5,7 @@ import JouleCharts from "../charts/jouleChart";
 import EmisionsCharts from "../charts/EmisionsCharts";
 
 const EmissionManagementChart =()=>{
-    const [activeButton, setActiveButton] = useState(null);
+    const [activeButton, setActiveButton] = useState("button1");
     const handleButtonClick =(button)=>{
       setActiveButton(button);
     };
