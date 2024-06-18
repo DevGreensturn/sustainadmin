@@ -26,7 +26,7 @@ const ManageSustainbility =()=>{
                 <div className="col-md-4">
                 <div data-aos="fade-up-left" className="boxShadow">
                 <div className="card justify-content-center" style={{border:"0"}}>
-                    <img className="my-5 d-flex justify-content-center" src="Images/membership.png" alt="Card image cap" style={{ margin:"0 auto"}}/>
+                    <img className="my-5 d-flex justify-content-center" src="/images/membership.png" alt="Card image cap" style={{ margin:"0 auto"}}/>
                     <div className="card-body text-center membership_orgnisation">
                         <h5 className="mt-0">Membership <br/>Organisations</h5>
                         <p className="my-3">Our membership management software provides full automation of membership renewals and payments</p>
@@ -38,7 +38,7 @@ const ManageSustainbility =()=>{
                 <div className="col-md-4">
                 <div data-aos="fade-up" className="boxShadow">
                 <div className="card" style={{border:"0"}}>
-                    <img className="my-5 d-flex justify-content-center" src="Images/nationaAssociation.png" alt="Card image cap" style={{maxWidth:"100px", margin:"0 auto"}}/>
+                    <img className="my-5 d-flex justify-content-center" src="/images/nationaAssociation.png" alt="Card image cap" style={{maxWidth:"100px", margin:"0 auto"}}/>
                     <div className="card-body text-center membership_orgnisation">
                         <h5 className="mt-0">National <br/>Associations</h5>
                         <p className="my-3">Our membership management software provides full automation of membership renewals and payments</p>
@@ -50,7 +50,7 @@ const ManageSustainbility =()=>{
                 <div className="col-md-4">
                 <div data-aos="fade-up-right" className="boxShadow">
                 <div className="card" style={{border:"0"}}>
-                    <img className="my-5 d-flex justify-content-center" src="Images/clubAssociation.png" alt="Card image cap" style={{maxWidth:"100px", margin:"0 auto"}} />
+                    <img className="my-5 d-flex justify-content-center" src="/images/clubAssociation.png" alt="Card image cap" style={{maxWidth:"100px", margin:"0 auto"}} />
                     <div className="card-body text-center membership_orgnisation">
                         <h5 className="mt-0">Clubs And <br/>Groups</h5>
                         <p className="my-3">Our membership management software provides full automation of membership renewals and payments</p>
