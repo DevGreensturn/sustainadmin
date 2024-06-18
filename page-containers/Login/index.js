@@ -172,13 +172,6 @@ function Login() {
                   </div>
                 </div>
 
-                      <p className="dontAccount mt-2">
-                        Don{"’"}t have an account?
-
-                        <Link href="/signup" className="mx-2">
-                          SignUp
-                        </Link>
-                      </p>
                     </form>
                   </div>
                 </div>
