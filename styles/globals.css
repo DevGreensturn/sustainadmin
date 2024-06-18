@@ -255,6 +255,29 @@ span.signUpWith_Section {
   color: #000;
   opacity: .6;
 }
+.emission_by-carbon{
+  background-image: url(../public/Images/smallImag.svg);
+  background-repeat: repeat;
+  height: 10px;
+}
+.bottom_Emmission-carbon{
+  display: flex;
+  margin-left: 100px;
+align-items: baseline;
+}
+.bottom_Emmission-carbon img{
+  margin-right: 50px;
+}
+.second-outer-circle{
+  padding: 50px;
+  border-radius: 110px;
+  background-color: #061D2B;
+}
+.first-outer-circle{
+  background: #0B2C41;
+  padding: 40px;
+  border-radius: 210px;
+}
 
 /* =========Hide & Show Password========== */
 .togglePasswordVisibility{
