@@ -152,7 +152,7 @@ const ThreeContainers = () => {
 
                 <div className='first-outer-circle'>
                 <div className='second-outer-circle'>
-                  <img src='/Images/imageco2.svg' alt=''/>
+                  <img src='/images/imageco2.svg' alt=''/>
                 </div>
                 </div>
 
@@ -178,11 +178,11 @@ const ThreeContainers = () => {
 
 
               <div className='bottom_Emmission-carbon mt-5'>
-                <img src='/Images/treePlant.svg' alt='' className='img-fluid'/>
-                <img src='/Images/truck.svg' alt='' className='img-fluid' />
-                <img src='/Images/plant.svg' alt='' />
-                <img src='/Images/mixtureMAchine.svg' alt='' />
-                <img src='/Images/lifter.svg' alt='' />
+                <img src='/images/treePlant.svg' alt='' className='img-fluid'/>
+                <img src='/images/truck.svg' alt='' className='img-fluid' />
+                <img src='/images/plant.svg' alt='' />
+                <img src='/images/mixtureMAchine.svg' alt='' />
+                <img src='/images/lifter.svg' alt='' />
                 </div>
 
               <div className='emission_by-carbon'>

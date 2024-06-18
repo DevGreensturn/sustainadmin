@@ -13,7 +13,7 @@ const SubscribeEmail =()=>{
                 </div>
                 <div className="susbcribeemail-button">
                     <input type="email" className="form-control" placeholder="Enter your email"/>
-                    <button type="btn" className="btn btn-success mx-3">Subscribe <img src="./Images/tail-right.png" alt="" style={{marginLeft:"45px"}}/></button>
+                    <button type="btn" className="btn btn-success mx-3">Subscribe <img src="./images/tail-right.png" alt="" style={{marginLeft:"45px"}}/></button>
                 </div>
             </div>
             </div>

@@ -278,7 +278,18 @@ align-items: baseline;
   padding: 40px;
   border-radius: 210px;
 }
-
+.notification-number{
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  background-color: #F93C65;
+  border-radius: 10px;
+  color: #fff;
+  height: 20px;
+  width: 20px;
+  font-size: 12px;
+  text-align: center;
+}
 /* =========Hide & Show Password========== */
 .togglePasswordVisibility{
   position: absolute;

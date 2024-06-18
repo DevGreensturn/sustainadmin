@@ -27,6 +27,7 @@ const Sidebar = () => {
           <li key={sidebarItems[4].id} className={styles.list}>
             <Link href={sidebarItems[4].link}><img src="/images/sustainaliblityData.png" alt="" /> {sidebarItems[4].title}</Link>
           </li> 
+          <hr />
           <li key={sidebarItems[5].id} className={styles.list}>
             <Link href={sidebarItems[5].link}><img src="/images/settings.png" alt="" /> {sidebarItems[5].title}</Link>
           </li>

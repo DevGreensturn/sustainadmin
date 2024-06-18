@@ -155,7 +155,7 @@ const handleLogOut = (e) => {
                             <Dropdown.Menu className="userLoginsection">
                             <Dropdown.Item onClick={handleLogOut}>
                                 <img
-                                  src="/Images/sign out.svg"
+                                  src="/images/sign out.svg"
                                   alt=""
                                   className="mx-2"
                                 />{" "}
@@ -165,7 +165,7 @@ const handleLogOut = (e) => {
                               {/* <Dropdown.Item href="#">
                              < Link href={"/myscheduler"}>
                                   <img
-                                    src="/Images/schedules.svg"
+                                    src="/images/schedules.svg"
                                     alt=""
                                     className="mx-2"
                                   />{" "}
