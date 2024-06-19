@@ -110,6 +110,7 @@ body {
 .dashboardContainer {
   margin: 10px;
   background-color: #F5F6FA;
+  height: 720px;
 }
 .headerSection{
   display: flex;
@@ -263,7 +264,7 @@ span.signUpWith_Section {
 .bottom_Emmission-carbon{
   display: flex;
   margin-left: 100px;
-align-items: baseline;
+  align-items: baseline;
 }
 .bottom_Emmission-carbon img{
   margin-right: 50px;
@@ -272,7 +273,38 @@ align-items: baseline;
   padding: 50px;
   border-radius: 110px;
   background-color: #061D2B;
+  position: relative;
 }
+.verticalImage{
+  position: absolute;
+  top: -10px;
+  right: -100px;
+}
+.greenDot{
+  position: absolute;
+  top: -21px;
+  right: -5px;
+}
+.verticalImageLeft{
+  position: absolute;
+  top: -10px;
+  left: -97px;
+}
+.greenDotLeft{
+  position: absolute;
+  top: -13px;
+  left: -5px;
+}
+.more-vertical{
+  padding: 10px;
+}
+.more-vertical:hover{
+  background-color: #F8F8F8;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 40px;
+}
+
 .first-outer-circle{
   background: #0B2C41;
   padding: 40px;
