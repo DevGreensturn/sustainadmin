@@ -151,7 +151,7 @@ const handleLogOut = (e) => {
                               id="dropdown-basic"
                               style={{ textTransform: "uppercase" }}
                             >
-                                <Link href="/AdminRole"> {nameValue}</Link> 
+                                <Link href="/adminRole"> {nameValue}</Link> 
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu className="userLoginsection">

@@ -191,12 +191,12 @@ const ThreeContainers = () => {
               </div>
 
 
-              <div className='bottom_Emmission-carbon mt-5'>
+              <div className='bottom_Emmission-carbon mt-5' style={{marginBottom:"-5px"}}>
                 <img src='/images/treePlant.svg' alt='' className='img-fluid'/>
                 <img src='/images/truck.svg' alt='' className='img-fluid' />
-                <img src='/images/plant.svg' alt='' />
-                <img src='/images/mixtureMAchine.svg' alt='' />
-                <img src='/images/lifter.svg' alt='' />
+                <img src='/images/plant.svg' alt='' className='img-fluid'/>
+                <img src='/images/mixtureMAchine.svg' alt='' className='img-fluid'/>
+                <img src='/images/lifter.svg' alt='' className='img-fluid'/>
                 </div>
 
               <div className='emission_by-carbon'>
