@@ -111,7 +111,7 @@ const handleLogOut = (e) => {
   };
 
   return (
-    <div>
+    <>
       <header>
         <div className="container-fluid">
           <div className="headerSection">
@@ -128,7 +128,7 @@ const handleLogOut = (e) => {
               </div>
             </div>
             <div className="d-flex align-items-center justify-content-between">
-              <div></div>
+              
               <div className="d-flex align-items-center">
                 <div className="position-relative">
                   <img src="../images/notificationicon.svg" alt="" />
@@ -144,14 +144,14 @@ const handleLogOut = (e) => {
                 </div>
                 {
        token ?(<>
-                <li>
+                <li style={{listStyleType:"none"}} >
                           <Dropdown className="userLogin">
                             <Dropdown.Toggle
                               variant=""
                               id="dropdown-basic"
                               style={{ textTransform: "uppercase" }}
                             >
-                              {nameValue}
+                                <Link href="/AdminRole"> {nameValue}</Link> 
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu className="userLoginsection">
@@ -167,7 +167,9 @@ const handleLogOut = (e) => {
                             </Dropdown.Menu>
                           </Dropdown>
                         </li>
-       </>):(<>  <div className="my-3">
+       </>):(
+        <>
+         <div className="my-3">
                       <button
                         type="button"
                         className="btn btn-success customeLogin"
@@ -176,9 +178,9 @@ const handleLogOut = (e) => {
                       >
                         Login <img src="/images/arrow-right.png" alt="" />
                       </button>
-                    </div> </>)
+                    </div>
+                    </>)
                 }
-                
               </div>
             </div>
           </div>
@@ -204,8 +206,6 @@ const handleLogOut = (e) => {
                   />
                   <span>E-Mail *</span>
                   {console.log(apiErrors,"llll")}
-                 
-
                 </div>
                 {apiErrors.message && apiErrors.message.email && (
                     <span
@@ -267,7 +267,7 @@ const handleLogOut = (e) => {
                   <div className="col-md-12">
                     <div className="text-center">
                       <span className="loginWith_Section">or login with</span>
-                    </div> 
+                    </div>
                     <div className="d-flex justify-content-evenly mt-3">
                       <div className="loginWith_button"><img src="/images/icons8-microsoft-365.svg" alt="" className="img-fluid"/></div>
                       <div className="loginWith_button"><img src="/images/icons8-google.svg" alt="" className="img-fluid"/></div>
@@ -299,16 +299,13 @@ const handleLogOut = (e) => {
                     </div>
                   </div>
                 </div>
-                <div className="d-flex justify-content-between mt-4">
-                  <div></div>
                 
-                </div>
               </div>
             </div>
           </Modal.Body>
         </Modal>
       </header>
-    </div>
+    </>
   );
 };
 
