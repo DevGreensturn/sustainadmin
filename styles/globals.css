@@ -110,6 +110,7 @@ body {
 .dashboardContainer {
   margin: 10px;
   background-color: #F5F6FA;
+  height: 720px;
 }
 .headerSection{
   display: flex;
