@@ -48,9 +48,6 @@
 
 // export default SignupForm;
 
-
-
-
 import React, { useState, useEffect } from 'react';
 import styles from './SignupForm.module.css';
 
@@ -62,7 +59,7 @@ const SignupForm = () => {
         password: '',
         confirmPassword: '',
         countryCode: '+91',
-        role: '', 
+        role: '',
         country: ''
     });
 
@@ -99,34 +96,22 @@ const SignupForm = () => {
                 setLoading(false);
             }
         };
-
-
         const fetchCountries = async () => {
             try {
                 const response = await fetch('http://3.108.58.161:3001/api/v1/countries');
                 if (response.ok) {
                     const data = await response.json();
-                    if (data.data && data.data) {
-                        const countryInfo = data.data;
-        
-                        // Example of handling countries based on an array (if applicable)
-                        if (Array.isArray(countryInfo)) {
-                            // Handle if countryInfo is an array of countries
-                            setCountries(countryInfo);
-                            console.log("bb",countryInfo)
-                            setFormData(prevState => ({
-                                ...prevState,
-                                country: countryInfo.length > 0 ? countryInfo[0].longName : ''
-                            }));
-                        } else {
-                            // Handle if countryInfo is a single country object
-                            setCountries([countryInfo]);
-                            setFormData(prevState => ({
-                                ...prevState,
-                                country: countryInfo.longName
-                            }));
-                        }
+                    console.log('Countries API Response:', data); 
+                    if (data.data && data.data.length > 0) {
+                        let newArr = data.data;
+                        setCountries(newArr);
+                        console.log(countries,"KKLKLLKKKK,",);
+                        setFormData(prevState => ({
+                            ...prevState,
+                            country: data.data[0].longName 
+                        }));
                     } else {
+                        console.log("LLLLLLLLLLLLL");
                         setCountries([]);
                         setFormData(prevState => ({
                             ...prevState,
@@ -142,25 +127,83 @@ const SignupForm = () => {
                 setLoading(false);
             }
         };
-        
-            fetchRoles();
-            fetchCountries();
-        }, []);
-    
+
+        fetchRoles();
+        fetchCountries();
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        let updatedValue = value;
+
+        // Validate input based on field name
+        switch (name) {
+            case 'firstName':
+                if (value.length > 25) {
+                    setError("First Name must be less than 25 characters");
+                } else {
+                    setError(null);
+                }
+                updatedValue = value.slice(0, 25);
+                break;
+            case 'lastName':
+                updatedValue = value.slice(0, 25);
+                break;
+            case 'email':
+                if (value.length > 50) {
+                    setError("Email must be 50 characters or less");
+                } else {
+                    setError(null);
+                }
+                updatedValue = value.slice(0, 50);
+                break;
+            case 'password':
+               
+                const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/;
+                if (passwordRegex.test(value)) {
+                    updatedValue = value.slice(0, 50);
+                }
+                break;
+            default:
+                break;
+        }
+
         setFormData(prevState => ({
             ...prevState,
-            [name]: value
+            [name]: updatedValue
         }));
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
+
         
+        if (formData.firstName.length < 1 || formData.firstName.length > 25) {
+            setError("First Name must be between 1 and 25 characters");
+            return;
+        }
+
+        if (formData.lastName.length < 1 || formData.lastName.length > 25) {
+            setError("Last Name must be between 1 and 25 characters");
+            return;
+        }
+
+        if (!formData.email.includes('@') || formData.email.length > 50) {
+            setError("Please enter a valid Email (up to 50 characters)");
+            return;
+        }
+
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/;
+        if (!passwordRegex.test(formData.password)) {
+            setError("Password must be at least 8 characters long, include one capital letter, and one special symbol (!@#$%^&*)");
+            return;
+        }
+
+        
+        console.log("Form Data:", formData);
+        setError(null); 
     };
+
     return (
         <div className={styles.signupForm}>
             <h2>Sign Up</h2>
@@ -186,7 +229,7 @@ const SignupForm = () => {
                     <input type="password" id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
                 </div>
                 <div className={styles.formGroup}>
-                    <label htmlFor="role">Role</label>
+                    <label htmlFor="role">Role </label>
                     <select id="role" name="role" value={formData.role} onChange={handleChange} required>
                         <option value="">Select Role</option>
                         {roles.length > 0 && roles.map(role => (
@@ -195,19 +238,27 @@ const SignupForm = () => {
                     </select>
                 </div>
                 <div className={styles.formGroup}>
+                    {console.log(countries,"YUYUYUYU")}
                     <label htmlFor="country">Country</label>
                     <select id="country" name="country" value={formData.country} onChange={handleChange} required>
                         <option value="">Select Country</option>
-                        {countries.length > 0 && countries.map(country => (
-                            <option key={country._id} value={country.longName}>{country.countryName}</option>
+                        {countries.map(country => (
+                            <option key={country._id} value={country.info.longName}> {country.info.longName}</option>
                         ))}
+                        
                     </select>
                 </div>
                 <button className='btn' type="submit">Submit</button>
             </form>
             {loading && <p>Loading roles and countries...</p>}
             {error && <p className={styles.errorMsg}>{error}</p>}
+
+           
+            <div className={styles.loginContainer}>
+                <p>Already have an account? <a href="/login">Login</a></p>
+            </div>
         </div>
     );
 };
+
 export default SignupForm;
