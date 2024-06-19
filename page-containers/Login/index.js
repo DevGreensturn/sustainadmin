@@ -1,15 +1,13 @@
-"use client";
-
 import { useState } from "react";
-import Link from "next/link";
+import { useRouter } from 'next/router';
+
 import styles from "./projectContainer.module.scss";
-import { useRouter } from "next/navigation";
 import { validateEmail, isValid } from "../../comman/helper";
 import storage from "../../comman/localstorage";
 import { ADMINAPI } from "../../apiWrapper";
 import { ToastContainer, toast } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
+import Link from 'next/link';
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -63,6 +61,10 @@ function Login() {
     }
   };
 
+  const handleCreateAccount = () => {
+    navigate.push('/admin/signup');
+  };
+
   const userDataDummy = storage().get("userData");
   const userData = userDataDummy ? JSON.parse(userDataDummy) : {};
   const nameValue = userData.userName || "Name Admin";
@@ -82,7 +84,6 @@ function Login() {
             <div className={styles.adminLoginBox}>
               <div className="row" style={{ marginTop: "200px" }}>
                 <div className="col-md-12">
-                  
                   <div className="mt-5 ps-4 pe-3">
                     <h1>Login</h1>
                     <h6>Enter Your Email & Password</h6>
@@ -107,21 +108,20 @@ function Login() {
                       <div className="form-group mt-lg-4 mt-3 position-relative mb-1">
                         <label>Password</label>
                         <div className="position-relative">
-                        <input
-                          type={showPassword ? "text" : "password"}
-                          className="form-control"
-                          name="password"
-                          required
-                          value={password}
-                          onChange={(e) => setPassword(e.target.value)}
-                        />
-                        <div className="togglePasswordVisibility">
-                          <span onClick={() => setShowPassword(!showPassword)} style={{ cursor: "pointer" }}>
-                          {showPassword ?  <img src='/images/showPassword.png' alt='' style={{maxWidth:"30px"}}/> :  <img src='/images/hidePassword.png' alt='' style={{maxWidth:"30px"}}/>}
-                          </span>
+                          <input
+                            type={showPassword ? "text" : "password"}
+                            className="form-control"
+                            name="password"
+                            required
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                          />
+                          <div className="togglePasswordVisibility">
+                            <span onClick={() => setShowPassword(!showPassword)} style={{ cursor: "pointer" }}>
+                              {showPassword ?  <img src='/images/showPassword.png' alt='' style={{maxWidth:"30px"}}/> :  <img src='/images/hidePassword.png' alt='' style={{maxWidth:"30px"}}/>}
+                            </span>
+                          </div>
                         </div>
-                        </div>
-
                       </div>
                       {apiErrors.password && (
                         <span className="text-danger" style={{ fontSize: "14px" }}>
@@ -130,17 +130,17 @@ function Login() {
                       )}
                       <div className="form-group forget-password text-end mt-3 forgot">
                         <div className="d-flex align-items-center justify-content-between">
-                        
-                        <div className="mb-3">
-                          <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                          <label className="form-check-label mx-2 mt-1" for="exampleCheck1" style={{cursor:"pointer", color:"#999BA1"}}> Check me out</label>
-                        </div>
-                        
-                        <div>
-                        <Link href="/admin/forget" className="inline-block">
-                          Forgot Password?
-                        </Link>
-                        </div>
+                          <div className="mb-3">
+                            <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                            <label className="form-check-label mx-2 mt-1" htmlFor="exampleCheck1" style={{cursor:"pointer", color:"#999BA1"}}>
+                              Check me out
+                            </label>
+                          </div>
+                          <div>
+                            <Link href="/admin/forget">
+                              Forgot Password?
+                            </Link>
+                          </div>
                         </div>
                       </div>
                       <div className="form-group mt-lg-4 mt-3">
@@ -151,34 +151,36 @@ function Login() {
 
                       {/* Login With */}
                       <div className="row my-5">
-                  <div className="col-md-12">
-                    <div className="text-center">
-                      <span className="loginWith_Section">or login with</span>
-                    </div>
-                    <div className="d-flex justify-content-evenly mt-5">
-                      <div className="loginWith_button"><img src="/Images/icons8-microsoft-365.svg" alt="" className="img-fluid"/></div>
-                      <div className="loginWith_button"><img src="/Images/icons8-google.svg" alt="" className="img-fluid"/></div>
-                    </div>
-                  </div>
-                </div>
+                        <div className="col-md-12">
+                          <div className="text-center">
+                            <span className="loginWith_Section">or login with</span>
+                          </div>
+                          <div className="d-flex justify-content-evenly mt-5">
+                            <div className="loginWith_button">
+                              <img src="/images/icons8-microsoft-365.svg" alt="" className="img-fluid"/>
+                            </div>
+                            <div className="loginWith_button">
+                              <img src="/images/icons8-google.svg" alt="" className="img-fluid"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                       {/* Login With */}
 
-
                       <div className="d-flex justify-content-between mt-4 align-items-center">
-                  <div style={{cursor:"pointer", color:"#999BA1"}}>Don{"'"}t Have an Account?</div>
-                  
-                  <div>
-                  <Link href="/admin/signup"><button type="button" className="btn btn-outline-success">Create Account</button></Link>
-                  </div>
-                </div>
-
-                      <p className="dontAccount mt-2">
-                        Don{"’"}t have an account?
-
-                        <Link href="/signup" className="mx-2">
-                          SignUp
-                        </Link>
-                      </p>
+                        <div style={{cursor:"pointer", color:"#999BA1"}}>
+                          Don't Have an Account?
+                        </div>
+                        <div>
+                          <button
+                            type="button"
+                            className="btn btn-outline-success"
+                            onClick={handleCreateAccount}
+                          >
+                            Create Account
+                          </button>
+                        </div>
+                      </div>
                     </form>
                   </div>
                 </div>

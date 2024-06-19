@@ -224,7 +224,6 @@ const SignupForm = () => {
         console.log(formData);
         
     };
-
     return (
         <div className={styles.signupForm}>
             <h2>Sign Up</h2>
@@ -267,16 +266,11 @@ const SignupForm = () => {
                         ))}
                     </select>
                 </div>
-                <div className={styles.formGroup}>
-                    <label htmlFor="countryCode">Country Code</label>
-                    <input type="text" id="countryCode" name="countryCode" value={formData.countryCode} onChange={handleChange} required />
-                </div>
-                <button type="submit">Submit</button>
+                <button className='btn' type="submit">Submit</button>
             </form>
             {loading && <p>Loading roles and countries...</p>}
             {error && <p className={styles.errorMsg}>{error}</p>}
         </div>
     );
 };
-
 export default SignupForm;

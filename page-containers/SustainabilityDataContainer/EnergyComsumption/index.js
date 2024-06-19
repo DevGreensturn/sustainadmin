@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import JouleCharts from "../charts/jouleChart";
 const EnergyComsuption =()=>{
-    const [activeButton, setActiveButton] = useState(null);
+    const [activeButton, setActiveButton] = useState("button1");
     const handleButtonClick =(button)=>{
       setActiveButton(button);
     };
@@ -50,14 +50,11 @@ const EnergyComsuption =()=>{
           </div>
           <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
           <PieChart data={pieChartData} />
-          
           </div>
         </div>
-
-          
         </div>
+        
         <div className="col-md-6">
-
         <div className="card" style={{border:"0"}}>
           <div className="card-body">
             <div className="">
