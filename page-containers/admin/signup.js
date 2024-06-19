@@ -47,7 +47,6 @@
 // };
 
 // export default SignupForm;
-
 import React, { useState, useEffect } from 'react';
 import styles from './SignupForm.module.css';
 
@@ -62,7 +61,6 @@ const SignupForm = () => {
         role: '',
         country: ''
     });
-
     const [roles, setRoles] = useState([]);
     const [countries, setCountries] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -96,22 +94,21 @@ const SignupForm = () => {
                 setLoading(false);
             }
         };
+
         const fetchCountries = async () => {
             try {
                 const response = await fetch('http://3.108.58.161:3001/api/v1/countries');
+             
                 if (response.ok) {
                     const data = await response.json();
-                    console.log('Countries API Response:', data); 
                     if (data.data && data.data.length > 0) {
-                        let newArr = data.data;
-                        setCountries(newArr);
-                        console.log(countries,"KKLKLLKKKK,",);
+                    
+                        setCountries(data.data);
                         setFormData(prevState => ({
                             ...prevState,
-                            country: data.data[0].longName 
+                            country: data.data[0].info.longName
                         }));
                     } else {
-                        console.log("LLLLLLLLLLLLL");
                         setCountries([]);
                         setFormData(prevState => ({
                             ...prevState,
@@ -136,7 +133,6 @@ const SignupForm = () => {
         const { name, value } = e.target;
         let updatedValue = value;
 
-        // Validate input based on field name
         switch (name) {
             case 'firstName':
                 if (value.length > 25) {
@@ -158,9 +154,8 @@ const SignupForm = () => {
                 updatedValue = value.slice(0, 50);
                 break;
             case 'password':
-               
                 const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/;
-                if (passwordRegex.test(value)) {
+                if (passwordRegex.test(value) || value === '') {
                     updatedValue = value.slice(0, 50);
                 }
                 break;
@@ -174,36 +169,75 @@ const SignupForm = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        
+    
+        // Perform form validations...
         if (formData.firstName.length < 1 || formData.firstName.length > 25) {
             setError("First Name must be between 1 and 25 characters");
             return;
         }
-
+    
         if (formData.lastName.length < 1 || formData.lastName.length > 25) {
             setError("Last Name must be between 1 and 25 characters");
             return;
         }
-
+    
         if (!formData.email.includes('@') || formData.email.length > 50) {
             setError("Please enter a valid Email (up to 50 characters)");
             return;
         }
-
+    
         const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/;
         if (!passwordRegex.test(formData.password)) {
             setError("Password must be at least 8 characters long, include one capital letter, and one special symbol (!@#$%^&*)");
             return;
         }
-
-        
-        console.log("Form Data:", formData);
-        setError(null); 
+    
+        // Prepare signup data
+        const signupData = {
+            userName: formData.firstName+formData.lastName,
+      
+            email: formData.email,
+             packageID:1,
+            password: formData.password,
+            loginType: formData.role,
+            country_id: formData.country
+            
+        };
+        try {
+            const response = await fetch('http://3.108.58.161:3001/api/v1/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(signupData),
+            });
+    
+            const responseData = await response.json();
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status} - ${JSON.stringify(responseData)}`);
+            }
+    
+            console.log('Signup API Response:', responseData);
+            setFormData({
+                firstName: '',
+                lastName: '',
+                email: '',
+                password: '',
+                confirmPassword: '',
+                countryCode: '+91',
+                role: roles.length > 0 ? roles[0].roleName : '',
+                country: countries.length > 0 ? countries[0].info.longName : ''
+            });
+    
+            setError(null);
+        } catch (error) {
+            console.error('Error signing up:', error.message);
+            setError(`Failed to sign up: ${error.message}`);
+        }
     };
-
     return (
         <div className={styles.signupForm}>
             <h2>Sign Up</h2>
@@ -238,14 +272,13 @@ const SignupForm = () => {
                     </select>
                 </div>
                 <div className={styles.formGroup}>
-                    {console.log(countries,"YUYUYUYU")}
                     <label htmlFor="country">Country</label>
                     <select id="country" name="country" value={formData.country} onChange={handleChange} required>
                         <option value="">Select Country</option>
                         {countries.map(country => (
-                            <option key={country._id} value={country.info.longName}> {country.info.longName}</option>
-                        ))}
+                            <option key={country._id} value={country._id}>{country.info.longName}</option>
                         
+                        ))}
                     </select>
                 </div>
                 <button className='btn' type="submit">Submit</button>
@@ -253,7 +286,6 @@ const SignupForm = () => {
             {loading && <p>Loading roles and countries...</p>}
             {error && <p className={styles.errorMsg}>{error}</p>}
 
-           
             <div className={styles.loginContainer}>
                 <p>Already have an account? <a href="/login">Login</a></p>
             </div>
