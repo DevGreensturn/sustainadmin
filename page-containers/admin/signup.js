@@ -224,13 +224,13 @@ const SignupForm = () => {
                         ))}
                     </select>
                 </div>
-                <button className='btn' type="submit">Submit</button>
+                <button className='btn' type="text">Register</button>
             </form>
             {loading && <p>Loading roles and countries...</p>}
             {error && <p className={styles.errorMsg}>{error}</p>}
 
             <div className={styles.loginContainer}>
-                <p>Already have an account? <a className='login' href="/login">Login</a></p>
+                <p>Already have an account? <a href="/login">Login</a></p>
             </div>
         </div>
     );
