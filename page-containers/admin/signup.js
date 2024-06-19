@@ -79,11 +79,9 @@ const SignupForm = () => {
         fetchRoles();
         fetchCountries();
     }, []);
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         let updatedValue = value;
-
         switch (name) {
             case 'firstName':
                 if (value.length > 25) {
@@ -113,22 +111,17 @@ const SignupForm = () => {
             default:
                 break;
         }
-
         setFormData(prevState => ({
             ...prevState,
             [name]: updatedValue
         }));
     };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
-        // Perform form validations...
         if (formData.firstName.length < 1 || formData.firstName.length > 25) {
             setError("First Name must be between 1 and 25 characters");
             return;
         }
-    
         if (formData.lastName.length < 1 || formData.lastName.length > 25) {
             setError("Last Name must be between 1 and 25 characters");
             return;
@@ -138,7 +131,6 @@ const SignupForm = () => {
             setError("Please enter a valid Email (up to 50 characters)");
             return;
         }
-    
         const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/;
         if (!passwordRegex.test(formData.password)) {
             setError("Password must be at least 8 characters long, include one capital letter, and one special symbol (!@#$%^&*)");
@@ -160,13 +152,11 @@ const SignupForm = () => {
                 },
                 body: JSON.stringify(signupData),
             });
-    
             const responseData = await response.json();
     
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status} - ${JSON.stringify(responseData)}`);
             }
-    
             console.log('Signup API Response:', responseData);
             setFormData({
                 firstName: '',
@@ -178,7 +168,6 @@ const SignupForm = () => {
                 role: roles.length > 0 ? roles[0].roleName : '',
                 country: countries.length > 0 ? countries[0].info.longName : ''
             });
-    
             setError(null);
         } catch (error) {
             console.error('Error signing up:', error.message);
