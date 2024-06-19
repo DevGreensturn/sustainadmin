@@ -267,7 +267,7 @@ const handleLogOut = (e) => {
                   <div className="col-md-12">
                     <div className="text-center">
                       <span className="loginWith_Section">or login with</span>
-                    </div>
+                    </div> 
                     <div className="d-flex justify-content-evenly mt-3">
                       <div className="loginWith_button"><img src="/images/icons8-microsoft-365.svg" alt="" className="img-fluid"/></div>
                       <div className="loginWith_button"><img src="/images/icons8-google.svg" alt="" className="img-fluid"/></div>
