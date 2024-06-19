@@ -294,7 +294,15 @@ span.signUpWith_Section {
   top: -13px;
   left: -5px;
 }
-
+.more-vertical{
+  padding: 10px;
+}
+.more-vertical:hover{
+  background-color: #F8F8F8;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 40px;
+}
 
 .first-outer-circle{
   background: #0B2C41;
