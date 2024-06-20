@@ -18,6 +18,7 @@ const SignupForm = () => {
     const [countries, setCountries] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+   
 
     const fetchRoles = async () => {
         try {
@@ -202,6 +203,7 @@ const SignupForm = () => {
                                             <div className={styles.formGroup}>
                                                 <label htmlFor="password">Password</label>
                                                 <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
+                                                
                                             </div>
                                         </div>
                                         <div className='col-md-6'>
