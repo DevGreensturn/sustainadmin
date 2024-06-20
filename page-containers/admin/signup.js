@@ -23,7 +23,7 @@ const SignupForm = () => {
     const fetchRoles = async () => {
         try {
             const response = await ADMINAPI({
-                url: `http://35.154.130.173:3001/api/v1/roles`,
+                url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/roles`,
                 method: "GET",
             });
             if (response.status) {
@@ -54,7 +54,7 @@ const SignupForm = () => {
     const fetchCountries = async () => {
         try {
             const response = await ADMINAPI({
-                url: `http://35.154.130.173:3001/api/v1/countries`,
+                url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/countries`,
                 method: "GET",
             });
             if (response.status) {
@@ -150,7 +150,7 @@ const SignupForm = () => {
 
         try {
             const response = await ADMINAPI({
-                url: `http://35.154.130.173:3001/api/v1/users`,
+                url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/users`,
                 method: "POST",
                 body: signupData,
             });
