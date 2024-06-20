@@ -320,7 +320,6 @@ const HeaderSection =()=>{
                       <button type="submit" class="btn btn-primary" onClick={handleShows}>Sign Up</button>
                       </div>
                     </form>
-
                 </div>
               </div>
             </div>
