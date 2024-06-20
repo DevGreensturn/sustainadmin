@@ -1,6 +1,7 @@
 import PieChart from "../PieChart";
 import { useState } from "react";
 import JouleCharts from "../charts/jouleChart";
+import ConcreteMixpie from "../charts/concereteMix";
 
 const ConcreteMixChart =()=>{
     const [activeButton, setActiveButton] = useState("button1");
@@ -110,7 +111,7 @@ const ConcreteMixChart =()=>{
           <div className="card-body">
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
-                <div><img src="/images/EnergyComsuption.png" alt="" /></div>
+                <div><img src="/images/ConcentrixMix.png" alt="" /></div>
                 <div className="mx-2"><h4>Concrete Mix</h4></div>
               </div>
               
@@ -131,7 +132,7 @@ const ConcreteMixChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="/images/water_Consumption.png" alt="" /></div>
+                <div><img src="/images/ConcentrixMix.png" alt="" /></div>
                 <div className="mx-2"><h4>Concrete Mix</h4></div>
               </div>
               <div className="row mt-2">
@@ -196,37 +197,37 @@ const ConcreteMixChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+          <ConcreteMixpie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+          <ConcreteMixpie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+          <ConcreteMixpie />
         </div>
       )}
 
       {activeButton === 'button4' && (
         <div className="">
-           <JouleCharts />
+          <ConcreteMixpie />
         </div>
       )}
 
       {activeButton === 'button5' && (
         <div className="">
-           <JouleCharts />
+          <ConcreteMixpie />
         </div>
       )}
 
       {activeButton === 'button6' && (
         <div className="">
-           <JouleCharts />
+          <ConcreteMixpie />
         </div>
       )}
 

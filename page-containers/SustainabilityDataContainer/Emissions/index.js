@@ -3,6 +3,9 @@ import PieChart from "../PieChart";
 import { useState } from "react";
 import JouleCharts from "../charts/jouleChart";
 import EmisionsCharts from "../charts/EmisionsCharts";
+import ConstructionEmmisionpie from "../charts/constuctionEmmision";
+import ConstructionEmissionpie from "../charts/constuctionEmmision";
+import Transportemmisionpie from "../charts/TransportEmission";
 
 const EmissionManagementChart =()=>{
     const [activeButton, setActiveButton] = useState("button1");
@@ -60,7 +63,7 @@ const EmissionManagementChart =()=>{
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
                 <div><img src="/images/ConstructionImg.svg" alt="" /></div>
-                <div className="mx-2"><h4>Construction Emission</h4></div>
+                <div className="mx-2"><h4>Construction Emission </h4></div>
               </div>
               
               <div className="text-end">
@@ -80,8 +83,8 @@ const EmissionManagementChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="/images/Emission.svg" alt="" /></div>
-                <div className="mx-2"><h4>Monthly Construction Emission</h4></div>
+                <div><img src="/images/ConstructionImg.svg" alt="" /></div>
+                <div className="mx-2"><h4>Construction Emission</h4></div>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
@@ -118,19 +121,19 @@ const EmissionManagementChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <EmisionsCharts />
+                <ConstructionEmissionpie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <EmisionsCharts />
+                <ConstructionEmissionpie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <EmisionsCharts />
+                <ConstructionEmissionpie />
         </div>
       )}
       </div>
@@ -175,7 +178,7 @@ const EmissionManagementChart =()=>{
             <div className="">
               <div className="d-flex align-items-baseline">
                 <div><img src="/images/Emission.svg" alt="" /></div>
-                <div className="mx-2"><h4>Monthly Transportation Emission</h4></div>
+                <div className="mx-2"><h4>Transportation Emission</h4></div>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
@@ -212,19 +215,19 @@ const EmissionManagementChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <EmisionsCharts />
+         <Transportemmisionpie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <EmisionsCharts />
+         <Transportemmisionpie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <EmisionsCharts />
+         <Transportemmisionpie />
         </div>
       )}
       </div>
