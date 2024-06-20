@@ -160,7 +160,6 @@ const SignupForm = () => {
                 throw new Error(`HTTP error! Status: ${response.status} - ${JSON.stringify(responseData)}`);
             }
 
-            
             toast.success('Registered successfully!', {
                 position: toast.POSITION.TOP_CENTER
             });
@@ -176,7 +175,7 @@ const SignupForm = () => {
             });
             setError(null);
 
-           
+
             window.location.href = "/login";
 
         } catch (error) {
@@ -189,7 +188,7 @@ const SignupForm = () => {
             <ToastContainer />
             <div className="container">
                 <div className="row justify-content-center" style={{ marginTop: "200px" }}>
-                    <div className="col-md-12 col-lg-9 col-xl-8 my-3">
+                    <div className="col-md-12 col-lg-9 col-xl-8 my-5">
                         <div className={styles.signupForm}>
                             <h1>Sign Up</h1>
                             <div className='mt-4'>
@@ -240,7 +239,7 @@ const SignupForm = () => {
                                                     ))}
                                                 </select>
                                             </div>
-                                            </div> <button type="btn" className='btn btn-success' >Register &#x2192;</button> </div>
+                                        </div> <button type="btn" className='btn btn-success' >Register &#x2192;</button> </div>
                                 </form>
                             </div>
                             {loading && <p>Loading roles and countries...</p>}
@@ -258,5 +257,4 @@ const SignupForm = () => {
         </section>
     );
 };
-
 export default SignupForm;
