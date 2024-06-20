@@ -14,6 +14,7 @@ const WaterComsuptionpie = ()=>{
               fill: false,
               backgroundColor: 'rgba(97,131,255,0.4)',
               borderColor: 'rgba(97,131,255,1)',
+              borderDash: [5, 5],
               // tension: 0.1
             },
             {
@@ -22,6 +23,7 @@ const WaterComsuptionpie = ()=>{
               fill: false,
               backgroundColor: 'rgba(74,58,255,0.4)',
               borderColor: 'rgba(74,58,255,1)',
+              borderDash: [5, 5],
               // tension: 0.1
             },
             
@@ -48,7 +50,7 @@ const WaterComsuptionpie = ()=>{
           },
           y: {
             grid:{
-            display: false
+            display: true
             }
           }
       }

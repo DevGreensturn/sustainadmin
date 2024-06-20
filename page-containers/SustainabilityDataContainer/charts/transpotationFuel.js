@@ -14,6 +14,7 @@ const TranspotationFuelpie = ()=>{
               fill: false,
               backgroundColor: 'rgba(0,127,255,0.4)',
               borderColor: 'rgba(0,127,255,1)',
+              borderDash: [5, 5],
               // tension: 0.1
             },
             {
@@ -22,6 +23,7 @@ const TranspotationFuelpie = ()=>{
               fill: false,
               backgroundColor: 'rgba(0,180,154,0.4)',
               borderColor: 'rgba(0,180,154,1)',
+              borderDash: [5, 5],
               // tension: 0.1
             },
             
@@ -31,6 +33,7 @@ const TranspotationFuelpie = ()=>{
                 fill: false,
                 backgroundColor: 'rgba(3,72,138,0.4)',
                 borderColor: 'rgba(3,72,138,1)',
+                borderDash: [5, 5],
                 // tension: 0.1
               },
 
@@ -40,6 +43,7 @@ const TranspotationFuelpie = ()=>{
                 fill: false,
                 backgroundColor: 'rgba(59,75,97,0.4)',
                 borderColor: 'rgba(59,75,97,1)',
+                borderDash: [5, 5],
                 // tension: 0.1
               },
 
@@ -49,6 +53,7 @@ const TranspotationFuelpie = ()=>{
                 fill: false,
                 backgroundColor: 'rgba(80,0,182,0.4)',
                 borderColor: 'rgba(80,0,182,1)',
+                borderDash: [5, 5],
                 // tension: 0.1
               },
 
@@ -58,6 +63,7 @@ const TranspotationFuelpie = ()=>{
                 fill: false,
                 backgroundColor: 'rgba(238,119,34,0.4)',
                 borderColor: 'rgba(238,119,34,1)',
+                borderDash: [5, 5],
                 // tension: 0.1
               },
 
@@ -67,6 +73,7 @@ const TranspotationFuelpie = ()=>{
                 fill: false,
                 backgroundColor: 'rgba(165,76,255,0.4)',
                 borderColor: 'rgba(165,76,255,1)',
+                borderDash: [5, 5],
                 // tension: 0.1
               },
 
@@ -76,6 +83,7 @@ const TranspotationFuelpie = ()=>{
                 fill: false,
                 backgroundColor: 'rgba(100,149,237,0.4)',
                 borderColor: 'rgba(100,149,237,1)',
+                borderDash: [5, 5],
                 // tension: 0.1
               },
 
@@ -102,7 +110,7 @@ const TranspotationFuelpie = ()=>{
           },
           y: {
             grid:{
-            display: false
+            display: true
             }
           }
       }
