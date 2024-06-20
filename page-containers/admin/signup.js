@@ -138,7 +138,7 @@ const SignupForm = () => {
         }
     
         const signupData = {
-            userName: formData.firstName + formData.lastName,
+            userName: formData.userName ,
             email: formData.email,
             packageID: 1,
             password: formData.password,
@@ -163,7 +163,7 @@ const SignupForm = () => {
            
             setFormData({
                 firstName: '',
-                lastName: '',
+              
                 email: '',
                 password: '',
                 confirmPassword: '',
@@ -183,29 +183,47 @@ const SignupForm = () => {
     };
     
     return (
+        <section>
+<div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-12 col-lg-9 col-xl-8 my-3">
         <div className={styles.signupForm}>
-            <h2>Sign Up</h2>
+            <h1>Sign Up</h1>
+            {/* <h6>Signup Page</h6> */}
+            <div className='mt-4'>
             <form onSubmit={handleSubmit}>
+                <div className='row'>
+                    <div className='col-md-6'>
                 <div className={styles.formGroup}>
-                    <label htmlFor="firstName">First Name</label>
+                    <label htmlFor="userName">User Name</label>
                     <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required />
                 </div>
+                </div>
+                {/* <div className='col-md-6'>
                 <div className={styles.formGroup}>
                     <label htmlFor="lastName">Last Name</label>
                     <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required />
                 </div>
+                </div> */}
+                <div className='col-md-6'>
                 <div className={styles.formGroup}>
                     <label htmlFor="email">Email</label>
                     <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
                 </div>
+                </div>
+                <div className='col-md-6'>
                 <div className={styles.formGroup}>
                     <label htmlFor="password">Password</label>
                     <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
                 </div>
+                </div>
+                <div className='col-md-6'>
                 <div className={styles.formGroup}>
                     <label htmlFor="confirmPassword">Confirm Password</label>
                     <input type="password" id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
                 </div>
+                </div>
+                <div className='col-md-6'>
                 <div className={styles.formGroup}>
                     <label htmlFor="role">Role </label>
                     <select id="role" name="role" value={formData.role} onChange={handleChange} required>
@@ -215,6 +233,9 @@ const SignupForm = () => {
                         ))}
                     </select>
                 </div>
+                </div>
+
+                <div className='col-md-6'>
                 <div className={styles.formGroup}>
                     <label htmlFor="country">Country</label>
                     <select id="country" name="country" value={formData.country} onChange={handleChange} required>
@@ -224,15 +245,25 @@ const SignupForm = () => {
                         ))}
                     </select>
                 </div>
-                <button className='btn' type="text">Register</button>
+                </div>
+                <button type="btn" className='btn btn-success' >Register &#x2192;</button>
+                </div>
             </form>
+            </div>
             {loading && <p>Loading roles and countries...</p>}
             {error && <p className={styles.errorMsg}>{error}</p>}
 
-            <div className={styles.loginContainer}>
-                <p>Already have an account? <a href="/login">Login</a></p>
+            <div className={`mt-5 ${styles.loginContainer}`} >
+                <div className='d-flex align-items-center justify-content-between'>
+                <p style={{opacity:".5"}}>Already have an account?</p>
+                <a href="/login" type='btn' className='btn btn-outline-success mx-3'>Login</a>
+                </div>
             </div>
         </div>
+      </div>
+      </div>
+      </div>
+        </section>
     );
 };
 export default SignupForm;
