@@ -14,6 +14,7 @@ const JouleCharts = ()=>{
               fill: false,
               backgroundColor: 'rgba(75,192,192,0.4)',
               borderColor: 'rgba(75,192,192,1)',
+              borderDash: [5, 5],
               // tension: 0.1
             },
             {
@@ -22,6 +23,7 @@ const JouleCharts = ()=>{
               fill: false,
               backgroundColor: 'rgba(153,102,255,0.4)',
               borderColor: 'rgba(153,102,255,1)',
+              borderDash: [5, 5],
               // tension: 0.1
             },
             {
@@ -30,6 +32,7 @@ const JouleCharts = ()=>{
                 fill: false,
                 backgroundColor: 'rgba(242, 242, 49,0.4)',
                 borderColor: 'rgb(242, 242, 49,1)',
+                borderDash: [5, 5],
                 // tension: 0.1
               },
           ],
@@ -55,7 +58,7 @@ const JouleCharts = ()=>{
           },
           y: {
             grid:{
-            display: false
+            display: true
             }
           }
       }
