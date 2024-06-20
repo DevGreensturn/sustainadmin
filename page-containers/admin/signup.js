@@ -123,10 +123,7 @@ const SignupForm = () => {
             setError("First Name must be between 1 and 25 characters");
             return;
         }
-        // if (formData.lastName.length < 1 || formData.lastName.length > 25) {
-        //     setError("Last Name must be between 1 and 25 characters");
-        //     return;
-        // }
+       
         if (!formData.email.includes('@') || formData.email.length > 50) {
             setError("Please enter a valid Email (up to 50 characters)");
             return;
