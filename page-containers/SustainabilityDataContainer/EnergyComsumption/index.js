@@ -2,6 +2,7 @@ import PieChart from "../PieChart";
 import { useState } from "react";
 
 import JouleCharts from "../charts/jouleChart";
+import EnergyComsuptionpie from "../charts/energycomsumptionpie";
 const EnergyComsuption =()=>{
     const [activeButton, setActiveButton] = useState("button1");
     const handleButtonClick =(button)=>{
@@ -121,37 +122,37 @@ const EnergyComsuption =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+         <EnergyComsuptionpie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+         <EnergyComsuptionpie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+         <EnergyComsuptionpie />
         </div>
       )}
 
       {activeButton === 'button4' && (
         <div className="">
-           <JouleCharts />
+         <EnergyComsuptionpie />
         </div>
       )}
 
       {activeButton === 'button5' && (
         <div className="">
-           <JouleCharts />
+         <EnergyComsuptionpie />
         </div>
       )}
 
       {activeButton === 'button6' && (
         <div className="">
-           <JouleCharts />
+         <EnergyComsuptionpie />
         </div>
       )}
 

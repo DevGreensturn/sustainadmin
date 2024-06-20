@@ -2,6 +2,8 @@ import PieChart from "../PieChart";
 import { useState } from "react";
 
 import JouleCharts from "../charts/jouleChart";
+import SolidWastepie from "../charts/solidWastePie";
+import LiquidWastepie from "../charts/LiquidwasteRemovalpie";
 const WasteManagementChart =()=>{
     const [activeButton, setActiveButton] = useState("button1");
     const handleButtonClick =(button)=>{
@@ -79,12 +81,11 @@ const WasteManagementChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="/images/Solid_Waste_Mgt.svg" alt="" /></div>
+                <div><img src="/images/resycled.svg" alt="" /></div>
                 <div className="mx-2"><h4>Solid Waste Removed From Site </h4></div>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
-
             <div style={{backgroundColor:"#F8F8FF"}} className="d-flex justify-content-around p-2"> 
                   <button 
                   type="btn"
@@ -117,19 +118,19 @@ const WasteManagementChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+          <SolidWastepie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+          <SolidWastepie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+              <SolidWastepie />
         </div>
       )}
 
@@ -180,7 +181,7 @@ const WasteManagementChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="/images/Liquid_Waste_Mgt.svg" alt="" /></div>
+                <div><img src="/images/resycled.svg" alt="" /></div>
                 <div className="mx-2"><h4>Liquid Waste Removed From Site</h4></div>
               </div>
               <div className="row mt-2">
@@ -218,19 +219,19 @@ const WasteManagementChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+          <LiquidWastepie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+        <LiquidWastepie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+<LiquidWastepie />
         </div>
       )}
       </div>
@@ -342,37 +343,37 @@ const WasteManagementChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+         <LiquidWastepie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+          <LiquidWastepie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+           <LiquidWastepie />
         </div>
       )}
 
       {activeButton === 'button4' && (
         <div className="">
-           <JouleCharts />
+          <LiquidWastepie />
         </div>
       )}
 
       {activeButton === 'button5' && (
         <div className="">
-           <JouleCharts />
+           <LiquidWastepie />
         </div>
       )}
 
       {activeButton === 'button6' && (
         <div className="">
-           <JouleCharts />
+<LiquidWastepie />
         </div>
       )}
 

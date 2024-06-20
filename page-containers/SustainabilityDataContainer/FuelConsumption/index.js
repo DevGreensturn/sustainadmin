@@ -1,6 +1,8 @@
 import PieChart from "../PieChart";
 import { useState } from "react";
 import JouleCharts from "../charts/jouleChart";
+import TranspotationFuelpie from "../charts/transpotationFuel";
+import FuelComsumptionpie from "../charts/fuelcomsuptionpie";
 
 const FuelComsumptionChart =()=>{
     const [activeButton, setActiveButton] = useState("button1");
@@ -82,7 +84,7 @@ const FuelComsumptionChart =()=>{
             <div className="">
               <div className="d-flex align-items-baseline">
                 <div><img src="/images/nonRenowable.png" alt="" /></div>
-                <div className="mx-2"><h4>Monthly Transportation Fuel</h4></div>
+                <div className="mx-2"><h4>Transportation Fuel</h4></div>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
@@ -119,19 +121,19 @@ const FuelComsumptionChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+         <TranspotationFuelpie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+         <TranspotationFuelpie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+         <TranspotationFuelpie />
         </div>
       )}
 
@@ -177,7 +179,7 @@ const FuelComsumptionChart =()=>{
             <div className="">
               <div className="d-flex align-items-baseline">
                 <div><img src="/images/nonRenowable.png" alt="" /></div>
-                <div className="mx-2"><h4>Monthly Fuel Consumption</h4></div>
+                <div className="mx-2"><h4>Fuel Consumption</h4></div>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
@@ -214,19 +216,19 @@ const FuelComsumptionChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+          <FuelComsumptionpie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+          <FuelComsumptionpie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+          <FuelComsumptionpie />
         </div>
       )}
 

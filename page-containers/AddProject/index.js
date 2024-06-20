@@ -70,7 +70,7 @@ export default function AddProject() {
       console.log(payload,"LLLLL");
       try {
         await ADMINAPI({
-          url: `http://3.108.58.161:3002/api/v1/projects`,
+          url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/projects`,
           method: "POST",
           body: { ...payload },
         }).then((data) => {
@@ -154,7 +154,7 @@ export default function AddProject() {
   try {
          
     await ADMINAPI({
-          url: `http://3.108.58.161:3002/api/v1/packages`,
+          url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/packages`,
           method: "GET",
          
          }).then((data) => {

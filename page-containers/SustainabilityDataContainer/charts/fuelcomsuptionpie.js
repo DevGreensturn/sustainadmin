@@ -3,28 +3,37 @@ import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend } from 'chart.js';
 import { width } from "@fortawesome/free-solid-svg-icons/fa0";
 
-const EmissionsCharts = ()=>{
+const FuelComsumptionpie = ()=>{
 
     const data = {
         labels: ['Dec 2023', 'Jan 2024', 'Feb 2024', 'March 2024', 'Apr 2024', 'May 2024'],
         datasets: [
             {
-              label: 'Construction Emission',
-              data: [0, 30, 20, 15, 25, 5, 10],
+              label: 'Preparation for use',
+              data: [0, 100, 20, 15, 25, 85, 10],
               fill: false,
-              backgroundColor: 'rgba(0,173,59,0.4)',
-              borderColor: 'rgba(0,173,59,1)',
+              backgroundColor: 'rgba(0,127,255,0.4)',
+              borderColor: 'rgba(0,127,255,1)',
               // tension: 0.1
             },
             {
-              label: 'Transportation Emission',
-              data: [0, 17, 10, 25, 15, 5, 35],
+              label: 'Recycling',
+              data: [0, 78, 10, 25, 15, 5, 85],
               fill: false,
-              backgroundColor: 'rgba(255,113,139,0.4)',
-              borderColor: 'rgba(255,113,139,1)',
+              backgroundColor: 'rgba(59,75,97,0.4)',
+              borderColor: 'rgba(59,75,97,1)',
               // tension: 0.1
             },
             
+            {
+                label: 'Other Recovery Operation',
+                data: [50, 58, 20, 65, 25, 3, 0],
+                fill: false,
+                backgroundColor: 'rgba(100,149,237,0.4)',
+                borderColor: 'rgba(100,149,237,1)',
+                // tension: 0.1
+              },
+
           ],
       };
     
@@ -41,8 +50,6 @@ const EmissionsCharts = ()=>{
           
         },
 
-        
-          
         scales: {
           x: {
             grid:{
@@ -55,8 +62,6 @@ const EmissionsCharts = ()=>{
             }
           }
       }
-
-      
       };
    
     return(
@@ -65,5 +70,4 @@ const EmissionsCharts = ()=>{
         </>
     )
 }
-export default EmissionsCharts;
-
+export default FuelComsumptionpie;

@@ -36,7 +36,7 @@ function Login() {
         };
 
         const response = await ADMINAPI({
-          url: `http://3.108.58.161:3001/api/v1/users/login`,
+          url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/users/login`,
           method: "POST",
           body: { ...payload },
         });
