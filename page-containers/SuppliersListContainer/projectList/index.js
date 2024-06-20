@@ -45,7 +45,7 @@ const ProjectListTable =(projectId,packageId)=>{
       try {
        
      await ADMINAPI({
-           url: `http://3.108.58.161:3002/api/v1/projects?id=3&page=1`,
+           url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/projects?id=3&page=1`,
            method: "GET",
           
           }).then((data) => {
@@ -66,7 +66,7 @@ const ProjectListTable =(projectId,packageId)=>{
         try {
          
        await ADMINAPI({
-             url: `http://3.108.58.161:3001/api/v1/suppliers?projectId=${projectId.projectId}`,
+             url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/suppliers?projectId=${projectId.projectId}`,
              method: "GET",
             
             }).then((data) => {
@@ -87,7 +87,7 @@ const ProjectListTable =(projectId,packageId)=>{
         try {
                
           await ADMINAPI({
-                url: `http://3.108.58.161:3002/api/v1/packages`,
+                url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/packages`,
                 method: "GET",
                
                }).then((data) => {
@@ -217,7 +217,7 @@ const ProjectListTable =(projectId,packageId)=>{
       console.log(payload,"LLLLL");
       try {
         await ADMINAPI({
-          url: `http://3.108.58.161:3001/api/v1/suppliers/${formData.supplierIdNew}`,
+          url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/suppliers/${formData.supplierIdNew}`,
           method: "put",
           body: { ...payload },
         }).then((data) => {
@@ -324,7 +324,7 @@ const ProjectListTable =(projectId,packageId)=>{
         try {
      
             await ADMINAPI({
-                  url: `http://3.108.58.161:3001/api/v1/suppliers/${supplierId}`,
+                  url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/suppliers/${supplierId}`,
                   method: "PATCH",
                  
                  }).then((data) => {

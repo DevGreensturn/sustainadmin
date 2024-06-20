@@ -20,7 +20,7 @@ const SignupForm = () => {
     useEffect(() => {
         const fetchRoles = async () => {
             try {
-                const response = await fetch('http://3.108.58.161:3001/api/v1/roles');
+                const response = await fetch('${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/roles');
                 if (response.ok) {
                     const data = await response.json();
                     if (data.response && data.response.length > 0) {
@@ -48,7 +48,7 @@ const SignupForm = () => {
 
         const fetchCountries = async () => {
             try {
-                const response = await fetch('http://3.108.58.161:3001/api/v1/countries');
+                const response = await fetch('${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/countries');
              
                 if (response.ok) {
                     const data = await response.json();
@@ -144,7 +144,7 @@ const SignupForm = () => {
         };
     
         try {
-            const response = await fetch('http://3.108.58.161:3001/api/v1/users', {
+            const response = await fetch('${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

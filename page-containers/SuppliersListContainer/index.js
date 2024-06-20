@@ -32,7 +32,7 @@ const SuppliersList = () => {
     try {
      
    await ADMINAPI({
-         url: `http://3.108.58.161:3002/api/v1/projects?id=3&page=1`,
+         url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/projects?id=3&page=1`,
          method: "GET",
         
         }).then((data) => {
@@ -51,7 +51,7 @@ const SuppliersList = () => {
     try {
            
       await ADMINAPI({
-            url: `http://3.108.58.161:3002/api/v1/packages`,
+            url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/packages`,
             method: "GET",
            
            }).then((data) => {
@@ -107,7 +107,7 @@ const SuppliersList = () => {
     try {
         
       await ADMINAPI({
-        url: `http://3.108.58.161:3001/api/v1/suppliers`,
+        url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/suppliers`,
         method: "POST",
         body: { ...payload },
       }).then((data) => {

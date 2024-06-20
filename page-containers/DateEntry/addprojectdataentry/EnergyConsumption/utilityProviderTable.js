@@ -167,7 +167,7 @@ const Utilityprovidertable = () => {
     };
     try {
       await ADMINAPI({
-        url: "http://3.108.58.161:3002/api/v1/data-entry/energy",
+        url: "${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/energy",
         method: "POST",
         body: { ...payload },
       })
@@ -194,7 +194,7 @@ const Utilityprovidertable = () => {
   const fetchTable = async () => {
     try {
       await ADMINAPI({
-        url: `http://3.108.58.161:3002/api/v1/data-entry/energy`,
+        url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/energy`,
         method: "GET",
       }).then((data) => {
         let userData = data.response;
@@ -221,7 +221,7 @@ const Utilityprovidertable = () => {
     };
     try {
       await ADMINAPI({
-        url: `http://3.108.58.161:3002/api/v1/data-entry/energy/${energyId}`,
+        url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/energy/${energyId}`,
         method: "put",
         body: { ...payload },
       })
@@ -251,7 +251,7 @@ const Utilityprovidertable = () => {
     try {
  
         await ADMINAPI({
-            url: `http://3.108.58.161:3002/api/v1/data-entry/energy/${energyId}`,
+            url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/energy/${energyId}`,
             method: "PATCH",
              
              }).then((data) => {
