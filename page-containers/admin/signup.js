@@ -3,14 +3,14 @@ import React, { useState, useEffect } from 'react';
 import styles from './SignupForm.module.css';
 const SignupForm = () => {
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
+        userNameName: '',
         email: '',
         password: '',
         confirmPassword: '',
         countryCode: '+91',
         role: '',
         country: ''
+
     });
     const [roles, setRoles] = useState([]);
     const [countries, setCountries] = useState([]);
@@ -119,14 +119,11 @@ const SignupForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         // Validation checks
-        if (formData.firstName.length < 1 || formData.firstName.length > 25) {
+        if (formData.userName.length < 1 || formData.userName.length > 25) {
             setError("First Name must be between 1 and 25 characters");
             return;
         }
-        if (formData.lastName.length < 1 || formData.lastName.length > 25) {
-            setError("Last Name must be between 1 and 25 characters");
-            return;
-        }
+       
         if (!formData.email.includes('@') || formData.email.length > 50) {
             setError("Please enter a valid Email (up to 50 characters)");
             return;
@@ -162,8 +159,7 @@ const SignupForm = () => {
     
            
             setFormData({
-                firstName: '',
-              
+                userNameName: '',
                 email: '',
                 password: '',
                 confirmPassword: '',
@@ -185,26 +181,20 @@ const SignupForm = () => {
     return (
         <section>
 <div className="container">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center" style={{marginTop:"200px"}}>
           <div className="col-md-12 col-lg-9 col-xl-8 my-3">
         <div className={styles.signupForm}>
             <h1>Sign Up</h1>
             {/* <h6>Signup Page</h6> */}
-            <div className='mt-4'>
+            <div className='mt-4'  >
             <form onSubmit={handleSubmit}>
                 <div className='row'>
                     <div className='col-md-6'>
                 <div className={styles.formGroup}>
                     <label htmlFor="userName">User Name</label>
-                    <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required />
+                    <input type="text" id="userName" name="userName" value={formData.firstName} onChange={handleChange} required />
                 </div>
                 </div>
-                {/* <div className='col-md-6'>
-                <div className={styles.formGroup}>
-                    <label htmlFor="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required />
-                </div>
-                </div> */}
                 <div className='col-md-6'>
                 <div className={styles.formGroup}>
                     <label htmlFor="email">Email</label>
@@ -234,7 +224,6 @@ const SignupForm = () => {
                     </select>
                 </div>
                 </div>
-
                 <div className='col-md-6'>
                 <div className={styles.formGroup}>
                     <label htmlFor="country">Country</label>
@@ -252,7 +241,6 @@ const SignupForm = () => {
             </div>
             {loading && <p>Loading roles and countries...</p>}
             {error && <p className={styles.errorMsg}>{error}</p>}
-
             <div className={`mt-5 ${styles.loginContainer}`} >
                 <div className='d-flex align-items-center justify-content-between'>
                 <p style={{opacity:".5"}}>Already have an account?</p>

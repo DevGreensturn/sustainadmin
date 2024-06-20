@@ -168,10 +168,9 @@ function Login() {
                   <div style={{cursor:"pointer", color:"#999BA1"}}>Don{"'"}t Have an Account?</div>
                   
                   <div>
-                  <Link href="/admin/signup"><button type="button" className="btn btn-outline-success">Create Account</button></Link>
+                  <Link href="/signup"><button type="button" className="btn btn-outline-success">Create Account</button></Link>
                   </div>
                 </div>
-
                     </form>
                   </div>
                 </div>
