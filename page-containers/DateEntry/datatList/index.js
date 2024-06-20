@@ -11,7 +11,8 @@ import { Modal, Button, Form , Row, Col} from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from "next/navigation";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 const DataEntryTable =()=>{
     const [row ,setRow] = useState([]);
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
@@ -20,24 +21,10 @@ const DataEntryTable =()=>{
     const [projectData, setProjectData] = useState([]);
     const [dataEntryId, setDataEntryId] = useState("");
     const navigate = useRouter();
+    const [projectReportMonth, setProjectReportMonth] = useState("");
 
 
     const [formData, setFormData] = useState({
-        referenceNo: '',
-        projectName: '',
-        projectPackageId: '',
-        mainContractor: '',
-        topology: '',
-        packageCurrentProgress: '',
-        cumulativeManhour: '',
-        plotArea: '',
-        gfa: '',
-        roadLength: '',
-        infrastructure: '',
-        SubscriptionCategory: '',
-        subscriptionTier: '',
-        SustainabilityRating: '',
-        projectId :''
       });
       const handleChange = (e) => {
         const { name, value } = e.target;
@@ -74,6 +61,15 @@ const DataEntryTable =()=>{
 toast.warn(`After ${row.reportStatus} You Can't Edit Report.`)
 return
         }else{
+          setFormData({
+          ...formData,
+          cumulativeManhour: row?.cumulativeManhour,
+          packageCurrentProgress: row?.overallPackagesProgress,
+          packagesProgressThisMonth :row?.packagesProgressThisMonth,
+          projectPackageId: row?.projectPackageId?.name,
+          projectId :row?._id,
+        });
+        setProjectReportMonth(row?.reportingMonthYear)
           setShowPopup(true)
 
         }
@@ -276,47 +272,48 @@ return
       }
     };
    
-      
+    const handleEditData = async (e) => {
+      e.preventDefault();
+      console.log(formData,"LLLLLL123");
+      let payload = formData
+      console.log(payload,"LLLLL");
+      try {
+        await ADMINAPI({
+          url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/monthly-reports/${payload.projectId}`,
+          method: "put",
+          body: { ...payload },
+        }).then((data) => {
+          console.log(data,"KKKKKKKKKKKK");
+          if (data.status === true) {
+              setShowPopup(false)
+              handleMonthlyReports();
+            setTimeout(() => {
+              navigate.push("/dataEntry", { scroll: false });
+            }, 100);
+          } else {
+              console.log(data?.message,"rtrttt");
+              setShowPopup(false)
+
+            toast.error(data?.message);
+          }
+        }).catch(err => {
+          setShowPopup(false)
+
+          console.log(err,"rtrttt");
+          toast.error(err?.message);
+        });
+      } catch (error) {
+          console.log(error,"KKKKK");
+        toast.error(error?.message);
+      }
+    };
       useEffect(() => {
       handleFetchProjectOnly();
         fetchPackageList();
       }, []);
     
-   
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log(formData,"LLLLLL123");
-        let payload = formData
-        console.log(payload,"LLLLL");
-        try {
-          await ADMINAPI({
-            url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/projects/${payload.projectId}`,
-            method: "put",
-            body: { ...payload },
-          }).then((data) => {
-            console.log(data,"KKKKKKKKKKKK");
-            if (data.status === true) {
-                setShowPopup(false)
-                handleMonthlyReports();
-              setTimeout(() => {
-                navigate.push("/dataEntry", { scroll: false });
-              }, 100);
-            } else {
-                console.log(data?.message,"rtrttt");
-                setShowPopup(false)
-
-              toast.error(data?.message);
-            }
-          }).catch(err => {
-            setShowPopup(false)
-
-            console.log(err,"rtrttt");
-            toast.error(err?.message);
-          });
-        } catch (error) {
-            console.log(error,"KKKKK");
-          toast.error(error?.message);
-        }
+      const handleDateChange = (date) => {
+        setProjectReportMonth(date);
       };
     useEffect(() => {
         handleMonthlyReports();
@@ -374,10 +371,10 @@ return
   <Modal.Body className="pt-0">
     <h6 className="text-center">Edit Monthly-Report </h6>
     {console.log(row,"YYY",formData)}
-    <Form onSubmit={handleSubmit} className="mt-2 p-2">
+    <Form  className="mt-2 p-2">
       <Form.Group>
         <Row>
-        <Col md={6}>
+        {/* <Col md={6}>
         <label>Project*</label>
             <Form.Control
               as="select"
@@ -393,7 +390,7 @@ return
                 </option>
               ))}
             </Form.Control>
-          </Col>
+          </Col> */}
           <Col md={6}>
           <label>Package</label>
             <Form.Control
@@ -410,68 +407,51 @@ return
               ))}
               </Form.Control>
           </Col>
-        
-        </Row>
-        <Row>
           <Col md={6}>
-          <label>Supplier Id</label>
-            <Form.Control
-              type="text"
-              name="supplierId"
-              placeholder="Supplier Id"
-              value={formData.supplierId}
-              onChange={handleChange}
-              className="mb-2"
-              required
-
-            />
-          </Col>
-          <Col md={6}>
-          <label>Supplier Name</label>
-            <Form.Control
-              type="text"
-              name="supplierName"
-              placeholder="Supplier Name"
-              value={formData.supplierName}
-              onChange={handleChange}
-              className="mb-2"
-              required
-
-            />
-          </Col>
-        </Row>
-        <Row>
-          <Col md={6}>
-          <label>Supplier Address</label>
-            <Form.Control
-              type="text"
-              name="supplierAddress"
-              placeholder="Supplier Address"
-              value={formData.supplierAddress}
-              onChange={handleChange}
-              className="mb-2"
-              required
-
-            />
-          </Col>
-          <Col md={6}>
-          <label>Type</label>
-            <Form.Control
-              type="text"
-              name="type"
-              placeholder="Type"
-              value={formData.type}
-              onChange={handleChange}
-              className="mb-2"
-              required
-
-            />
+          <label>Reporting Month</label>
+            <DatePicker
+                selected={projectReportMonth}
+                onChange={handleDateChange}
+                dateFormat="dd MMMM yyyy"
+                className="form-control"
+                placeholderText="Select a date"
+                required
+              />
           </Col>
          
         </Row>
-      
+        <Row>
+          <Col md={6}>
+          <label>Packages Progress this Month</label>
+            <Form.Control
+              type="text"
+              name="packagesProgressThisMonth"
+              placeholder="Supplier Name"
+              value={formData.packagesProgressThisMonth}
+              onChange={handleChange}
+              className="mb-2"
+              required
+
+            />
+          </Col>
+          <Col md={6}>
+          <label>Manhour During this Month</label>
+            <Form.Control
+              type="text"
+              name="cumulativeManhour"
+              placeholder="Supplier Name"
+              value={formData.cumulativeManhour}
+              onChange={handleChange}
+              className="mb-2"
+              required
+
+            />
+          </Col>
+          
+        </Row>
+       
       </Form.Group>
-      <Button type="submit" variant="primary" className="w-100 mt-2">Submit</Button>
+      <Button type="submit" variant="primary" className="w-100 mt-2" onClick={handleEditData}>Submit</Button>
     </Form>
   </Modal.Body>
 </Modal>
