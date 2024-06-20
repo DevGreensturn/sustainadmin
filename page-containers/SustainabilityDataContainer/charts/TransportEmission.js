@@ -14,6 +14,7 @@ const Transportemmisionpie = ()=>{
               fill: false,
               backgroundColor: 'rgba(59,75,97,0.4)',
               borderColor: 'rgba(59,75,97,1)',
+              borderDash: [5, 5],
               // tension: 0.1
             },
             {
@@ -22,6 +23,7 @@ const Transportemmisionpie = ()=>{
               fill: false,
               backgroundColor: 'rgba(0,127,255,0.4)',
               borderColor: 'rgba(0,127,255,1)',
+              borderDash: [5, 5],
               // tension: 0.1
             },
             
@@ -51,7 +53,7 @@ const Transportemmisionpie = ()=>{
           },
           y: {
             grid:{
-            display: false
+            display: true
             }
           }
       }

@@ -14,6 +14,7 @@ const ConcreteMixpie = ()=>{
               fill: false,
               backgroundColor: 'rgba(251,154,84,1)',
               borderColor: 'rgba(238,119,34,.6)',
+              borderDash: [5, 5],
               // tension: 0.1
             },
             {
@@ -22,6 +23,7 @@ const ConcreteMixpie = ()=>{
               fill: false,
               backgroundColor: 'rgba(238,119,34,1)',
               borderColor: 'rgba(238,119,34,1)',
+              borderDash: [5, 5],
               // tension: 0.1
             },
             
@@ -48,7 +50,7 @@ const ConcreteMixpie = ()=>{
           },
           y: {
             grid:{
-            display: false
+            display: true
             }
           }
       }

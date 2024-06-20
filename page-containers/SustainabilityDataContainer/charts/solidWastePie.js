@@ -14,6 +14,7 @@ const SolidWastepie = ()=>{
               fill: false,
               backgroundColor: 'rgba(0,127,255,0.4)',
               borderColor: 'rgba(0,127,255,1)',
+              borderDash: [5, 5],
               // tension: 0.1
             },
             {
@@ -22,6 +23,7 @@ const SolidWastepie = ()=>{
               fill: false,
               backgroundColor: 'rgba(100,149,237,0.4)',
               borderColor: 'rgba(100,149,237,1)',
+              borderDash: [5, 5],
               // tension: 0.1
             },
             
@@ -31,6 +33,7 @@ const SolidWastepie = ()=>{
                 fill: false,
                 backgroundColor: 'rgba(3,72,138,0.4)',
                 borderColor: 'rgba(3,72,138,1)',
+                borderDash: [5, 5],
                 // tension: 0.1
               },
 
@@ -40,6 +43,7 @@ const SolidWastepie = ()=>{
                 fill: false,
                 backgroundColor: 'rgba(59,75,97,0.4)',
                 borderColor: 'rgba(59,75,97,1)',
+                borderDash: [5, 5],
                 // tension: 0.1
               },
 
@@ -66,7 +70,7 @@ const SolidWastepie = ()=>{
           },
           y: {
             grid:{
-            display: false
+            display: true
             }
           }
       }

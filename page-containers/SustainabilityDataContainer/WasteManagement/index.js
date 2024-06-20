@@ -4,6 +4,7 @@ import { useState } from "react";
 import JouleCharts from "../charts/jouleChart";
 import SolidWastepie from "../charts/solidWastePie";
 import LiquidWastepie from "../charts/LiquidwasteRemovalpie";
+import SolidWatedisposalline from "../charts/Solidwatedisposal";
 const WasteManagementChart =()=>{
     const [activeButton, setActiveButton] = useState("button1");
     const handleButtonClick =(button)=>{
@@ -231,7 +232,7 @@ const WasteManagementChart =()=>{
 
       {activeButton === 'button3' && (
         <div className="">
-<LiquidWastepie />
+        <LiquidWastepie />
         </div>
       )}
       </div>
@@ -476,10 +477,6 @@ const WasteManagementChart =()=>{
                     lbs
                   </button>
                   </div>
-
-
-
-                
                 </div>
 
                 <div className="row mt-3">
@@ -488,37 +485,37 @@ const WasteManagementChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+         <SolidWatedisposalline />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+         <SolidWatedisposalline />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+         <SolidWatedisposalline />
         </div>
       )}
 
       {activeButton === 'button4' && (
         <div className="">
-           <JouleCharts />
+         <SolidWatedisposalline />
         </div>
       )}
 
       {activeButton === 'button5' && (
         <div className="">
-           <JouleCharts />
+          <SolidWatedisposalline />
         </div>
       )}
 
       {activeButton === 'button6' && (
         <div className="">
-           <JouleCharts />
+         <SolidWatedisposalline />
         </div>
       )}
 
