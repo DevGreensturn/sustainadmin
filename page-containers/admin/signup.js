@@ -3,8 +3,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './SignupForm.module.css';
 const SignupForm = () => {
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
+        userNameName: '',
         email: '',
         password: '',
         confirmPassword: '',
@@ -162,8 +161,7 @@ const SignupForm = () => {
     
            
             setFormData({
-                firstName: '',
-              
+                userNameName: '',
                 email: '',
                 password: '',
                 confirmPassword: '',
@@ -185,18 +183,18 @@ const SignupForm = () => {
     return (
         <section>
 <div className="container">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center" style={{marginTop:"200px"}}>
           <div className="col-md-12 col-lg-9 col-xl-8 my-3">
         <div className={styles.signupForm}>
             <h1>Sign Up</h1>
             {/* <h6>Signup Page</h6> */}
-            <div className='mt-4'>
+            <div className='mt-4'  >
             <form onSubmit={handleSubmit}>
                 <div className='row'>
                     <div className='col-md-6'>
                 <div className={styles.formGroup}>
                     <label htmlFor="userName">User Name</label>
-                    <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required />
+                    <input type="text" id="userName" name="userName" value={formData.firstName} onChange={handleChange} required />
                 </div>
                 </div>
                 <div className='col-md-6'>
