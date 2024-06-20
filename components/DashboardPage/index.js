@@ -153,6 +153,20 @@ const ThreeContainers = () => {
                 <div className='first-outer-circle'>
                 <div className='second-outer-circle'>
                   <img src='/images/imageco2.svg' alt=''/>
+                    <div className='verticalImage'>
+                        <img src='/images/verticalimg.png' alt='' className='' style={{width:"100px"}}/>
+                        <div className='greenDot'>
+                        <img src='/images/greenDot.png' alt='' className='' style={{width:"10px"}}/>
+                        </div>
+                    </div>
+
+                    <div className='verticalImageLeft'>
+                        <img src='/images/verticalimgLeft.png' alt='' className='' style={{width:"100px"}}/>
+                        <div className='greenDotLeft'>
+                        <img src='/images/greenDot.png' alt='' className='' style={{width:"10px"}}/>
+                        </div>
+                    </div>
+
                 </div>
                 </div>
 
@@ -177,12 +191,12 @@ const ThreeContainers = () => {
               </div>
 
 
-              <div className='bottom_Emmission-carbon mt-5'>
+              <div className='bottom_Emmission-carbon mt-5' style={{marginBottom:"-5px"}}>
                 <img src='/images/treePlant.svg' alt='' className='img-fluid'/>
                 <img src='/images/truck.svg' alt='' className='img-fluid' />
-                <img src='/images/plant.svg' alt='' />
-                <img src='/images/mixtureMAchine.svg' alt='' />
-                <img src='/images/lifter.svg' alt='' />
+                <img src='/images/plant.svg' alt='' className='img-fluid'/>
+                <img src='/images/mixtureMAchine.svg' alt='' className='img-fluid'/>
+                <img src='/images/lifter.svg' alt='' className='img-fluid'/>
                 </div>
 
               <div className='emission_by-carbon'>

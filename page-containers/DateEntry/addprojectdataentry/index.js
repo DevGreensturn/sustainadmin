@@ -112,7 +112,7 @@ const AddprojectEntry = () => {
                 "cumulativeManhour": projectManhour,//"450",
                 "reportedBy": "66556f5bc95e160358ac76a8",
                 "reportStatus": "Submitted",
-                "approvedByDeveloper":"Submitted"
+                "approvedByDeveloper":"66556f5bc95e160358ac76a8"
               };
         console.log(payload,"LLLLL");
         try {
@@ -149,7 +149,7 @@ const AddprojectEntry = () => {
                 "cumulativeManhour": projectManhour,//"450",
                 "reportedBy": "66556f5bc95e160358ac76a8",
                 "reportStatus": "Draft",
-                "approvedByDeveloper":"Submitted"
+                "approvedByDeveloper":"66556f5bc95e160358ac76a8"
               };
         console.log(payload,"LLLLL");
         try {
