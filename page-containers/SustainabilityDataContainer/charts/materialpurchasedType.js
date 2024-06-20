@@ -15,6 +15,7 @@ const MaterialpurchasedTypepie = ()=>{
               backgroundColor: 'rgba(96,26,54,0.4)',
               borderColor: 'rgba(96,26,54,1)',
               borderDash: [5, 5],
+              borderWidth: 2,
               // tension: 0.1
             },
             {
@@ -24,6 +25,7 @@ const MaterialpurchasedTypepie = ()=>{
               backgroundColor: 'rgba(165,76,255,0.4)',
               borderColor: 'rgba(165,76,255,1)',
               borderDash: [5, 5],
+              borderWidth: 2,
               // tension: 0.1
             },
             {
@@ -33,6 +35,7 @@ const MaterialpurchasedTypepie = ()=>{
                 backgroundColor: 'rgba(163, 44, 196,0.4)',
                 borderColor: 'rgb(163, 44, 196,1)',
                 borderDash: [5, 5],
+                borderWidth: 2,
                 // tension: 0.1
               },
               {
@@ -42,6 +45,7 @@ const MaterialpurchasedTypepie = ()=>{
                 backgroundColor: 'rgba(124, 30, 218,0.4)',
                 borderColor: 'rgb(124, 30, 218,1)',
                 borderDash: [5, 5],
+                borderWidth: 2,
                 // tension: 0.1
               },
               {
@@ -51,6 +55,7 @@ const MaterialpurchasedTypepie = ()=>{
                 backgroundColor: 'rgba(189, 147, 211,0.4)',
                 borderColor: 'rgb(189, 147, 211,1)',
                 borderDash: [5, 5],
+                borderWidth: 2,
                 // tension: 0.1
               },
               {
@@ -60,6 +65,7 @@ const MaterialpurchasedTypepie = ()=>{
                 backgroundColor: 'rgba(122, 74, 136,0.4)',
                 borderColor: 'rgb(189, 147, 211,1)',
                 borderDash: [5, 5],
+                borderWidth: 2,
                 // tension: 0.1
               },
               {
@@ -69,6 +75,7 @@ const MaterialpurchasedTypepie = ()=>{
                 backgroundColor: 'rgba(122, 74, 136,0.4)',
                 borderColor: 'rgb(189, 147, 211,1)',
                 borderDash: [5, 5],
+                borderWidth: 2,
                 // tension: 0.1
               },
               {
@@ -78,6 +85,7 @@ const MaterialpurchasedTypepie = ()=>{
                 backgroundColor: 'rgba(122, 74, 136,0.4)',
                 borderColor: 'rgb(189, 147, 211,1)',
                 borderDash: [5, 5],
+                borderWidth: 2,
                 // tension: 0.1
               },
           ],
