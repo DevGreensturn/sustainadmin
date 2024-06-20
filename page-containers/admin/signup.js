@@ -199,12 +199,6 @@ const SignupForm = () => {
                     <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required />
                 </div>
                 </div>
-                {/* <div className='col-md-6'>
-                <div className={styles.formGroup}>
-                    <label htmlFor="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required />
-                </div>
-                </div> */}
                 <div className='col-md-6'>
                 <div className={styles.formGroup}>
                     <label htmlFor="email">Email</label>
@@ -234,7 +228,6 @@ const SignupForm = () => {
                     </select>
                 </div>
                 </div>
-
                 <div className='col-md-6'>
                 <div className={styles.formGroup}>
                     <label htmlFor="country">Country</label>
@@ -252,7 +245,6 @@ const SignupForm = () => {
             </div>
             {loading && <p>Loading roles and countries...</p>}
             {error && <p className={styles.errorMsg}>{error}</p>}
-
             <div className={`mt-5 ${styles.loginContainer}`} >
                 <div className='d-flex align-items-center justify-content-between'>
                 <p style={{opacity:".5"}}>Already have an account?</p>
