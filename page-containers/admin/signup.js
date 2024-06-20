@@ -22,11 +22,11 @@ const SignupForm = () => {
     const fetchRoles = async () => {
         try {
             const response = await ADMINAPI({
-                url: `http://3.108.58.161:3001/api/v1/roles`,
+                url: `http://35.154.130.173:3001/api/v1/roles`,
                 method: "GET",
             });
-            if (response.ok) {
-                const data = await response.json();
+            if (response.status) {
+                const data = await response;
                 if (data.response && data.response.length > 0) {
                     setRoles(data.response);
                     setFormData(prevState => ({
@@ -53,16 +53,16 @@ const SignupForm = () => {
     const fetchCountries = async () => {
         try {
             const response = await ADMINAPI({
-                url: `http://3.108.58.161:3001/api/v1/countries`,
+                url: `http://35.154.130.173:3001/api/v1/countries`,
                 method: "GET",
             });
-            if (response.ok) {
-                const data = await response.json();
-                if (data.data && data.data.length > 0) {
-                    setCountries(data.data);
+            if (response.status) {
+                const data = await response.data;
+                if (data && data.length > 0) {
+                    setCountries(data);
                     setFormData(prevState => ({
                         ...prevState,
-                        country: data.data[0].info.longName
+                        country: data[0].info.longName
                     }));
                 } else {
                     setCountries([]);
@@ -149,20 +149,15 @@ const SignupForm = () => {
 
         try {
             const response = await ADMINAPI({
-                url: `http://3.108.58.161:3001/api/v1/users`,
+                url: `http://35.154.130.173:3001/api/v1/users`,
                 method: "POST",
-                body: JSON.stringify(signupData),
+                body: signupData,
             });
-
-            const responseData = await response.json();
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status} - ${JSON.stringify(responseData)}`);
+            
+            if (!response.status) {
+                throw new Error(`HTTP error! Status: ${response.status} - ${response.message}`);
             }
-
-            toast.success('Registered successfully!', {
-                position: toast.POSITION.TOP_CENTER
-            });
+            toast.success(response.message);
 
             setFormData({
                 userName: '',
@@ -174,10 +169,7 @@ const SignupForm = () => {
                 country: countries.length > 0 ? countries[0].info.longName : ''
             });
             setError(null);
-
-
             window.location.href = "/login";
-
         } catch (error) {
             console.error('Error signing up:', error.message);
             setError(`Failed to sign up: ${error.message}`);
