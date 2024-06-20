@@ -13,7 +13,8 @@ import { useState, useEffect } from "react";
 import { ADMINAPI } from '../../../apiWrapper';
 import storage from "../../../comman/localstorage";
 import { useRouter } from "next/navigation";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 const AddprojectEntry = () => {
   const [projectRef, setProjectRef] = useState("");
   const [projectName, setProjectName] = useState("");
@@ -105,7 +106,7 @@ const AddprojectEntry = () => {
         let payload = {
                 "packageId": projectPack,//"665486deed3a1b1774f9ae63",
                 "projectId": projectId,//"6655751e60d4032ac67d8b2b",
-                "reportingMonthYear": "2024-06-01",
+                "reportingMonthYear":projectReportMonth, //"2024-06-01",
                 "packagesProgressThisMonth": projectProgress,//"50%",
                 "manhourDuringThisMonth": projectManhour,//"120",
                 "overallPackagesProgress": "75%",
@@ -142,7 +143,7 @@ const AddprojectEntry = () => {
         let payload = {
                 "packageId": projectPack,//"665486deed3a1b1774f9ae63",
                 "projectId": projectId,//"6655751e60d4032ac67d8b2b",
-                "reportingMonthYear": "2024-06-01",
+                "reportingMonthYear":projectReportMonth,// "2024-06-01",
                 "packagesProgressThisMonth": projectProgress,//"50%",
                 "manhourDuringThisMonth": projectManhour,//"120",
                 "overallPackagesProgress": "75%",
@@ -171,6 +172,9 @@ const AddprojectEntry = () => {
         } catch (error) {
           toast.error(error?.message);
         }
+      };
+      const handleDateChange = (date) => {
+        setProjectReportMonth(date);
       };
   return (
     <section>
@@ -232,14 +236,14 @@ const AddprojectEntry = () => {
         <div className="row mt-3">
           <div className="col-md-4">
             <label>Reporting Month</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Reporting Month"
-              value={projectReportMonth}
-              onChange={(e) => setProjectReportMonth(e.target.value)}
-
-            />
+            <DatePicker
+                selected={projectReportMonth}
+                onChange={handleDateChange}
+                dateFormat="dd MMMM yyyy"
+                className="form-control"
+                placeholderText="Select a date"
+                required
+              />
           </div>
           <div className="col-md-4">
             <label>Packages Progress this Month</label>

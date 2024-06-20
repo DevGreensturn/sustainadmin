@@ -32,7 +32,8 @@ const ProjectListTable =()=>{
         SubscriptionCategory: '',
         subscriptionTier: '',
         SustainabilityRating: '',
-        projectId :''
+        projectId :'',
+        projectPackageName: ''
       });
       const [pakageData, setPakageData] = useState([]);
       const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
@@ -173,7 +174,7 @@ const ProjectListTable =()=>{
           ...formData,
           referenceNo: row?.referenceNo,
           projectName: row?.projectName,
-          projectPackageId: row?.projectPackageId?.name,
+          projectPackageId: row?.projectPackageId?._id,
           mainContractor: row?.mainContractor,
           topology: row?.topology,
           packageCurrentProgress: row?.packageCurrentProgress,
@@ -185,7 +186,8 @@ const ProjectListTable =()=>{
           SubscriptionCategory: row?.SubscriptionCategory,
           subscriptionTier: row?.subscriptionTier,
           SustainabilityRating: row?.SustainabilityRating,
-          projectId :row?._id
+          projectId :row?._id,
+          projectPackageName :row?.projectPackageId?.name,
         });
         console.log("vvvvvv");
         setShowPopup(true)
@@ -302,197 +304,7 @@ const ProjectListTable =()=>{
          
                  }
           };
-    // {
-
-    //     "_id": "6655751e60d4032ac67d8b2b",
-    //     "referenceNo": 123,
-    //     "projectName": "New Project",
-    //     "projectPackageId": {
-    //         "_id": "665486fbed3a1b1774f9ae66",
-    //         "name": "Main Works",
-    //         "status": "ACTIVE",
-    //         "createdAt": "2024-05-27T13:13:31.058Z",
-    //         "updatedAt": "2024-05-27T13:13:31.058Z",
-    //         "__v": 0
-    //     },
-    //     "mainContractor": "Main Contractor Inc.",
-    //     "topology": "Urban",
-    //     "packageCurrentPackage": "Package123",
-    //     "manHours": "2000",
-    //     "plotArea": "5000 sqm",
-    //     "gfa": "4500 sqm",
-    //     "infrastructure": "2 km",
-    //     "infrastructure": "Basic",
-    //     "SubscriptionCategory": "Building",
-    //     "subscriptionTier": "Gold",
-    //     "SustainabilityRating": "High",
-    //     "createdAt": "2024-05-28T06:09:34.604Z",
-    //     "updatedAt": "2024-05-28T06:09:34.604Z",
-    //     "__v": 0
-    // },
-    // const rows = [
-    //     {
-    //         personID: "001",
-    //         project: "Downtown Tower",
-    //         projectPackage: "Enabling Works",
-    //         mainContactor: "Company X",
-    //         packageTypology: "Infrastructure",
-    //         packageCurrentProgress: "90%",
-    //         CumulativeManhour: "115,200.00",
-    //         PloatArea:"25,000.00",
-    //         GFA:"-",
-    //         RoadLength: "-",
-    //         InfraStructure: "2.5",
-    //         SubscriptionCategory:"Infrastructure",
-    //         SubscriptionTier:"Tier 1 - 100Ha",
-    //         Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>
-    //     },
-    //      {
-    //         personID: "002",
-    //         project: "Downtown Tower",
-    //         projectPackage: "Building",
-    //         mainContactor: "Company Y",
-    //         packageTypology: "Building",
-    //         packageCurrentProgress: "50%",
-    //         CumulativeManhour: "230,400.00",
-    //         PloatArea:"25,000.00",
-    //         GFA:"60,000.00",
-    //         RoadLength: "-",
-    //         InfraStructure: "-",
-    //         SubscriptionCategory:"Building",
-    //         SubscriptionTier:"Tier 3 - 50,000sqm",
-    //         Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
-    //      },
-    //      {
-    //         personID: "003",
-    //         project: "Downtown Tower",
-    //         projectPackage: "Community Facility",
-    //         mainContactor: "Company Z",
-    //         packageTypology: "Building",
-    //         packageCurrentProgress: "10%",
-    //         CumulativeManhour: "19,200.00",
-    //         PloatArea:"25,000.00",
-    //         GFA:"10,000.00",
-    //         RoadLength: "-",
-    //         InfraStructure: "-",
-    //         SubscriptionCategory:"Building",
-    //         SubscriptionTier:"Tier 1 - 20,000sqm",
-    //         Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>     
-    //      },
-    //      {
-    //         personID: "004",
-    //         project: "Dubai Road",
-    //         projectPackage: "Main Works",
-    //         mainContactor: "Company G",
-    //         packageTypology: "Road",
-    //         packageCurrentProgress: "1%",
-    //         CumulativeManhour: "9,600.00",
-    //         PloatArea:"-",
-    //         GFA:"-",
-    //         RoadLength: "5",
-    //         InfraStructure: "-",
-    //         SubscriptionCategory:"Road",
-    //         SubscriptionTier:"Tier 1 - 8km",
-    //         Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
-    //      },
-        
-    //      {
-    //         personID: "005",
-    //         project: "Dubai Road",
-    //         projectPackage: "Main Works",
-    //         mainContactor: "Company G",
-    //         packageTypology: "Road",
-    //         packageCurrentProgress: "1%",
-    //         CumulativeManhour: "9,600.00",
-    //         PloatArea:"-",
-    //         GFA:"-",
-    //         RoadLength: "5",
-    //         InfraStructure: "-",
-    //         SubscriptionCategory:"Road",
-    //         SubscriptionTier:"Tier 1 - 8km",
-    //         Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
-    //      },
-    //      {
-    //         personID: "006",
-    //         project: "Dubai Road",
-    //         projectPackage: "Main Works",
-    //         mainContactor: "Company G",
-    //         packageTypology: "Road",
-    //         packageCurrentProgress: "1%",
-    //         CumulativeManhour: "9,600.00",
-    //         PloatArea:"-",
-    //         GFA:"-",
-    //         RoadLength: "5",
-    //         InfraStructure: "-",
-    //         SubscriptionCategory:"Road",
-    //         SubscriptionTier:"Tier 1 - 8km",
-    //         Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>   
-    //      },
-    //      {
-    //         personID: "007",
-    //         project: "Dubai Road",
-    //         projectPackage: "Main Works",
-    //         mainContactor: "Company G",
-    //         packageTypology: "Road",
-    //         packageCurrentProgress: "1%",
-    //         CumulativeManhour: "9,600.00",
-    //         PloatArea:"-",
-    //         GFA:"-",
-    //         RoadLength: "5",
-    //         InfraStructure: "-",
-    //         SubscriptionCategory:"Road",
-    //         SubscriptionTier:"Tier 1 - 8km",
-    //         Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>   
-    //      },
-    //      {
-    //         personID: "008",
-    //         project: "Dubai Road",
-    //         projectPackage: "Main Works",
-    //         mainContactor: "Company G",
-    //         packageTypology: "Road",
-    //         packageCurrentProgress: "1%",
-    //         CumulativeManhour: "9,600.00",
-    //         PloatArea:"-",
-    //         GFA:"-",
-    //         RoadLength: "5",
-    //         InfraStructure: "-",
-    //         SubscriptionCategory:"Road",
-    //         SubscriptionTier:"Tier 1 - 8km",
-    //         Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>  
-    //      },
-    //      {
-    //         personID: "009",
-    //         project: "Dubai Road",
-    //         projectPackage: "Main Works",
-    //         mainContactor: "Company G",
-    //         packageTypology: "Road",
-    //         packageCurrentProgress: "1%",
-    //         CumulativeManhour: "9,600.00",
-    //         PloatArea:"-",
-    //         GFA:"-",
-    //         RoadLength: "5",
-    //         InfraStructure: "-",
-    //         SubscriptionCategory:"Road",
-    //         SubscriptionTier:"Tier 1 - 8km",
-    //         Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>  
-    //      },
-    //      {
-    //         personID: "010",
-    //         project: "Dubai Road",
-    //         projectPackage: "Main Works",
-    //         mainContactor: "Company G",
-    //         packageTypology: "Road",
-    //         packageCurrentProgress: "1%",
-    //         CumulativeManhour: "9,600.00",
-    //         PloatArea:"-",
-    //         GFA:"-",
-    //         RoadLength: "5",
-    //         InfraStructure: "-",
-    //         SubscriptionCategory:"Road",
-    //         SubscriptionTier:"Tier 1 - 8km",
-    //         Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>   
-    //      },
-    // ];
+   
     useEffect(() => {
         handleFetchProject();
       }, []);
@@ -564,12 +376,11 @@ const ProjectListTable =()=>{
             <Form.Control
               as="select"
               name="projectPackageId"
-              value={formData.projectPackageId}
+              value={formData.projectPackageName}
               onChange={handleChange}
               className="mb-2"
               required
             >
-                <option value="">{formData.projectPackageId} </option>
               {pakageData?.map((category, indexCat) => (
                 <option key={indexCat} value={category?._id}>
                   {category?.name}

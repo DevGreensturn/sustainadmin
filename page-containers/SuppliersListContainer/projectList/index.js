@@ -29,6 +29,7 @@ const ProjectListTable =(projectId,packageId)=>{
       type: '',
       loginType: 'SUPPLIER',
       status: 'ACTIVE',
+      packageEditId :''
     });
 
     const handleChange = (e) => {
@@ -176,12 +177,13 @@ const ProjectListTable =(projectId,packageId)=>{
           supplierName: row?.name,
           supplierAddress: row?.address,
           type: row?.type,
-          packageId :row?.packageId?.name,
+          packageId :row?.packageId?._id,
           projectIdNew :row?.projectId?.projectName,
           projectId :row?.projectId?._id,
           loginType: 'SUPPLIER',
           status: 'ACTIVE',
           supplierIdNew :row?._id,
+          packageEditName :row?.packageId?.name
 
         });
         console.log("vvvvvv");
