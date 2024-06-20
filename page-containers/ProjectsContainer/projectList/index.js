@@ -126,7 +126,7 @@ const ProjectListTable =()=>{
         },
         {
             name: <b>Road Length (km)</b>,
-            selector: (row) => row.infrastructure,
+            selector: (row) => row.roadLength,
             wrap:"true"
         },
         {
