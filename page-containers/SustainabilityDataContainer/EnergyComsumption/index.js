@@ -25,6 +25,7 @@ const EnergyComsuption =()=>{
     
     const options = {
       responsive: true,
+
       plugins: {
         legend: {
           position: 'right', // Position the labels on the right side
@@ -32,7 +33,25 @@ const EnergyComsuption =()=>{
             usePointStyle: true,
           },
         },
+
+        datalabels: {
+          formatter: (value, context) => {
+            let sum = 0;
+            let dataArr = context.chart.data.datasets[0].data;
+            dataArr.map(data => {
+              sum += data;
+            });
+            let percentage = ((value * 100) / sum).toFixed(2) + '%';
+            return percentage + '\n' + value;
+          },
+          color: '#000',
+          font: {
+            weight: 'bold',
+          },
+        },
+
       },
+      
     };
   
 
