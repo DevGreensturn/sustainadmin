@@ -15,6 +15,7 @@ const FuelComsumptionpie = ()=>{
               backgroundColor: 'rgba(0,127,255,0.4)',
               borderColor: 'rgba(0,127,255,1)',
               borderDash: [5, 5],
+              borderWidth: 2,
               // tension: 0.1
             },
             {
@@ -24,6 +25,7 @@ const FuelComsumptionpie = ()=>{
               backgroundColor: 'rgba(59,75,97,0.4)',
               borderColor: 'rgba(59,75,97,1)',
               borderDash: [5, 5],
+              borderWidth: 2,
               // tension: 0.1
             },
             
@@ -34,6 +36,7 @@ const FuelComsumptionpie = ()=>{
                 backgroundColor: 'rgba(100,149,237,0.4)',
                 borderColor: 'rgba(100,149,237,1)',
                 borderDash: [5, 5],
+                borderWidth: 2,
                 // tension: 0.1
               },
 

@@ -33,6 +33,7 @@ const JouleCharts = ()=>{
                 backgroundColor: 'rgba(242, 242, 49,0.4)',
                 borderColor: 'rgb(242, 242, 49,1)',
                 borderDash: [5, 5],
+                borderWidth: 2,
                 // tension: 0.1
               },
           ],

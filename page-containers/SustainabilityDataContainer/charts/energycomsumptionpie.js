@@ -15,6 +15,7 @@ const EnergyComsuptionpie = ()=>{
               backgroundColor: 'rgba(0,173,59,0.4)',
               borderColor: 'rgba(0,173,59,1)',
               borderDash: [5, 5],
+              borderWidth: 2,
             },
             {
               label: 'Non Renewable Sources',
@@ -23,6 +24,7 @@ const EnergyComsuptionpie = ()=>{
               backgroundColor: 'rgba(61,225,117,0.4)',
               borderColor: 'rgba(61,225,117,1)',
               borderDash: [5, 5],
+              borderWidth: 2,
               // tension: 0.1
             },
             {
@@ -32,6 +34,7 @@ const EnergyComsuptionpie = ()=>{
                 backgroundColor: 'rgba(96, 247, 147,0.4)',
                 borderColor: 'rgb(96, 247, 147,1)',
                 borderDash: [5, 5],
+                borderWidth: 2,
                 // tension: 0.1
               },
           ],

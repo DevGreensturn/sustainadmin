@@ -15,6 +15,7 @@ const ConcreteMixpie = ()=>{
               backgroundColor: 'rgba(251,154,84,1)',
               borderColor: 'rgba(238,119,34,.6)',
               borderDash: [5, 5],
+              borderWidth: 2,
               // tension: 0.1
             },
             {
@@ -24,6 +25,7 @@ const ConcreteMixpie = ()=>{
               backgroundColor: 'rgba(238,119,34,1)',
               borderColor: 'rgba(238,119,34,1)',
               borderDash: [5, 5],
+              borderWidth: 2,
               // tension: 0.1
             },
             
