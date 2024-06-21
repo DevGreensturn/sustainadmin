@@ -9,7 +9,7 @@ const TranspotationFuelpie = ()=>{
         labels: ['Dec 2023', 'Jan 2024', 'Feb 2024', 'March 2024', 'Apr 2024', 'May 2024'],
         datasets: [
             {
-              label: 'Logistic: Fuel to site',
+              label: 'Logistics: Fuel to site',
               data: [65, 59, 80, 81, 56, 35],
               fill: false,
               backgroundColor: 'rgba(0,127,255,0.4)',
@@ -19,7 +19,7 @@ const TranspotationFuelpie = ()=>{
               // tension: 0.1
             },
             {
-              label: 'Logistic: Building Material to Site',
+              label: 'Logistics: Building Material to site',
               data: [20, 10, 60, 21, 36, 5],
               fill: false,
               backgroundColor: 'rgba(0,180,154,0.4)',
@@ -30,7 +30,7 @@ const TranspotationFuelpie = ()=>{
             },
             
             {
-                label: 'Logistic: Concrete to Site',
+                label: 'Logistics: Concrete to site',
                 data: [100, 30, 40, 91, 61, 3],
                 fill: false,
                 backgroundColor: 'rgba(3,72,138,0.4)',
@@ -41,7 +41,7 @@ const TranspotationFuelpie = ()=>{
               },
 
               {
-                label: 'Logistic: Water to Site',
+                label: 'Logistics: Water to site',
                 data: [0, 70, 60, 91, 66, 5],
                 fill: false,
                 backgroundColor: 'rgba(59,75,97,0.4)',
@@ -52,7 +52,7 @@ const TranspotationFuelpie = ()=>{
               },
 
               {
-                label: 'Logistic: Waste from Site',
+                label: 'Logistics: Waste from site',
                 data: [30, 40, 50, 91, 76, 100],
                 fill: false,
                 backgroundColor: 'rgba(80,0,182,0.4)',
@@ -63,7 +63,7 @@ const TranspotationFuelpie = ()=>{
               },
 
               {
-                label: 'People Transportation: Workers to site',
+                label: 'People Transportation: Workers from and to site',
                 data: [40, 70, 60, 31, 96, 5],
                 fill: false,
                 backgroundColor: 'rgba(238,119,34,0.4)',
@@ -85,14 +85,25 @@ const TranspotationFuelpie = ()=>{
               },
 
               {
-                label: 'People Transportation: Site vehicles',
+                label: 'People Transportation: Site Vehicles',
                 data: [3, 7, 60, 91, 46, 58],
                 fill: false,
                 backgroundColor: 'rgba(100,149,237,0.4)',
                 borderColor: 'rgba(100,149,237,1)',
                 borderDash: [5, 5],
                 borderWidth: 2,
-                // tension: 0.1
+                
+              },
+
+              {
+                label: 'People Transportation: Business Travel',
+                data: [30, 70, 62, 19, 64, 85],
+                fill: false,
+                backgroundColor: 'rgba(100,149,237,0.4)',
+                borderColor: 'rgba(100,149,237,1)',
+                borderDash: [5, 5],
+                borderWidth: 2,
+
               },
 
           ],

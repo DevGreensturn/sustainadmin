@@ -9,7 +9,7 @@ const LiquidWastepie = ()=>{
         labels: ['Dec 2023', 'Jan 2024', 'Feb 2024', 'March 2024', 'Apr 2024', 'May 2024'],
         datasets: [
             {
-              label: 'Incineration(with energy recovery)',
+              label: 'Liquid Waste Removed From Site',
               data: [65, 59, 80, 81, 56, 35],
               fill: false,
               backgroundColor: 'rgba(0,127,255,0.4)',
@@ -19,7 +19,7 @@ const LiquidWastepie = ()=>{
               // tension: 0.1
             },
             {
-              label: 'Incineration(without energy recovery)',
+              label: 'Liquid Waste Diverted From Disposal',
               data: [20, 10, 60, 21, 36, 5],
               fill: false,
               backgroundColor: 'rgba(100,149,237,0.4)',
@@ -30,7 +30,7 @@ const LiquidWastepie = ()=>{
             },
             
             {
-                label: 'Landfilling',
+                label: 'Liquid Waste Directed To Disposal',
                 data: [100, 30, 40, 91, 61, 3],
                 fill: false,
                 backgroundColor: 'rgba(3,72,138,0.4)',
@@ -40,16 +40,6 @@ const LiquidWastepie = ()=>{
                 // tension: 0.1
               },
 
-              {
-                label: 'Other Disposal Operation',
-                data: [0, 70, 60, 91, 66, 5],
-                fill: false,
-                backgroundColor: 'rgba(59,75,97,0.4)',
-                borderColor: 'rgba(59,75,97,1)',
-                borderDash: [5, 5],
-                borderWidth: 2,
-                // tension: 0.1
-              },
 
           ],
       };

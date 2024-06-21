@@ -34,9 +34,9 @@ const FuelComsumptionChart =()=>{
 
     const pieChartData6 = {
       labels: [
-        "Preparation for reuse",
-        "Recycling",
-        "Other Recovery Operations"
+        "Transportation Fuel",
+        "Equipment",
+        "Generator"
       ],
       datasets: [
         {
@@ -75,7 +75,7 @@ const FuelComsumptionChart =()=>{
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
                 <div><img src="/images/transPotation.svg" alt="" /></div>
-                <div className="mx-2"><h4>Transportation Fuel</h4></div>
+                <div className="mx-2"><h4>Transportation Fuel </h4></div>
               </div>
               
               <div className="text-end">
@@ -96,7 +96,7 @@ const FuelComsumptionChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="/images/nonRenowable.png" alt="" /></div>
+                <div><img src="/images/transPotation.svg" alt="" /></div>
                 <div className="mx-2"><h4>Transportation Fuel</h4></div>
               </div>
               <div className="row mt-2">
