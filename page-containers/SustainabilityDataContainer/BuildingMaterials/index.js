@@ -1,6 +1,5 @@
-import PieChart from "../PieChart";
 import { useState } from "react";
-import JouleCharts from "../charts/jouleChart";
+import { Pie} from 'react-chartjs-2';
 import Materialpurchasedpie from "../charts/materialpurchased";
 import MaterialpurchasedTypepie from "../charts/materialpurchasedType";
 
@@ -10,7 +9,17 @@ const BuildingMaterialChart =()=>{
       setActiveButton(button);
     };
   
-    
+    const options = {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'right', // Position the labels on the right side
+          labels: {
+            usePointStyle: true,
+          },
+        },
+      },
+    };
     
 
 const pieChartData5 = {
@@ -66,6 +75,7 @@ const pieChartData5 = {
     };
    
     
+
     return(
         <section>
             <div className="row">
@@ -92,7 +102,7 @@ const pieChartData5 = {
             <hr style={{opacity:".1"}}/>
           </div>
           <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
-          <PieChart data={pieChartData4} />
+          <Pie data={pieChartData4} options={options}/>
           </div>
         </div>  
         </div>
@@ -186,7 +196,7 @@ const pieChartData5 = {
             <hr style={{opacity:".1"}}/>
           </div>
           <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
-          <PieChart data={pieChartData5} />
+          <Pie data={pieChartData5} options={options}/>
           </div>
         </div>  
         </div>
