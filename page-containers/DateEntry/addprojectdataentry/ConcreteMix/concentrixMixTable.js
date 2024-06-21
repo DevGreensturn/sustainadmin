@@ -207,17 +207,20 @@ const ConcentrixMixTable =()=>{
       const fetchTable = async () => {
         try {
           await ADMINAPI({
-            url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/energy`,
+            url:"http://35.154.130.173:3002/api/v1/data-entry/concrete/",
             method: "GET",
           }).then((data) => {
             let userData = data.response;
             setRows(userData);
-            console.log(userData, "ooooooossssssss");
+            console.log(userData, "tttttt");
           });
         } catch (error) {
-          console.log(error, "errorooo");
+          console.log(error, "ttttttt");
         }
       };
+
+
+     
 
     return(
         <section>
