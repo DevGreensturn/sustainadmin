@@ -1,8 +1,7 @@
-import PieChart from "../PieChart";
 import { useState } from "react";
-
-import JouleCharts from "../charts/jouleChart";
 import EnergyComsuptionpie from "../charts/energycomsumptionpie";
+import { Pie} from 'react-chartjs-2';
+
 const EnergyComsuption =()=>{
     const [activeButton, setActiveButton] = useState("button1");
     const handleButtonClick =(button)=>{
@@ -24,6 +23,19 @@ const EnergyComsuption =()=>{
       ],
     };
     
+    const options = {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'right', // Position the labels on the right side
+          labels: {
+            usePointStyle: true,
+          },
+        },
+      },
+    };
+  
+
     return(
         <section>
             <div className="row">
@@ -50,7 +62,7 @@ const EnergyComsuption =()=>{
             <hr style={{opacity:".1"}}/>
           </div>
           <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
-          <PieChart data={pieChartData} />
+          <Pie data={pieChartData} options={options}/>
           </div>
         </div>
         </div>
