@@ -122,11 +122,8 @@ const FuelComsumptionChart =()=>{
                   >
                     Yearly
                   </button>
-                  </div>
-      
+                  </div>      
                 </div>
-
-                
 
                 <div className="row mt-3">
         <div className="col-md-12">

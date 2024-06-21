@@ -235,14 +235,15 @@ const AddprojectEntry = () => {
         </div>
         <div className="row mt-3">
           <div className="col-md-4">
-            <label>Reporting Month</label>
+            <label className="d-block">Reporting Month </label>
             <DatePicker
                 selected={projectReportMonth}
                 onChange={handleDateChange}
                 dateFormat="dd MMMM yyyy"
-                className="form-control"
+                className="form-control dateInput"
                 placeholderText="Select a date"
-                required
+                required 
+                showIcon
               />
           </div>
           <div className="col-md-4">
