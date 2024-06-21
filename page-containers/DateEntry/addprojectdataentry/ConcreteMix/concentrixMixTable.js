@@ -81,41 +81,7 @@ const ConcentrixMixTable =()=>{
             wrap:"true"
         },
 
-        // {
-        //     name: <b className="text-center">Silica Fume<br/>Content (Kg/m3)</b>,
-        //     selector: (row) => row.SilicaFume,
-        //     wrap:"true"
-        // },
-
-        // {
-        //     name: <b className="text-center">Natural Pozzolan <br/>Content (Kg/m3)</b>,
-        //     selector: (row) => row.NaturalPozzolan,
-        //     wrap:"true"
-        // },
-
-        // {
-        //     name: <b className="text-center">Limestone Content<br/> (Kg/m3)</b>,
-        //     selector: (row) => row.LimestoneContent,
-        //     wrap:"true"
-        // },
-
-        // {
-        //     name: <b className="text-center">Embodied GHG<br/> (CO2e/m3)</b>,
-        //     selector: (row) => row.EmbodiedGHG,
-        //     wrap:"true"
-        // },
-
-        // {
-        //     name: <b>No. Of Trips </b>,
-        //     selector: (row) => row.numberOfTrips,
-        //     wrap:"true"
-        // },
-
-        // {
-        //     name: <b>Fuel Used <span>by Trucks(L) (One full Trip)</span></b>,
-        //     selector: (row) => row.fuelUsed,
-        //     wrap:"true"
-        // },
+        
 
         {
             name: <b>Action</b>,
@@ -135,12 +101,6 @@ const ConcentrixMixTable =()=>{
             CementContent: "1344",
             SlagContent:"1344",
             FlyAshContent:"1344",
-            // SilicaFume:"1344",
-            // NaturalPozzolan:"1344",
-            // LimestoneContent:"1344",
-            // EmbodiedGHG:"1344",
-            // numberOfTrips:"1344",
-            // fuelUsed:"1344",
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}} onClick={handleShowEdit}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}} onClick={handleShowDelete}/> </div>
         },
 
@@ -153,16 +113,17 @@ const ConcentrixMixTable =()=>{
             CementContent: "1344",
             SlagContent:"1344",
             FlyAshContent:"1344",
-            // SilicaFume:"1344",
-            // NaturalPozzolan:"1344",
-            // LimestoneContent:"1344",
-            // EmbodiedGHG:"1344",
-            // numberOfTrips:"1344",
-            // fuelUsed:"1344",
-
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
          },
     ];
+
+    const customStyles ={
+        rows:{
+            style:{
+                minHeight: '72px', // override the row height
+            }
+        }
+    }
 
 
     return(
@@ -187,7 +148,8 @@ const ConcentrixMixTable =()=>{
                     data={rows} 
                     fixedHeader
                     pagination
-                    
+                    striped
+                    customStyles={customStyles}
                 />
                 </div>
 

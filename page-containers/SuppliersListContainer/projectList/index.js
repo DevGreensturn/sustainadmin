@@ -356,6 +356,14 @@ const ProjectListTable =(projectId,packageId)=>{
     useEffect(() => {
         handleFetchProject();
       }, [projectId.projectId]);
+
+      const customStyles ={
+        rows:{
+            style:{
+                minHeight: '72px', // override the row height
+            }
+        }
+    }
     return(
         <>
         <section>
@@ -369,6 +377,8 @@ const ProjectListTable =(projectId,packageId)=>{
                     fixedHeader
                     pagination
                     striped
+                    striped
+                    customStyles={customStyles}
                 />
                     </div>
                 </div>

@@ -320,7 +320,17 @@ const Utilityprovidertable =()=>{
       };
       useEffect(()=>{
         fetchCosumption()
-      },[])
+      },[]);
+
+      const customStyles ={
+        rows:{
+            style:{
+                minHeight: '72px', // override the row height
+            }
+        }
+    }
+
+    
     return(
         <section>
                 <div className="d-flex align-items-center justify-content-between">
@@ -343,7 +353,8 @@ const Utilityprovidertable =()=>{
                     data={rows} 
                     fixedHeader
                     pagination
-                    
+                    striped
+                    customStyles={customStyles} 
                 />
                 </div>
 

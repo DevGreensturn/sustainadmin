@@ -70,6 +70,15 @@ const RenowableEnergyTable =()=>{
          },
     ];
 
+    const customStyles ={
+        rows:{
+            style:{
+                minHeight: '72px', // override the row height
+            }
+        }
+    }
+
+    
     return (
        
         <section>
@@ -93,7 +102,8 @@ const RenowableEnergyTable =()=>{
                     data={rows} 
                     fixedHeader
                     pagination
-                    
+                    striped
+                    customStyles={customStyles} 
                 />
                 </div>
 
