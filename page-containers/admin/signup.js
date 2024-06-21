@@ -555,5 +555,4 @@ const SignupForm = () => {
         </section>
     );
 };
-
 export default SignupForm;
