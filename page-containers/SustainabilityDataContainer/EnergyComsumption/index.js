@@ -1,6 +1,9 @@
 import { useState } from "react";
 import EnergyComsuptionpie from "../charts/energycomsumptionpie";
 import { Pie} from 'react-chartjs-2';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
 const EnergyComsuption =()=>{
     const [activeButton, setActiveButton] = useState("button1");
@@ -25,15 +28,7 @@ const EnergyComsuption =()=>{
     
     const options = {
       responsive: true,
-
       plugins: {
-        legend: {
-          position: 'right', // Position the labels on the right side
-          labels: {
-            usePointStyle: true,
-          },
-        },
-
         datalabels: {
           formatter: (value, context) => {
             let sum = 0;
@@ -41,14 +36,23 @@ const EnergyComsuption =()=>{
             dataArr.map(data => {
               sum += data;
             });
-            let percentage = ((value * 100) / sum).toFixed(2) + '%';
-            return percentage + '\n' + value;
+            // let percentage = ((value * 100) / sum).toFixed(2) + '%';
+            // return percentage + '\n' + value;
           },
-          color: '#000',
+          color: '#fff',
           font: {
             weight: 'bold',
           },
         },
+
+        legend: {
+          position: 'right', // Position the labels on the right side
+          labels: {
+            usePointStyle: true,
+          },
+        },
+
+       
 
       },
       

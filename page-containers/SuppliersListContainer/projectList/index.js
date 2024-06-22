@@ -377,7 +377,6 @@ const ProjectListTable =(projectId,packageId)=>{
                     fixedHeader
                     pagination
                     striped
-                    striped
                     customStyles={customStyles}
                 />
                     </div>
