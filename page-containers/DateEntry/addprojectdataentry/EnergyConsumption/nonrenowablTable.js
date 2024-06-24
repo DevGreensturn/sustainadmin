@@ -125,166 +125,36 @@ const NonrenowableTable =()=>{
            
         },
     ];
-    const handleChangeFuelType = (e) => {
-        e.preventDefault();
-        const selectedValue = e.target.value;
-        console.log(selectedValue, "Selected Value");
-        setfuelType(selectedValue);
-      };
-    const handleChangeUsage = (e) => {
-        e.preventDefault();
-        const selectedValue = e.target.value;
-        console.log(selectedValue, "Selected 000000");
-        setUsage(selectedValue);
-    }
-    const handleChangeUnitType = (e) => {
-        e.preventDefault();
-        const selectedValue = e.target.value;
-        console.log(selectedValue, "Selected Value");
-        setUnit(selectedValue);
-    }
-    const handleEditChanges = async() => {
-        const payload = {
-            // Construct payload based on your form data
-            energyNonRenewableId: 111000,
-            fuelType: fuelType,
-            equipment: equipment,
-            volume: volume,
-            unit: unit,
-            energyOutput: energyOutput,
-            totalSpending: totalSpending,
-            noOfTrips: noOfTrips,
-            fuelUsed: fuelUsedByTrucks ,
-            supportingDocument: "2 attachments"
-            
-          };
-        //   console.log("nonRenewId",nonRenewId)
-          try {
-            await ADMINAPI({
-              url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/non-renewable/${nonRenewId}`,
-              method: "put",
-              body: { ...payload },
-            })
-              .then((data) => {
-                if (data.status === true) {
-                  setShow(false);
-                  handleCloseEdit();
-                  setTimeout(() => {
-                    navigate.push("/addMonthlyData", { scroll: false });
-                  }, 100);
-                  fetchTable();
-      
-                  return data;
-                } else {
-                  // toast.error(data?.message);
-                }
-              })
-              .catch((err) => {
-                //   toast.error(err?.message);
-              });
-          } catch (error) {
-            console.log(error, "errorooo");
-          }
-    };
+    
+    const rows = [
+        {
+            fuelType: "Diesel",
+            usage: "Equipment",
+            volume: "200",
+            unite:"Liter",
+            EnergyOutput: "-",
+            TotalSpending: "1344",
+            supportingDocument: "2 Attachments",
+            numberOfTrips:"1",
+            fuelUsed:"10",
+            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}} onClick={handleShowEdit}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}} onClick={handleShowDelete}/> </div>
+        },
 
-    const [rows, setRows] = useState([]);
+         {
+            fuelType: "Diesel",
+            usage: "Generator",
+            volume: "300",
+            unite:"Liter",
+            EnergyOutput: "1,000",
+            TotalSpending: "1452",
+            supportingDocument: "1 Attachment",
+            numberOfTrips:"2",
+            fuelUsed:"25",
+            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
+         },
+    ];
 
-    const handleSaveChanges = async () => {
-        const payload = {
-          // Construct payload based on your form data
-          energyNonRenewableId: 111000,
-          fuelType: fuelType,
-          equipment: equipment,
-          volume: volume,
-          unit: unit,
-          energyOutput: energyOutput,
-          totalSpending: totalSpending,
-          noOfTrips: noOfTrips,
-          fuelUsed: fuelUsedByTrucks ,
-          supportingDocument: "2 attachments",
-        };
-      
-        try {
-          await ADMINAPI({
-            url: 'http://35.154.130.173:3002/api/v1/data-entry/non-renewable',
-            method: "POST",
-            body: { ...payload },
-          })
-            .then((data) => {
-              if (data.status === true) {
-                setShow(false);
-              
-                setTimeout(() => {
-                  navigate.push("/addMonthlyData", { scroll: false });
-                }, 100);
-                fetchTable();
-    
-                return data;
-              } else {
-                // toast.error(data?.message);
-              }
-            })
-            .catch((err) => {
-                toast.error(err?.message);
-            });
-        } catch (error) {
-          console.log(error, "errorooo");
-        }
-      };
-      const fetchTable = async () => {
-        try {
-          await ADMINAPI({
-            method: "GET",
-            url: 'http://35.154.130.173:3002/api/v1/data-entry/non-renewable'
-          }).then((data) => {
-            let userData = data.response;
-            console.log(userData)
-            setRows(userData);
-            console.log(userData, "ooo789090");
-          });
-        } catch (error) {
-          console.log(error, "err456656");
-        }
-      };
-      useEffect(() => {
-        fetchTable();
-      }, []);
-      const handleDeleteConfirm = async() => {
-            
-        try {
-            console.log("data>>>>",rows);
-            await ADMINAPI({
-                url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/non-renewable/${nonRenewId}`,
-                method: "PATCH",
-                 
-                 }).then((data) => {
-                    if (data.status === true) {
-                        setShowDelete(false)
-                        handleCloseDelete();
-                        fetchTable()
-                      setTimeout(() => {
-                        navigate.push("/addMonthlyData", { scroll: false });
-                      }, 100);
-                    } else {
-                        console.log(data?.message,"rtrttt");
-                        setShowDeleteConfirmation(false)
-        
-                      toast.error(data?.message);
-                    }
-                 }).catch(err =>{
-                    setShowDeleteConfirmation(false)
-    
-            console.log(err,"rtrttt");
-            // toast.error(err?.message);
-                 })
-               
-             } catch (error) {
-               console.log(error, "errorooo");
-            //    toast.error(data?.message);
-    
-     
-             }
-      };
+
     return(
         <section>
                 <div className="d-flex align-items-center justify-content-between">

@@ -70,25 +70,15 @@ const RenowableEnergyTable =()=>{
          },
     ];
 
-    const fetchTable = async () => {
-        try {
-          await ADMINAPI({
-            method: "GET",
-            url: 'http://35.154.130.173:3002/api/v1/data-entry/non-renewable'
-          }).then((data) => {
-            let userData = data.response;
-            console.log(userData)
-            setRows(userData);
-            console.log(userData, "ooo789090");
-          });
-        } catch (error) {
-          console.log(error, "err456656");
+    const customStyles ={
+        rows:{
+            style:{
+                minHeight: '72px', // override the row height
+            }
         }
-      };
-      useEffect(() => {
-        fetchTable();
-      }, []);
+    }
 
+    
     return (
        
         <section>
@@ -112,7 +102,8 @@ const RenowableEnergyTable =()=>{
                     data={rows} 
                     fixedHeader
                     pagination
-                    
+                    striped
+                    customStyles={customStyles} 
                 />
                 </div>
 

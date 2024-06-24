@@ -98,6 +98,13 @@ const WasteManagementTable =()=>{
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
          },
     ];
+    const customStyles ={
+        rows:{
+            style:{
+                minHeight: '72px', // override the row height
+            }
+        }
+    }
 
 
     return(
@@ -122,7 +129,8 @@ const WasteManagementTable =()=>{
                     data={rows} 
                     fixedHeader
                     pagination
-                    
+                    striped
+                    customStyles={customStyles}
                 />
                 </div>
 

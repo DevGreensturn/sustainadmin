@@ -73,6 +73,14 @@ const SiteVehicles =()=>{
          },
     ];
 
+    const customStyles ={
+        rows:{
+            style:{
+                minHeight: '72px', // override the row height
+            }
+        }
+    }
+
 
     return(
         <section>
@@ -96,7 +104,8 @@ const SiteVehicles =()=>{
                     data={rows} 
                     fixedHeader
                     pagination
-                    
+                    striped
+                    customStyles={customStyles}
                 />
                 </div>
 

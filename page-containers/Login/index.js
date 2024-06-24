@@ -36,7 +36,7 @@ function Login() {
         };
 
         const response = await ADMINAPI({
-          url: `http://3.108.58.161:3001/api/v1/users/login`,
+          url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/users/login`,
           method: "POST",
           body: { ...payload },
         });
@@ -168,10 +168,9 @@ function Login() {
                   <div style={{cursor:"pointer", color:"#999BA1"}}>Don{"'"}t Have an Account?</div>
                   
                   <div>
-                  <Link href="/admin/signup"><button type="button" className="btn btn-outline-success">Create Account</button></Link>
+                  <Link href="/signup"><button type="button" className="btn btn-outline-success">Create Account</button></Link>
                   </div>
                 </div>
-
                     </form>
                   </div>
                 </div>

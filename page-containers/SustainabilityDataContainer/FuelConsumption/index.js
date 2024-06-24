@@ -1,6 +1,8 @@
-import PieChart from "../PieChart";
+import { Pie} from 'react-chartjs-2';
+
 import { useState } from "react";
-import JouleCharts from "../charts/jouleChart";
+import TranspotationFuelpie from "../charts/transpotationFuel";
+import FuelComsumptionpie from "../charts/fuelcomsuptionpie";
 
 const FuelComsumptionChart =()=>{
     const [activeButton, setActiveButton] = useState("button1");
@@ -32,9 +34,9 @@ const FuelComsumptionChart =()=>{
 
     const pieChartData6 = {
       labels: [
-        "Preparation for reuse",
-        "Recycling",
-        "Other Recovery Operations"
+        "Transportation Fuel",
+        "Equipment",
+        "Generator"
       ],
       datasets: [
         {
@@ -44,6 +46,19 @@ const FuelComsumptionChart =()=>{
         },
       ],
     };
+
+    const options = {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'right', // Position the labels on the right side
+          labels: {
+            usePointStyle: true,
+          },
+        },
+      },
+    };
+
 
     return(
         <section>
@@ -60,7 +75,7 @@ const FuelComsumptionChart =()=>{
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
                 <div><img src="/images/transPotation.svg" alt="" /></div>
-                <div className="mx-2"><h4>Transportation Fuel</h4></div>
+                <div className="mx-2"><h4>Transportation Fuel </h4></div>
               </div>
               
               <div className="text-end">
@@ -71,7 +86,7 @@ const FuelComsumptionChart =()=>{
             <hr style={{opacity:".1"}}/>
           </div>
           <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
-          <PieChart data={pieChartData5} />
+          <Pie data={pieChartData5} options={options}/>
           </div>
         </div>  
         </div>
@@ -81,8 +96,8 @@ const FuelComsumptionChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="/images/nonRenowable.png" alt="" /></div>
-                <div className="mx-2"><h4>Monthly Transportation Fuel</h4></div>
+                <div><img src="/images/transPotation.svg" alt="" /></div>
+                <div className="mx-2"><h4>Transportation Fuel</h4></div>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
@@ -107,11 +122,8 @@ const FuelComsumptionChart =()=>{
                   >
                     Yearly
                   </button>
-                  </div>
-      
+                  </div>      
                 </div>
-
-                
 
                 <div className="row mt-3">
         <div className="col-md-12">
@@ -119,19 +131,19 @@ const FuelComsumptionChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+         <TranspotationFuelpie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+         <TranspotationFuelpie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+         <TranspotationFuelpie />
         </div>
       )}
 
@@ -167,7 +179,7 @@ const FuelComsumptionChart =()=>{
             <hr style={{opacity:".1"}}/>
           </div>
           <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
-          <PieChart data={pieChartData6} />
+          <Pie data={pieChartData6} options={options}/>
           </div>
         </div>  
       </div>
@@ -177,7 +189,7 @@ const FuelComsumptionChart =()=>{
             <div className="">
               <div className="d-flex align-items-baseline">
                 <div><img src="/images/nonRenowable.png" alt="" /></div>
-                <div className="mx-2"><h4>Monthly Fuel Consumption</h4></div>
+                <div className="mx-2"><h4>Fuel Consumption</h4></div>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
@@ -214,19 +226,19 @@ const FuelComsumptionChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+          <FuelComsumptionpie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+          <FuelComsumptionpie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+          <FuelComsumptionpie />
         </div>
       )}
 

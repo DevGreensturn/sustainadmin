@@ -1,6 +1,6 @@
-import PieChart from "../PieChart";
 import { useState } from "react";
-import JouleCharts from "../charts/jouleChart";
+import { Pie} from 'react-chartjs-2';
+import ConcreteMixpie from "../charts/concereteMix";
 
 const ConcreteMixChart =()=>{
     const [activeButton, setActiveButton] = useState("button1");
@@ -8,30 +8,7 @@ const ConcreteMixChart =()=>{
       setActiveButton(button);
     };
   
-    const pieChartData = {
-      labels: [
-        "Utility Provider Energy",
-        "Non-Renewable Sources",
-        "Renewable Sources",
-      ],
-      datasets: [
-        {
-          label: "My Dataset",
-          data: [20, 40, 40],
-          backgroundColor: ["#3DE175", "#60F793", "#00AD3B"],
-        },
-      ],
-    };
-    const pieChartData2 = {
-      labels: ["Drinking Water", "Non-Drinking Water"],
-      datasets: [
-        {
-          label: "My Dataset",
-          data: [40, 60],
-          backgroundColor: ["#4A3AFF", "#6183FF"],
-        },
-      ],
-    };
+
     const pieChartData3 = {
       labels: ["Precast", "Cast-in-situ"],
       datasets: [
@@ -42,58 +19,17 @@ const ConcreteMixChart =()=>{
         },
       ],
     };
-    const pieChartData4 = {
-      labels: [
-        "Abu Dhabi",
-        "Dubai",
-        "Other Emirate",
-        "GCC",
-        "Internationally",
-        "Sourced Internally",
-      ],
-      datasets: [
-        {
-          label: "My Dataset",
-          data: [40, 20, 5, 20, 5, 10],
-          backgroundColor: [
-            "#601A36",
-            "#A54CFF",
-            "#A32CC4",
-            "#7C1EDA",
-            "#BD93D3",
-            "#7A4A88",
-          ],
+
+    const options = {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'right', // Position the labels on the right side
+          labels: {
+            usePointStyle: true,
+          },
         },
-      ],
-    };
-    const pieChartData5 = {
-      labels: [
-        "Incineration(with energy recovery)",
-        "Incineration(without energy recovery)",
-        "Landfilling",
-        "Other Disposal Operations",
-      ],
-      datasets: [
-        {
-          label: "My Dataset",
-          data: [40, 30, 15, 15],
-          backgroundColor: ["#007FFF", "#6495ED", "#03488A", "#3B4B61"],
-        },
-      ],
-    };
-    const pieChartData6 = {
-      labels: [
-        "Preparation for reuse",
-        "Recycling",
-        "Other Recovery Operations"
-      ],
-      datasets: [
-        {
-          label: "My Dataset",
-          data: [40, 40, 20],
-          backgroundColor: ["#007FFF", "#3B4B61", "#6495ED" ],
-        },
-      ],
+      },
     };
 
     return(
@@ -110,7 +46,7 @@ const ConcreteMixChart =()=>{
           <div className="card-body">
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
-                <div><img src="/images/EnergyComsuption.png" alt="" /></div>
+                <div><img src="/images/ConcentrixMix.png" alt="" /></div>
                 <div className="mx-2"><h4>Concrete Mix</h4></div>
               </div>
               
@@ -122,7 +58,7 @@ const ConcreteMixChart =()=>{
             <hr style={{opacity:".1"}}/>
           </div>
           <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
-          <PieChart data={pieChartData3} />
+          <Pie data={pieChartData3} options={options}/>
           </div>
         </div>  
         </div>
@@ -131,7 +67,7 @@ const ConcreteMixChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="/images/water_Consumption.png" alt="" /></div>
+                <div><img src="/images/ConcentrixMix.png" alt="" /></div>
                 <div className="mx-2"><h4>Concrete Mix</h4></div>
               </div>
               <div className="row mt-2">
@@ -196,37 +132,37 @@ const ConcreteMixChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+          <ConcreteMixpie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+          <ConcreteMixpie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+          <ConcreteMixpie />
         </div>
       )}
 
       {activeButton === 'button4' && (
         <div className="">
-           <JouleCharts />
+          <ConcreteMixpie />
         </div>
       )}
 
       {activeButton === 'button5' && (
         <div className="">
-           <JouleCharts />
+          <ConcreteMixpie />
         </div>
       )}
 
       {activeButton === 'button6' && (
         <div className="">
-           <JouleCharts />
+          <ConcreteMixpie />
         </div>
       )}
 

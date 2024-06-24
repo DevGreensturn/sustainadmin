@@ -21,7 +21,7 @@ const nextConfig = {
     //   { protocol: "https", hostname: "event.turnkeytix.com" },
     //   { protocol: "https", hostname: "turnkey-uat-backend.s3.amazonaws.com" },
     //   { protocol: "https", hostname: "turnkey-prod-backend.s3.amazonaws.com" },
-      { protocol: "http", hostname: "http://3.108.58.161:3000" },
+      { protocol: "http", hostname: "${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3000" },
     ],
     // unoptimized: true,
   },

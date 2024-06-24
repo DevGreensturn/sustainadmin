@@ -1,6 +1,7 @@
-import PieChart from "../PieChart";
 import { useState } from "react";
-import JouleCharts from "../charts/jouleChart";
+import { Pie} from 'react-chartjs-2';
+import Materialpurchasedpie from "../charts/materialpurchased";
+import MaterialpurchasedTypepie from "../charts/materialpurchasedType";
 
 const BuildingMaterialChart =()=>{
     const [activeButton, setActiveButton] = useState("button1");
@@ -8,7 +9,17 @@ const BuildingMaterialChart =()=>{
       setActiveButton(button);
     };
   
-    
+    const options = {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'right', // Position the labels on the right side
+          labels: {
+            usePointStyle: true,
+          },
+        },
+      },
+    };
     
 
 const pieChartData5 = {
@@ -64,6 +75,7 @@ const pieChartData5 = {
     };
    
     
+
     return(
         <section>
             <div className="row">
@@ -90,7 +102,7 @@ const pieChartData5 = {
             <hr style={{opacity:".1"}}/>
           </div>
           <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
-          <PieChart data={pieChartData4} />
+          <Pie data={pieChartData4} options={options}/>
           </div>
         </div>  
         </div>
@@ -99,8 +111,8 @@ const pieChartData5 = {
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="/images/Solid_Waste_Mgt.svg" alt="" /></div>
-                <div className="mx-2"><h4>Solid Waste Removed From Site</h4></div>
+                <div><img src="/images/BuildingMaterials.png" alt="" /></div>
+                <div className="mx-2"><h4>Material Purchased</h4></div>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
@@ -137,19 +149,19 @@ const pieChartData5 = {
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+         <Materialpurchasedpie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+         <Materialpurchasedpie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+         <Materialpurchasedpie />
         </div>
       )}
 
@@ -184,7 +196,7 @@ const pieChartData5 = {
             <hr style={{opacity:".1"}}/>
           </div>
           <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
-          <PieChart data={pieChartData5} />
+          <Pie data={pieChartData5} options={options}/>
           </div>
         </div>  
         </div>
@@ -193,8 +205,8 @@ const pieChartData5 = {
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="/images/Solid_Waste_Mgt.svg" alt="" /></div>
-                <div className="mx-2"><h4>Solid Waste Removed From Site</h4></div>
+                <div><img src="/images/BuildingMaterials.png" alt="" /></div>
+                <div className="mx-2"><h4>Material Purchased Type</h4></div>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
@@ -231,19 +243,20 @@ const pieChartData5 = {
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+          <MaterialpurchasedTypepie />
+
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+          <MaterialpurchasedTypepie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+          <MaterialpurchasedTypepie />
         </div>
       )}
 

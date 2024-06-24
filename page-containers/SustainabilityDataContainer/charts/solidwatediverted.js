@@ -3,32 +3,49 @@ import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend } from 'chart.js';
 import { width } from "@fortawesome/free-solid-svg-icons/fa0";
 
-const EmissionsCharts = ()=>{
+const SolidWatedivertedline = ()=>{
 
     const data = {
         labels: ['Dec 2023', 'Jan 2024', 'Feb 2024', 'March 2024', 'Apr 2024', 'May 2024'],
         datasets: [
             {
-              label: 'Transportation Emission',
-              data: [0, 30, 20, 15, 25, 5, 30],
-              fill: false,
-              backgroundColor: 'rgba(59,75,97,0.4)',
-              borderColor: 'rgba(59,75,97,1)',
-              borderDash: [5, 5],
-              borderWidth: 2,
-              // tension: 0.1
-            },
-            {
-              label: 'Construction Emission',
-              data: [50, 17, 40, 15, 35, 5, 60],
+              label: 'Incineration (with energy recovery)',
+              data: [65, 59, 80, 81, 56, 35],
               fill: false,
               backgroundColor: 'rgba(0,127,255,0.4)',
               borderColor: 'rgba(0,127,255,1)',
               borderDash: [5, 5],
               borderWidth: 2,
-              // tension: 0.1
             },
-            
+            {
+              label: 'Incineration(without energy recovery)',
+              data: [20, 10, 60, 21, 36, 5],
+              fill: false,
+              backgroundColor: 'rgba(100,149,237,0.4)',
+              borderColor: 'rgba(100,149,237,1)',
+              borderDash: [5, 5],
+              borderWidth: 2,
+            },
+            {
+                label: 'Landfilling',
+                data: [100, 30, 40, 91, 61, 3],
+                fill: false,
+                backgroundColor: 'rgba(3,72,138,0.4)',
+                borderColor: 'rgba(3,72,138,1)',
+                borderDash: [5, 5],
+                borderWidth: 2,
+              },
+
+              {
+                label: 'Other Disposal Operations',
+                data: [0, 20, 30, 40, 50, 100],
+                fill: false,
+                backgroundColor: 'rgba(3,72,138,0.4)',
+                borderColor: 'rgba(3,72,138,1)',
+                borderDash: [5, 5],
+                borderWidth: 2,
+              },
+
           ],
       };
     
@@ -44,9 +61,6 @@ const EmissionsCharts = ()=>{
           },
           
         },
-
-        
-          
         scales: {
           x: {
             grid:{
@@ -54,13 +68,13 @@ const EmissionsCharts = ()=>{
             },
           },
           y: {
+            border:{dash: [1, 2]},
             grid:{
             display: true
+            
             }
           }
       }
-
-      
       };
    
     return(
@@ -69,5 +83,4 @@ const EmissionsCharts = ()=>{
         </>
     )
 }
-export default EmissionsCharts;
-
+export default SolidWatedivertedline;
