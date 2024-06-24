@@ -305,7 +305,7 @@ const AddprojectEntry = () => {
 
             <WaterConsumption />
             <ConcereteMix />
-            <BuildingMaterial />
+            <BuildingMaterial projectId ={projectId} />
             <WasteManagement />
             {/* <WasteDirected />
                    <WasteDiverted /> */}

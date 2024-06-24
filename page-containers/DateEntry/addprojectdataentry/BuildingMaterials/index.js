@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import BuildingMaterialTable from "./buildingMaterial";
 
 
-const BuildingMaterial =()=>{
+const BuildingMaterial =(projectId)=>{
  
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => {
@@ -32,7 +32,7 @@ const BuildingMaterial =()=>{
            <div className="row mt-3">
             <div className="col-md-12">
                 <div className="mb-0">
-                    <BuildingMaterialTable />
+                    <BuildingMaterialTable  projectId={projectId} />
                 </div>
             </div>
            </div>
