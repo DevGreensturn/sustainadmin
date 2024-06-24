@@ -2104,9 +2104,9 @@ input:-moz-placeholder {
 /* For small devices reduce search*/
 
 @media only screen and (max-width: 1500px) and (min-width: 1200px) {
-  .adminLogin {
+  /* .adminLogin {
     padding-left: 84px;
-  }
+  } */
 }
 @media screen and (min-width: 1200px) {
   .header__toggle {

@@ -127,6 +127,14 @@ const AdminRolesection =()=>{
         },
     ];
 
+    const customStyles ={
+        rows:{
+            style:{
+                minHeight: '72px', // override the row height
+            }
+        }
+    }
+    
     return(
         <>
         <section>
@@ -156,7 +164,9 @@ const AdminRolesection =()=>{
             columns={columns} 
             data={rows} 
             fixedHeader
-            pagination  
+            pagination
+            striped
+            customStyles={customStyles}
         />
 
             </div>

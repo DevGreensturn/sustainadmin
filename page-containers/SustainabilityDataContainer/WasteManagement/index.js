@@ -1,7 +1,10 @@
-import PieChart from "../PieChart";
-import { useState } from "react";
 
-import JouleCharts from "../charts/jouleChart";
+import { useState } from "react";
+import { Pie} from 'react-chartjs-2';
+import SolidWastepie from "../charts/solidWastePie";
+import LiquidWastepie from "../charts/LiquidwasteRemovalpie";
+import SolidWatedisposalline from "../charts/Solidwatedisposal";
+
 const WasteManagementChart =()=>{
     const [activeButton, setActiveButton] = useState("button1");
     const handleButtonClick =(button)=>{
@@ -11,20 +14,34 @@ const WasteManagementChart =()=>{
     
     const pieChartData5 = {
       labels: [
-        "Incineration(with energy recovery)",
-        "Incineration(without energy recovery)",
-        "Landfilling",
-        "Other Disposal Operations",
+        "Liquid Waste Removed From Site",
+        "Liquid Waste Diverted From Disposal",
+        "Liquid Waste Directed To Disposal",
       ],
       datasets: [
         {
           label: "My Dataset",
-          data: [40, 30, 15, 15],
+          data: [40, 30, 30],
           backgroundColor: ["#007FFF", "#6495ED", "#03488A", "#3B4B61"],
         },
       ],
     };
     const pieChartData6 = {
+      labels: [
+        "Solid Waste Removed From Site",
+        "Solid Waste diverted from disposal",
+        "Solid Waste directed to disposal"
+      ],
+      datasets: [
+        {
+          label: "My Dataset",
+          data: [40, 40, 20],
+          backgroundColor: ["#007FFF", "#3B4B61", "#6495ED" ],
+        },
+      ],
+    };
+
+    const pieChartData7 = {
       labels: [
         "Preparation for reuse",
         "Recycling",
@@ -37,6 +54,34 @@ const WasteManagementChart =()=>{
           backgroundColor: ["#007FFF", "#3B4B61", "#6495ED" ],
         },
       ],
+    };
+
+    const pieChartData8 = {
+      labels: [
+        "Incineration (with energy recovery)",
+        "Incineration(without energy recovery)",
+        "Landfilling",
+        "Other Disposal Operations"
+      ],
+      datasets: [
+        {
+          label: "My Dataset",
+          data: [40, 15, 15, 30],
+          backgroundColor: ["#007FFF", "#3B4B61", "#6495ED","#03488A"],
+        },
+      ],
+    };
+
+    const options = {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'right', // Position the labels on the right side
+          labels: {
+            usePointStyle: true,
+          },
+        },
+      },
     };
 
     return(
@@ -68,7 +113,7 @@ const WasteManagementChart =()=>{
             <hr style={{opacity:".1"}}/>
           </div>
           <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
-          <PieChart data={pieChartData5} />
+          <Pie data={pieChartData6} options={options}/>
           </div>
         </div> 
               </div>
@@ -79,12 +124,11 @@ const WasteManagementChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="/images/Solid_Waste_Mgt.svg" alt="" /></div>
+                <div><img src="/images/resycled.svg" alt="" /></div>
                 <div className="mx-2"><h4>Solid Waste Removed From Site </h4></div>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
-
             <div style={{backgroundColor:"#F8F8FF"}} className="d-flex justify-content-around p-2"> 
                   <button 
                   type="btn"
@@ -117,19 +161,19 @@ const WasteManagementChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+          <SolidWastepie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+          <SolidWastepie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+              <SolidWastepie />
         </div>
       )}
 
@@ -168,7 +212,7 @@ const WasteManagementChart =()=>{
             <hr style={{opacity:".1"}}/>
           </div>
           <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
-          <PieChart data={pieChartData5} />
+          <Pie data={pieChartData5} options={options} />
           </div>
         </div> 
 
@@ -180,7 +224,7 @@ const WasteManagementChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="/images/Liquid_Waste_Mgt.svg" alt="" /></div>
+                <div><img src="/images/resycled.svg" alt="" /></div>
                 <div className="mx-2"><h4>Liquid Waste Removed From Site</h4></div>
               </div>
               <div className="row mt-2">
@@ -218,19 +262,19 @@ const WasteManagementChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+          <LiquidWastepie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+        <LiquidWastepie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+        <LiquidWastepie />
         </div>
       )}
       </div>
@@ -267,7 +311,7 @@ const WasteManagementChart =()=>{
             <hr style={{opacity:".1"}}/>
           </div>
           <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
-          <PieChart data={pieChartData5} />
+          <Pie data={pieChartData7} options={options}/>
           </div>
         </div>  
         </div>
@@ -277,8 +321,8 @@ const WasteManagementChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="/images/water_Consumption.png" alt="" /></div>
-                <div className="mx-2"><h4>Solid Waste Diverted from Disposal</h4></div>
+                <div><img src="/images/resycled.svg" alt="" /></div>
+                <div className="mx-2"><h4>Solid Waste Diverted from Disposal </h4></div>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
@@ -342,37 +386,37 @@ const WasteManagementChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+         <LiquidWastepie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+          <LiquidWastepie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+           <LiquidWastepie />
         </div>
       )}
 
       {activeButton === 'button4' && (
         <div className="">
-           <JouleCharts />
+          <LiquidWastepie />
         </div>
       )}
 
       {activeButton === 'button5' && (
         <div className="">
-           <JouleCharts />
+           <LiquidWastepie />
         </div>
       )}
 
       {activeButton === 'button6' && (
         <div className="">
-           <JouleCharts />
+<LiquidWastepie />
         </div>
       )}
 
@@ -401,7 +445,7 @@ const WasteManagementChart =()=>{
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
                 <div><img src="/images/wasteDirected.png" alt="" /></div>
-                <div className="mx-2"><h4>Solid Waste Directed to Disposal</h4></div>
+                <div className="mx-2"><h4>Solid Waste Directed to Disposal s</h4></div>
               </div>
             
               <div className="text-end">
@@ -412,7 +456,8 @@ const WasteManagementChart =()=>{
             <hr style={{opacity:".1"}}/>
           </div>
           <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
-          <PieChart data={pieChartData6} />
+          <Pie data={pieChartData8} options={options}/>
+          satya
           </div>
         </div>  
         </div>
@@ -422,7 +467,7 @@ const WasteManagementChart =()=>{
           <div className="card-body">
             <div className="">
               <div className="d-flex align-items-baseline">
-                <div><img src="/images/water_Consumption.png" alt="" /></div>
+                <div><img src="/images/wasteDirected.png" alt="" /></div>
                 <div className="mx-2"><h4>Solid Waste Diverted from Disposal</h4></div>
               </div>
               <div className="row mt-2">
@@ -475,10 +520,6 @@ const WasteManagementChart =()=>{
                     lbs
                   </button>
                   </div>
-
-
-
-                
                 </div>
 
                 <div className="row mt-3">
@@ -487,37 +528,37 @@ const WasteManagementChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+         <SolidWatedisposalline />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+         <SolidWatedisposalline />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+         <SolidWatedisposalline />
         </div>
       )}
 
       {activeButton === 'button4' && (
         <div className="">
-           <JouleCharts />
+         <SolidWatedisposalline />
         </div>
       )}
 
       {activeButton === 'button5' && (
         <div className="">
-           <JouleCharts />
+          <SolidWatedisposalline />
         </div>
       )}
 
       {activeButton === 'button6' && (
         <div className="">
-           <JouleCharts />
+         <SolidWatedisposalline />
         </div>
       )}
 

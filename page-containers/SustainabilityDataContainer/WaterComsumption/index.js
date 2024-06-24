@@ -1,7 +1,8 @@
-import PieChart from "../PieChart";
-import { useState } from "react";
 
-import JouleCharts from "../charts/jouleChart";
+import { useState } from "react";
+import { Pie} from 'react-chartjs-2';
+
+import WaterComsuptionpie from "../charts/waterComsumption";
 const WaterComsuption =()=>{
     const [activeButton, setActiveButton] = useState("button1");
     const handleButtonClick =(button)=>{
@@ -20,6 +21,19 @@ const WaterComsuption =()=>{
       ],
     };
    
+    const options = {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'right', // Position the labels on the right side
+          labels: {
+            usePointStyle: true,
+          },
+        },
+      },
+    };
+
+
     return(
         <section>
             <div className="row">
@@ -47,7 +61,7 @@ const WaterComsuption =()=>{
           </div>
           <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
           
-          <PieChart data={pieChartData2} />
+          <Pie data={pieChartData2} options={options}/>
           </div>
         </div>
 
@@ -112,30 +126,6 @@ const WaterComsuption =()=>{
                     Wh
                   </button>
                   </div>
-
-
-
-                {/* <Tabs
-                  defaultActiveKey="Joule"
-                  id="noanim-tab-example"
-                  className="tabBox"
-                  >
-                     
-                    <Tab eventKey="Joule" title="Joule" className="mt-5">
-                    <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
-                     <JouleCharts />
-                     </div>
-                    </Tab>
-                    
-
-                    <Tab eventKey="kWh" title="kWh" >
-                      <h6>kWh</h6>
-                    </Tab>
-
-                    <Tab eventKey="Wh" title="Wh">
-                      <h6>Wh</h6>
-                    </Tab>
-                  </Tabs> */}
                 </div>
 
                 <div className="row mt-3">
@@ -144,37 +134,37 @@ const WaterComsuption =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <JouleCharts />
+         <WaterComsuptionpie />
         </div>
       )}
       
       {activeButton === 'button2' && (
         <div className="">
-           <JouleCharts />
+         <WaterComsuptionpie />
         </div>
       )}
 
       {activeButton === 'button3' && (
         <div className="">
-           <JouleCharts />
+         <WaterComsuptionpie />
         </div>
       )}
 
       {activeButton === 'button4' && (
         <div className="">
-           <JouleCharts />
+         <WaterComsuptionpie />
         </div>
       )}
 
       {activeButton === 'button5' && (
         <div className="">
-           <JouleCharts />
+         <WaterComsuptionpie />
         </div>
       )}
 
       {activeButton === 'button6' && (
         <div className="">
-           <JouleCharts />
+         <WaterComsuptionpie />
         </div>
       )}
 

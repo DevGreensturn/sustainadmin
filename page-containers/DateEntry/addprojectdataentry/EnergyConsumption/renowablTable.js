@@ -112,7 +112,8 @@ const RenowableEnergyTable =()=>{
                     data={rows} 
                     fixedHeader
                     pagination
-                    
+                    striped
+                    customStyles={customStyles} 
                 />
                 </div>
 

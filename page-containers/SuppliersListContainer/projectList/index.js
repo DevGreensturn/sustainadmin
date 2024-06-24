@@ -29,6 +29,7 @@ const ProjectListTable =(projectId,packageId)=>{
       type: '',
       loginType: 'SUPPLIER',
       status: 'ACTIVE',
+      packageEditId :''
     });
 
     const handleChange = (e) => {
@@ -44,7 +45,7 @@ const ProjectListTable =(projectId,packageId)=>{
       try {
        
      await ADMINAPI({
-           url: `http://3.108.58.161:3002/api/v1/projects?id=3&page=1`,
+           url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/projects?id=3&page=1`,
            method: "GET",
           
           }).then((data) => {
@@ -65,7 +66,7 @@ const ProjectListTable =(projectId,packageId)=>{
         try {
          
        await ADMINAPI({
-             url: `http://3.108.58.161:3001/api/v1/suppliers?projectId=${projectId.projectId}`,
+             url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/suppliers?projectId=${projectId.projectId}`,
              method: "GET",
             
             }).then((data) => {
@@ -86,7 +87,7 @@ const ProjectListTable =(projectId,packageId)=>{
         try {
                
           await ADMINAPI({
-                url: `http://3.108.58.161:3002/api/v1/packages`,
+                url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/packages`,
                 method: "GET",
                
                }).then((data) => {
@@ -176,12 +177,13 @@ const ProjectListTable =(projectId,packageId)=>{
           supplierName: row?.name,
           supplierAddress: row?.address,
           type: row?.type,
-          packageId :row?.packageId?.name,
+          packageId :row?.packageId?._id,
           projectIdNew :row?.projectId?.projectName,
           projectId :row?.projectId?._id,
           loginType: 'SUPPLIER',
           status: 'ACTIVE',
           supplierIdNew :row?._id,
+          packageEditName :row?.packageId?.name
 
         });
         console.log("vvvvvv");
@@ -215,7 +217,7 @@ const ProjectListTable =(projectId,packageId)=>{
       console.log(payload,"LLLLL");
       try {
         await ADMINAPI({
-          url: `http://3.108.58.161:3001/api/v1/suppliers/${formData.supplierIdNew}`,
+          url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/suppliers/${formData.supplierIdNew}`,
           method: "put",
           body: { ...payload },
         }).then((data) => {
@@ -322,7 +324,7 @@ const ProjectListTable =(projectId,packageId)=>{
         try {
      
             await ADMINAPI({
-                  url: `http://3.108.58.161:3001/api/v1/suppliers/${supplierId}`,
+                  url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/suppliers/${supplierId}`,
                   method: "PATCH",
                  
                  }).then((data) => {
@@ -354,6 +356,14 @@ const ProjectListTable =(projectId,packageId)=>{
     useEffect(() => {
         handleFetchProject();
       }, [projectId.projectId]);
+
+      const customStyles ={
+        rows:{
+            style:{
+                minHeight: '72px', // override the row height
+            }
+        }
+    }
     return(
         <>
         <section>
@@ -367,6 +377,7 @@ const ProjectListTable =(projectId,packageId)=>{
                     fixedHeader
                     pagination
                     striped
+                    customStyles={customStyles}
                 />
                     </div>
                 </div>

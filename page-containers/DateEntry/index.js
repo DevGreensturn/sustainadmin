@@ -32,7 +32,7 @@ const DataEntryContainer = () => {
   const fetchProject = async () => {
     try {
       await ADMINAPI({
-        url: `http://3.108.58.161:3002/api/v1/projects?id=3&page=1`,
+        url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/projects?id=3&page=1`,
         method: "GET",
       }).then((data) => {
         let userData = data.response;
@@ -47,7 +47,7 @@ const DataEntryContainer = () => {
   const fetchPackageList = async () => {
     try {
       await ADMINAPI({
-        url: `http://3.108.58.161:3002/api/v1/packages`,
+        url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/packages`,
         method: "GET",
       }).then((data) => {
         let userData = data.response;

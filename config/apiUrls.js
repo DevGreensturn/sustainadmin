@@ -20,7 +20,7 @@ export const apiUrls = {
   addSupplierAndcontactor: `/${config.ecommerce_microservice}/${config.version3}/api/team/lists`,
   addMonthlyReport: `/${config.ecommerce_microservice}/${config.version2}/api/carts`,
   addSustainabilityData: `/${config.ecommerce_microservice}/${config.version2}/api/carts`,
-  getPakages : `http://3.108.58.161:3002/api/v1/packages`
+  getPakages : `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/packages`
 
 
 
