@@ -166,7 +166,7 @@ const Utilityprovidertable = () => {
     };
     try {
       await ADMINAPI({
-        url: "${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/energy",
+        url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/energy`,
         method: "POST",
         body: { ...payload },
       })
