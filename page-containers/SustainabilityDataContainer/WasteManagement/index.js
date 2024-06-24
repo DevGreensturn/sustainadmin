@@ -102,7 +102,7 @@ const WasteManagementChart =()=>{
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
                 <div><img src="/images/resycled.svg" alt="" /></div>
-                <div className="mx-2"><h4>Solid Waste Removed From Site sa</h4></div>
+                <div className="mx-2"><h4>Solid Waste Removed From Site</h4></div>
               </div>
               
               <div>
@@ -112,7 +112,7 @@ const WasteManagementChart =()=>{
             </div>
             <hr style={{opacity:".1"}}/>
           </div>
-          <div className="d-flex justify-content-center" style={{maxWidth:"450px", width:"100%", background:"yellow", margin:"0 auto"}}>
+          <div className="d-flex justify-content-center" style={{maxWidth:"450px", width:"100%", margin:"0 auto"}}>
           <Pie data={pieChartData6} options={options}/>
           </div>
         </div> 
