@@ -205,7 +205,6 @@ const Utilityprovidertable = () => {
       console.log(error, "errorooo");
     }
   };
-  // Function to handle delete operation
   const handleEditChanges = async () => {
     const payload = {
       // Construct payload based on your form data
