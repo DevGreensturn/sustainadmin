@@ -62,7 +62,7 @@ const WaterTankerTable = () => {
     },
     {
       name: <b>Unit</b>,
-      selector: (row) => row.Unit,
+      selector: (row) => row.unit,
       wrap: "true",
     },
 
@@ -234,7 +234,7 @@ const WaterTankerTable = () => {
       waterType: waterType, //"Surface Water",
       drinkingNonDrinkingWater: water, // "Drinking Water",
       waterConsumption: consumption, // 5000,
-      Unit: waterUnit, // "Litre",
+      unit: waterUnit, // "Litre",
       tankerCapacity: tankCapacity, //1000,
       noOfTrips: trips, // 5,
       fuelUsedByTruck: fuel, // 150,
@@ -298,7 +298,7 @@ const WaterTankerTable = () => {
       waterType: waterType, //"Surface Water",
       drinkingNonDrinkingWater: water, // "Drinking Water",
       waterConsumption: consumption, // 5000,
-      Unit: waterUnit, // "Litre",
+      unit: waterUnit, // "Litre",
       tankerCapacity: tankCapacity, //1000,
       noOfTrips: trips, // 5,
       fuelUsedByTruck: fuel, // 150,
