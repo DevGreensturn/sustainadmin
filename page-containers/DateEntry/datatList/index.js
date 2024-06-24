@@ -318,6 +318,15 @@ return
     useEffect(() => {
         handleMonthlyReports();
       }, []);
+
+      const customStyles ={
+        rows:{
+            style:{
+                minHeight: '72px', // override the row height
+            }
+        }
+    }
+    
     return(
         <>
         <section>
@@ -331,6 +340,7 @@ return
                     fixedHeader
                     pagination
                     striped
+                    customStyles={customStyles}
                 />
                     </div>
                 </div>

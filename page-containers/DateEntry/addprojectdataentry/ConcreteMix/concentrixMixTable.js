@@ -372,7 +372,8 @@ const ConcentrixMixTable =()=>{
                     data={rows} 
                     fixedHeader
                     pagination
-                    
+                    striped
+                    customStyles={customStyles}
                 />
                 </div>
 
