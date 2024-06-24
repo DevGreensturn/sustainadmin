@@ -146,8 +146,8 @@ export default function AddProject() {
     "more than 50,000 sqm"];
 
   let subscriptionCatagorgryValue = ["Building","Road","Infrastructure"];
-  let roadTier = ["8 km","8 to 20 km","more than 20 km"];
-  let infrastructureValue = ["100 Ha","100 to 250 Ha","more than 250 Ha"]
+  let roadTier = ["8 km", "8-20 km", "more than 20 km"];
+  let infrastructureValue = ["100 Ha", "100-250 Ha", "more than 250 Ha"]
 
  const fetchPackageList = async () => {
 
