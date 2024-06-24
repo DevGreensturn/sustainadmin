@@ -86,7 +86,7 @@ const ProjectListTable =()=>{
         {
             name: <b>Project</b>,
             selector: (row) => row.projectName,
-            wrap:"true"
+            width:"150px"
         },
         {
             name: <b>Project Package</b>,

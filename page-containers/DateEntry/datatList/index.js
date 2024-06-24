@@ -170,11 +170,18 @@ return
 
         }
       };
+      function formatDate(readingDate) {
+        const date = new Date(readingDate);
+        const options = { month: "long", year: "numeric" };
+        const formattedDate = date.toLocaleDateString("en-GB", options);
+    
+        return formattedDate;
+      }
     const columns = [
     	
         {
             name: <b>Reporting Month</b>,
-            selector: (row) => row?.reportingMonthYear,
+            selector: (row) => (row?.reportingMonthYear?formatDate(row?.reportingMonthYear):row?.reportingMonthYear),
             wrap:"true"
         },
         {
