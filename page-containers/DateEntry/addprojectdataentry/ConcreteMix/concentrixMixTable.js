@@ -354,7 +354,7 @@ const ConcentrixMixTable =()=>{
       const customStyles ={
         rows:{
             style:{
-                minHeight: '72px', // override the row height
+                minHeight: '72px', 
             }
         }
     }
