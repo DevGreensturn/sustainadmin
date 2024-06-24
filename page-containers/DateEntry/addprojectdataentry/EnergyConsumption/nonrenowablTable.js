@@ -4,6 +4,7 @@ import DataTable from "react-data-table-component";
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { MdDeleteForever } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
+import { RiFilter2Fill } from "react-icons/ri";
 import { Modal, Button } from 'react-bootstrap';
 import { useRouter } from "next/navigation";
 
@@ -306,8 +307,7 @@ const NonrenowableTable =()=>{
                     data={rows} 
                     fixedHeader
                     pagination
-                    striped
-                    customStyles={customStyles}
+                    
                 />
                 </div>
 
