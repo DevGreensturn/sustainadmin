@@ -1,8 +1,9 @@
 import { useState } from "react";
 import EnergyComsuptionpie from "../charts/energycomsumptionpie";
 import { Pie} from 'react-chartjs-2';
+
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
+// ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
 const EnergyComsuption =()=>{
@@ -84,7 +85,7 @@ const EnergyComsuption =()=>{
             </div>
             <hr style={{opacity:".1"}}/>
           </div>
-          <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
+          <div className="d-flex justify-content-center" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
           <Pie data={pieChartData} options={options}/>
           </div>
         </div>
