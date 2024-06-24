@@ -7,6 +7,8 @@ import { RiFilter2Fill } from "react-icons/ri";
 import { Modal, Button } from "react-bootstrap";
 import { ADMINAPI } from "../../../../apiWrapper";
 import { useRouter } from "next/navigation";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const WaterTankerTable = () => {
   const [show, setShow] = useState(false);
@@ -248,6 +250,7 @@ const WaterTankerTable = () => {
         .then((data) => {
           if (data.status === true) {
             setShow(false);
+            toast.success(data?.message);
             fetchWaterTanker();
             setTimeout(() => {
               navigate.push("/addMonthlyData", { scroll: false });
@@ -312,6 +315,7 @@ const WaterTankerTable = () => {
           if (data.status === true) {
             setShow(false);
             handleCloseEdit();
+            toast.success(data?.message);
             fetchWaterTanker();
             setTimeout(() => {
               navigate.push("/addMonthlyData", { scroll: false });
@@ -338,6 +342,7 @@ const WaterTankerTable = () => {
           if (data.status === true) {
             setShowDelete(false);
             handleCloseDelete();
+            toast.success(data?.message);
             fetchWaterTanker();
             setTimeout(() => {
               navigate.push("/addMonthlyData", { scroll: false });
@@ -768,6 +773,7 @@ const WaterTankerTable = () => {
             </>
           </Modal.Body>
         </Modal>
+        <ToastContainer/>
       </>
     </section>
   );
