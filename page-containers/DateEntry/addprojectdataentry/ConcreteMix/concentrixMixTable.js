@@ -114,7 +114,7 @@ const ConcentrixMixTable =()=>{
         },
         {
             name: <b className="text-center">28 Days<br /> strength(N/mm2) </b>,
-            selector: (row) => row.strength,
+            selector: (row) => row.days28Strength,
             wrap:"true"
         },
 
@@ -205,7 +205,7 @@ const ConcentrixMixTable =()=>{
           type: type, 
          volume: volume, 
          proportionOfTotalUsed: proportionOfTotalUsed, 
-         days28strength: strength, 
+         days28Strength: strength, 
           cementContent: cementContent, 
           slagContent: slagContent, 
           flyAshContent: flyAshContent, 
@@ -269,7 +269,7 @@ const ConcentrixMixTable =()=>{
           type: type, 
          volume: volume, 
          proportionOfTotalUsed: proportionOfTotalUsed, 
-         days28strength: strength, 
+         days28Strength: strength, 
           cementContent: cementContent, 
           slagContent: slagContent, 
           flyAshContent: flyAshContent, 
@@ -350,6 +350,14 @@ const ConcentrixMixTable =()=>{
       useEffect(() => {
         fetchTable();
       }, []);
+
+      const customStyles ={
+        rows:{
+            style:{
+                minHeight: '72px', // override the row height
+            }
+        }
+    }
     return(
         <section>
                 <div className="d-flex align-items-center justify-content-between">
@@ -490,7 +498,7 @@ const ConcentrixMixTable =()=>{
                         <div className="row mt-3 ">
                             <div className="col-md-4">
                                 <label htmlFor="">Natural Pozzolan Content(kg/m3)</label>
-                                <input type="text" className="form-control" placeholder="1322" 
+                                <input type="text" className="form-control" placeholder="" 
                                 value={naturalPozzolan}
                                 onChange={(e) => setNaturalPozzolan(e.target.value)}
                                 required 
@@ -499,7 +507,7 @@ const ConcentrixMixTable =()=>{
 
                             <div className="col-md-4">
                                 <label htmlFor="">Limestone Content (kg/m3)</label>
-                                <input type="text" className="form-control" placeholder="1344" 
+                                <input type="text" className="form-control" placeholder="" 
                                 value={limestoneContent}
                                 onChange={(e) => setLimestoneContent(e.target.value)}
                                 required 
