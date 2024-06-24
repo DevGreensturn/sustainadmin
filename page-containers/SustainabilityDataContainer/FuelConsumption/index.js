@@ -85,7 +85,7 @@ const FuelComsumptionChart =()=>{
             </div>
             <hr style={{opacity:".1"}}/>
           </div>
-          <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
+          <div className="d-flex justify-content-between" style={{maxWidth:"450px", width:"100%", margin:"0 auto", paddingBottom:"30px", background:"lightgreen"}}>
           <Pie data={pieChartData5} options={options}/>
           </div>
         </div>  
@@ -238,6 +238,7 @@ const FuelComsumptionChart =()=>{
 
       {activeButton === 'button3' && (
         <div className="">
+          <h6 style={{color:"#000"}}>satya</h6>
           <FuelComsumptionpie />
         </div>
       )}

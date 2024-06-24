@@ -102,7 +102,7 @@ const WasteManagementChart =()=>{
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
                 <div><img src="/images/resycled.svg" alt="" /></div>
-                <div className="mx-2"><h4>Solid Waste Removed From Site</h4></div>
+                <div className="mx-2"><h4>Solid Waste Removed From Site sa</h4></div>
               </div>
               
               <div>
@@ -112,7 +112,7 @@ const WasteManagementChart =()=>{
             </div>
             <hr style={{opacity:".1"}}/>
           </div>
-          <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
+          <div className="d-flex justify-content-center" style={{maxWidth:"450px", width:"100%", background:"yellow", margin:"0 auto"}}>
           <Pie data={pieChartData6} options={options}/>
           </div>
         </div> 
@@ -125,7 +125,7 @@ const WasteManagementChart =()=>{
             <div className="">
               <div className="d-flex align-items-baseline">
                 <div><img src="/images/resycled.svg" alt="" /></div>
-                <div className="mx-2"><h4>Solid Waste Removed From Site </h4></div>
+                <div className="mx-2"><h4>Solid Waste Removed From Site</h4></div>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
@@ -445,7 +445,7 @@ const WasteManagementChart =()=>{
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-baseline">
                 <div><img src="/images/wasteDirected.png" alt="" /></div>
-                <div className="mx-2"><h4>Solid Waste Directed to Disposal s</h4></div>
+                <div className="mx-2"><h4>Solid Waste Directed to Disposal</h4></div>
               </div>
             
               <div className="text-end">
@@ -457,7 +457,6 @@ const WasteManagementChart =()=>{
           </div>
           <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
           <Pie data={pieChartData8} options={options}/>
-          satya
           </div>
         </div>  
         </div>
@@ -528,7 +527,9 @@ const WasteManagementChart =()=>{
         <div className="mt-3">
       {activeButton === 'button1' && (
         <div className="">
-         <SolidWatedisposalline />
+          <SolidWatedisposalline /> 
+         {/* <TranspotationFuelpie />
+         */}
         </div>
       )}
       
