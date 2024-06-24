@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-
+import React, {useState,useEffect} from "react";
+import { ADMINAPI } from "../../../../apiWrapper";
 import DataTable from "react-data-table-component";
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { MdDeleteForever } from "react-icons/md";
@@ -69,6 +69,25 @@ const RenowableEnergyTable =()=>{
             Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
          },
     ];
+
+    const fetchTable = async () => {
+        try {
+          await ADMINAPI({
+            method: "GET",
+            url: 'http://35.154.130.173:3002/api/v1/data-entry/non-renewable'
+          }).then((data) => {
+            let userData = data.response;
+            console.log(userData)
+            setRows(userData);
+            console.log(userData, "ooo789090");
+          });
+        } catch (error) {
+          console.log(error, "err456656");
+        }
+      };
+      useEffect(() => {
+        fetchTable();
+      }, []);
 
     return (
        
