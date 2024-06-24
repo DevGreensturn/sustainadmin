@@ -6,6 +6,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import { RiFilter2Fill } from "react-icons/ri";
 import { Modal, Button } from 'react-bootstrap';
+import { useRouter } from "next/router";
 
 const RenowableEnergyTable =()=>{
     const [show, setShow] = useState(false);
@@ -20,7 +21,14 @@ const RenowableEnergyTable =()=>{
 
     const [showEdit, setShowEdit] = useState(false);
     const handleCloseEdit =()=> setShowEdit(false);
-    const handleShowEdit =()=>setShowEdit(true);
+    const handleShowEdit =(rows)=>{
+        setRenewId(rows._id);
+        setConsumption(rows.consumption);
+        setUnit(rows.unit);
+        setType(rows.type);
+        setSource(rows.source);
+        setShowEdit(true);
+    }
 
     const [showDelete, setShowDelete] = useState(false);
 
@@ -29,6 +37,8 @@ const RenowableEnergyTable =()=>{
     const [consumption, setConsumption] = useState("");
     const [unit, setUnit] = useState("");
     const [renewId, setRenewId] = useState("");
+
+    const navigate = useRouter()
 
     const handleCloseDelete =()=> setShowDelete(false);
     const handleShowDelete =(rows)=>  {
@@ -219,7 +229,7 @@ const RenowableEnergyTable =()=>{
       };
         try {
           await ADMINAPI({
-            url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/energy/${renewId}`,
+            url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/renewable/${renewId}`,
             method: "put",
             body: { ...payload },
           })
