@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { ADMINAPI } from "../../../../apiWrapper";
 import DataTable from "react-data-table-component";
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -9,25 +9,42 @@ import { Modal, Button } from 'react-bootstrap';
 import { useRouter } from "next/router";
 
 
+
 const ConcentrixMixTable =()=>{
     const navigate = useRouter();
     const [show, setShow] = useState(false);
     const handleClose =()=> setShow(false);
-    const handleShow =()=>setShow(true);
+    const handleShow =()=>{
+        setConcreteMix ("");
+        setType("");
+        setVolume("")
+        setProportionOfTotalUsed("")
+        setstrength("")
+        setSlagContent("")
+        setFlyAshContent("")
+        setsilicaFumeContent("")
+        setNaturalPozzolan("")
+        setLimestoneContent("")
+        setembodiedGHG("")
+        setNumberOfTrips("")
+        setFuelUsed("")
+        setConcreteId("")
+        setCementContent("")
+        setShow(true);
+    }
 
     const [showEdit, setShowEdit] = useState(false);
     const handleCloseEdit =()=> setShowEdit(false);
-    const handleShowEdit =()=>setShowEdit(true);
-
     const [showDelete, setShowDelete] = useState(false);
     const handleCloseDelete =()=> setShowDelete(false);
-    const handleShowDelete =()=> setShowDelete(true);
-
-
+    const handleShowDelete =(rows)=> {
+        setConcreteId(rows._id)
+        setShowDelete(true);
+    }
     const [concreteMixesNo, setConcreteMix] = useState("");
-    const [silicaFumeContent, setSilicaFumeContent] = useState("");
+    const [silicaFumeContent, setsilicaFumeContent] = useState("");
   const [ type, setType] = useState(""); 
-  const [volume, setVolume] = useState(""); 
+  const [volume, setVolume] = useState("");  
   const [ proportionOfTotalUsed, setProportionOfTotalUsed] = useState(""); 
   const [ strength, setstrength] = useState(""); 
   const [ cementContent,  setCementContent] = useState(""); 
@@ -35,11 +52,36 @@ const ConcentrixMixTable =()=>{
   const [flyAshContent, setFlyAshContent] = useState("");
   const [naturalPozzolan, setNaturalPozzolan] = useState("");
   const [ limestoneContent,  setLimestoneContent] = useState("");
-  const [embodiedGHG, setEmbodiedGHG] = useState("");
-  const[numberOfTrips,setNumberOfTrips]=useState("");
+  const [embodiedGHG, setembodiedGHG] = useState("");
+  const[noOfTrips,setNumberOfTrips]=useState("");
  const[ fuelUsed, setFuelUsed] =useState("");
+ const [concreteId, setConcreteId] = useState("")
+ const [rows, setRows] = useState("")
 
  let typeArr=["precast", "cast-in-situ"];
+
+
+
+ const handleShowEdit = (row) => {
+    console.log(row,"pp");
+    setConcreteMix (row.concreteMixesNo);
+    setType(row.type);
+    setVolume(row.volume)
+    setProportionOfTotalUsed(row.proportionOfTotalUsed)
+    setstrength(row.days28Strength)
+    setSlagContent(row.slagContent)
+    setFlyAshContent(row.flyAshContent)
+    setsilicaFumeContent(row.silicaFumeContent)
+    setNaturalPozzolan(row.naturePozzolanContent)
+    setLimestoneContent(row.limestoneContent)
+    setembodiedGHG(row.embodiedGHG)
+    setNumberOfTrips(row.noOfTrips)
+    setFuelUsed(row.fuelUsedPerTruck)
+    setConcreteId(row._id)
+    setCementContent(row.cementContent)
+    setShowEdit(true)
+    console.log("gdf",concreteId)
+  }
 
  const handleChangeType = (e) => {
     e.preventDefault();
@@ -67,7 +109,7 @@ const ConcentrixMixTable =()=>{
         },
         {
             name: <b className="text-center">Proportion<br/> of Total used(%)</b>,
-            selector: (row) => row.Proportion,
+            selector: (row) => row.proportionOfTotalUsed,
             wrap:"true"
         },
         {
@@ -83,81 +125,79 @@ const ConcentrixMixTable =()=>{
         },
         {
             name: <b className="text-center">Slag Content<br/>(Kg/m3)</b>,
-            selector: (row) => row.SlagContent,
+            selector: (row) => row.
+            slagContent
+            ,
             wrap:"true"
         },
         {
             name: <b className="text-center">Fly Ash Content <br />(Kg/m3)</b>,
-            selector: (row) => row.FlyAshContent,
+            selector: (row) => row.flyAshContent,
             wrap:"true"
         },
 
         {
             name: <b className="text-center">Silica Fume<br /> Content(kg/m3)</b>,
-            selector: (row) => row.silicaFumeContent,
+            selector: (row) => row.
+            silicaFumeContent,
             wrap:"true"
         },
 
         {
-            name: <b className="text-center">Slag Content<br/>(Kg/m3)</b>,
-            selector: (row) => row.SlagContent,
+            name: <b className="text-center">NaturePozzolan Content<br/>(Kg/m3)</b>,
+            selector: (row) => row.naturePozzolanContent,
             wrap:"true"
         },
 
         {
-            name: <b className="text-center">Fly Ash Content<br/>(Kg/m3)</b>,
-            selector: (row) => row.FlyAsh,
+            name: <b className="text-center">Limestone Content<br/>(Kg/m3)</b>,
+            selector: (row) => row.limestoneContent,
             wrap:"true"
         },
+        {
+            name:<b
+            className="text-center">embodied GHG<br/>(Co2e/m3)</b>,
+            selector:(row)=>row.embodiedGHG,
+            wrap:"true"
 
+        },
 
+        {
+            name:<b
+            className="text-center">No.Of Trips<br/>(Co2e/m3)</b>,
+            selector:(row)=>row.noOfTrips,
+            wrap:"true"
+
+        },
+        {
+            name:<b
+            className="text-center">Fueln Used By Trucks<br/>(Co2e/m3)</b>,
+            selector:(row)=>row.fuelUsedPerTruck,
+            wrap:"true"
+
+        },
 
         {
             name: <b>Action</b>,
-            selector: (row) => row.Action,
-            wrap:"true",
-           
+            cell: row => (
+                <div className="d-flex align-items-center">
+                    <FaRegEdit 
+                        style={{ color: "secondary", fontSize: "20px", cursor: 'pointer' }} 
+                        onClick={() => handleShowEdit(row)} 
+                    />
+                    <MdDeleteForever 
+                        className="mx-2" 
+                        style={{ color: "red", fontSize: "20px", cursor: 'pointer' }} 
+                        onClick={() => handleShowDelete(row)} 
+                    />
+                </div>
+            ),
+            wrap: true,
+            width: "180px"
         },
     ];
     
-    const rows = [
-        {
-            ConcreteMixNo: "0001",
-            type: "Precast",
-            volume: "1344",
-            Proportion: "1344",
-            strength: "1344",
-            CementContent: "1344",
-            SlagContent:"1344",
-            FlyAshContent:"1344",
-            SilicaFume:"1344",
-            NaturalPozzolan:"1344",
-            LimestoneContent:"1344",
-            EmbodiedGHG:"1344",
-            numberOfTrips:"1344",
-            fuelUsed:"1344",
-            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}} onClick={handleShowEdit}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}} onClick={handleShowDelete}/> </div>
-        },
-
-         {
-            ConcreteMixNo: "0001",
-            type: "Precast",
-            volume: "1344",
-            Proportion: "1344",
-            strength: "1344",
-            CementContent: "1344",
-            SlagContent:"1344",
-            FlyAshContent:"1344",
-            SilicaFume:"1344",
-            NaturalPozzolan:"1344",
-            LimestoneContent:"1344",
-            EmbodiedGHG:"1344",
-            numberOfTrips:"1344",
-            fuelUsed:"1344",
-
-            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
-         },
-    ];
+    
     const handleSaveChanges = async () => {
         const payload = {
          
@@ -173,11 +213,12 @@ const ConcentrixMixTable =()=>{
           naturePozzolanContent:naturalPozzolan,
           limestoneContent: limestoneContent,
           embodiedGHG: embodiedGHG,
-          noOfTrips: numberOfTrips,
+          noOfTrips: noOfTrips,
           fuelUsedPerTruck: fuelUsed,
           safeDelete: false,
           emissionInputID:123
         };
+        console.log("payload",payload)
         try {
           await ADMINAPI({
             url: "http://35.154.130.173:3002/api/v1/data-entry/concrete/",
@@ -204,24 +245,111 @@ const ConcentrixMixTable =()=>{
           console.log(error, "errorooo");
         }
       };
+     
+
       const fetchTable = async () => {
         try {
           await ADMINAPI({
-            url:"http://35.154.130.173:3002/api/v1/data-entry/concrete/",
+            url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/concrete`,
             method: "GET",
           }).then((data) => {
             let userData = data.response;
             setRows(userData);
-            console.log(userData, "tttttt");
+            console.log(userData, "ooooooossssssss");
           });
         } catch (error) {
-          console.log(error, "ttttttt");
+          console.log(error, "errorooo");
         }
       };
 
+      const handleEditChanges = async () => {
+        const payload = {
+         
+         concreteMixesNo:concreteMixesNo,
+          type: type, 
+         volume: volume, 
+         proportionOfTotalUsed: proportionOfTotalUsed, 
+         days28strength: strength, 
+          cementContent: cementContent, 
+          slagContent: slagContent, 
+          flyAshContent: flyAshContent, 
+          silicaFumeContent:silicaFumeContent
+          ,
+          naturePozzolanContent:naturalPozzolan,
+          limestoneContent: limestoneContent,
+          embodiedGHG: embodiedGHG,
+          noOfTrips: noOfTrips,
+          fuelUsedPerTruck: fuelUsed,
+          safeDelete: false,
+          emissionInputID:123
+        };
 
+        try {
+          await ADMINAPI({
+            url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/concrete/${concreteId}`,
+            method: "put",
+            body: { ...payload },
+          })
+            .then((data) => {
+              if (data.status === true) {
+                setShowEdit(false);
+                setTimeout(() => {
+                  navigate.push("/addMonthlyData", { scroll: false });
+                }, 100);
+                fetchTable();
+                return data;
+              } else {
+                
+              }
+            })
+            .catch((err) => {
+             
+            });
+        } catch (error) {
+          console.log(error, "errorooo");
+        }
+      };
+
+      const handleDeleteConfirm = async() => {
+            
+        try {
      
-
+            await ADMINAPI({
+                url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/concrete/${concreteId}`,
+                method: "PATCH",
+                 
+                 }).then((data) => {
+                    if (data.status === true) {
+                        setShowDelete(false)
+                        handleCloseDelete();
+                        fetchTable()
+                      setTimeout(() => {
+                        navigate.push("/addMonthlyData", { scroll: false });
+                      }, 100);
+                    } else {
+                        console.log(data?.message,"rtrttt");
+                        setShowDeleteConfirmation(false)
+        
+                      toast.error(data?.message);
+                    }
+                 }).catch(err =>{
+                    setShowDeleteConfirmation(false)
+    
+            console.log(err,"rtrttt");
+            toast.error(err?.message);
+                 })
+               
+             } catch (error) {
+               console.log(error, "errorooo");
+               toast.error(data?.message);
+    
+     
+             }
+      };
+     
+      useEffect(() => {
+        fetchTable();
+      }, []);
     return(
         <section>
                 <div className="d-flex align-items-center justify-content-between">
@@ -286,11 +414,8 @@ const ConcentrixMixTable =()=>{
                     <option key={indexCat} value={category}>
                       {category}
                     </option>
-                  ))}
-                                    <option selected>Precast</option>
-                                    <option value="1">cast-in-sit</option>
-                                    
-                                </select>
+                  ))}      
+                    </select>
                             </div>
 
                             <div className="col-md-4">
@@ -317,7 +442,7 @@ const ConcentrixMixTable =()=>{
 
                             <div className="col-md-4">
                             <label htmlFor="">28 Days strength (N/mm2)</label>
-                            <input type="text" className="form-control" placeholder="1344"
+                            <input type="text" className="form-control" placeholder=""
                              value={strength}
                              onChange={(e) => setstrength(e.target.value)}
                              required
@@ -331,12 +456,11 @@ const ConcentrixMixTable =()=>{
                                  required />
                             </div>
                         </div>
- 
                         <div className="row mt-3 ">
                             
                             <div className="col-md-4">
                                 <label htmlFor="">Slag Content (Kg/m3)</label>
-                                <input type="text" className="form-control" placeholder="1322" 
+                                <input type="text" className="form-control" placeholder="" 
                                     value={slagContent}
                                     onChange={(e) => setSlagContent(e.target.value)}
                                     required 
@@ -345,7 +469,7 @@ const ConcentrixMixTable =()=>{
                             
                             <div className="col-md-4">
                                 <label htmlFor="">Fly Ash Content (Kg/m3)</label>
-                                <input type="text" className="form-control" placeholder="1344" 
+                                <input type="text" className="form-control" placeholder="" 
                                 value={flyAshContent}
                                 onChange={(e) => setFlyAshContent(e.target.value)}
                                 required 
@@ -354,9 +478,9 @@ const ConcentrixMixTable =()=>{
 
                             <div className="col-md-4">
                                 <label htmlFor="">Silica Fume Content (Kg/m3)</label>
-                                <input type="file" className="form-control" placeholder="1322"
+                                <input type="text" className="form-control" placeholder=""
                                 value={silicaFumeContent}
-                                onChange={(e) => setSilicaFumeContent(e.target.value)}
+                                onChange={(e) => setsilicaFumeContent(e.target.value)}
                                 required 
                                 />
                             </div>
@@ -383,9 +507,9 @@ const ConcentrixMixTable =()=>{
 
                             <div className="col-md-4">
                                 <label htmlFor="">Embodied GHG (CO2e/m3)</label>
-                                <input type="file" className="form-control" placeholder="1322"
+                                <input type="text" className="form-control" placeholder=""
                                  value={embodiedGHG}
-                                 onChange={(e) => setEmbodiedGHG(e.target.value)}
+                                 onChange={(e) => setembodiedGHG(e.target.value)}
                                  required 
                                 />
                             </div>
@@ -395,8 +519,8 @@ const ConcentrixMixTable =()=>{
                         <div className="row mt-3 ">
                             <div className="col-md-4">
                                 <label htmlFor="">No. of Trips</label>
-                                <input type="text" className="form-control" placeholder="1322" 
-                                value={numberOfTrips}
+                                <input type="text" className="form-control" placeholder="" 
+                                value={noOfTrips}
                                 onChange={(e) => setNumberOfTrips(e.target.value)}
                                 required 
                                 />
@@ -404,7 +528,7 @@ const ConcentrixMixTable =()=>{
                             <div className="row mt-3 ">
                             <div className="col-md-4">
                                 <label htmlFor="">fuelUsedPerTruck</label>
-                                <input type="text" className="form-control" placeholder="1322" 
+                                <input type="text" className="form-control" placeholder="" 
                                 value={fuelUsed}
                                 onChange={(e) => setFuelUsed(e.target.value)}
                                 required 
@@ -464,22 +588,30 @@ const ConcentrixMixTable =()=>{
                         <div className="row mt-3">
                             <div className="col-md-4">
                                 <label htmlFor="">Concrete Mixes No.</label>
-                                <input type="text" className="form-control" placeholder="0001" />
+                                <input type="text" className="form-control" 
+                                value={concreteMixesNo}
+                                onChange={(e) =>setConcreteMix(e.target.value)}
+                                placeholder="0001" />
 
                                
                             </div>
 
                             <div className="col-md-4">
                             <label htmlFor="">Type</label>
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Precast</option>
-                                    <option value="1">cast-in-sit</option>
-                                </select>
+                            <select className="form-select" aria-label="Default select example" onChange={(e) => handleChangeType(e)}
+                value={type}>  {typeArr?.map((category, indexCat) => (
+                    <option key={indexCat} value={category}>
+                      {category}
+                    </option>
+                  ))}      
+                    </select>
                             </div>
 
                             <div className="col-md-4">
                                 <label htmlFor="">Volume</label>
-                                <input type="text" className="form-control" placeholder="1344" />
+                                <input type="text" className="form-control"  value={volume}
+                                 onChange={(e) =>setVolume(e.target.value)}
+                                placeholder="1344" />
                             </div>
 
 
@@ -488,16 +620,23 @@ const ConcentrixMixTable =()=>{
                         <div className="row mt-3">
                             <div className="col-md-4">
                                 <label htmlFor="">Proportion of Total Used (%)</label>
-                                <input type="text" className="form-control" placeholder="1322" />
+                                <input type="text" className="form-control" value={proportionOfTotalUsed}
+                                 onChange={(e) =>setProportionOfTotalUsed(e.target.value)}
+                                placeholder="1322" />
                             </div>
 
                             <div className="col-md-4">
                             <label htmlFor="">28 Days strength (N/mm2)</label>
-                            <input type="text" className="form-control" placeholder="1344" />
+                            <input type="text" className="form-control" 
+                            value={strength}
+                            onChange={(e) =>setstrength(e.target.value)}
+                            placeholder="1344" />
                             </div>
                             <div className="col-md-4">
                                 <label htmlFor="">Cement Content (kg/m3)</label>
-                                <input type="text" className="form-control" placeholder="Add Text" />
+                                <input type="text" className="form-control" value={cementContent} 
+                                 onChange={(e) =>setCementContent(e.target.value)}
+                                placeholder="Add Text" />
                             </div>
                         </div>
  
@@ -505,48 +644,66 @@ const ConcentrixMixTable =()=>{
                             
                             <div className="col-md-4">
                                 <label htmlFor="">Slag Content (Kg/m3)</label>
-                                <input type="text" className="form-control" placeholder="1322" />
+                                <input type="text" className="form-control" value={slagContent} 
+                                 onChange={(e) =>setSlagContent(e.target.value)}
+                                placeholder="1322" />
                             </div>
 
                             <div className="col-md-4">
                                 <label htmlFor="">Fly Ash Content (Kg/m3)</label>
-                                <input type="text" className="form-control" placeholder="1344" />
+                                <input type="text" className="form-control" value={flyAshContent} 
+                                 onChange={(e) =>setFlyAshContent(e.target.value)}
+                                
+                                placeholder="1344" />
                             </div>
 
                             <div className="col-md-4">
                                 <label htmlFor="">Silica Fume Content (Kg/m3)</label>
-                                <input type="file" className="form-control" placeholder="1322" />
+                                <input type="text" className="form-control" value ={silicaFumeContent}
+                                 onChange={(e) =>setsilicaFumeContent(e.target.value)}
+                                placeholder="1322" />
                             </div>
                         </div>
 
                         <div className="row mt-3 ">
                             <div className="col-md-4">
                                 <label htmlFor="">Natural Pozzolan Content(kg/m3)</label>
-                                <input type="text" className="form-control" placeholder="1322" />
+                                <input type="text" className="form-control" value={naturalPozzolan} 
+                                 onChange={(e) =>setNaturalPozzolan(e.target.value)}
+                                placeholder="1322" />
                             </div>
 
                             <div className="col-md-4">
                                 <label htmlFor="">Limestone Content (kg/m3)</label>
-                                <input type="text" className="form-control" placeholder="1344" />
+                                <input type="text" className="form-control" value={limestoneContent} 
+                                 onChange={(e) =>setLimestoneContent(e.target.value)}
+                                placeholder="1344" />
                             </div>
 
                             <div className="col-md-4">
                                 <label htmlFor="">Embodied GHG (CO2e/m3)</label>
-                                <input type="file" className="form-control" placeholder="1322" />
+                                <input type="text" className="form-control" value={embodiedGHG} 
+                                 onChange={(e) =>setembodiedGHG(e.target.value)}
+                                placeholder="1322" />
                             </div>
                         </div>
                         <div className="row mt-3 ">
                             <div className="col-md-4">
                                 <label htmlFor="">No. of Trips</label>
-                                <input type="text" className="form-control" placeholder="1322" />
+                                <input type="text" className="form-control" value={noOfTrips} 
+                                 onChange={(e) =>setNumberOfTrips(e.target.value)}
+                                placeholder="1322" />
                             </div>
 
                             <div className="col-md-4">
-                                <label htmlFor="">Fuel Used by Trucks (Liters)</label>
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Precast</option>
-                                    <option value="1">cast-in-sit</option>
-                                </select>
+                                <label htmlFor="">fuelUsedPerTruck</label>
+                                <input type="text" className="form-control" placeholder="" 
+                                
+                                value={fuelUsed}
+
+                                onChange={(e) =>setFuelUsed(e.target.value)}
+                                required 
+                                />
                             </div>
 
                         </div>
@@ -557,7 +714,7 @@ const ConcentrixMixTable =()=>{
                     <button type="btn" className="btn btn-outline-secondary" onClick={handleCloseEdit}> Close </button>
                     </div>
                     <div>
-                    <button type="btn" className="btn btn-outline-success" onClick={handleCloseEdit}> Save Changes </button>
+                    <button type="btn" className="btn btn-outline-success" onClick={ handleEditChanges}> Save Changes </button>
                     </div>
                     </div>
                        </>
@@ -588,7 +745,7 @@ const ConcentrixMixTable =()=>{
                     <button type="btn" className="btn btn-outline-secondary rounded-pill" onClick={handleCloseDelete} style={{width:"10rem"}}> Close </button>
                     </div>
                     <div>
-                    <button type="btn" className="btn btn-outline-success rounded-pill" onClick={handleCloseDelete} style={{width:"10rem"}}>Yes </button>
+                    <button type="btn" className="btn btn-outline-success rounded-pill" onClick={handleDeleteConfirm} style={{width:"10rem"}}>Yes </button>
                     </div>
                     </div>
                        </>

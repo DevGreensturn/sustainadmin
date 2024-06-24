@@ -69,7 +69,6 @@ const Utilityprovidertable = () => {
     console.log(selectedValue, "Selected Value");
     setEnergyType(selectedValue);
   };
-
   const handleChangeEnergyUnit = (e) => {
     e.preventDefault();
     const selectedValue = e.target.value;
