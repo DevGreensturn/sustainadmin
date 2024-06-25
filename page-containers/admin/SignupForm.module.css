@@ -114,3 +114,7 @@
         font-size: 14px;
     }
 }
+
+.errorMsg {
+    color: red;
+  }
