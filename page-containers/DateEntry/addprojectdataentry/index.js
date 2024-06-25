@@ -51,7 +51,6 @@ const AddprojectEntry = () => {
     const selectedId = e.target.value;
     setProjectPack(selectedId);
 
-  
   };
 
 
@@ -301,7 +300,8 @@ const AddprojectEntry = () => {
 
         <div className="row mt-3">
           <div className="col-md-12">
-            <EnergyComsuption />
+            {console.log(projectPack,"LLLLLLLLLLLL90")}
+            <EnergyComsuption projectId ={projectId} projectPack={projectPack}/>
 
             <WaterConsumption />
             <ConcereteMix />

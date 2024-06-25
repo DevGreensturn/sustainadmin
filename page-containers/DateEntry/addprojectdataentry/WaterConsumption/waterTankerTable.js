@@ -7,8 +7,8 @@ import { RiFilter2Fill } from "react-icons/ri";
 import { Modal, Button } from "react-bootstrap";
 import { ADMINAPI } from "../../../../apiWrapper";
 import { useRouter } from "next/navigation";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const WaterTankerTable = () => {
   const [show, setShow] = useState(false);
@@ -181,7 +181,13 @@ const WaterTankerTable = () => {
     },
   };
 
-  let waterTypeVal = ["Surface Water", "Third Party Water"];
+  let waterTypeVal = [
+    "Surface Water",
+    "Ground Water",
+    "Sea Water",
+    "Produced Water",
+    "Third-Party Water",
+  ];
   let waterArr = ["Drinking Water", "Non-Drinking Water"];
   let waterUnitArr = ["US Gallon", "Litre", "Cubic Meter"];
   let fuelArr = ["1344", "1452"];
@@ -773,7 +779,7 @@ const WaterTankerTable = () => {
             </>
           </Modal.Body>
         </Modal>
-        <ToastContainer/>
+        <ToastContainer />
       </>
     </section>
   );
