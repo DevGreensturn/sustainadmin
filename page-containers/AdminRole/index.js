@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Link from "next/link";
 import DataTable from "react-data-table-component";
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -6,7 +6,9 @@ import { MdDeleteForever } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import { RiFilter2Fill } from "react-icons/ri";
 import { Modal, Button } from 'react-bootstrap';
+
 import { Popover, OverlayTrigger} from 'react-bootstrap';
+import {data} from "./data";
 
 const AdminRolesection =()=>{
 
@@ -22,6 +24,12 @@ const AdminRolesection =()=>{
     const handleCloseDelete =()=> setShowDelete(false);
     const handleShowDelete =()=> setShowDelete(true);
 
+
+    const [data, setData] = useState([]);
+
+    useEffect(()=>{
+        setData(data)
+    }, []);
 
     const popover = (
         <Popover id="popover-basic">

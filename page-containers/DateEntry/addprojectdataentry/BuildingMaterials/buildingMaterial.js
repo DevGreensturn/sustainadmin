@@ -77,7 +77,7 @@ const BuildingMaterialTable = (projectId) => {
           Supplier /<br /> subcontractor
         </b>
       ),
-      selector: (row) => row.Suppliersubcontractor,
+      selector: (row) => row?.supplierSubcontractor?.name,
       wrap: "true",
     },
     {
@@ -335,7 +335,7 @@ const BuildingMaterialTable = (projectId) => {
     // Logic to handle editing the row
 
     console.log("Edit row:uuuuuu", row);
-    setSupplier(row.supplierSubcontractor);
+    setSupplier(row?.supplierSubcontractor?._id);
       setMaterial(row.materialType);
       setMaterialSource(row.materialSource);
       setMaterialId(row._id);
