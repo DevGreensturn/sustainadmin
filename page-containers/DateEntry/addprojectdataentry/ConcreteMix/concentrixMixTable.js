@@ -401,7 +401,6 @@ const ConcentrixMixTable =()=>{
                             <img src="/images/ConcentrixMix_Modal.png" alt="" className="img-fluid"/>
                             <div className="mx-2">
                                 <h4>Concerete Mix</h4>
-                             
                             </div>
                         </div>
 
