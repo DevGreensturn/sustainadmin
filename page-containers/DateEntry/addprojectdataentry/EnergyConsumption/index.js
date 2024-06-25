@@ -7,7 +7,6 @@ import SoldenergyTable from "./soldenergyTable";
 import ReductionEnerguTable from "./reductionEnergyTable";
 
 const EnergyComsuption =({projectId, projectPack})=>{
-    console.log("Srajal"+projectId, projectPack);
  
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => {
@@ -37,7 +36,7 @@ const EnergyComsuption =({projectId, projectPack})=>{
            <div className="row mt-3">
             <div className="col-md-12">
                 <div className="mb-0">
-                    <Utilityprovidertable />
+                    <Utilityprovidertable  projectId ={projectId} projectPack={projectPack}/>
                 
                 <div className="mt-5">
                 <hr />
@@ -56,7 +55,7 @@ const EnergyComsuption =({projectId, projectPack})=>{
 
                 <div className="mt-5">
                 <hr />
-                    <ReductionEnerguTable />
+                    <ReductionEnerguTable  projectId ={projectId} projectPack={projectPack}/>
                 </div>
 
                 </div>
