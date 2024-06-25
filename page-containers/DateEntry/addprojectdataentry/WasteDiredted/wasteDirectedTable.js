@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import DataTable from "react-data-table-component";
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { MdDeleteForever } from "react-icons/md";
@@ -23,7 +23,7 @@ const WasteDirectedTable = () => {
     const [showDelete, setShowDelete] = useState(false);
     const handleCloseDelete = () => setShowDelete(false);
     const handleShowDelete = () => setShowDelete(true);
-
+    const [rows, setRows] = useState()
 
     const [kindOfWaste, setKindOfWaste] = useState("");
     const [wasteType, setWasteType] = useState("");
@@ -34,6 +34,21 @@ const WasteDirectedTable = () => {
     const [mainCollectionCompany, setMainCollectionCompany] = useState("");
     const [noOfTrips, setNumberOfTrips] = useState("");
     const [fuelUsed, setFuelUsed] = useState("");
+
+
+
+const handleEdit = (row) => {
+   setKindOfWaste (row.kindOfWaste);
+   setWasteType(row.wasteType);
+   setDirectedOperationType(row.directedOperationType);
+   setQuantity(row.quantity);
+   setUnit(row.unit);
+   setSupportingDocument(row.supportingDocument);
+   setMainCollectionCompany(row.mainCollectionCompany);
+   setNumberOfTrips(row.noOfTrips);
+   setFuelUsed(row.fuelUsed);
+   setShowEdit(true)
+}
     
 
      let wasteArr=["solid","liquid"];
@@ -130,7 +145,64 @@ const WasteDirectedTable = () => {
             console.log(error, "errorooo");
         }
     };
+      
+    const fetchTable = async () => {
+        try {
+          await ADMINAPI({
+            url:"http://35.154.130.173:3002/api/v1/data-entry/direct-disposals/" ,
+            method: "GET",
+          }).then((data) => {
+            let userData = data.response;
+            setRows(userData);
+            console.log(userData, "ooooooossssssss");
+          });
+        } catch (error) {
+          console.log(error, "errorooo");
+        }
+      };
+      useEffect(() => {
+        fetchTable();
+      }, []);
 
+      const handleEditChanges=async () =>{
+        const payload = {
+            kindOfWaste: kindOfWaste,
+            wasteType: wasteType,
+            directedOperationType: directedOperationType,
+            quantity: quantity,
+            unit: unit,
+            supportingDocument: supportingDocument,
+            mainCollectionCompany: mainCollectionCompany,
+            noOfTrips: noOfTrips,
+            fuelUsed: fuelUsed
+        }
+      
+      
+      try {
+        await ADMINAPI({
+          url: "http://35.154.130.173:3002/api/v1/data-entry/direct-disposals/",
+          method: "put",
+          body: { ...payload },
+        })
+          .then((data) => {
+            if (data.status === true) {
+              setShowEdit(false);
+              setTimeout(() => {
+                navigate.push("/addMonthlyData", { scroll: false });
+              }, 100);
+              fetchTable();
+              return data;
+            } else {
+              
+            }
+          })
+          .catch((err) => {
+           
+          });
+      } catch (error) {
+        console.log(error, "errorooo");
+      }
+    };
 
     const columns = [
 
@@ -183,35 +255,25 @@ const WasteDirectedTable = () => {
 
         {
             name: <b>Action</b>,
-            selector: (row) => row.Action,
-            wrap: "true",
+            cell: row => (
+                <div className="d-flex align-items-center">
+                    <FaRegEdit 
+                        style={{ color: "secondary", fontSize: "20px", cursor: 'pointer' }} 
+                        onClick={() => handleEdit(row)} 
+                    />
+                    <MdDeleteForever 
+                        className="mx-2" 
+                        style={{ color: "red", fontSize: "20px", cursor: 'pointer' }} 
+                        onClick={() => handleShowDelete(row)} 
+                    />
+                </div>
+            ),
+            wrap: true,
+            width: "180px"
 
         },
     ];
 
-    const rows = [
-        {
-            WasteType: "Non Hazard",
-            KindofWaste: "Solid",
-            MainCollection: "Landfilling",
-            TotalWaste: "123",
-            UnitOf: "Kg",
-            SupportingDocument: "1 Attachment",
-
-            Action: <div className="d-flex align-items-center"><FaRegEdit style={{ color: "secondary", fontSize: "20px" }} onClick={handleShowEdit} />  <MdDeleteForever icon={faTimes} className="mx-2" style={{ color: "red", fontSize: "20px" }} onClick={handleShowDelete} /> </div>
-        },
-
-        {
-            WasteType: "Non Hazard",
-            KindofWaste: "Liquid",
-            MainCollection: "Other Disposal Operations",
-            TotalWaste: "123",
-            UnitOf: "Liter",
-            SupportingDocument: "1 Attachment",
-
-            Action: <div className="d-flex align-items-center"><FaRegEdit style={{ color: "secondary", fontSize: "20px" }} />  <MdDeleteForever icon={faTimes} className="mx-2" style={{ color: "red", fontSize: "20px" }} /> </div>
-        },
-    ];
 
     const customStyles = {
         rows: {
@@ -420,28 +482,48 @@ const WasteDirectedTable = () => {
                                 <div className="row mt-3">
                                     <div className="col-md-4">
                                         <label htmlFor="">Kind of Waste</label>
-                                        <select className="form-select" aria-label="Default select example">
-                                            <option selected>non hazard</option>
-                                            <option value="1">hazard</option>
+                                        <select className="form-select" aria-label="Default select example"
+                                         onChange={(e) => handleType(e)}
+                                         value={kindOfWaste}>  {kindOfWasteArr?.map((category, indexCat) => (
+                                             <option key={indexCat} value={category}>
+                                               {category}
+                                             </option>
+                                         
+                                         ))}
+                                            {/* <option selected>non hazard</option>
+                                            <option value="1">hazard</option> */}
 
                                         </select>
                                     </div>
 
                                     <div className="col-md-4">
                                         <label htmlFor="">Waste Type</label>
-                                        <select className="form-select" aria-label="Default select example">
-                                            <option selected>solid</option>
-                                            <option selected>liquid</option>
+                                        <select className="form-select" aria-label="Default select example"
+                                        onChange={(e) => handleChangeType(e)}
+                                        value={wasteType}>  {wasteArr?.map((category, indexCat) => (
+                                            <option key={indexCat} value={category}>
+                                              {category}
+                                            </option>
+                                        
+                                        ))}
+                                           
 
                                         </select>
                                     </div>
 
                                     <div className="col-md-4">
                                         <label htmlFor="">Disposal Operation Type</label>
-                                        <select className="form-select" aria-label="Default select example">
-                                            <option selected>Reuse</option>
-                                            <option value="1">Recycling</option>
-                                            <option value="2">Others</option>
+                                        <select className="form-select" aria-label="Default select example"
+                                         onChange={(e) => handleChange(e)}
+                                         value={directedOperationType}>  {disposalArr?.map((category, indexCat) => (
+                                             <option key={indexCat} value={category}>
+                                               {category}
+                                             </option>
+                                         
+                                         ))}
+                                            {/* <option selected>Reuse</option> */}
+                                            {/* <option value="1">Recycling</option>
+                                            <option value="2">Others</option> */}
                                         </select>
                                     </div>
 
@@ -451,25 +533,55 @@ const WasteDirectedTable = () => {
                                 <div className="row mt-3">
                                     <div className="col-md-4">
                                         <label htmlFor="">Quantity</label>
-                                        <input type="text" className="form-control" placeholder="123" />
+                                        <input type="text" className="form-control" placeholder="123" 
+                                         value={quantity} onChange={(e)=> setQuantity(e.target.value)} />
                                     </div>
 
                                     <div className="col-md-4">
                                         <label htmlFor="">Unit of Measurement</label>
 
-                                        <select className="form-select" aria-label="Default select example">
-                                            <option selected>kg</option>
+                                        <select className="form-select" aria-label="Default select example"
+                                         onChange={(e) => handleChanges(e)}
+                                         value={unit}>  {unitArr?.map((category, indexCat) => (
+                                             <option key={indexCat} value={category}>
+                                               {category}
+                                             </option>
+                                         
+                                         ))}
+                                            {/* <option selected>kg</option>
                                             <option value="1">Wh</option>
                                             <option value="2">Kwh</option>
-                                            <option value="3">Joule</option>
+                                            <option value="3">Joule</option> */}
                                         </select>
                                     </div>
 
                                     <div className="col-md-4">
                                         <label htmlFor="">Supporting Document (If Any)</label>
-                                        <input type="file" className="form-control" placeholder="Upload Documents" />
+                                        <input type="file" className="form-control" placeholder="Upload Documents" 
+                                         value={supportingDocument} onChange={(e)=> setSupportingDocument(e.target.value)} />
                                     </div>
+                                    <div className="row mt-3">
+                                    <div className="col-md-4">
+                                        <label htmlFor="">No Of Trips</label>
+                                        <input type="text" className="form-control" placeholder="" value={noOfTrips} onChange={(e)=> setNumberOfTrips(e.target.value)} />
+                                    </div>
+                                    </div>
+                                    
+                               
+
+                                    <div className="col-md-4">
+                                        <label htmlFor="">fuel UsedBy Trucks</label>
+                                        <input type="text" className="form-control" placeholder="" 
+                                         value={fuelUsed} onChange={(e)=> setFuelUsed(e.target.value)} />
+                                    </div>
+                                    <div className="col-md-4">
+                                        <label htmlFor="">Main Collection Of Company</label>
+                                        <input type="text" className="form-control" placeholder=""
+                                           value={mainCollectionCompany} onChange={(e)=> setMainCollectionCompany(e.target.value)} />
+                                    </div>
+
                                 </div>
+                                
                                 
                             </div>
 
@@ -478,7 +590,7 @@ const WasteDirectedTable = () => {
                                     <button type="btn" className="btn btn-outline-secondary" onClick={handleCloseEdit}> Close </button>
                                 </div>
                                 <div>
-                                    <button type="btn" className="btn btn-outline-success" onClick={handleCloseEdit}> Save Changes </button>
+                                    <button type="btn" className="btn btn-outline-success" onClick={handleEditChanges}> Save Changes </button>
                                 </div>
                             </div>
                         </>
