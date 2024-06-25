@@ -9,11 +9,21 @@ import { useRouter } from "next/navigation";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
-const Utilityprovidertable = () => {
+const Utilityprovidertable = ({projectId, projectPack}) => {
   // State for modals
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setEnergyType("");
+    setEnergUnit("");
+    setMetorNo("");
+    setAccountNumber("");
+    setServiceProvider("");
+    setReadingDate("");
+    setMeterReading("");
+    setConsumption("");
+    setShow(true);
+  }
 
   const [showEdit, setShowEdit] = useState(false);
   const handleCloseEdit = () => setShowEdit(false);
@@ -154,6 +164,8 @@ const Utilityprovidertable = () => {
   const handleSaveChanges = async () => {
     const payload = {
       // Construct payload based on your form data
+      projectId:projectId,
+      packageId:projectPack,
       energyType: energyTypeVal, //'Electricity',
       meterNo: metorNo, //"00003",meterNo
       accountNo: accountNumber, // "1234567890",
@@ -207,6 +219,8 @@ const Utilityprovidertable = () => {
   const handleEditChanges = async () => {
     const payload = {
       // Construct payload based on your form data
+      projectId:projectId,
+      projectPack:projectPack,
       energyType: energyTypeVal, //'Electricity',
       meterNo: metorNo, //"00003",meterNo
       accountNo: accountNumber, // "1234567890",
@@ -424,7 +438,7 @@ const Utilityprovidertable = () => {
             </div>
 
             <div className="col-md-4">
-              <label htmlFor="">Unite Type</label>
+              <label htmlFor="">Unit Type</label>
               <select
                 className="form-select"
                 aria-label="Default select example"
@@ -581,7 +595,7 @@ const Utilityprovidertable = () => {
             </div>
 
             <div className="col-md-4">
-              <label htmlFor="">Unite Type</label>
+              <label htmlFor="">Unit Type</label>
               <select
                 className="form-select"
                 aria-label="Default select example"

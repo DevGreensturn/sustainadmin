@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
 
 import DataTable from "react-data-table-component";
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -7,7 +7,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { RiFilter2Fill } from "react-icons/ri";
 import { Modal, Button } from 'react-bootstrap';
 
-const SoldenergyTable =()=>{
+const SoldenergyTable =({projectId, projectPack})=>{
     const [show, setShow] = useState(false);
     const handleClose =()=> setShow(false);
     const handleShow =()=>setShow(true);
@@ -20,6 +20,9 @@ const SoldenergyTable =()=>{
     const handleCloseDelete =()=> setShowDelete(false);
     const handleShowDelete =()=> setShowDelete(true);
 
+    const [soldEnergy,setsoldEnergy] = useState("");
+
+    const [rows, setRows] = useState([]);
 
     const columns = [
     	
@@ -39,8 +42,8 @@ const SoldenergyTable =()=>{
             wrap:"true"
         },
         {
-            name: <b>Unite</b>,
-            selector: (row) => row.unite,
+            name: <b>Unit</b>,
+            selector: (row) => row.unit,
             wrap:"true"
         },
 
@@ -52,32 +55,44 @@ const SoldenergyTable =()=>{
 
         {
             name: <b>Action</b>,
-            selector: (row) => row.Action,
-            wrap:"true",
-           
+            cell: row => (
+                <div className="d-flex align-items-center">
+                    <FaRegEdit 
+                        style={{ color: "secondary", fontSize: "20px", cursor: 'pointer' }} 
+                        onClick={() => handleShowEdit(row)} 
+                    />
+                    <MdDeleteForever 
+                        className="mx-2" 
+                        style={{ color: "red", fontSize: "20px", cursor: 'pointer' }} 
+                        onClick={() => handleShowDelete(row)} 
+                    />
+                </div>
+            ),
+            wrap: true,
+            width: "180px"
         },
-    ];
+      ];
     
-    const rows = [
-        {
-            energyType: "Electricity",
-            readingDate: "20 March 2024",
-            soldenergy: "1,500",
-            unite:"Joule",
-            supportingdocument:"1 Attachment",
-            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}} onClick={handleShowEdit}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}} onClick={handleShowDelete}/> </div>
-        },
+    // const rows = [
+    //     {
+    //         energyType: "Electricity",
+    //         readingDate: "20 March 2024",
+    //         soldenergy: "1,500",
+    //         unite:"Joule",
+    //         supportingdocument:"1 Attachment",
+    //         Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}} onClick={handleShowEdit}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}} onClick={handleShowDelete}/> </div>
+    //     },
 
-         {
-            energyType: "Cooling",
-            readingDate: "25 March 2024",
-            soldenergy: "2,000",
-            unite:"kWh",
-            supportingdocument:"1 Attachment",
+    //      {
+    //         energyType: "Cooling",
+    //         readingDate: "25 March 2024",
+    //         soldenergy: "2,000",
+    //         unite:"kWh",
+    //         supportingdocument:"1 Attachment",
 
-            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
-         },
-    ];
+    //         Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
+    //      },
+    // ];
 
     const customStyles ={
         rows:{
@@ -86,6 +101,58 @@ const SoldenergyTable =()=>{
             }
         }
     }
+
+    const handleSaveChanges = async () => {
+        const payload = {
+          // Construct payload based on your form data
+          projectId:projectId,
+          packageId:projectPack,
+          energyType:energyType,
+          soldEnergy:soldEnergy,
+          unit:unit,
+          readingDate:readingDate,
+          supportingDocument: "2 attachments"
+        };
+        try {
+          await ADMINAPI({
+            url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/sold`,
+            method: "POST",
+            body: { ...payload },
+          })
+            .then((data) => {
+              if (data.status === true) {
+                setShow(false);
+                setTimeout(() => {
+                  navigate.push("/addMonthlyData", { scroll: false });
+                }, 100);
+                fetchTable();
+    
+                return data;
+              } else {
+                // toast.error(data?.message);
+              }
+            })
+            .catch((err) => {
+              //   toast.error(err?.message);
+            });
+        } catch (error) {
+          console.log(error, "errorooo");
+        }
+      };
+      const fetchTable = async () => {
+        try {
+          await ADMINAPI({
+            url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/energy`,
+            method: "GET",
+          }).then((data) => {
+            let userData = data.response;
+            setRows(userData);
+            console.log(userData, "ooooooossssssss");
+          });
+        } catch (error) {
+          console.log(error, "errorooo");
+        }
+      };
 
     return (
        
@@ -158,7 +225,7 @@ const SoldenergyTable =()=>{
                             </div>
 
                             <div className="col-md-4">
-                            <label htmlFor="">Unite</label>
+                            <label htmlFor="">Unit</label>
                                 <select className="form-select" aria-label="Default select example">
                                     <option selected>Joule</option>
                                     <option value="1">kWh</option>

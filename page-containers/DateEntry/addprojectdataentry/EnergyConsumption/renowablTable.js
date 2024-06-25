@@ -8,7 +8,7 @@ import { RiFilter2Fill } from "react-icons/ri";
 import { Modal, Button } from 'react-bootstrap';
 import { useRouter } from "next/router";
 
-const RenowableEnergyTable =()=>{
+const RenowableEnergyTable =({projectId, projectPack})=>{
     const [show, setShow] = useState(false);
     const handleClose =()=> setShow(false);
     const handleShow =()=>{
@@ -68,7 +68,7 @@ const RenowableEnergyTable =()=>{
             wrap:"true"
         },
         {
-            name: <b>Unite</b>,
+            name: <b>Unit</b>,
             selector: (row) => row.unit,
             wrap:"true"
         },
@@ -126,6 +126,8 @@ const RenowableEnergyTable =()=>{
     const handleSaveChanges = async () => {
       const payload = {
         // Construct payload based on your form data
+        projectId:projectId,
+        packageId:projectPack,
         type:type, 
         source:source, 
         consumption:consumption, 
@@ -222,6 +224,8 @@ const RenowableEnergyTable =()=>{
       const handleEditChanges = async () => {
        const payload = {
         // Construct payload based on your form data
+        projectId:projectId,
+        packageId:projectPack,
         type:type, 
         source:source, 
         consumption:consumption, 
@@ -315,7 +319,7 @@ const RenowableEnergyTable =()=>{
 
                             <div className="col-md-6">
                             <label htmlFor="">Source</label>
-                            <input type="text" className="form-control" placeholder="Company X" value={source} onChange={(e) => setSource(e.target.value)} required/>
+                            <input type="text" className="form-control" placeholder="" value={source} onChange={(e) => setSource(e.target.value)} required/>
                             </div>
 
                         </div>
@@ -323,11 +327,11 @@ const RenowableEnergyTable =()=>{
                         <div className="row mt-3">
                             <div className="col-md-6">
                                 <label htmlFor="">Consumption</label>
-                                <input type="text" className="form-control" placeholder="1344" value={consumption} onChange={(e) => setConsumption(e.target.value)} required/>
+                                <input type="text" className="form-control" placeholder="" value={consumption} onChange={(e) => setConsumption(e.target.value)} required/>
                             </div>
 
                             <div className="col-md-6">
-                            <label htmlFor="">Unite</label>
+                            <label htmlFor="">Unit</label>
                             <select className="form-select" aria-label="Default select example" onChange={(e) => handleChangeUnit(e)}
                 value={unit}>
                                    {unitArr?.map((category, indexCat) => (

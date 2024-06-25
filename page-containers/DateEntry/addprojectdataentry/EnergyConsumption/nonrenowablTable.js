@@ -8,10 +8,20 @@ import { RiFilter2Fill } from "react-icons/ri";
 import { Modal, Button } from 'react-bootstrap';
 import { useRouter } from "next/navigation";
 
-const NonrenowableTable =()=>{
+const NonrenowableTable =({projectId, projectPack})=>{
     const [show, setShow] = useState(false);
     const handleClose =()=> setShow(false);
-    const handleShow =()=>setShow(true);
+    const handleShow =()=>{
+      setShow(true);
+      setEnergyOutput("");
+      setfuelType("");
+      setNumberOfTrips("");
+      setTotalSpending("");
+      setUnit("");
+      setUsage("");
+      setVolume("");
+      setfuelUsed("");
+    }
 
     const [showEdit, setShowEdit] = useState(false);
     const handleCloseEdit =()=> setShowEdit(false);
@@ -71,7 +81,7 @@ const NonrenowableTable =()=>{
             wrap:"true"
         },
         {
-            name: <b>Unite</b>,
+            name: <b>Unit</b>,
             selector: (row) => row.unit,
             wrap:"true"
         },
@@ -125,6 +135,7 @@ const NonrenowableTable =()=>{
            
         },
     ];
+    console.log("Srajal",projectId,projectPack);
     const handleChangeFuelType = (e) => {
         e.preventDefault();
         const selectedValue = e.target.value;
@@ -146,7 +157,8 @@ const NonrenowableTable =()=>{
     const handleEditChanges = async() => {
         const payload = {
             // Construct payload based on your form data
-            energyNonRenewableId: 111000,
+            // projectId:projectId,
+            // packageId:projectPack,
             fuelType: fuelType,
             equipment: equipment,
             volume: volume,
@@ -154,7 +166,7 @@ const NonrenowableTable =()=>{
             energyOutput: energyOutput,
             totalSpending: totalSpending,
             noOfTrips: noOfTrips,
-            fuelUsed: fuelUsedByTrucks ,
+            fuelUsedByTrucks: fuelUsedByTrucks ,
             supportingDocument: "2 attachments"
             
           };
@@ -192,6 +204,8 @@ const NonrenowableTable =()=>{
     const handleSaveChanges = async () => {
         const payload = {
           // Construct payload based on your form data
+          projectId:projectId,
+          packageId:projectPack,
           energyNonRenewableId: 111000,
           fuelType: fuelType,
           equipment: equipment,
@@ -200,7 +214,7 @@ const NonrenowableTable =()=>{
           energyOutput: energyOutput,
           totalSpending: totalSpending,
           noOfTrips: noOfTrips,
-          fuelUsed: fuelUsedByTrucks ,
+          fuelUsedByTrucks: fuelUsedByTrucks ,
           supportingDocument: "2 attachments",
         };
       
@@ -361,7 +375,7 @@ const NonrenowableTable =()=>{
 
                             <div className="col-md-4">
                                 <label htmlFor="">Total Spending(AED)</label>
-                                <input type="text" className="form-control" placeholder=" "
+                                <input type="text" className="form-control" placeholder=""
                                 value={totalSpending} onChange={(e) => setTotalSpending(e.target.value)} required />
                             </div>
 
@@ -371,12 +385,12 @@ const NonrenowableTable =()=>{
                         <div className="row mt-3">
                             <div className="col-md-4">
                                 <label htmlFor="">Volume</label>
-                                <input type="text" className="form-control" placeholder="200" 
+                                <input type="text" className="form-control" placeholder="" 
                                 value={volume} onChange={(e) => setVolume(e.target.value)} required />
                             </div>
 
                             <div className="col-md-4">
-                            <label htmlFor="">Unite Type</label>
+                            <label htmlFor="">Unit Type</label>
                                 <select className="form-select" aria-label="Default select example" onChange={(e) => handleChangeUnitType(e)} value={unit}>
                                 {unitTypeArr?.map((category, indexCat) => (
                   <option key={indexCat} value={category}>
@@ -387,7 +401,7 @@ const NonrenowableTable =()=>{
                             </div>
                             <div className="col-md-4">
                                 <label htmlFor="">Energy output(kWh)</label>
-                                <input type="text" className="form-control" placeholder="-" value={energyOutput} onChange={(e) => setEnergyOutput(e.target.value)} required />
+                                <input type="text" className="form-control" placeholder="" value={energyOutput} onChange={(e) => setEnergyOutput(e.target.value)} required />
                             </div>
                         </div>
 
@@ -398,12 +412,12 @@ const NonrenowableTable =()=>{
 
                             <div className="col-md-4">
                                 <label htmlFor="">No. of Trips</label>
-                                <input type="text" className="form-control" placeholder="1" value={noOfTrips} onChange={(e) => setNumberOfTrips(e.target.value)} required/>
+                                <input type="text" className="form-control" placeholder="" value={noOfTrips} onChange={(e) => setNumberOfTrips(e.target.value)} required/>
                             </div>
 
                             <div className="col-md-4">
                                 <label htmlFor="">Fuel Used by Trucks(L)(One full trip)</label>
-                                <input type="text" className="form-control" placeholder="10" value={fuelUsedByTrucks} onChange={(e)=> setfuelUsed(e.target.value)} />
+                                <input type="text" className="form-control" placeholder="" value={fuelUsedByTrucks} onChange={(e)=> setfuelUsed(e.target.value)} />
                             </div>
 
                             <div className="col-md-4">
@@ -477,7 +491,7 @@ const NonrenowableTable =()=>{
 
                             <div className="col-md-4">
                                 <label htmlFor="">Total Spending(AED)</label>
-                                <input type="text" className="form-control" placeholder="1234567890" value={totalSpending} onChange={(e) => setTotalSpending(e.target.value)} required />
+                                <input type="text" className="form-control" placeholder="" value={totalSpending} onChange={(e) => setTotalSpending(e.target.value)} required />
                             </div>
 
 
@@ -486,11 +500,11 @@ const NonrenowableTable =()=>{
                         <div className="row mt-3">
                             <div className="col-md-4">
                                 <label htmlFor="">Volume</label>
-                                <input type="text" className="form-control" placeholder="200" value={volume} onChange={(e) => setVolume(e.target.value)} required/>
+                                <input type="text" className="form-control" placeholder="" value={volume} onChange={(e) => setVolume(e.target.value)} required/>
                             </div>
 
                             <div className="col-md-4">
-                            <label htmlFor="">Unite Type</label>
+                            <label htmlFor="">Unit Type</label>
                             <select className="form-select" aria-label="Default select example" onChange={(e) => handleChangeUnitType(e)} value={unit}>
                                 {unitTypeArr?.map((category, indexCat) => (
                   <option key={indexCat} value={category}>
@@ -501,7 +515,7 @@ const NonrenowableTable =()=>{
                             </div>
                             <div className="col-md-4">
                                 <label htmlFor="">Energy output(kWh)</label>
-                                <input type="text" className="form-control" placeholder="-" value={energyOutput} onChange={(e) => setEnergyOutput(e.target.value)} required/>
+                                <input type="text" className="form-control" placeholder="" value={energyOutput} onChange={(e) => setEnergyOutput(e.target.value)} required/>
                             </div>
                         </div>
 
@@ -512,12 +526,12 @@ const NonrenowableTable =()=>{
 
                             <div className="col-md-4">
                                 <label htmlFor="">No. of Trips</label>
-                                <input type="text" className="form-control" placeholder="1" value={noOfTrips} onChange={(e) => setNumberOfTrips(e.target.value)} required/>
+                                <input type="text" className="form-control" placeholder="" value={noOfTrips} onChange={(e) => setNumberOfTrips(e.target.value)} required/>
                             </div>
 
                             <div className="col-md-4">
                                 <label htmlFor="">Fuel Used by Trucks(L)(One full trip)</label>
-                                <input type="text" className="form-control" placeholder="10" value={fuelUsedByTrucks} onChange={(e)=> setfuelUsed(e.target.value)}/>
+                                <input type="text" className="form-control" placeholder="" value={fuelUsedByTrucks} onChange={(e)=> setfuelUsed(e.target.value)}/>
                             </div>
 
                             <div className="col-md-4">

@@ -6,7 +6,8 @@ import RenowableEnergyTable from "./renowablTable";
 import SoldenergyTable from "./soldenergyTable";
 import ReductionEnerguTable from "./reductionEnergyTable";
 
-const EnergyComsuption =()=>{
+const EnergyComsuption =({projectId, projectPack})=>{
+    console.log("Srajal"+projectId, projectPack);
  
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => {
@@ -40,17 +41,17 @@ const EnergyComsuption =()=>{
                 
                 <div className="mt-5">
                 <hr />
-                    <NonrenowableTable />
+                    <NonrenowableTable projectId ={projectId} projectPack={projectPack}/>
                 </div>
 
                 <div className="mt-5">
                 <hr />
-                    <RenowableEnergyTable />
+                    <RenowableEnergyTable projectId ={projectId} projectPack={projectPack}/>
                 </div>
 
                 <div className="mt-5">
                 <hr />
-                    <SoldenergyTable />
+                    <SoldenergyTable projectId ={projectId} projectPack={projectPack}/>
                 </div>
 
                 <div className="mt-5">
