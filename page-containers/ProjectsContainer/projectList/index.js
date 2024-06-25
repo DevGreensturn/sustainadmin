@@ -86,7 +86,7 @@ const ProjectListTable =()=>{
         {
             name: <b>Project</b>,
             selector: (row) => row.projectName,
-            wrap:"true"
+            width:"150px"
         },
         {
             name: <b>Project Package</b>,
@@ -264,8 +264,8 @@ const ProjectListTable =()=>{
              "more than 50,000 sqm"];
          
            let subscriptionCatagorgryValue = ["Building","Road","Infrastructure"];
-           let roadTier = ["8 km","8 to 20 km","more than 20 km"];
-           let infrastructureValue = ["100 Ha","100 to 250 Ha","more than 250 Ha"]
+           let roadTier = ["8 km", "8-20 km", "more than 20 km"];
+           let infrastructureValue = ["100 Ha", "100-250 Ha", "more than 250 Ha"]
          
            const handleShowDeleteConfirmation = () => {
             setShowDeleteConfirmation(true);
