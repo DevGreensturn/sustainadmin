@@ -347,6 +347,7 @@ const SignupForm = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         let updatedValue = value;
+        console.log("value",e.target)
         switch (name) {
             case 'userName':
                 if (value.length > 25) {
@@ -376,6 +377,15 @@ const SignupForm = () => {
                     country: value
                 }));
                 filterCountries(value);
+                const selectedCountry = filteredCountries.find(country => country.info.longName === value);
+                if (selectedCountry) {
+                    handleCountrySelect(selectedCountry._id, value);
+                } else {
+                    setFormData(prevState => ({
+                        ...prevState,
+                        countryId: ''
+                    }));
+                }
                 break;
             default:
                 break;
@@ -393,23 +403,27 @@ const SignupForm = () => {
         setFilteredCountries(filtered);
     };
 
-    const handleCountrySelect = (selectedCountry) => {
+    const handleCountrySelect = (selectedCountryId,countryName) => {
+        console.log("hii",selectedCountryId)
         setFormData(prevState => ({
             ...prevState,
-            country: selectedCountry
+            countryId: selectedCountryId,
+            country: countryName
         }));
-        setCountryInputVisible(false); // Hide country input after selection
+        setCountryInputVisible(false);
         setFilteredCountries([]);
+        
     };
 
     const toggleCountryInput = () => {
-        setCountryInputVisible(true); // Show country input on click
-        setFilteredCountries(countries); // Reset filteredCountries to show all options
+        setCountryInputVisible(true);
+        setFilteredCountries(countries); 
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         // Validation checks
+        console.log("formdata",formData)
         if (formData.userName.length < 1 || formData.userName.length > 25) {
             setError("User Name must be between 1 and 25 characters");
             return;
@@ -430,7 +444,8 @@ const SignupForm = () => {
             packageID: 1,
             password: formData.password,
             loginType: formData.role,
-            country_id: formData.country
+            country_id: formData.countryId
+            
         };
 
         try {
@@ -511,6 +526,7 @@ const SignupForm = () => {
                                         <div className='col-md-6'>
                                             <div className={styles.formGroup}>
                                                 <label htmlFor="country">Country</label>
+                                                
                                                 {countryInputVisible ? (
                                                     <input
                                                         type="text"
@@ -529,10 +545,11 @@ const SignupForm = () => {
                                                         <i className="fa fa-chevron-down"></i>
                                                     </div>
                                                 )}
-                                                <datalist id="countries">
-                                                    {filteredCountries.map(country => (
-                                                        <option key={country._id} value={country.info.longName} onClick={() => handleCountrySelect(country.info.longName)} />
-                                                    ))}
+                                                <datalist id="countries"  >
+                                                    {filteredCountries.map(country => {
+                                                        return (
+                                                        <option key={country._id} value={country.info.longName} onChange={() => handleCountrySelect(country._id)} >{country.info.longName} </option>
+                                                    )})}
                                                 </datalist>
                                             </div>
                                         </div>
