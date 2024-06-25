@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import { ADMINAPI } from "../../../../apiWrapper";
 import DataTable from "react-data-table-component";
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -6,20 +6,49 @@ import { MdDeleteForever } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import { RiFilter2Fill } from "react-icons/ri";
 import { Modal, Button } from 'react-bootstrap';
+import { useRouter } from "next/router";
 
-const RenowableEnergyTable =()=>{
+const RenowableEnergyTable =({projectId, projectPack})=>{
     const [show, setShow] = useState(false);
     const handleClose =()=> setShow(false);
-    const handleShow =()=>setShow(true);
+    const handleShow =()=>{
+        setType("");
+        setSource("");
+        setConsumption("");
+        setUnit("");
+        setShow(true);
+    }
 
     const [showEdit, setShowEdit] = useState(false);
     const handleCloseEdit =()=> setShowEdit(false);
-    const handleShowEdit =()=>setShowEdit(true);
+    const handleShowEdit =(rows)=>{
+        setRenewId(rows._id);
+        setConsumption(rows.consumption);
+        setUnit(rows.unit);
+        setType(rows.type);
+        setSource(rows.source);
+        setShowEdit(true);
+    }
 
     const [showDelete, setShowDelete] = useState(false);
-    const handleCloseDelete =()=> setShowDelete(false);
-    const handleShowDelete =()=> setShowDelete(true);
 
+    const [type, setType] = useState("");
+    const [source, setSource] = useState("");
+    const [consumption, setConsumption] = useState("");
+    const [unit, setUnit] = useState("");
+    const [renewId, setRenewId] = useState("");
+
+    const navigate = useRouter()
+
+    const handleCloseDelete =()=> setShowDelete(false);
+    const handleShowDelete =(rows)=>  {
+        setShowDelete(true);
+        setRenewId(rows._id)
+    }
+    const [rows, setRows] = useState("");
+    
+    let typeArr = ['Biomass', 'Geothermal', 'Hydro', 'Solar', 'Wind'];
+    let unitArr = ['Kwh', 'Joule', 'Wh'];
 
     const columns = [
     	
@@ -29,7 +58,7 @@ const RenowableEnergyTable =()=>{
             wrap:"true"
         },
         {
-            name: <b className="text-center">Source </b>,
+            name: <b clasgitsName="text-center">Source </b>,
             selector: (row) => row.source,
             wrap:"true"
         },
@@ -39,45 +68,108 @@ const RenowableEnergyTable =()=>{
             wrap:"true"
         },
         {
-            name: <b>Unite</b>,
-            selector: (row) => row.unite,
+            name: <b>Unit</b>,
+            selector: (row) => row.unit,
             wrap:"true"
         },
 
         {
             name: <b>Action</b>,
-            selector: (row) => row.Action,
-            wrap:"true",
-           
-        },
+            cell: row => (
+                <div className="d-flex align-items-center">
+                    <FaRegEdit 
+                        style={{ color: "secondary", fontSize: "20px", cursor: 'pointer' }} 
+                        onClick={() => handleShowEdit(row)} 
+                    />
+                    <MdDeleteForever 
+                        className="mx-2" 
+                        style={{ color: "red", fontSize: "20px", cursor: 'pointer' }} 
+                        onClick={() => handleShowDelete(row)} 
+                    />
+                </div>
+            ),
+            wrap: true,
+            width: "180px"
+        }
     ];
-    
-    const rows = [
-        {
-            type: "Solar",
-            source: "Company X",
-            consumption: "1344",
-            unite:"Joule",
-            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}} onClick={handleShowEdit}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}} onClick={handleShowDelete}/> </div>
-        },
+    const handleChangeType = (e) => {
+        e.preventDefault();
+        const selectedValue = e.target.value;
+        console.log(selectedValue, "Selected Value");
+        setType(selectedValue);
+      };
+    const handleChangeUnit = (e) => {
+        e.preventDefault();
+        const selectedValue = e.target.value;
+        console.log(selectedValue, "Selected Value");
+        setUnit(selectedValue);
+      };
+    // const rows = [
+    //     {
+    //         type: "Solar",
+    //         source: "Company X",
+    //         consumption: "1344",
+    //         unite:"Joule",
+    //         Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}} onClick={handleShowEdit}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}} onClick={handleShowDelete}/> </div>
+    //     },
 
-         {
-            type: "Wind",
-            source: "Company Y",
-            consumption: "1452",
-            unite:"kWh",
-            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
-         },
-    ];
+    //      {
+    //         type: "Wind",
+    //         source: "Company Y",
+    //         consumption: "1452",
+    //         unite:"kWh",
+    //         Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
+    //      },
+    // ];
+
+    // Function to handle save operation
+    const handleSaveChanges = async () => {
+      const payload = {
+        // Construct payload based on your form data
+        projectId:projectId,
+        packageId:projectPack,
+        type:type, 
+        source:source, 
+        consumption:consumption, 
+        unit:unit,   
+      };
+      try {
+        await ADMINAPI({
+          url:  `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/renewable`,
+          method: "POST",
+          body: { ...payload },
+        })
+          .then((data) => {
+            if (data.status === true) {
+              setShow(false);
+              setTimeout(() => {
+                navigate.push("/addMonthlyData", { scroll: false });
+              }, 100);
+              fetchTable();
+  
+              return data;
+            } else {
+              // toast.error(data?.message);
+            }
+          })
+          .catch((err) => {
+            //   toast.error(err?.message);
+          });
+      } catch (error) {
+        console.log(error, "errorooo");
+      }
+    };
 
     const fetchTable = async () => {
+
         try {
           await ADMINAPI({
-            method: "GET",
-            url: 'http://35.154.130.173:3002/api/v1/data-entry/non-renewable'
-          }).then((data) => {
-            let userData = data.response;
-            console.log(userData)
+              method: "GET",
+              url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/renewable`
+            }).then((data) => {
+                let userData = data.response;
+                console.log(userData)
+                console.log("Srajal")
             setRows(userData);
             console.log(userData, "ooo789090");
           });
@@ -89,8 +181,84 @@ const RenowableEnergyTable =()=>{
         fetchTable();
       }, []);
 
+      const handleDeleteConfirm = async() => {
+            
+        try {
+     
+            await ADMINAPI({
+                url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/renewable/${renewId}`,
+                method: "PATCH",
+                 
+                 }).then((data) => {
+                    if (data.status === true) {
+                        setShowDelete(false)
+                        handleCloseDelete();
+                        fetchTable();
+                      setTimeout(() => {
+                        navigate.push("/addMonthlyData", { scroll: false });
+                      }, 100);
+                    } else {
+                        console.log(data?.message,"rtrttt");
+                        setShowDelete(false)
+        
+                    //   toast.error(data?.message);
+                    }
+                 }).catch(err =>{
+                    setShowDelete(false)
+    
+            console.log(err,"rtrttt");
+            // toast.error(err?.message);
+                 })
+               
+             } catch (error) {
+               console.log(error, "errorooo");
+            //    toast.error(data?.message);
+    
+     
+             }
+      };
+      useEffect(() => {
+        fetchTable();
+      }, []);
+      
+      const handleEditChanges = async () => {
+       const payload = {
+        // Construct payload based on your form data
+        projectId:projectId,
+        packageId:projectPack,
+        type:type, 
+        source:source, 
+        consumption:consumption, 
+        unit:unit,   
+      };
+        try {
+          await ADMINAPI({
+            url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/renewable/${renewId}`,
+            method: "put",
+            body: { ...payload },
+          })
+            .then((data) => {
+              if (data.status === true) {
+                setShow(false);
+                handleCloseEdit();
+                setTimeout(() => {
+                  navigate.push("/addMonthlyData", { scroll: false });
+                }, 100);
+                fetchTable();
+    
+                return data;
+              } else {
+                // toast.error(data?.message);
+              }
+            })
+            .catch((err) => {
+              //   toast.error(err?.message);
+            });
+        } catch (error) {
+          console.log(error, "errorooo");
+        }
+      };
     return (
-       
         <section>
                 <div className="d-flex align-items-center justify-content-between">
                     <div className="d-flex align-items-center">
@@ -112,8 +280,7 @@ const RenowableEnergyTable =()=>{
                     data={rows} 
                     fixedHeader
                     pagination
-                    striped
-                    customStyles={customStyles} 
+                    
                 />
                 </div>
 
@@ -140,15 +307,19 @@ const RenowableEnergyTable =()=>{
                         <div className="row mt-3">
                             <div className="col-md-6">
                                 <label htmlFor="">Type</label>
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Solar</option>
-                                    <option value="1">Wind</option>
+                                <select className="form-select" aria-label="Default select example" onChange={(e) => handleChangeType(e)}
+                value={type}>
+                                   {typeArr?.map((category, indexCat) => (
+                  <option key={indexCat} value={category}>
+                    {category}
+                  </option>
+                ))}
                                 </select>
                             </div>
 
                             <div className="col-md-6">
                             <label htmlFor="">Source</label>
-                            <input type="text" className="form-control" placeholder="Company X" />
+                            <input type="text" className="form-control" placeholder="" value={source} onChange={(e) => setSource(e.target.value)} required/>
                             </div>
 
                         </div>
@@ -156,14 +327,18 @@ const RenowableEnergyTable =()=>{
                         <div className="row mt-3">
                             <div className="col-md-6">
                                 <label htmlFor="">Consumption</label>
-                                <input type="text" className="form-control" placeholder="1344" />
+                                <input type="text" className="form-control" placeholder="" value={consumption} onChange={(e) => setConsumption(e.target.value)} required/>
                             </div>
 
                             <div className="col-md-6">
-                            <label htmlFor="">Unite</label>
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Joule</option>
-                                    <option value="1">kWh</option>
+                            <label htmlFor="">Unit</label>
+                            <select className="form-select" aria-label="Default select example" onChange={(e) => handleChangeUnit(e)}
+                value={unit}>
+                                   {unitArr?.map((category, indexCat) => (
+                  <option key={indexCat} value={category}>
+                    {category}
+                  </option>
+                ))}
                                 </select>
                             </div>
                            
@@ -178,7 +353,7 @@ const RenowableEnergyTable =()=>{
                     <button type="btn" className="btn btn-outline-secondary" onClick={handleClose}> Cancel </button>
                     </div>
                     <div>
-                    <button type="btn" className="btn btn-outline-success" onClick={handleClose}> Add </button>
+                    <button type="btn" className="btn btn-outline-success" onClick={handleSaveChanges}> Add </button>
                     </div>
                     </div>
                        </>
@@ -212,15 +387,19 @@ const RenowableEnergyTable =()=>{
                         <div className="row mt-3">
                             <div className="col-md-6">
                                 <label htmlFor="">Type</label>
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Solar</option>
-                                    <option value="1">Wind</option>
+                                <select className="form-select" aria-label="Default select example" onChange={(e) => handleChangeType(e)}
+                value={type}>
+                                   {typeArr?.map((category, indexCat) => (
+                  <option key={indexCat} value={category}>
+                    {category}
+                  </option>
+                ))}
                                 </select>
                             </div>
 
                             <div className="col-md-6">
                             <label htmlFor="">Source</label>
-                            <input type="text" className="form-control" placeholder="Company X" />
+                            <input type="text" className="form-control" placeholder="Company X" value={source} onChange={(e) => setSource(e.target.value)} required/>
                             </div>
 
                         </div>
@@ -228,14 +407,18 @@ const RenowableEnergyTable =()=>{
                         <div className="row mt-3">
                             <div className="col-md-6">
                                 <label htmlFor="">Consumption</label>
-                                <input type="text" className="form-control" placeholder="1344" />
+                                <input type="text" className="form-control" placeholder="1344" value={consumption} onChange={(e) => setConsumption(e.target.value)} required/>
                             </div>
 
                             <div className="col-md-6">
                             <label htmlFor="">Unite</label>
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Joule</option>
-                                    <option value="1">kWh</option>
+                            <select className="form-select" aria-label="Default select example" onChange={(e) => handleChangeUnit(e)}
+                value={unit}>
+                                   {unitArr?.map((category, indexCat) => (
+                  <option key={indexCat} value={category}>
+                    {category}
+                  </option>
+                ))}
                                 </select>
                             </div>
                            
@@ -250,7 +433,7 @@ const RenowableEnergyTable =()=>{
                     <button type="btn" className="btn btn-outline-secondary" onClick={handleCloseEdit}> Cancel </button>
                     </div>
                     <div>
-                    <button type="btn" className="btn btn-outline-success" onClick={handleCloseEdit}> Add </button>
+                    <button type="btn" className="btn btn-outline-success" onClick={handleEditChanges}> Add </button>
                     </div>
                     </div>
                        </>
@@ -281,7 +464,7 @@ const RenowableEnergyTable =()=>{
                     <button type="btn" className="btn btn-outline-secondary rounded-pill" onClick={handleCloseDelete} style={{width:"10rem"}}> Close </button>
                     </div>
                     <div>
-                    <button type="btn" className="btn btn-outline-success rounded-pill" onClick={handleCloseDelete} style={{width:"10rem"}}>Yes </button>
+                    <button type="btn" className="btn btn-outline-success rounded-pill" onClick={handleDeleteConfirm} style={{width:"10rem"}}>Yes </button>
                     </div>
                     </div>
                        </>
