@@ -9,12 +9,26 @@ import { ADMINAPI } from "../../../../apiWrapper";
 import { useRouter } from 'next/router';
 
 
-const WasteDirectedTable = () => {
+
+const WasteDirectedTable = ({projectId, projectPack}) => {
 
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = () =>  {
+        setKindOfWaste("");
+        setWasteType("");
+        setDirectedOperationType("");
+        setQuantity("")
+        setUnit("")
+        setSupportingDocument("")
+        setMainCollectionCompany("")
+        setNumberOfTrips("")
+        setFuelUsed("")
+        setShow(true) ;
+
+    }
+      
     const router = useRouter();
     const [showEdit, setShowEdit] = useState(false);
     const handleCloseEdit = () => setShowEdit(false);
@@ -22,7 +36,10 @@ const WasteDirectedTable = () => {
 
     const [showDelete, setShowDelete] = useState(false);
     const handleCloseDelete = () => setShowDelete(false);
-    const handleShowDelete = () => setShowDelete(true);
+    const handleShowDelete = (row) => {
+        setWasteId(row._id)
+        setShowDelete(true);
+    }
     const [rows, setRows] = useState()
 
     const [kindOfWaste, setKindOfWaste] = useState("");
@@ -34,6 +51,7 @@ const WasteDirectedTable = () => {
     const [mainCollectionCompany, setMainCollectionCompany] = useState("");
     const [noOfTrips, setNumberOfTrips] = useState("");
     const [fuelUsed, setFuelUsed] = useState("");
+    const [wasteId, setWasteId] = useState("");
 
 
 
@@ -47,6 +65,7 @@ const handleEdit = (row) => {
    setMainCollectionCompany(row.mainCollectionCompany);
    setNumberOfTrips(row.noOfTrips);
    setFuelUsed(row.fuelUsed);
+   setWasteId(row._id)
    setShowEdit(true)
 }
     
@@ -57,22 +76,22 @@ const handleEdit = (row) => {
      let kindOfWasteArr=["non-hazard","hazard"];
 
 
-    const handleCloseAddModal = () => {
-        setShowAddModal(false);
-        setFormData({
+    // const handleCloseAddModal = () => {
+    //     setShowAddModal(false);
+    //     setFormData({
 
-            kindOfWaste: "",
-            wasteType: "",
-            directedOperationType: "",
-            quantity: 0,
-            unit: "",
-            supportingDocument: "",
-            mainCollectionCompany: "",
-            noOfTrips: "",
-            fuelUsed: "",
-            safeDelete: false,
-        });
-    };
+    //         kindOfWaste: "",
+    //         wasteType: "",
+    //         directedOperationType: "",
+    //         quantity: 0,
+    //         unit: "",
+    //         supportingDocument: "",
+    //         mainCollectionCompany: "",
+    //         noOfTrips: "",
+    //         fuelUsed: "",
+    //         safeDelete: false,
+    //     });
+    // };
     const handleChangeType = (e) => {
         e.preventDefault();
         const selectedValue = e.target.value;
@@ -104,6 +123,8 @@ const handleEdit = (row) => {
 
     const handleAddRecord = async () => {
         const payload = {
+            projectId:projectId,
+            packageId:projectPack,
             kindOfWaste: kindOfWaste,
             wasteType: wasteType,
             directedOperationType: directedOperationType,
@@ -131,7 +152,7 @@ const handleEdit = (row) => {
                          router.push("/addMonthlyData", { scroll: false });
                           
                         }, 100);
-                        
+                        fetchTable();
 
                         return data;
                     } else {
@@ -166,6 +187,8 @@ const handleEdit = (row) => {
 
       const handleEditChanges=async () =>{
         const payload = {
+            projectId:projectId,
+            packageId:projectPack,
             kindOfWaste: kindOfWaste,
             wasteType: wasteType,
             directedOperationType: directedOperationType,
@@ -180,7 +203,7 @@ const handleEdit = (row) => {
       
       try {
         await ADMINAPI({
-          url: "http://35.154.130.173:3002/api/v1/data-entry/direct-disposals/",
+         url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/direct-disposals/${wasteId}`,
           method: "put",
           body: { ...payload },
         })
@@ -188,7 +211,7 @@ const handleEdit = (row) => {
             if (data.status === true) {
               setShowEdit(false);
               setTimeout(() => {
-                navigate.push("/addMonthlyData", { scroll: false });
+                router.push("/addMonthlyData", { scroll: false });
               }, 100);
               fetchTable();
               return data;
@@ -203,6 +226,45 @@ const handleEdit = (row) => {
         console.log(error, "errorooo");
       }
     };
+
+
+    
+    const handleDeleteConfirm = async() => {
+            
+        try {
+     
+            await ADMINAPI({
+                url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/direct-disposals/${wasteId}`,
+                method: "PATCH",
+                 
+                 }).then((data) => {
+                    if (data.status === true) {
+                        setShowDelete(false)
+                        handleCloseDelete();
+                        fetchTable()
+                      setTimeout(() => {
+                        router.push("/addMonthlyData", { scroll: false });
+                      }, 100);
+                    } else {
+                        console.log(data?.message,"rtrttt");
+                        setShowDelete(false)
+        
+                      toast.error(data?.message);
+                    }
+                 }).catch(err =>{
+                    setShowDelete(false)
+    
+            console.log(err,"rtrttt");
+            // toast.error(err?.message);
+                 })
+               
+             } catch (error) {
+               console.log(error, "errorooo");
+            //    toast.error(data?.message);
+    
+     
+             }
+      };
 
     const columns = [
 
@@ -385,7 +447,7 @@ const handleEdit = (row) => {
                                 <div className="row mt-3">
                                     <div className="col-md-4">
                                         <label htmlFor="">Quantity</label>
-                                        <input type="text" className="form-control" placeholder="123" 
+                                        <input type="text" className="form-control" placeholder="" 
                                            value={quantity} onChange={(e)=> setQuantity(e.target.value)} />
                                     </div>
 
@@ -533,7 +595,7 @@ const handleEdit = (row) => {
                                 <div className="row mt-3">
                                     <div className="col-md-4">
                                         <label htmlFor="">Quantity</label>
-                                        <input type="text" className="form-control" placeholder="123" 
+                                        <input type="text" className="form-control" placeholder="" 
                                          value={quantity} onChange={(e)=> setQuantity(e.target.value)} />
                                     </div>
 
@@ -554,7 +616,6 @@ const handleEdit = (row) => {
                                             <option value="3">Joule</option> */}
                                         </select>
                                     </div>
-
                                     <div className="col-md-4">
                                         <label htmlFor="">Supporting Document (If Any)</label>
                                         <input type="file" className="form-control" placeholder="Upload Documents" 
@@ -621,7 +682,7 @@ const handleEdit = (row) => {
                                     <button type="btn" className="btn btn-outline-secondary rounded-pill" onClick={handleCloseDelete} style={{ width: "10rem" }}> Close </button>
                                 </div>
                                 <div>
-                                    <button type="btn" className="btn btn-outline-success rounded-pill" onClick={handleCloseDelete} style={{ width: "10rem" }}>Yes </button>
+                                    <button type="btn" className="btn btn-outline-success rounded-pill" onClick={handleDeleteConfirm} style={{ width: "10rem" }}>Yes </button>
                                 </div>
                             </div>
                         </>
