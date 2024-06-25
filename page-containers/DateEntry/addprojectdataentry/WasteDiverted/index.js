@@ -21,6 +21,7 @@ const WasteDiverted =()=>{
                 </div>
                 </div>
 
+
                 <div>
                     <button type="btn" className="btn btn-outline-success" onClick={toggleVisibility}>{isVisible ? 'Hide' : 'Show'}</button>
                 </div>
