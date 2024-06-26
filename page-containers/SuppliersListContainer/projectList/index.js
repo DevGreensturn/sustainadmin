@@ -162,7 +162,8 @@ const ProjectListTable =(projectId,packageId)=>{
                 </div>
             ),
             wrap: true,
-            width: "180px"
+            width: "180px",
+            
         },
     ];
     const handleEdit = async (row) => {
@@ -320,9 +321,7 @@ const ProjectListTable =(projectId,packageId)=>{
          },
     ];
     const handleDeleteConfirm = async() => {
-            
         try {
-     
             await ADMINAPI({
                   url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/suppliers/${supplierId}`,
                   method: "PATCH",
@@ -378,6 +377,7 @@ const ProjectListTable =(projectId,packageId)=>{
                     pagination
                     striped
                     customStyles={customStyles}
+                    
                 />
                     </div>
                 </div>
