@@ -76,22 +76,6 @@ const handleEdit = (row) => {
      let kindOfWasteArr=["non-hazard","hazard"];
 
 
-    // const handleCloseAddModal = () => {
-    //     setShowAddModal(false);
-    //     setFormData({
-
-    //         kindOfWaste: "",
-    //         wasteType: "",
-    //         directedOperationType: "",
-    //         quantity: 0,
-    //         unit: "",
-    //         supportingDocument: "",
-    //         mainCollectionCompany: "",
-    //         noOfTrips: "",
-    //         fuelUsed: "",
-    //         safeDelete: false,
-    //     });
-    // };
     const handleChangeType = (e) => {
         e.preventDefault();
         const selectedValue = e.target.value;
