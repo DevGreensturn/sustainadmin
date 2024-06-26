@@ -8,7 +8,7 @@ import WasteDiverted from "../WasteDiverted/wasteDivertedTable";
 
 
 
-const WasteManagement =()=>{
+const WasteManagement =({projectId, projectPack})=>{
  
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => {
@@ -39,12 +39,12 @@ const WasteManagement =()=>{
             <div className="col-md-12">
                 <div className="mb-0">
                     {/* <WasteManagementTable /> */}
-                    <WasteDirected />
+                    <WasteDirected projectId ={projectId} projectPack={projectPack} />
                     
 
                 <div className="mt-5">
                 <hr />
-                    <WasteDiverted />
+                    <WasteDiverted projectId ={projectId} projectPack={projectPack}/>
                 </div>
                 </div>
             </div>

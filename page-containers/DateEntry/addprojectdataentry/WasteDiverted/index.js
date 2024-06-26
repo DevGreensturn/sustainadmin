@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import WasteDivertedTable from "./wasteDivertedTable";
 
 
-const WasteDiverted =({projectId, projectPack})=>{
+const WasteDiverted =()=>{
  
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => {
@@ -31,7 +31,7 @@ const WasteDiverted =({projectId, projectPack})=>{
            <div className="row mt-3">
             <div className="col-md-12">
                 <div className="mb-0">
-                    <WasteDivertedTable  projectId ={projectId} projectPack={projectPack} />
+                    <WasteDivertedTable />
                 </div>
             </div>
            </div>
