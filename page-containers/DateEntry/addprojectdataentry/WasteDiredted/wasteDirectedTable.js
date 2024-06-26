@@ -76,22 +76,6 @@ const handleEdit = (row) => {
      let kindOfWasteArr=["non-hazard","hazard"];
 
 
-    // const handleCloseAddModal = () => {
-    //     setShowAddModal(false);
-    //     setFormData({
-
-    //         kindOfWaste: "",
-    //         wasteType: "",
-    //         directedOperationType: "",
-    //         quantity: 0,
-    //         unit: "",
-    //         supportingDocument: "",
-    //         mainCollectionCompany: "",
-    //         noOfTrips: "",
-    //         fuelUsed: "",
-    //         safeDelete: false,
-    //     });
-    // };
     const handleChangeType = (e) => {
         e.preventDefault();
         const selectedValue = e.target.value;
@@ -140,7 +124,7 @@ const handleEdit = (row) => {
 
         try {
             await ADMINAPI({
-                url: "http://35.154.130.173:3002/api/v1/data-entry/direct-disposals/",
+                url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/direct-disposals/`,
                 method: "POST",
                 body: { ...payload },
             })
@@ -170,7 +154,7 @@ const handleEdit = (row) => {
     const fetchTable = async () => {
         try {
           await ADMINAPI({
-            url:"http://35.154.130.173:3002/api/v1/data-entry/direct-disposals/" ,
+            url:`${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/direct-disposals/` ,
             method: "GET",
           }).then((data) => {
             let userData = data.response;
@@ -409,7 +393,6 @@ const handleEdit = (row) => {
 
                                         </select>
                                     </div>
-
                                     <div className="col-md-4">
                                         <label htmlFor="">Waste Type</label>
                                         <select className="form-select" aria-label="Default select example"

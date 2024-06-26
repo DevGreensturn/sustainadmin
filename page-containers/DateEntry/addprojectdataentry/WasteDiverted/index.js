@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import WasteDivertedTable from "./wasteDivertedTable";
 
 
-const WasteDiverted =()=>{
+const WasteDiverted =({projectId, projectPack})=>{
  
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => {
@@ -20,7 +20,6 @@ const WasteDiverted =()=>{
                     <h4>Waste Diverted From Disposal</h4>
                 </div>
                 </div>
-
                 <div>
                     <button type="btn" className="btn btn-outline-success" onClick={toggleVisibility}>{isVisible ? 'Hide' : 'Show'}</button>
                 </div>
@@ -32,7 +31,7 @@ const WasteDiverted =()=>{
            <div className="row mt-3">
             <div className="col-md-12">
                 <div className="mb-0">
-                    <WasteDivertedTable />
+                    <WasteDivertedTable  projectId ={projectId} projectPack={projectPack} />
                 </div>
             </div>
            </div>

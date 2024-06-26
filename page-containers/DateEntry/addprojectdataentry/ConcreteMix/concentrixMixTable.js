@@ -458,7 +458,7 @@ const ConcentrixMixTable =()=>{
                             </div>
                             <div className="col-md-4">
                                 <label htmlFor="">Cement Content (kg/m3)</label>
-                                <input type="text" className="form-control" placeholder="Add Text" 
+                                <input type="text" className="form-control" placeholder="" 
                                 value={cementContent}
                                  onChange={(e) => setCementContent(e.target.value)}
                                  required />
