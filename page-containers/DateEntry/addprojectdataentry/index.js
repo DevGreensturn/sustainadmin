@@ -302,7 +302,6 @@ const AddprojectEntry = () => {
           <div className="col-md-12">
             {console.log(projectPack,"LLLLLLLLLLLL90")}
             <EnergyComsuption projectId ={projectId} projectPack={projectPack}/>
-
             <WaterConsumption />
             <ConcereteMix />
             <BuildingMaterial  projectId ={projectId} projectPack={projectPack} />
