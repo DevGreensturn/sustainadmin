@@ -304,6 +304,7 @@ const AddprojectEntry = () => {
             <EnergyComsuption projectId ={projectId} projectPack={projectPack}/>
             <WaterConsumption />
             <ConcereteMix />
+            
             <BuildingMaterial  projectId ={projectId} projectPack={projectPack} />
             <WasteManagement projectId ={projectId} projectPack={projectPack} />
             {/* <WasteDirected projectId ={projectId} projectPack={projectPack} />
