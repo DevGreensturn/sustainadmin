@@ -4,6 +4,8 @@ import { ADMINAPI } from '../../apiWrapper';
 import { useRouter } from "next/navigation";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { color } from 'chart.js/helpers';
+import styles from './style.module.css'
 
 
 export default function AddProject() {
@@ -20,7 +22,7 @@ export default function AddProject() {
     // <th>Subscription Tier</th>
     const navigate = useRouter();
     const [pakageData, setPakageData] = useState([]);
-    const [projectName, setProjectName] = useState('');
+    const [projectName, setProjectName] = useState(' ');
     const [projectRef, setProjectRef] = useState('');
     const [projectPack, setProjectPack] = useState('');
     const [packageTopo, setPackageTopo] = useState('');
@@ -36,15 +38,6 @@ export default function AddProject() {
     const [contractor,setContacator] =  useState('');
     const [projectPackId, setProjectPackId] = useState('');
     const [projectCatagory, setProjectCatagory] = useState('');
-
-
-
-
-
-
-
-
-
 
 
 
@@ -172,6 +165,22 @@ export default function AddProject() {
   useEffect(() => {
     fetchPackageList();
   }, []);
+
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    console.log(value,isNaN(value))
+    if (!isNaN(value) && parseInt(value)) {
+      setError('Project Name should not be a number');
+      setProjectName(value);
+    } else {
+      setError('');
+      setProjectName(value);
+    }
+  };
+
+
   return (
     <div >
         <div style={{ textAlign: "center" }} className='my-3'>
@@ -181,15 +190,17 @@ export default function AddProject() {
   <form onSubmit={handleSubmit} className=" mt-4 p-4" > 
   <div className="row my-3">
   <div className="col-md-4">
-    <label>Project Name*</label>
-      <input
+    <label>Project Name</label>
+        <input
         type="text"
         className="form-control"
         placeholder="Project Name"
         value={projectName}
-        onChange={(e) => setProjectName(e.target.value)}
+        onChange={handleChange}
         required
       />
+     {error && <p className={styles.errorMessage}>{error}</p>}
+      
     </div>
     <div className="col-md-4">
     <label>Project Reference No*</label>

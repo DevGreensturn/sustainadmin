@@ -17,6 +17,7 @@ const ProjectListTable =()=>{
     const [isLoader, setIsLoader] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
     const navigate = useRouter();
+    const [errors, setErrors] = useState({})
     const [formData, setFormData] = useState({
         referenceNo: '',
         projectName: '',
@@ -43,10 +44,17 @@ const ProjectListTable =()=>{
       const handleChange = (e) => {
         const { name, value } = e.target;
         console.log(name, "KKKK",value);
-        setFormData({
-          ...formData,
-          [name]: value
-        });
+        if(typeof(value) === "number"){
+          let errorsCopy = {...errors, name:"please enter valid name"}
+          setErrors(errorsCopy)
+          console.log(errors)
+        } else {
+          setFormData({
+            ...formData,
+            [name]: value
+          });
+        }
+        
       };
     const handleClose = () => {
         setShowPopup(false);
@@ -81,7 +89,7 @@ const ProjectListTable =()=>{
     const columns = [
     	{
             name: <b>Project Reference Number</b>,
-            selector: (row) => row.referenceNo,
+            selector: (row) => row.referenceNo
         },
         {
             name: <b>Project</b>,
@@ -365,6 +373,7 @@ const ProjectListTable =()=>{
               required
 
             />
+            {errors && errors.projectName && <span >{errors.projectName}</span>}
           </Col>
           <Col md={4}>
             <label>Project Reference No*</label>

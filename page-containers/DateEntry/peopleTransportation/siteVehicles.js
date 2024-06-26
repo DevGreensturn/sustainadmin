@@ -31,8 +31,8 @@ const SiteVehicles =({projectId,projectPack})=>{
     const [showDelete, setShowDelete] = useState(false);
     const handleCloseDelete =()=> setShowDelete(false);
     const handleShowDelete =(row)=> {
-        setShowDelete(true);
-        setSiteVehiclesId(row._id);
+      setSiteVehiclesId(row._id);
+      setShowDelete(true);
     }
     const [siteVehiclesId, setSiteVehiclesId ]= useState([]);
     const [distanceTraveledForAllVehicles, setDistanceTraveledForAllVehicles]= useState("");
@@ -181,7 +181,7 @@ const SiteVehicles =({projectId,projectPack})=>{
                     if (data.status === true) {
                         setShowDelete(false)
                         handleCloseDelete();
-                        fetchTable()
+                        fetchTable();
                       setTimeout(() => {
                         navigate.push("/addMonthlyData", { scroll: false });
                       }, 100);
