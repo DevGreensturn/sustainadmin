@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
 
 import DataTable from "react-data-table-component";
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -6,31 +6,192 @@ import { MdDeleteForever } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import { RiFilter2Fill } from "react-icons/ri";
 import { Modal, Button } from 'react-bootstrap';
+import { ADMINAPI } from "../../../apiWrapper";
+import { useRouter } from 'next/router';
 
-const BusinessTravel =()=>{
+
+
+const BusinessTravel =({projectId, projectPack})=>{
 
     const [show, setShow] = useState(false);
     const handleClose =()=> setShow(false);
-    const handleShow =()=>setShow(true);
+    const handleShow =()=>{
+        setNumberOfTravellers("");
+        setDistance("");
+        setShow(true);
+    }
 
     const [showEdit, setShowEdit] = useState(false);
+    const router = useRouter();
     const handleCloseEdit =()=> setShowEdit(false);
     const handleShowEdit =()=>setShowEdit(true);
 
     const [showDelete, setShowDelete] = useState(false);
     const handleCloseDelete =()=> setShowDelete(false);
-    const handleShowDelete =()=> setShowDelete(true);
+    const handleShowDelete =(row)=> {
+       setBusinessId(row._id)
+       
+        setShowDelete(true);
+    }
+       
+
+    const [rows, setRows] = useState()
+
+    const handleEdit=(row)=>{
+        setNumberOfTravellers(row.numberOfTravellersByAirplane);
+        setDistance(row.distanceTravelledByOneTraveller);
+        setBusinessId(row._id)
+        setShowEdit(true)
+    }
+
+    const handleAddRecord = async () =>{
+        const payload={
+
+            projectId:projectId,
+            packageId:projectPack,
+            numberOfTravellersByAirplane:
+            numberOfTravellersByAirplane, 
+            distanceTravelledByOneTraveller:distanceTravelledByOneTraveller
+        };
+        
+        console.log("payload",payload);
+
+        
+        try {
+            await ADMINAPI({
+                url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/business-travel`,
+                method: "POST",
+                body: { ...payload },
+            })
+                .then((data) => {
+                    if (data.status === true) {
+                       
+                        setShow(false);
+                        setTimeout(() => {
+                         router.push("/addMonthlyData", { scroll: false });
+                          
+                        }, 100);
+                        fetchTable();
+
+                        return data;
+                    } else {
+
+                    }
+                })
+                .catch((err) => {
+
+                });
+        } catch (error) {
+            console.log(error, "errorooo");
+        }
+    };
+
+
+    const fetchTable = async () => {
+        try {
+          await ADMINAPI({
+            url:`${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/business-travel` ,
+            method: "GET",
+          }).then((data) => {
+            let userData = data.response;
+            setRows(userData);
+            console.log(userData, "ooooooossssssss");
+          });
+        } catch (error) {
+          console.log(error, "errorooo");
+        }
+      };
+      useEffect(() => {
+        fetchTable();
+      }, []);
+
+
+      const handleDeleteConfirm = async() => {
+            
+        try {
+     
+            await ADMINAPI({
+                url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/business-travel/${businessId}`,
+                method: "PATCH",
+                 
+                 }).then((data) => {
+                    if (data.status === true) {
+                        setShowDelete(false)
+                        handleCloseDelete();
+                        fetchTable()
+                      setTimeout(() => {
+                        router.push("/addMonthlyData", { scroll: false });
+                      }, 100);
+                    } else {
+                        console.log(data?.message,"rtrttt");
+                        setShowDelete(false)
+        
+                      toast.error(data?.message);
+                    }
+                 }).catch(err =>{
+                    setShowDelete(false)
+    
+            console.log(err,"rtrttt");
+            // toast.error(err?.message);
+                 })
+               
+             } catch (error) {
+               console.log(error, "errorooo");
+            //    toast.error(data?.message);
+    
+     
+             }
+      };
+
+      const handleEditChanges=async () =>{
+        const payload={
+            projectId:projectId,
+            packageId:projectPack,
+            numberOfTravellersByAirplane:
+            numberOfTravellersByAirplane, 
+            distanceTravelledByOneTraveller:distanceTravelledByOneTraveller
+        };
+        try {
+            await ADMINAPI({
+             url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/business-travel/${businessId}`,
+              method: "put",
+              body: { ...payload },
+            })
+              .then((data) => {
+                if (data.status === true) {
+                  setShowEdit(false);
+                  setTimeout(() => {
+                    router.push("/addMonthlyData", { scroll: false });
+                  }, 100);
+                  fetchTable();
+                  return data;
+                } else {
+                  
+                }
+              })
+              .catch((err) => {
+               
+              });
+          } catch (error) {
+            console.log(error, "errorooo");
+          }
+      };
+
+
+    const [numberOfTravellersByAirplane,setNumberOfTravellers]=useState("");
+    const[distanceTravelledByOneTraveller,setDistance]=useState("");
+    const [businessId,setBusinessId] = useState("");
 
     const columns = [
     	
         {
             name: <b>Number of Traveler's(by airplane's)</b>,
-            selector: (row) => row.numberOfTraveler,
+            selector: (row) => row.numberOfTravellersByAirplane,
             wrap:"true"
         },
         {
             name: <b className="text-center">Distance Traveled for one  Traveler </b>,
-            selector: (row) => row.distanceTraveledForAllTraveler,
+            selector: (row) => row.distanceTravelledByOneTraveller,
             wrap:"true"
         },
        
@@ -43,32 +204,30 @@ const BusinessTravel =()=>{
 
         {
             name: <b>Action</b>,
-            selector: (row) => row.Action,
-            wrap:"true",
+            cell: row => (
+                <div className="d-flex align-items-center">
+                    <FaRegEdit 
+                        style={{ color: "secondary", fontSize: "20px", cursor: 'pointer' }} 
+                        onClick={() => handleEdit(row)} 
+                    />
+                    <MdDeleteForever 
+                        className="mx-2" 
+                        style={{ color: "red", fontSize: "20px", cursor: 'pointer' }} 
+                        onClick={() => handleShowDelete(row)} 
+                    />
+                </div>
+            ),
+            wrap: true,
+            width: "180px"
            
         },
     ];
     
-    const rows = [
-        {
-            numberOfTraveler : "2",
-            distanceTraveledForAllTraveler: "1100km",
-            supportingDocument:"1 attachments",
-            reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-secondary">Submitted</button></div>,
-            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}} onClick={handleShowEdit}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}} onClick={handleShowDelete}/> </div>
-        },
-         {
-            numberOfTraveler : "1",
-            distanceTraveledForAllTraveler: "700km",
-            supportingDocument:"1 attachments",
-            reportStatus :<div><button type="btn" className="btn btn-sm btn-outline-success">Audited</button></div>,
-            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}}/> </div>    
-         },
-    ];
+    
     const customStyles ={
         rows:{
             style:{
-                minHeight: '72px', // override the row height
+                minHeight: '72px',
             }
         }
     }
@@ -123,18 +282,15 @@ const BusinessTravel =()=>{
 
                         <div className="row mt-3">
                             <div className="col-md-4">
-                                <label htmlFor="">Number of Traveler's</label>
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
+                            <label htmlFor="">Number Of Traveler's (by airplane's) </label>
+                            <input type="number" className="form-control" placeholder="" 
+                            value={numberOfTravellersByAirplane} onChange={(e)=> setNumberOfTravellers(e.target.value)} />
                             </div>
 
                             <div className="col-md-4">
                                 <label htmlFor="">Distance Traveled For all Traveler </label>
-                                <input type="text" className="form-control" placeholder="1100" />
+                                <input type="text" className="form-control" placeholder="" 
+                                value={distanceTravelledByOneTraveller} onChange={(e)=> setDistance(e.target.value)}/>
                             </div>
 
 
@@ -155,7 +311,7 @@ const BusinessTravel =()=>{
                     <button type="btn" className="btn btn-outline-secondary" onClick={handleClose}> Close </button>
                     </div>
                     <div>
-                    <button type="btn" className="btn btn-outline-success" onClick={handleClose}> Save Changes </button>
+                    <button type="btn" className="btn btn-outline-success" onClick={handleAddRecord}> Save Changes </button>
                     </div>
                     </div>
                        </>
@@ -190,17 +346,14 @@ const BusinessTravel =()=>{
                         <div className="row mt-3">
                             <div className="col-md-4">
                                 <label htmlFor="Number of Traveler's"></label>
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
+                                <input type="text" className="form-control" placeholder=""
+                                  value={numberOfTravellersByAirplane} onChange={(e)=> setNumberOfTravellers(e.target.value)} />
                             </div>
 
                             <div className="col-md-4">
                                 <label htmlFor="">Distance Traveled for all Traveler</label>
-                                <input type="text" className="form-control" placeholder="700" />
+                                <input type="text" className="form-control" placeholder=""
+                                  value={distanceTravelledByOneTraveller} onChange={(e)=> setDistance(e.target.value)} />
                             </div>
 
 
@@ -218,7 +371,7 @@ const BusinessTravel =()=>{
                     <button type="btn" className="btn btn-outline-secondary" onClick={handleCloseEdit}> Close </button>
                     </div>
                     <div>
-                    <button type="btn" className="btn btn-outline-success" onClick={handleCloseEdit}> Save Changes </button>
+                    <button type="btn" className="btn btn-outline-success" onClick={handleEditChanges}> Save Changes </button>
                     </div>
                     </div>
                        </>
@@ -248,7 +401,7 @@ const BusinessTravel =()=>{
                     <button type="btn" className="btn btn-outline-secondary rounded-pill" onClick={handleCloseDelete} style={{width:"10rem"}}> Close </button>
                     </div>
                     <div>
-                    <button type="btn" className="btn btn-outline-success rounded-pill" onClick={handleCloseDelete} style={{width:"10rem"}}>Yes </button>
+                    <button type="btn" className="btn btn-outline-success rounded-pill" onClick={ handleDeleteConfirm} style={{width:"10rem"}}>Yes </button>
                     </div>
                     </div>
                        </>

@@ -32,7 +32,7 @@ const WasteDirectedTable = ({projectId, projectPack}) => {
     const router = useRouter();
     const [showEdit, setShowEdit] = useState(false);
     const handleCloseEdit = () => setShowEdit(false);
-    const handleShowEdit = () => setShowEdit(true);
+   
 
     const [showDelete, setShowDelete] = useState(false);
     const handleCloseDelete = () => setShowDelete(false);
