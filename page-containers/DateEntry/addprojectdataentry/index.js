@@ -302,13 +302,13 @@ const AddprojectEntry = () => {
           <div className="col-md-12">
             {console.log(projectPack,"LLLLLLLLLLLL90")}
             <EnergyComsuption projectId ={projectId} projectPack={projectPack}/>
-
             <WaterConsumption />
             <ConcereteMix />
-            <BuildingMaterial projectId ={projectId} />
-            <WasteManagement />
-            <WasteDirected projectId ={projectId} projectPack={projectPack} />
-                   <WasteDiverted />
+            
+            <BuildingMaterial  projectId ={projectId} projectPack={projectPack} />
+            <WasteManagement projectId ={projectId} projectPack={projectPack} />
+            {/* <WasteDirected projectId ={projectId} projectPack={projectPack} />
+                   <WasteDiverted /> */}
             <PeopleTransportation projectId ={projectId} projectPack={projectPack}  />
           </div>
         </div>
