@@ -309,7 +309,7 @@ const AddprojectEntry = () => {
             <WasteManagement projectId ={projectId} projectPack={projectPack} />
             {/* <WasteDirected projectId ={projectId} projectPack={projectPack} />
                    <WasteDiverted /> */}
-            <PeopleTransportation />
+            <PeopleTransportation projectId ={projectId} projectPack={projectPack}  />
           </div>
         </div>
       </div>

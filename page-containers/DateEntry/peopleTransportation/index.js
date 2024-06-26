@@ -4,7 +4,7 @@ import SiteVehicles from "./siteVehicles";
 import BusinessTravel from "./businessTravel";
 import EmployeeCommuting from "./employeeCommuting";
 
-const PeopleTransportation =()=>{
+const PeopleTransportation =({projectId,projectPack})=>{
  
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => {
@@ -34,20 +34,20 @@ const PeopleTransportation =()=>{
            <div className="row mt-3">
             <div className="col-md-12">
                 <div className="mb-0">
-                    <WorkerTransportation />
+                    <WorkerTransportation projectId={projectId} projectPack={projectPack}/>
                 
                   <div className="mt-5">
                 <hr />
-                    <SiteVehicles />
+                    <SiteVehicles projectId={projectId} projectPack={projectPack}/>
                 </div> 
 
                  <div className="mt-5">
                 <hr />
-                    <BusinessTravel />
+                    <BusinessTravel  projectId={projectId} projectPack={projectPack}/>
                 </div> 
                 <div className="mt-5">
                 <hr />
-                    <EmployeeCommuting />
+                    <EmployeeCommuting projectId={projectId} projectPack={projectPack} />
                 </div> 
                
                
