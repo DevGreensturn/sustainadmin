@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import WasteDirectedTable from "./wasteDirectedTable";
 
 
-const WasteDirected =({projectId, projectPack})=>{
+const WasteDirected =()=>{
     
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => {
@@ -33,7 +33,7 @@ const WasteDirected =({projectId, projectPack})=>{
            <div className="row mt-3">
             <div className="col-md-12">
                 <div className="mb-0">
-                    <WasteDirectedTable projectId ={projectId} projectPack={projectPack}  />
+                    <WasteDirectedTable  />
                 </div>
             </div>
            </div>
