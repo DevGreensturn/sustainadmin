@@ -1,17 +1,25 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import EnergyComsuptionpie from "../charts/energycomsumptionpie";
 import { Pie} from 'react-chartjs-2';
 
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 // ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { useRouter } from "next/navigation";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ADMINAPI } from "../../../apiWrapper";
 
 const EnergyComsuption =()=>{
     const [activeButton, setActiveButton] = useState("button1");
+    const [energyData, setEnergyData] = useState({
+
+    });
+
     const handleButtonClick =(button)=>{
       setActiveButton(button);
     };
-  
+  console.log(energyData,"LLLLLLL");
     const pieChartData = {
       labels: [
         "Utility Provider Energy",
@@ -21,7 +29,7 @@ const EnergyComsuption =()=>{
       datasets: [
         {
           label: "My Dataset",
-          data: [40, 40, 20],
+          data: [energyData?.providerPercentage, energyData?.nonRenewablePercentage, energyData?.renewablePercentage],
           backgroundColor: ["#00AD3B", "#3DE175", "#60F793"],
         },
       ],
@@ -58,8 +66,45 @@ const EnergyComsuption =()=>{
       },
       
     };
+  const fetchEnergyPieChart = async () => {
+    const payload = {
+      packageId: "60d5ec49f7d5ab001c8d5dbf",
+      projectId: "60d5ec49f7d5ab001c8d5dc0",
+      "dateRange": "2024-06-17T11:50:36.188Z"
+    };
+    try {
+      await ADMINAPI({
+        url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/charts/energy/pie`,
+        method: "POST",
+        body: { ...payload },
+      })
+        .then((data) => {
+          if (data.status === true) {
+         console.log(data,"JKLKLJL");
+            toast.success(data?.message);
+            setEnergyData({
+              "renewablePercentage": data.renewablePercentage,//15.291540456380698,
+              "nonRenewablePercentage": data.nonRenewablePercentage,//0,
+              "providerPercentage": data.providerPercentage,//84.70845954361931,
+              "totalNonRenewableConsumption":data.totalNonRenewableConsumption,// 0,
+              "totalProviderEnergyConsumption": data.totalProviderEnergyConsumption,//54.95252388888889,
+              "totalRenewableConsumption": data.totalRenewableConsumption,//9.920009722222222
+            })
   
+          } 
+        })
+        .catch((err) => {
+            toast.error(err?.message);
+        });
+    } catch (error) {
+      
+      console.log(error, "errorooo");
+    }
+  };
 
+  useEffect(() => {
+    fetchEnergyPieChart();
+  }, []);
     return(
         <section>
             <div className="row">

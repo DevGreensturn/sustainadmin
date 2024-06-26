@@ -78,14 +78,22 @@ function Login() {
       <ToastContainer />
       <div className="container">
         <div className="row justify-content-center">
-          <div className="col-md-12 col-lg-9 col-xl-8">
-            <div className={styles.adminLoginBox}>
-              <div className="row" style={{ marginTop: "200px" }}>
+          <div className="col-md-12">
+            <div className={styles.adminLoginBox} style={{maxWidth:"500px", margin:"0 auto"}}>
+              <div className="row" style={{ marginTop: "50px" }}>
                 <div className="col-md-12">
-                  
-                  <div className="mt-5 ps-4 pe-3">
-                    <h1>Login</h1>
-                    <h6>Enter Your Email & Password</h6>
+                  <div className="p-3">
+                    <div className="d-flex align-items-center justify-content-between">
+                      <div><img src="./images/sustainLogoDark1.png" alt="" style={{maxWidth:"250px"}}/></div>
+                    <div className="justify-content-right">
+                    {/* <h2 style={{textAlign:"right"}}>Login</h2> */}
+                    {/* <h6>Enter Your Email & Password</h6> */}
+                    </div>
+                    </div>
+                    <hr className="hr" style={{opacity:".1"}}/>
+                    <div>
+                    <h2 style={{textAlign:"center"}}>Login</h2>
+                    </div>
                     
                     <form onSubmit={handleLogin}>
                       <div className="form-group mb-1">
@@ -133,7 +141,7 @@ function Login() {
                         
                         <div className="mb-3">
                           <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                          <label className="form-check-label mx-2 mt-1" for="exampleCheck1" style={{cursor:"pointer", color:"#999BA1"}}> Check me out</label>
+                          <label className="form-check-label mx-2 mt-1" for="exampleCheck1" style={{cursor:"pointer", color:"#999BA1"}}> Remember Password</label>
                         </div>
                         
                         <div>
@@ -165,11 +173,11 @@ function Login() {
 
 
                       <div className="d-flex justify-content-between mt-4 align-items-center">
-                  <div style={{cursor:"pointer", color:"#999BA1"}}>Don{"'"}t Have an Account?</div>
+                  {/* <div style={{cursor:"pointer", color:"#999BA1"}}>Don{"'"}t have an Account?</div> */}
                   
-                  <div>
+                  {/* <div>
                   <Link href="/signup"><button type="button" className="btn btn-outline-success">Create Account</button></Link>
-                  </div>
+                  </div> */}
                 </div>
                     </form>
                   </div>
