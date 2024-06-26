@@ -18,7 +18,7 @@
 //     const [showDelete, setShowDelete] = useState(false);
 //     const handleCloseDelete =()=> setShowDelete(false);
 //     const handleShowDelete =()=> setShowDelete(true);
-       
+
 
 
 
@@ -36,7 +36,7 @@
 
 
 //     const columns = [
-    	
+
 //         {
 //             name: <b>Waste Type</b>,
 //             selector: (row) => row.WasteType ,
@@ -88,10 +88,10 @@
 //             name: <b>Action</b>,
 //             selector: (row) => row.Action,
 //             wrap:"true",
-           
+
 //         },
 //     ];
-    
+
 //     const rows = [
 //         {
 //             WasteType: "Non Hazard",
@@ -136,7 +136,7 @@
 //                             + Add
 //                         </button>
 //                     </div>  
-                
+
 //                 </div>
 
 //                 <div className="my-3">
@@ -167,7 +167,7 @@
 //                             <img src="/images/wasteDiverted_Modal.png" alt="" className="img-fluid"/>
 //                             <div className="mx-2">
 //                                 <h4>Waste Directed to Disposal</h4>
-                             
+
 //                             </div>
 //                         </div>
 
@@ -226,10 +226,10 @@
 //                                 <label htmlFor="">Supporting Document (If Any)</label>
 //                                 <input type="file" className="form-control" placeholder="Upload Documents" />
 //                             </div>
-                            
+
 //                         </div>
- 
-                        
+
+
 //                        </div>
 
 
@@ -265,7 +265,7 @@
 //                             <img src="/images/wasteDiverted_Modal.png" alt="" className="img-fluid"/>
 //                             <div className="mx-2">
 //                                 <h4>Waste Directed to Disposal</h4>
-                             
+
 //                             </div>
 //                         </div>
 
@@ -379,7 +379,7 @@
 
 
 
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { MdDeleteForever } from "react-icons/md";
@@ -391,12 +391,12 @@ import { useRouter } from 'next/router';
 
 
 
-const WasteDivertedTable = ({projectId, projectPack}) => {
+const WasteDivertedTable = ({ projectId, projectPack }) => {
 
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = () =>  {
+    const handleShow = () => {
         setKindOfWaste("");
         setWasteType("");
         setDivertedOperationType("");
@@ -406,10 +406,10 @@ const WasteDivertedTable = ({projectId, projectPack}) => {
         setMainCollectionCompany("")
         setNumberOfTrips("")
         setFuelUsed("")
-        setShow(true) ;
+        setShow(true);
 
     }
-      
+
     const router = useRouter();
     const [showEdit, setShowEdit] = useState(false);
     const handleCloseEdit = () => setShowEdit(false);
@@ -436,25 +436,25 @@ const WasteDivertedTable = ({projectId, projectPack}) => {
 
 
 
-const handleEdit = (row) => {
-   setKindOfWaste (row.kindOfWaste);
-   setWasteType(row.wasteType);
-   setDivertedOperationType(row.divertedOperationType);
-   setQuantity(row.quantity);
-   setUnit(row.unit);
-   setSupportingDocument(row.supportingDocument);
-   setMainCollectionCompany(row.mainCollectionCompany);
-   setNumberOfTrips(row.noOfTrips);
-   setFuelUsed(row.fuelUsed);
-   setWasteId(row._id)
-   setShowEdit(true)
-}
-    
+    const handleEdit = (row) => {
+        setKindOfWaste(row.kindOfWaste);
+        setWasteType(row.wasteType);
+        setDivertedOperationType(row.divertedOperationType);
+        setQuantity(row.quantity);
+        setUnit(row.unit);
+        setSupportingDocument(row.supportingDocument);
+        setMainCollectionCompany(row.mainCollectionCompany);
+        setNumberOfTrips(row.noOfTrips);
+        setFuelUsed(row.fuelUsed);
+        setWasteId(row._id)
+        setShowEdit(true)
+    }
 
-     let wasteArr=["solid","liquid"];
-     let disposalArr=["Reuse","Recycling","Others"];
-     let unitArr=["Joule","Kwh","Wh"];
-     let kindOfWasteArr=["non-hazard","hazard"];
+
+    let wasteArr = ["solid", "liquid"];
+    let disposalArr = ["Reuse", "Recycling", "Others"];
+    let unitArr = ["Joule", "Kwh", "Wh"];
+    let kindOfWasteArr = ["non-hazard", "hazard"];
 
 
     const handleChangeType = (e) => {
@@ -462,34 +462,34 @@ const handleEdit = (row) => {
         const selectedValue = e.target.value;
         console.log(selectedValue, "Selected Value");
         setWasteType(selectedValue);
-      };
+    };
 
-      const handleChange = (e) => {
+    const handleChange = (e) => {
         e.preventDefault();
         const selectedValue = e.target.value;
         console.log(selectedValue, "Selected Value");
         setDivertedOperationType(selectedValue);
-      };
+    };
 
-      const handleChanges = (e) => {
+    const handleChanges = (e) => {
         e.preventDefault();
         const selectedValue = e.target.value;
         console.log(selectedValue, "Selected Value");
         setUnit(selectedValue);
-      };
+    };
 
-      const handleType = (e) => {
+    const handleType = (e) => {
         e.preventDefault();
         const selectedValue = e.target.value;
         console.log(selectedValue, "Selected Value");
         setKindOfWaste(selectedValue);
-      };
+    };
 
 
     const handleAddRecord = async () => {
         const payload = {
-            projectId:projectId,
-            packageId:projectPack,
+            projectId: projectId,
+            packageId: projectPack,
             kindOfWaste: kindOfWaste,
             wasteType: wasteType,
             divertedOperationType: divertedOperationType,
@@ -511,11 +511,11 @@ const handleEdit = (row) => {
             })
                 .then((data) => {
                     if (data.status === true) {
-                       
+
                         setShow(false);
                         setTimeout(() => {
-                         router.push("/addMonthlyData", { scroll: false });
-                          
+                            router.push("/addMonthlyData", { scroll: false });
+
                         }, 100);
                         fetchTable();
 
@@ -531,29 +531,29 @@ const handleEdit = (row) => {
             console.log(error, "errorooo");
         }
     };
-      
+
     const fetchTable = async () => {
         try {
-          await ADMINAPI({
-            url:`${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/divert-disposals/` ,
-            method: "GET",
-          }).then((data) => {
-            let userData = data.response;
-            setRows(userData);
-            console.log(userData, "ooooooossssssss");
-          });
+            await ADMINAPI({
+                url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/divert-disposals/`,
+                method: "GET",
+            }).then((data) => {
+                let userData = data.response;
+                setRows(userData);
+                console.log(userData, "ooooooossssssss");
+            });
         } catch (error) {
-          console.log(error, "errorooo");
+            console.log(error, "errorooo");
         }
-      };
-      useEffect(() => {
+    };
+    useEffect(() => {
         fetchTable();
-      }, []);
+    }, []);
 
-      const handleEditChanges=async () =>{
+    const handleEditChanges = async () => {
         const payload = {
-            projectId:projectId,
-            packageId:projectPack,
+            projectId: projectId,
+            packageId: projectPack,
             kindOfWaste: kindOfWaste,
             wasteType: wasteType,
             divertedOperationType: divertedOperationType,
@@ -564,72 +564,72 @@ const handleEdit = (row) => {
             noOfTrips: noOfTrips,
             fuelUsed: fuelUsed
         }
-      
-      
-      try {
-        await ADMINAPI({
-         url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/divert-disposals/${wasteId}`,
-          method: "put",
-          body: { ...payload },
-        })
-          .then((data) => {
-            if (data.status === true) {
-              setShowEdit(false);
-              setTimeout(() => {
-                router.push("/addMonthlyData", { scroll: false });
-              }, 100);
-              fetchTable();
-              return data;
-            } else {
-              
-            }
-          })
-          .catch((err) => {
-           
-          });
-      } catch (error) {
-        console.log(error, "errorooo");
-      }
+
+
+        try {
+            await ADMINAPI({
+                url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/divert-disposals/${wasteId}`,
+                method: "put",
+                body: { ...payload },
+            })
+                .then((data) => {
+                    if (data.status === true) {
+                        setShowEdit(false);
+                        setTimeout(() => {
+                            router.push("/addMonthlyData", { scroll: false });
+                        }, 100);
+                        fetchTable();
+                        return data;
+                    } else {
+
+                    }
+                })
+                .catch((err) => {
+
+                });
+        } catch (error) {
+            console.log(error, "errorooo");
+        }
     };
 
 
-    
-    const handleDeleteConfirm = async() => {
-            
+
+    const handleDeleteConfirm = async () => {
+
         try {
-     
+
             await ADMINAPI({
                 url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/divert-disposals/${wasteId}`,
                 method: "PATCH",
-                 
-                 }).then((data) => {
-                    if (data.status === true) {
-                        setShowDelete(false)
-                        handleCloseDelete();
-                        fetchTable()
-                      setTimeout(() => {
-                        router.push("/addMonthlyData", { scroll: false });
-                      }, 100);
-                    } else {
-                        console.log(data?.message,"rtrttt");
-                        setShowDelete(false)
-        
-                      toast.error(data?.message);
-                    }
-                 }).catch(err =>{
+
+            }).then((data) => {
+                if (data.status === true) {
                     setShowDelete(false)
-    
-            console.log(err,"rtrttt");
-            // toast.error(err?.message);
-                 })
-               
-             } catch (error) {
-               console.log(error, "errorooo");
+                    handleCloseDelete();
+                    fetchTable()
+                    setTimeout(() => {
+                        router.push("/addMonthlyData", { scroll: false });
+                    }, 100);
+                } else {
+                    console.log(data?.message, "rtrttt");
+                    setShowDelete(false)
+
+                    toast.error(data?.message);
+                }
+            }).catch(err => {
+                setShowDelete(false)
+
+                console.log(err, "rtrttt");
+                // toast.error(err?.message);
+            })
+
+        } catch (error) {
+            console.log(error, "errorooo");
             //    toast.error(data?.message);
-    
-     
-             }
-      };
+
+
+        }
+    };
 
     const columns = [
 
@@ -684,14 +684,14 @@ const handleEdit = (row) => {
             name: <b>Action</b>,
             cell: row => (
                 <div className="d-flex align-items-center">
-                    <FaRegEdit 
-                        style={{ color: "secondary", fontSize: "20px", cursor: 'pointer' }} 
-                        onClick={() => handleEdit(row)} 
+                    <FaRegEdit
+                        style={{ color: "secondary", fontSize: "20px", cursor: 'pointer' }}
+                        onClick={() => handleEdit(row)}
                     />
-                    <MdDeleteForever 
-                        className="mx-2" 
-                        style={{ color: "red", fontSize: "20px", cursor: 'pointer' }} 
-                        onClick={() => handleShowDelete(row)} 
+                    <MdDeleteForever
+                        className="mx-2"
+                        style={{ color: "red", fontSize: "20px", cursor: 'pointer' }}
+                        onClick={() => handleShowDelete(row)}
                     />
                 </div>
             ),
@@ -762,13 +762,13 @@ const handleEdit = (row) => {
                                     <div className="col-md-4">
                                         <label htmlFor="">Kind of Waste</label>
                                         <select className="form-select" aria-label="Default select example"
-                                         onChange={(e) => handleType(e)}
-                                         value={kindOfWaste}>  {kindOfWasteArr?.map((category, indexCat) => (
-                                             <option key={indexCat} value={category}>
-                                               {category}
-                                             </option>
-                                         
-                                         ))}
+                                            onChange={(e) => handleType(e)}
+                                            value={kindOfWaste}>  {kindOfWasteArr?.map((category, indexCat) => (
+                                                <option key={indexCat} value={category}>
+                                                    {category}
+                                                </option>
+
+                                            ))}
                                             {/* <option selected>non hazard</option>
                                             <option value="1">hazard</option> */}
 
@@ -777,13 +777,13 @@ const handleEdit = (row) => {
                                     <div className="col-md-4">
                                         <label htmlFor="">Waste Type</label>
                                         <select className="form-select" aria-label="Default select example"
-                                        onChange={(e) => handleChangeType(e)}
-                                        value={wasteType}>  {wasteArr?.map((category, indexCat) => (
-                                            <option key={indexCat} value={category}>
-                                              {category}
-                                            </option>
-                                        
-                                        ))}
+                                            onChange={(e) => handleChangeType(e)}
+                                            value={wasteType}>  {wasteArr?.map((category, indexCat) => (
+                                                <option key={indexCat} value={category}>
+                                                    {category}
+                                                </option>
+
+                                            ))}
                                             {/* <option selected>solid</option>
                                             <option value="1">liquid</option> */}
                                         </select>
@@ -792,13 +792,13 @@ const handleEdit = (row) => {
                                     <div className="col-md-4">
                                         <label htmlFor="">Disposal Operation Type</label>
                                         <select className="form-select" aria-label="Default select example"
-                                         onChange={(e) => handleChange(e)}
-                                         value={divertedOperationType}>  {disposalArr?.map((category, indexCat) => (
-                                             <option key={indexCat} value={category}>
-                                               {category}
-                                             </option>
-                                         
-                                         ))}
+                                            onChange={(e) => handleChange(e)}
+                                            value={divertedOperationType}>  {disposalArr?.map((category, indexCat) => (
+                                                <option key={indexCat} value={category}>
+                                                    {category}
+                                                </option>
+
+                                            ))}
                                             {/* <option selected>Reuse</option>
                                             <option value="1">Recycling</option>
                                             <option value="2">Others</option> */}
@@ -811,21 +811,21 @@ const handleEdit = (row) => {
                                 <div className="row mt-3">
                                     <div className="col-md-4">
                                         <label htmlFor="">Quantity</label>
-                                        <input type="text" className="form-control" placeholder="" 
-                                           value={quantity} onChange={(e)=> setQuantity(e.target.value)} />
+                                        <input type="text" className="form-control" placeholder=""
+                                            value={quantity} onChange={(e) => setQuantity(e.target.value)} />
                                     </div>
 
                                     <div className="col-md-4">
                                         <label htmlFor="">Unit of Measurement</label>
 
                                         <select className="form-select" aria-label="Default select example"
-                                         onChange={(e) => handleChanges(e)}
-                                         value={unit}>  {unitArr?.map((category, indexCat) => (
-                                             <option key={indexCat} value={category}>
-                                               {category}
-                                             </option>
-                                         
-                                         ))}
+                                            onChange={(e) => handleChanges(e)}
+                                            value={unit}>  {unitArr?.map((category, indexCat) => (
+                                                <option key={indexCat} value={category}>
+                                                    {category}
+                                                </option>
+
+                                            ))}
                                             {/* <option selected>Wh</option>
                                             <option selected>Kwh</option>
                                             <option selected>Joule</option> */}
@@ -835,36 +835,36 @@ const handleEdit = (row) => {
 
                                     <div className="col-md-4">
                                         <label htmlFor="">Supporting Document (If Any)</label>
-                                        <input type="file" className="form-control" placeholder="Upload Documents" 
-                                           value={supportingDocument} onChange={(e)=> setSupportingDocument(e.target.value)} />
+                                        <input type="file" className="form-control" placeholder="Upload Documents"
+                                            value={supportingDocument} onChange={(e) => setSupportingDocument(e.target.value)} />
                                     </div>
 
 
                                 </div>
-                                
+
                                 <div className="row mt-3">
                                     <div className="col-md-4">
                                         <label htmlFor="">No Of Trips</label>
-                                        <input type="text" className="form-control" placeholder="" value={noOfTrips} onChange={(e)=> setNumberOfTrips(e.target.value)} />
+                                        <input type="text" className="form-control" placeholder="" value={noOfTrips} onChange={(e) => setNumberOfTrips(e.target.value)} />
                                     </div>
 
                                     <div className="col-md-4">
                                         <label htmlFor="">fuel UsedBy Trucks</label>
-                                        <input type="text" className="form-control" placeholder="" 
-                                         value={fuelUsed} onChange={(e)=> setFuelUsed(e.target.value)} />
+                                        <input type="text" className="form-control" placeholder=""
+                                            value={fuelUsed} onChange={(e) => setFuelUsed(e.target.value)} />
                                     </div>
 
-                                    
+
 
                                     <div className="col-md-4">
                                         <label htmlFor="">Main Collection Of Company</label>
                                         <input type="text" className="form-control" placeholder=""
-                                           value={mainCollectionCompany} onChange={(e)=> setMainCollectionCompany(e.target.value)} />
+                                            value={mainCollectionCompany} onChange={(e) => setMainCollectionCompany(e.target.value)} />
                                     </div>
 
 
                                 </div>
-                                  
+
 
                             </div>
 
@@ -909,13 +909,13 @@ const handleEdit = (row) => {
                                     <div className="col-md-4">
                                         <label htmlFor="">Kind of Waste</label>
                                         <select className="form-select" aria-label="Default select example"
-                                         onChange={(e) => handleType(e)}
-                                         value={kindOfWaste}>  {kindOfWasteArr?.map((category, indexCat) => (
-                                             <option key={indexCat} value={category}>
-                                               {category}
-                                             </option>
-                                         
-                                         ))}
+                                            onChange={(e) => handleType(e)}
+                                            value={kindOfWaste}>  {kindOfWasteArr?.map((category, indexCat) => (
+                                                <option key={indexCat} value={category}>
+                                                    {category}
+                                                </option>
+
+                                            ))}
                                             {/* <option selected>non hazard</option>
                                             <option value="1">hazard</option> */}
 
@@ -925,14 +925,14 @@ const handleEdit = (row) => {
                                     <div className="col-md-4">
                                         <label htmlFor="">Waste Type</label>
                                         <select className="form-select" aria-label="Default select example"
-                                        onChange={(e) => handleChangeType(e)}
-                                        value={wasteType}>  {wasteArr?.map((category, indexCat) => (
-                                            <option key={indexCat} value={category}>
-                                              {category}
-                                            </option>
-                                        
-                                        ))}
-                                           
+                                            onChange={(e) => handleChangeType(e)}
+                                            value={wasteType}>  {wasteArr?.map((category, indexCat) => (
+                                                <option key={indexCat} value={category}>
+                                                    {category}
+                                                </option>
+
+                                            ))}
+
 
                                         </select>
                                     </div>
@@ -940,13 +940,13 @@ const handleEdit = (row) => {
                                     <div className="col-md-4">
                                         <label htmlFor="">Disposal Operation Type</label>
                                         <select className="form-select" aria-label="Default select example"
-                                         onChange={(e) => handleChange(e)}
-                                         value={divertedOperationType}>  {disposalArr?.map((category, indexCat) => (
-                                             <option key={indexCat} value={category}>
-                                               {category}
-                                             </option>
-                                         
-                                         ))}
+                                            onChange={(e) => handleChange(e)}
+                                            value={divertedOperationType}>  {disposalArr?.map((category, indexCat) => (
+                                                <option key={indexCat} value={category}>
+                                                    {category}
+                                                </option>
+
+                                            ))}
                                             {/* <option selected>Reuse</option> */}
                                             {/* <option value="1">Recycling</option>
                                             <option value="2">Others</option> */}
@@ -959,21 +959,21 @@ const handleEdit = (row) => {
                                 <div className="row mt-3">
                                     <div className="col-md-4">
                                         <label htmlFor="">Quantity</label>
-                                        <input type="text" className="form-control" placeholder="" 
-                                         value={quantity} onChange={(e)=> setQuantity(e.target.value)} />
+                                        <input type="text" className="form-control" placeholder=""
+                                            value={quantity} onChange={(e) => setQuantity(e.target.value)} />
                                     </div>
 
                                     <div className="col-md-4">
                                         <label htmlFor="">Unit of Measurement</label>
 
                                         <select className="form-select" aria-label="Default select example"
-                                         onChange={(e) => handleChanges(e)}
-                                         value={unit}>  {unitArr?.map((category, indexCat) => (
-                                             <option key={indexCat} value={category}>
-                                               {category}
-                                             </option>
-                                         
-                                         ))}
+                                            onChange={(e) => handleChanges(e)}
+                                            value={unit}>  {unitArr?.map((category, indexCat) => (
+                                                <option key={indexCat} value={category}>
+                                                    {category}
+                                                </option>
+
+                                            ))}
                                             {/* <option selected>kg</option>
                                             <option value="1">Wh</option>
                                             <option value="2">Kwh</option>
@@ -982,32 +982,32 @@ const handleEdit = (row) => {
                                     </div>
                                     <div className="col-md-4">
                                         <label htmlFor="">Supporting Document (If Any)</label>
-                                        <input type="file" className="form-control" placeholder="Upload Documents" 
-                                         value={supportingDocument} onChange={(e)=> setSupportingDocument(e.target.value)} />
+                                        <input type="file" className="form-control" placeholder="Upload Documents"
+                                            value={supportingDocument} onChange={(e) => setSupportingDocument(e.target.value)} />
                                     </div>
                                     <div className="row mt-3">
-                                    <div className="col-md-4">
-                                        <label htmlFor="">No Of Trips</label>
-                                        <input type="text" className="form-control" placeholder="" value={noOfTrips} onChange={(e)=> setNumberOfTrips(e.target.value)} />
+                                        <div className="col-md-4">
+                                            <label htmlFor="">No Of Trips</label>
+                                            <input type="text" className="form-control" placeholder="" value={noOfTrips} onChange={(e) => setNumberOfTrips(e.target.value)} />
+                                        </div>
                                     </div>
-                                    </div>
-                                    
-                               
+
+
 
                                     <div className="col-md-4">
                                         <label htmlFor="">fuel UsedBy Trucks</label>
-                                        <input type="text" className="form-control" placeholder="" 
-                                         value={fuelUsed} onChange={(e)=> setFuelUsed(e.target.value)} />
+                                        <input type="text" className="form-control" placeholder=""
+                                            value={fuelUsed} onChange={(e) => setFuelUsed(e.target.value)} />
                                     </div>
                                     <div className="col-md-4">
                                         <label htmlFor="">Main Collection Of Company</label>
                                         <input type="text" className="form-control" placeholder=""
-                                           value={mainCollectionCompany} onChange={(e)=> setMainCollectionCompany(e.target.value)} />
+                                            value={mainCollectionCompany} onChange={(e) => setMainCollectionCompany(e.target.value)} />
                                     </div>
 
                                 </div>
-                                
-                                
+
+
                             </div>
 
                             <div className="my-4 d-flex justify-content-between">

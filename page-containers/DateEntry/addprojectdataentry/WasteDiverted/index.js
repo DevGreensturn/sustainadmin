@@ -20,8 +20,6 @@ const WasteDiverted =({projectId, projectPack})=>{
                     <h4>Waste Diverted From Disposal</h4>
                 </div>
                 </div>
-
-
                 <div>
                     <button type="btn" className="btn btn-outline-success" onClick={toggleVisibility}>{isVisible ? 'Hide' : 'Show'}</button>
                 </div>
