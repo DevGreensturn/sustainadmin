@@ -114,6 +114,7 @@ const SiteVehicles =({projectId,projectPack})=>{
         }
     }
 
+    
     const handleSaveChanges = async () => {
         const payload = {
             // Construct payload based on your form data
