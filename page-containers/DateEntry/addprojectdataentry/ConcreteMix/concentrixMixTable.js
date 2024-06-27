@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 
 
 
-const ConcentrixMixTable =()=>{
+const ConcentrixMixTable =({projectId, projectPack})=>{
     const navigate = useRouter();
     const [show, setShow] = useState(false);
     const handleClose =()=> setShow(false);
@@ -200,7 +200,8 @@ const ConcentrixMixTable =()=>{
     
     const handleSaveChanges = async () => {
         const payload = {
-         
+            projectId:projectId,
+            packageId:projectPack,
          concreteMixesNo:concreteMixesNo,
           type: type, 
          volume: volume, 
@@ -264,7 +265,8 @@ const ConcentrixMixTable =()=>{
 
       const handleEditChanges = async () => {
         const payload = {
-         
+            projectId:projectId,
+            packageId:projectPack,
          concreteMixesNo:concreteMixesNo,
           type: type, 
          volume: volume, 
