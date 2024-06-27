@@ -400,7 +400,7 @@ const SuppliersList = () => {
   onHide={handleClose}
   centered
   backdrop="static"
-  
+  size="lg"
 >
   <Modal.Header className="pb-0" closeButton style={{border:"0"}}></Modal.Header>
   <Modal.Body className="pt-0">
