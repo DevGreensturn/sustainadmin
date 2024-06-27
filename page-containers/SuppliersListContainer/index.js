@@ -93,6 +93,8 @@ const SuppliersList = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     console.log(e.target)
+
+    
     switch (name) {
       case "supplierId":
         if (isNaN(value) || isSpecialChar(value) ) {
@@ -416,9 +418,8 @@ const SuppliersList = () => {
               value={formData.selectFieldProject}
               onChange={handleChange}
               className="mb-2"
-             
             >
-              <option value="">Project</option>
+              <option value="">Please Select Project</option>
               {row?.map((category, indexCat) => (
                 <option key={indexCat} value={category?._id}>
                   {category?.projectName}
@@ -435,7 +436,7 @@ const SuppliersList = () => {
               onChange={handleChange}
               className="mb-2"
             >
-              <option value="">Package</option>
+              <option value="">Please Select Package</option>
               {pakageData?.map((category, indexCat) => (
                 <option key={indexCat} value={category?._id}>
                   {category?.name}
