@@ -24,10 +24,10 @@ const LogoutComponent = () => {
     <div>
       {true ? (
         <div className={styles.adminLoginBox}>
-          <h1>Are you sure you want to logout?</h1>
+          <h4>Are you sure you want to logout?</h4>
           <div className="col-md-6" style={{ paddingTop: '5%', display: 'flex', justifyContent: 'space-between' }}>
-          <button onClick={handleLogout}>Yes</button>
-          <button onClick={toggleConfirmLogout}>No</button>
+          <button onClick={handleLogout} type='btn' className='btn btn-primary'>Yes</button>
+          <button onClick={toggleConfirmLogout} type='btn' className='btn btn-primary'>No</button>
          
           </div>
         </div>

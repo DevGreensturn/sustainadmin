@@ -15,6 +15,7 @@ const Header = () => {
   const [password, setPassword] = useState("");
   const navigate = useRouter();
   const [apiErrors, setApiErrors] = useState({ message: "", response: "" });
+  const [showClose, setShowClose] = useState("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -110,6 +111,10 @@ const handleLogOut = (e) => {
     setShowPassword(!showPassword);
   };
 
+const handleClick =()=>{
+  alert("Dashboard");
+}
+
   return (
     <>
       <header>
@@ -118,7 +123,7 @@ const handleLogOut = (e) => {
             <div className="d-flex align-items-center my-3">
               <Link href="/"><div><img src="/images/companyLogo.svg" alt="" /></div></Link>
               <div className="d-flex align-items-center mx-5" style={{cursor:"pointer"}}>
-                <img src="/images/tripplehiphen.svg" alt="" />
+                <img src="/images/tripplehiphen.svg" alt="" onClick={handleClick}/>
                 <input
                   type="text"
                   className="search-bar form-control"
@@ -191,13 +196,13 @@ const handleLogOut = (e) => {
           <Modal.Body className="loginSection">
             <div>
               <div>
-                <h1>Login</h1>
+                <h3>Login</h3>
                 <h6 className="mt-3 loginSection_EnterEmail">Enter Your Email & Password</h6>
               </div>
               <div className="my-3">
                 <div className="text-field w100p">
                   <input
-                    className="text-base w100p"
+                    className="form-control"
                     type="email"
                     required
                     placeholder=" "
@@ -218,7 +223,7 @@ const handleLogOut = (e) => {
                 <div className="text-field w100p">
                   <div className="position-relative">
                   <input
-                    className="text-base w100p"
+                    className="form-control"
                     type={showPassword ? 'text' : 'password'}
                     required
                     placeholder=" "

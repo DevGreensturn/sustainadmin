@@ -148,7 +148,7 @@ const ProjectsContainer = () => {
   return (
     <>
       <div className={styles.projectContainer}>
-      <div className="row">
+      <div className="row px-4">
         <div className="col-md-12">
           <div className="d-flex align-items-center justify-content-between">
           <div>
@@ -181,73 +181,10 @@ const ProjectsContainer = () => {
         
       </div>
       <div className={styles.tableWrapper}>
-        {/* <Card width="" height=""> */}
           <div>
             <ProjectListTable />
-            {/* <table>
-              <thead>
-                <tr style={{ borderBottom: "1px solid #D3D3D3", color: "black" }}>
-                  <th>Project Reference No.</th>
-                  <th>Project Package</th>
-                  <th>Package Typology</th>
-                  <th>Package Current Progress</th>
-                  <th>Cumulative Manhour</th>
-                  <th>Plot Area(m2)</th>
-                  <th>GFA(m2)</th>
-                  <th>Road Length(km)</th>
-                  <th>Infrastructure(Ha)</th>
-                  <th>Subscription Category</th>
-                  <th>Subscription Tier</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data?.map((supplier) => (
-                  <tr
-                    key={supplier.id}
-                    style={{ borderBottom: "1px solid #D3D3D3" }}
-                  >
-                    <td style={{ height: "50px", padding: "0px 60px" }}>
-                      {supplier.id}
-                    </td>
-                    <td style={{ height: "50px", padding: "0px 60px" }}>
-                      {supplier.name}
-                    </td>
-                    <td style={{ height: "50px", padding: "0px 60px" }}>
-                      {supplier.address}
-                    </td>
-                    <td style={{ height: "50px", padding: "0px 60px" }}>
-                      {supplier.date}
-                    </td>
-                    <td style={{ height: "50px", padding: "0px 60px" }}>
-                      {supplier.type}
-                    </td>
-                    <td style={{ height: "50px", padding: "0px 60px" }}>
-                      {supplier.status}
-                    </td>
-                    <td style={{ height: "50px", padding: "0px 60px" }}>
-                      {supplier.status}
-                    </td>
-                    <td style={{ height: "50px", padding: "0px 60px" }}>
-                      {supplier.status}
-                    </td>
-                    <td style={{ height: "50px", padding: "0px 60px" }}>
-                      {supplier.status}
-                    </td>
-                    <td style={{ height: "50px", padding: "0px 60px" }}>
-                      {supplier.status}
-                    </td>
-                    <td style={{ height: "50px", padding: "0px 60px" }}>
-                      {supplier.status}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table> */}
           </div>
-       
       </div>
-      
-
     </>
   );
 };
