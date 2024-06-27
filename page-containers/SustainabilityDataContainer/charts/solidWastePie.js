@@ -9,7 +9,7 @@ const SolidWastepie = ()=>{
         labels: ['Dec 2023', 'Jan 2024', 'Feb 2024', 'March 2024', 'Apr 2024', 'May 2024'],
         datasets: [
             {
-              label: 'Solid Waste Removed From Site',
+              label: 'Waste directed from disposal',
               data: [65, 59, 80, 81, 56, 35],
               fill: false,
               backgroundColor: 'rgba(0,127,255,0.4)',
@@ -19,7 +19,7 @@ const SolidWastepie = ()=>{
               // tension: 0.1
             },
             {
-              label: 'Solid Waste diverted from disposal',
+              label: 'Waste diverted from disposal',
               data: [20, 10, 60, 21, 36, 5],
               fill: false,
               backgroundColor: 'rgba(100,149,237,0.4)',
@@ -29,18 +29,7 @@ const SolidWastepie = ()=>{
               // tension: 0.1
             },
             
-            {
-                label: 'Solid Waste directed to disposal',
-                data: [100, 30, 40, 91, 61, 3],
-                fill: false,
-                backgroundColor: 'rgba(3,72,138,0.4)',
-                borderColor: 'rgba(3,72,138,1)',
-                borderDash: [5, 5],
-                borderWidth: 2,
-                // tension: 0.1
-              },
-
-             
+            
 
           ],
       };
