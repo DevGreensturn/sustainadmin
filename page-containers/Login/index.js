@@ -80,7 +80,7 @@ function Login() {
         <div className="row justify-content-center">
           <div className="col-md-12">
             <div className={styles.adminLoginBox} style={{maxWidth:"500px", margin:"0 auto"}}>
-              <div className="row" style={{ marginTop: "50px" }}>
+              <div className="row" style={{ marginTop: "10px" }}>
                 <div className="col-md-12">
                   <div className="p-3">
                     <div className="d-flex align-items-center justify-content-between">
@@ -92,11 +92,11 @@ function Login() {
                     </div>
                     <hr className="hr" style={{opacity:".1"}}/>
                     <div>
-                    <h2 style={{textAlign:"center"}}>Login</h2>
+                    <h2 style={{textAlign:"center"}}>Login </h2>
                     </div>
                     
                     <form onSubmit={handleLogin}>
-                      <div className="form-group mb-1">
+                      <div className="form-group mb-0">
                         <label>Email</label>
                         <input
                           type="email"
@@ -151,19 +151,19 @@ function Login() {
                         </div>
                         </div>
                       </div>
-                      <div className="form-group mt-lg-4 mt-3">
+                      <div className="form-group mt-lg-4 mt-0">
                         <button type="submit" className="btn btn-success btn-block">
                           Login &#x2192;
                         </button>
                       </div>
 
                       {/* Login With */}
-                      <div className="row my-5">
+                      <div className="row my-4">
                   <div className="col-md-12">
                     <div className="text-center">
                       <span className="loginWith_Section">or login with</span>
                     </div>
-                    <div className="d-flex justify-content-evenly mt-5">
+                    <div className="d-flex justify-content-evenly mt-4">
                       <div className="loginWith_button"><img src="/images/icons8-microsoft-365.svg" alt="" className="img-fluid"/></div>
                       <div className="loginWith_button"><img src="/images/icons8-google.svg" alt="" className="img-fluid"/></div>
                     </div>

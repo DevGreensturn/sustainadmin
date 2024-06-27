@@ -82,6 +82,7 @@ const ProjectListTable =()=>{
     	{
             name: <b>Project Reference Number</b>,
             selector: (row) => row.referenceNo,
+             width:"150px"
         },
         {
             name: <b>Project</b>,
@@ -106,7 +107,8 @@ const ProjectListTable =()=>{
         {
             name: <b>Package Current Progress</b>,
             selector: (row) => (row.packageCurrentProgress?row.packageCurrentProgress+" "+"%":row.packageCurrentProgress),
-            wrap:"true"
+            wrap:"true",
+             width:"150px"
         },
 
         {
@@ -332,6 +334,7 @@ const ProjectListTable =()=>{
                     pagination
                     striped
                     customStyles={customStyles}
+                    scroll
                 />
                     </div>
                 </div>
