@@ -200,7 +200,7 @@ const AddprojectEntry = () => {
           <div className="col-md-4">
             <label>Project Name</label>
             <select
-              className="form-control"
+              className="form-select"
               onChange={(e) => handleChangeProject(e)}
               name="category"
               id="category"
@@ -217,7 +217,7 @@ const AddprojectEntry = () => {
           <div className="col-md-4">
             <label>Project Package*</label>
             <select
-              className="form-control"
+              className="form-select"
               onChange={(e) => handleChangePackage(e)}
               name="category"
               id="category"
