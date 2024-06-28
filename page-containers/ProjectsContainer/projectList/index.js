@@ -244,68 +244,82 @@ const ProjectListTable =()=>{
     	{
             name: <b>Project Reference Number</b>,
             selector: (row) => row.referenceNo,
+             width:"150px",
+             sortable: true,
         },
         {
             name: <b>Project</b>,
             selector: (row) => row.projectName,
-            width:"150px"
+            width:"150px",
+            sortable: true,
         },
         {
             name: <b>Project Package</b>,
             selector: (row) => row.projectPackageId?.name,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Main Contractor</b>,
             selector: (row) => row.mainContractor,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Package Typology</b>,
             selector: (row) => row.topology,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Package Current Progress</b>,
             selector: (row) => (row.packageCurrentProgress?row.packageCurrentProgress+" "+"%":row.packageCurrentProgress),
             wrap:"true",
-             width:"150px"
+            width:"150px",
+            sortable: true,
         },
 
         {
             name: <b>Cumulative Manhour</b>,
             selector: (row) => row.cumulativeManhour,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Plot Area (m2)</b>,
             selector: (row) => row.plotArea,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>GFA (m2)</b>,
             selector: (row) => row.gfa,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Road Length (km)</b>,
             selector: (row) => row.roadLength,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Infrastructure (Ha)</b>,
             selector: (row) => row.infrastructure,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Subscription Category</b>,
             selector: (row) => row.SubscriptionCategory,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Subscription Tier</b>,
             selector: (row) => row.subscriptionTier,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Action</b>,
@@ -323,7 +337,8 @@ const ProjectListTable =()=>{
                 </div>
             ),
             wrap: true,
-            width: "180px"
+            width: "180px",
+            sortable: true,
         },
     ];
     
@@ -609,16 +624,18 @@ const ProjectListTable =()=>{
         </div>
         </section>
         <Modal
-  show={showPopup}
-  className=""
-  onHide={handleClose}
-  centered
-  backdrop="static"
-  size="xl"
->
-  <Modal.Header className="pb-0" closeButton></Modal.Header>
+          show={showPopup}
+          className=""
+          onHide={handleClose}
+          centered
+          backdrop="static"
+          size="xl"
+        >
+  <Modal.Header className="my-3" closeButton style={{border:"0"}}>
+    <Modal.Title>Edit Project</Modal.Title>
+  </Modal.Header>
   <Modal.Body className="pt-0">
-    <h6 className="text-center">Edit Project </h6>
+    {/* <h6 className="text-center">Edit Project </h6> */}
     {console.log(pakageData,"YYY")}
     <Form onSubmit={handleSubmit} className="mt-2 p-2">
       <Form.Group>
@@ -844,7 +861,8 @@ const ProjectListTable =()=>{
 
         </Row>
       </Form.Group>
-      <Button type="submit" variant="primary" className="w-100 mt-2">Submit</Button>
+      <button type="submit" className="btn btn-outline-success mt-3 w-100">Submit</button>
+      {/* <Button type="submit" variant="primary" className="w-100 mt-2">Submit</Button> */}
     </Form>
   </Modal.Body>
 </Modal>

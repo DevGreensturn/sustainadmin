@@ -38,34 +38,40 @@ const BottledWaterTable =()=>{
         {
             name: <b className="text-center">Drinking <br />Non Drinking Water</b>,
             selector: (row) => row.waterType,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Water Bottle Capacity <br />(Litres)</b>,
             selector: (row) => row.waterBottleCapacity,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Water Bottle<br /> Quantity</b>,
             selector: (row) => row.waterBottleQuantity,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>No. of Trips</b>,
             selector: (row) => row.noOfTrips,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         
         {
             name: <div className="text-center"><b>Fuel used by Trucks</b><br /> (litres)(one full trip, from source)</div>,
             selector: (row) => row.fuelUsedByTruck,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>Supporting Document</b>,
             selector: (row) => row.supportingDocument,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
@@ -85,6 +91,7 @@ const BottledWaterTable =()=>{
             ),
             wrap: true,
             width: "180px",
+            sortable: true,
           },
     ];
     

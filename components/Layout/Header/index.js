@@ -124,12 +124,12 @@ const handleClick =()=>{
               <Link href="/"><div><img src="/images/companyLogo.svg" alt="" /></div></Link>
               <div className="d-flex align-items-center mx-5" style={{cursor:"pointer"}}>
                 <img src="/images/tripplehiphen.svg" alt="" onClick={handleClick}/>
-                <input
+                {/* <input
                   type="text"
                   className="search-bar form-control"
                   placeholder="Search"
                   style={{ margin: "0px 10px", padding: "10px 150px 10px 10px", borderRadius: "25px", border: "1px solid lightGrey" }}
-                />
+                /> */}
               </div>
             </div>
             <div className="d-flex align-items-center justify-content-between">

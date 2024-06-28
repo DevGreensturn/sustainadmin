@@ -95,47 +95,56 @@ const Utilityprovidertable = ({projectId, projectPack}) => {
       name: <b>Energy Type</b>,
       selector: (row) => row.energyType,
       wrap: true,
+      sortable: true,
     },
     {
       name: <b className="text-center">Meter No. </b>,
       selector: (row) => row.meterNo,
       wrap: true,
+      sortable: true,
     },
     {
       name: <b className="text-center">Account No.</b>,
       selector: (row) => row.accountNo,
       wrap: true,
+      sortable: true,
     },
     {
       name: <b>Service Provider</b>,
       selector: (row) => row.serviceProvider,
       wrap: true,
+      sortable: true,
     },
     {
       name: <b>Reading Date</b>,
       selector: (row) =>
         row.readingDate ? formatDate(row.readingDate) : row.readingDate,
       wrap: true,
+      sortable: true,
     },
     {
       name: <b>Meter Reading</b>,
       selector: (row) => row.meterReading,
       wrap: true,
+      sortable: true,
     },
     {
       name: <b>Consumption</b>,
       selector: (row) => row.consumption,
       wrap: true,
+      sortable: true,
     },
     {
       name: <b>Unit</b>,
       selector: (row) => row.unit,
       wrap: true,
+      sortable: true,
     },
     {
       name: <b>Supporting Document</b>,
       selector: (row) => row.supportingDocument,
       wrap: true,
+      sortable: true,
     },
     {
         name: <b>Action</b>,
@@ -153,7 +162,8 @@ const Utilityprovidertable = ({projectId, projectPack}) => {
             </div>
         ),
         wrap: true,
-        width: "180px"
+        width: "180px",
+        sortable: true,
     },
   ];
 
@@ -189,7 +199,6 @@ const Utilityprovidertable = ({projectId, projectPack}) => {
               navigate.push("/addMonthlyData", { scroll: false });
             }, 100);
             fetchTable();
-
             return data;
           } else {
             // toast.error(data?.message);
@@ -326,12 +335,12 @@ const Utilityprovidertable = ({projectId, projectPack}) => {
 
       <div className="my-3">
         <DataTable
-        columns={columns}
-        data={rows}
-        fixedHeader
-        pagination
-        striped
-        customStyles={customStyles}
+          columns={columns}
+          data={rows}
+          fixedHeader
+          pagination
+          striped
+          customStyles={customStyles}
         />
       </div>
 

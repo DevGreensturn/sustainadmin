@@ -83,52 +83,61 @@ const Utilityprovidertable =()=>{
         {
             name: <b>Meter No.</b>,
             selector: (row) => row.meterNo,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Account No.</b>,
             selector: (row) => row.accountNo,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Service Provider</b>,
             selector: (row) => row.serviceProvider,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Reading Date</b>,
             selector: (row) => (row.readingDate?formatDate(row.readingDate):row.readingDate),
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         
         {
             name: <b>Meter Reading</b>,
             selector: (row) => row.meterReading,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b style={{textAlign:"center"}}>Drinking/<br /> Non Drinking Wate</b>,
             selector: (row) => row.waterType,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>Consumption</b>,
             selector: (row) => row.consumption,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>Unit </b>,
             selector: (row) => row.unit,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>Supporting <br/>Document</b>,
             selector: (row) => row.supporting,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
@@ -147,7 +156,8 @@ const Utilityprovidertable =()=>{
                 </div>
             ),
             wrap: true,
-            width: "180px"
+            width: "180px",
+            sortable: true,
         },
     ];
     

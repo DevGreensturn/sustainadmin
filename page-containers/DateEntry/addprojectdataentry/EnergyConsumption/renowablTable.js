@@ -55,22 +55,26 @@ const RenowableEnergyTable =({projectId, projectPack})=>{
         {
             name: <b>Type</b>,
             selector: (row) => row.type,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b clasgitsName="text-center">Source </b>,
             selector: (row) => row.source,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Consumption</b>,
             selector: (row) => row.consumption,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Unit</b>,
             selector: (row) => row.unit,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
@@ -89,7 +93,8 @@ const RenowableEnergyTable =({projectId, projectPack})=>{
                 </div>
             ),
             wrap: true,
-            width: "180px"
+            width: "180px",
+            sortable: true,
         }
     ];
     const handleChangeType = (e) => {

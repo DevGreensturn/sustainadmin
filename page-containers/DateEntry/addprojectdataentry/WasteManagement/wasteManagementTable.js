@@ -24,49 +24,58 @@ const WasteManagementTable =()=>{
         {
             name: <b>Kind of Waste</b>,
             selector: (row) => row.KindofWaste,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Waste Type </b>,
             selector: (row) => row.WasteType,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Main Collection <br />Company</b>,
             selector: (row) => row.MainCollection,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Total Waste <br/>Removed From Site</b>,
             selector: (row) => row.TotalWaste,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <div className="text-center"><b>Unit Of <br />Measurement</b></div>,
             selector: (row) => row.UnitOf,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b className="text-center">No. Of Trips</b>,
             selector: (row) => row.NoOfTrips,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <div><b>Fuel Used By</b><br /> Trucks(litres)(one full trip, from source)</div>,
             selector: (row) => row.FuelUsedBy,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Supporting<br /> Document</b>,
             selector: (row) => row.SupportingDocument,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>Action</b>,
             selector: (row) => row.Action,
             wrap:"true",
+            sortable: true,
            
         },
     ];
