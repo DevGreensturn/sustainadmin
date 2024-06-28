@@ -24,59 +24,68 @@ const Utilityprovidertable =()=>{
         {
             name: <b>Meter No.</b>,
             selector: (row) => row.meterNo,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Account No.</b>,
             selector: (row) => row.accountNo,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Service Provider</b>,
             selector: (row) => row.serviceprovider,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Reading Date</b>,
             selector: (row) => row.readingdate,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         
         {
             name: <b>Meter Reading</b>,
             selector: (row) => row.meterreading,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b style={{textAlign:"center"}}>Drinking/<br /> Non Drinking Wate</b>,
             selector: (row) => row.Drinking,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>Consumption</b>,
             selector: (row) => row.consumption,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>Unit </b>,
             selector: (row) => row.unit,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>Supporting <br/>Document</b>,
             selector: (row) => row.supporting,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>Action</b>,
             selector: (row) => row.Action,
             wrap:"true",
-           
+            sortable: true,
         },
     ];
     

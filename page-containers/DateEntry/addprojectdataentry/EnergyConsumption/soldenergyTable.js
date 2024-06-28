@@ -83,29 +83,34 @@ const SoldenergyTable =({projectId, projectPack})=>{
         {
             name: <b>Energy Type</b>,
             selector: (row) => row.energyType,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Reading Date</b>,
             selector: (row) =>
               row.readingDate ? formatDate(row.readingDate) : row.readingDate,
             wrap: true,
+            sortable: true,
           },
         {
             name: <b className="text-center">Sold Energy</b>,
             selector: (row) => row.soldEnergy,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Unit</b>,
             selector: (row) => row.unit,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>Supporting Document</b>,
             selector: (row) => row.supportingdocument,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
@@ -124,7 +129,8 @@ const SoldenergyTable =({projectId, projectPack})=>{
                 </div>
             ),
             wrap: true,
-            width: "180px"
+            width: "180px",
+            sortable: true,
         },
       ];
     

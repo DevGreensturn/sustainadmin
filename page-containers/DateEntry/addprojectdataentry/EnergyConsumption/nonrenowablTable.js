@@ -68,52 +68,61 @@ const NonrenowableTable =({projectId, projectPack})=>{
         {
             name: <b>Fuel Type</b>,
             selector: (row) => row.fuelType,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Usage </b>,
             selector: (row) => row.equipment,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Volume</b>,
             selector: (row) => row.volume,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Unit</b>,
             selector: (row) => row.unit,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         
         {
             name: <b>Energy Output <br/>(kWh) </b>,
             selector: (row) => row.energyOutput,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>Total Spending <br/>(AED)</b>,
             selector: (row) => row.totalSpending,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>Supporting Document</b>,
             selector: (row) => "dummy",
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>No. Of Trips </b>,
             selector: (row) => row.noOfTrips,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>Fuel Used <span>by Trucks(L) (One full Trip)</span></b>,
             selector: (row) => row.fuelUsedByTrucks,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {

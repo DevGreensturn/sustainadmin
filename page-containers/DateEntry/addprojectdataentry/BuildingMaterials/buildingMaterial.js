@@ -50,6 +50,7 @@ const BuildingMaterialTable = (projectId) => {
       name: <b>Material Type</b>,
       selector: (row) => row.materialType,
       wrap: "true",
+      sortable: true,
     },
     {
       name: (
@@ -60,6 +61,7 @@ const BuildingMaterialTable = (projectId) => {
       ),
       selector: (row) => row.materialSource,
       wrap: "true",
+      sortable: true,
     },
     {
       name: (
@@ -70,6 +72,7 @@ const BuildingMaterialTable = (projectId) => {
       ),
       selector: (row) => row.materialClassification,
       wrap: "true",
+      sortable: true,
     },
     {
       name: (
@@ -79,6 +82,7 @@ const BuildingMaterialTable = (projectId) => {
       ),
       selector: (row) => row?.supplierSubcontractor?.name,
       wrap: "true",
+      sortable: true,
     },
     {
       name: (
@@ -90,12 +94,14 @@ const BuildingMaterialTable = (projectId) => {
       ),
       selector: (row) => row.roadDistance,
       wrap: "true",
+      sortable: true,
     },
 
     {
       name: <b className="text-center">No. Of Trips</b>,
       selector: (row) => row.noOfTrips,
       wrap: "true",
+      sortable: true,
     },
     {
       name: (
@@ -106,11 +112,13 @@ const BuildingMaterialTable = (projectId) => {
       ),
       selector: (row) => row.fuelUsed,
       wrap: "true",
+      sortable: true,
     },
     {
       name: <b className="text-center">Weight as per the BOQ(Tonnes)</b>,
       selector: (row) => row.weightPerBOQ,
       wrap: "true",
+      sortable: true,
     },
 
     {
@@ -130,6 +138,7 @@ const BuildingMaterialTable = (projectId) => {
         ),
         wrap: true,
         width: "180px",
+        sortable: true,
       },
   ];
 
