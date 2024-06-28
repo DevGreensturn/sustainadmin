@@ -137,7 +137,7 @@ const SustainabilityDataContainer = () => {
         <ConcreteMixChart />
       </div>
       <div className="mt-5">
-        <BuildingMaterialChart />
+        <BuildingMaterialChart  project={project} packageValue={packageValue}/>
       </div>
       <div className="mt-5">
       <WasteManagementChart />
