@@ -213,7 +213,6 @@ const ProjectListTable =(projectId,packageId)=>{
      "projectId":formData.projectId,// "6655751e60d4032ac67d8b2b",
      "loginType": "SUPPLIER",
      "status": "ACTIVE"
-
       }
       console.log(payload,"LLLLL");
       try {
