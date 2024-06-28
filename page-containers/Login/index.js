@@ -173,11 +173,11 @@ function Login() {
 
 
                       <div className="d-flex justify-content-between mt-4 align-items-center">
-                  {/* <div style={{cursor:"pointer", color:"#999BA1"}}>Don{"'"}t have an Account?</div> */}
+                  <div style={{cursor:"pointer", color:"#999BA1"}}>Don{"'"}t have an Account?</div>
                   
-                  {/* <div>
+                 <div>
                   <Link href="/signup"><button type="button" className="btn btn-outline-success">Create Account</button></Link>
-                  </div> */}
+                  </div> 
                 </div>
                     </form>
                   </div>

@@ -481,38 +481,51 @@ const SignupForm = () => {
         <section>
             <ToastContainer />
             <div className="container">
-                <div className="row justify-content-center" style={{ marginTop: "200px" }}>
-                    <div className="col-md-12 col-lg-9 col-xl-8 my-5">
-                        <div className={styles.signupForm}>
-                            <h1>Sign Up</h1>
+                <div className="row justify-content-center my-3" style={{ marginTop: "0px" }}>
+                    <div className="col-md-12">
+                        <div className={styles.signupForm} style={{maxWidth:"500px", margin:"0 auto"}}>
+                            {/* <h2>Sign Up</h2> */}
+                            <div className="d-flex align-items-center justify-content-between">
+                                <div><img src="./images/sustainLogoDark1.png" alt="" style={{maxWidth:"250px"}}/></div>
+                                <div className="justify-content-right">
+                                {/* <h2 style={{textAlign:"right"}}>Login</h2> */}
+                                {/* <h6>Enter Your Email & Password</h6> */}
+                                </div>
+                                </div>
+                                <hr className="hr" style={{opacity:".1"}}/>
+                                <div>
+                                <h2 style={{textAlign:"center"}}>Sign Up </h2>
+                                </div>
+
                             <div className='mt-4'>
                                 <form onSubmit={handleSubmit}>
                                     <div className='row'>
-                                        <div className='col-md-6'>
+                                        <div className='col-md-12'>
                                             <div className={styles.formGroup}>
                                                 <label htmlFor="userName">User Name</label>
                                                 <input type="text" id="userName" name="userName" value={formData.userName} onChange={handleChange} required />
                                             </div>
-                                        </div>
-                                        <div className='col-md-6'>
+                                            
                                             <div className={styles.formGroup}>
                                                 <label htmlFor="email">Email</label>
                                                 <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
                                             </div>
+
                                         </div>
-                                        <div className='col-md-6'>
+                                        
+                                        <div className='col-md-12'>
                                             <div className={styles.formGroup}>
                                                 <label htmlFor="password">Password</label>
                                                 <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
                                             </div>
-                                        </div>
-                                        <div className='col-md-6'>
+
                                             <div className={styles.formGroup}>
                                                 <label htmlFor="confirmPassword">Confirm Password</label>
                                                 <input type="password" id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
                                             </div>
                                         </div>
-                                        <div className='col-md-6'>
+                                        
+                                        <div className='col-md-12'>
                                             <div className={styles.formGroup}>
                                                 <label htmlFor="role">Role </label>
                                                 <select id="role" name="role" value={formData.role} onChange={handleChange} required>
@@ -522,8 +535,6 @@ const SignupForm = () => {
                                                     ))}
                                                 </select>
                                             </div>
-                                        </div>
-                                        <div className='col-md-6'>
                                             <div className={styles.formGroup}>
                                                 <label htmlFor="country">Country</label>
                                                 
@@ -553,10 +564,12 @@ const SignupForm = () => {
                                                 </datalist>
                                             </div>
                                         </div>
-                                        <button type="btn" className='btn btn-success' >Register &#x2192;</button>
+                                        
+                                        <button type="btn" className='btn btn-success' style={{padding:"10px 10px"}}>Register &#x2192;</button>
                                     </div>
                                 </form>
                             </div>
+
                             {loading && <p>Loading roles and countries...</p>}
                             {error && <p className={styles.errorMsg}>{error}</p>}
                             <div className={`mt-5 ${styles.loginContainer}`}>
