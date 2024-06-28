@@ -142,9 +142,6 @@ const SuppliersList = () => {
             
           }
       break;
-
-
-
       };
     setFormData({
       ...formData,

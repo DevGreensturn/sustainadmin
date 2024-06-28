@@ -2,7 +2,7 @@ import { useState,useEffect } from "react";
 import EnergyComsuptionpie from "../charts/energycomsumptionpie";
 import { Pie} from 'react-chartjs-2';
 
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+// import ChartDataLabels from 'chartjs-plugin-datalabels';
 // ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { useRouter } from "next/navigation";
