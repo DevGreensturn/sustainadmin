@@ -477,6 +477,13 @@ const SignupForm = () => {
         }
     };
 
+    const [showPassword, setShowPassword] = useState(false);
+
+    
+    const togglePasswordVisibility = () => {
+      setShowPassword(!showPassword);
+    };
+
     return (
         <section>
             <ToastContainer />
@@ -494,7 +501,7 @@ const SignupForm = () => {
                                 </div>
                                 <hr className="hr" style={{opacity:".1"}}/>
                                 <div>
-                                <h2 style={{textAlign:"center"}}>Sign Up </h2>
+                                <h2 style={{textAlign:"center"}}>Sign Up</h2>
                                 </div>
 
                             <div className='mt-4'>
@@ -516,19 +523,35 @@ const SignupForm = () => {
                                         <div className='col-md-12'>
                                             <div className={styles.formGroup}>
                                                 <label htmlFor="password">Password</label>
-                                                <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
+                                                <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required className='form-control'/>
                                             </div>
 
-                                            <div className={styles.formGroup}>
+                                            <div className={`position-relative ${styles.formGroup}`}>
                                                 <label htmlFor="confirmPassword">Confirm Password</label>
-                                                <input type="password" id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
+                                                <input
+                                                // type="password"
+                                                id="confirmPassword"
+                                                name="confirmPassword"
+                                                value={formData.confirmPassword}
+                                                onChange={handleChange}
+                                                required
+                                                className='form-control'
+                                                type={showPassword ? 'text' : 'password'}
+                                                />
+                                            
+                                                <div className="togglePasswordVisibilitys" onClick={togglePasswordVisibility}>
+                                                    <div>
+                                                        {showPassword ? (<img src="/Images/showPassword.png" alt="" className="img-fluid"/>) : (<img src="/Images/hidePassword.png" alt="" className="img-fluid"/>)}
+                                                        </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                         
                                         <div className='col-md-12'>
                                             <div className={styles.formGroup}>
                                                 <label htmlFor="role">Role </label>
-                                                <select id="role" name="role" value={formData.role} onChange={handleChange} required>
+                                                <select id="role" name="role" value={formData.role} onChange={handleChange} required className='form-select'>
                                                     <option value="">Select Role</option>
                                                     {roles.length > 0 && roles.map(role => (
                                                         <option key={role._id} value={role.roleName}>{role.roleName}</option>
