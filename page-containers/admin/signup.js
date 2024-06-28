@@ -273,7 +273,7 @@ const SignupForm = () => {
     const [filteredCountries, setFilteredCountries] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [countryInputVisible, setCountryInputVisible] = useState(false); // State to manage input visibility
+    const [countryInputVisible, setCountryInputVisible] = useState(true); // State to manage input visibility
 
     const fetchRoles = async () => {
         try {
@@ -570,7 +570,8 @@ const SignupForm = () => {
                                                         onChange={handleChange}
                                                         list="countries"
                                                         autoComplete="off"
-                                                        className={styles.countryInput}
+                                                        // className={styles.countryInput}
+                                                        className='form-control'
                                                         placeholder="Search or select country..."
                                                     />
                                                 ) : (
