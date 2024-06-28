@@ -15,6 +15,9 @@ const SuppliersList = () => {
   const [projectPack, setProjectPack] = useState('');
   const [projectPackNew, setProjectPackNew] = useState('');
 
+ 
+
+
   const [error, setError] = useState({});
 
 
@@ -152,169 +155,73 @@ const SuppliersList = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    switch ("") {
-      case formData.supplierId:
-        let error1= {...error,supplierId:"SupplierId is required"}
-        setError(error1);
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>",e.target,formData, error,formData.selectFieldProject);
+    if (!formData.selectFieldProject) {
+      setError({ ...error, selectFieldProject: "Please select a Project" });
+      
+    }
+    if (!formData.selectFieldPackage) {
+      setError({ ...error, selectFieldPackage: "Please select a Package" });
+      
+    } else {
+      console.log("error",error)
+      switch ("") {
+        case formData.supplierId:
+          let error1= {...error,supplierId:"SupplierId is required"}
+          setError(error1);
+          break;
+        case  formData.supplierName:
+          let error2= {...error,supplierName:"Supplier Name  is required"}
+          setError(error2);
         break;
-      case  formData.supplierName:
-        let error2= {...error,supplierName:"Supplier Name  is required"}
-        setError(error2);
-      break;
-      case formData.supplierAddress:
-        let error3= {...error,supplierAddress:"SupplierAddress is required"}
-        setError(error3);
-      break;
-      case formData.type:
-        let error4= {...error,type:"Type  is required"}
-        setError(error4);
-      break;
-      default:
-        let payload ={
-          "supplierId": formData.supplierId,//1,
-          "name": formData.supplierName ,//"Acme Corporation",
-          "address": formData.supplierAddress,//"123 Elm Street",
-          "type":formData.type,// "Manufacturer",
-          "packageId": formData.selectFieldPackage,//"665486deed3a1b1774f9ae63",
-          "projectId": formData.selectFieldProject,//"6655751e60d4032ac67d8b2b",
-          "loginType": formData.loginType,//"SUPPLIER",
-          "status": formData.status,//"ACTIVE"
-        }
-          
-            try {
-                
-              await ADMINAPI({
-                url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/suppliers`,
-                method: "POST",
-                body: { ...payload },
-              }).then((data) => {
-                setShowPopup(false);
-        
-                if (data.status == true) {
-                  setTimeout(() => {
-                    navigate.push("/suppliersList", { scroll: false });
-                  }, 100);
-                } else {
+        case formData.supplierAddress:
+          let error3= {...error,supplierAddress:"SupplierAddress is required"}
+          setError(error3);
+        break;
+        case formData.type:
+          let error4= {...error,type:"Type  is required"}
+          setError(error4);
+        break;
+        default:
+          let payload ={
+            "supplierId": formData.supplierId,//1,
+            "name": formData.supplierName ,//"Acme Corporation",
+            "address": formData.supplierAddress,//"123 Elm Street",
+            "type":formData.type,// "Manufacturer",
+            "packageId": formData.selectFieldPackage,//"665486deed3a1b1774f9ae63",
+            "projectId": formData.selectFieldProject,//"6655751e60d4032ac67d8b2b",
+            "loginType": formData.loginType,//"SUPPLIER",
+            "status": formData.status,//"ACTIVE"
+          }
+            
+              try {
+                  
+                await ADMINAPI({
+                  url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/suppliers`,
+                  method: "POST",
+                  body: { ...payload },
+                }).then((data) => {
                   setShowPopup(false);
-                  toast.error(data?.message);
-                }
-              });
-            } catch (error) {
-              
-              console.log(error,"TTTTTT");
-            }
+          
+                  if (data.status == true) {
+                    setTimeout(() => {
+                      navigate.push("/suppliersList", { scroll: false });
+                    }, 100);
+                  } else {
+                    setShowPopup(false);
+                    toast.error(data?.message);
+                  }
+                });
+              } catch (error) {
+                
+                console.log(error,"TTTTTT");
+              }
+      }
     }
     
-    console.log(formData);
+    
     
   };
-
-  // const data = [
-  //   {
-  //     id: 1,
-  //     name: "Supplier A",
-  //     address: "123 Main St",
-  //     date: "2024-04-29",
-  //     type: "Type A",
-  //     status: "Completed",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Supplier B",
-  //     address: "456 Elm St",
-  //     date: "2024-04-30",
-  //     type: "Type B",
-  //     status: "Processing",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Supplier C",
-  //     address: "789 Oak St",
-  //     date: "2024-05-01",
-  //     type: "Type C",
-  //     status: "Rejected",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Supplier P",
-  //     address: "789 Oak St",
-  //     date: "2024-05-01",
-  //     type: "Type C",
-  //     status: "Completed",
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "Supplier Y",
-  //     address: "789 Oak St",
-  //     date: "2024-05-01",
-  //     type: "Type C",
-  //     status: "Completed",
-  //   },
-  //   {
-  //     id: 6,
-  //     name: "Supplier C",
-  //     address: "789 Oak St",
-  //     date: "2024-05-01",
-  //     type: "Type C",
-  //     status: "Completed",
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "Supplier F",
-  //     address: "789 Oak St",
-  //     date: "2024-05-01",
-  //     type: "Type C",
-  //     status: "Completed",
-  //   },
-  //   {
-  //     id: 1,
-  //     name: "Supplier A",
-  //     address: "123 Main St",
-  //     date: "2024-04-29",
-  //     type: "Type A",
-  //     status: "Completed",
-  //   },
-  //   {
-  //     id: 1,
-  //     name: "Supplier A",
-  //     address: "123 Main St",
-  //     date: "2024-04-29",
-  //     type: "Type A",
-  //     status: "Completed",
-  //   },
-  //   {
-  //     id: 1,
-  //     name: "Supplier A",
-  //     address: "123 Main St",
-  //     date: "2024-04-29",
-  //     type: "Type A",
-  //     status: "Completed",
-  //   },
-  //   {
-  //     id: 1,
-  //     name: "Supplier A",
-  //     address: "123 Main St",
-  //     date: "2024-04-29",
-  //     type: "Type A",
-  //     status: "Completed",
-  //   },
-  //   {
-  //     id: 1,
-  //     name: "Supplier A",
-  //     address: "123 Main St",
-  //     date: "2024-04-29",
-  //     type: "Type A",
-  //     status: "Completed",
-  //   },
-  //   {
-  //     id: 1,
-  //     name: "Supplier A",
-  //     address: "123 Main St",
-  //     date: "2024-04-29",
-  //     type: "Type A",
-  //     status: "Completed",
-  //   },
-  // ];
 
   useEffect(() => {
     handleFetchProject();
@@ -426,6 +333,7 @@ const SuppliersList = () => {
                 </option>
               ))}
             </Form.Control>
+            {error && error.selectFieldProject&& <span className={styles["error-message"]}>{error.selectFieldProject}</span>}
           </Col>
           <Col md={6}>
             <label>Package</label>
@@ -443,6 +351,7 @@ const SuppliersList = () => {
                 </option>
               ))}
             </Form.Control>
+            {error && error.selectFieldPackage && <span className={styles["error-message"]}>{error.selectFieldPackage}</span>}
           </Col>
         </Row>
         <Row>
