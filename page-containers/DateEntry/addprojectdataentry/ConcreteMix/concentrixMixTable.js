@@ -95,70 +95,81 @@ const ConcentrixMixTable =({projectId, projectPack})=>{
         {
             name: <b>Concrete <br />Mixes No.</b>,
             selector: (row) => row.concreteMixesNo,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Type </b>,
             selector: (row) => row.type,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Volume</b>,
             selector: (row) => row.volume,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Proportion<br/> of Total used(%)</b>,
             selector: (row) => row.proportionOfTotalUsed,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">28 Days<br /> strength(N/mm2) </b>,
             selector: (row) => row.days28Strength,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b className="text-center">Cement Content <br/>(kg/m3)</b>,
             selector: (row) => row.cementContent,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Slag Content<br/>(Kg/m3)</b>,
             selector: (row) => row.
-            slagContent
-            ,
-            wrap:"true"
+            slagContent,
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Fly Ash Content <br />(Kg/m3)</b>,
             selector: (row) => row.flyAshContent,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b className="text-center">Silica Fume<br /> Content(kg/m3)</b>,
             selector: (row) => row.
             silicaFumeContent,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b className="text-center">NaturePozzolan Content<br/>(Kg/m3)</b>,
             selector: (row) => row.naturePozzolanContent,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b className="text-center">Limestone Content<br/>(Kg/m3)</b>,
             selector: (row) => row.limestoneContent,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name:<b
             className="text-center">embodied GHG<br/>(Co2e/m3)</b>,
             selector:(row)=>row.embodiedGHG,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
 
         },
 
@@ -166,14 +177,16 @@ const ConcentrixMixTable =({projectId, projectPack})=>{
             name:<b
             className="text-center">No.Of Trips<br/>(Co2e/m3)</b>,
             selector:(row)=>row.noOfTrips,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
 
         },
         {
             name:<b
             className="text-center">Fueln Used By Trucks<br/>(Co2e/m3)</b>,
             selector:(row)=>row.fuelUsedPerTruck,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
 
         },
 
@@ -193,7 +206,8 @@ const ConcentrixMixTable =({projectId, projectPack})=>{
                 </div>
             ),
             wrap: true,
-            width: "180px"
+            width: "180px",
+            sortable: true,
         },
     ];
     

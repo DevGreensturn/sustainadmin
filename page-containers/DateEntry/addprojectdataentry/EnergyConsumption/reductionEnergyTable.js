@@ -80,29 +80,33 @@ const ReductionEnerguTable =({projectId, projectPack})=>{
         {
             name: <b>Initiative Name</b>,
             selector: (row) => row.initiativeName,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Source </b>,
             selector: (row) => row.source,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Energy Amount</b>,
             selector: (row) => row.energyAmount,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Unit</b>,
             selector: (row) => row.unit,
             wrap:"true",
-            
+            sortable: true,
         },
 
         {
             name: <b>Calculation Method</b>,
             selector: (row) => row.calculationMethod,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
@@ -121,7 +125,8 @@ const ReductionEnerguTable =({projectId, projectPack})=>{
                 </div>
             ),
             wrap: true,
-            width: "180px"
+            width: "180px",
+            sortable: true,
         },
     ];
     

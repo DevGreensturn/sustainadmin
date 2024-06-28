@@ -130,21 +130,25 @@ const ProjectListTable =(projectId,packageId)=>{
     	{
             name: <b>ID</b>,
             selector: (row) => row.supplierId,
+            sortable: true,
         },
         {
             name: <b>Supplier Name</b>,
             selector: (row) => row.name,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Address </b>,
             selector: (row) => row.address,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Type</b>,
             selector: (row) => row.type,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         
         
@@ -165,7 +169,7 @@ const ProjectListTable =(projectId,packageId)=>{
             ),
             wrap: true,
             width: "180px",
-            
+            sortable: true,
         },
     ];
     const handleEdit = async (row) => {

@@ -187,19 +187,20 @@ const BusinessTravel =({projectId, projectPack})=>{
         {
             name: <b>Number of Traveler's(by airplane's)</b>,
             selector: (row) => row.numberOfTravellersByAirplane,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Distance Traveled for one  Traveler </b>,
             selector: (row) => row.distanceTravelledByOneTraveller,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
-       
-
         {
             name: <b>Supporting Document</b>,
             selector: (row) => row.supportingDocument,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
@@ -218,8 +219,8 @@ const BusinessTravel =({projectId, projectPack})=>{
                 </div>
             ),
             wrap: true,
-            width: "180px"
-           
+            width: "180px",
+            sortable: true,
         },
     ];
     

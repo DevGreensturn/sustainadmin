@@ -47,23 +47,27 @@ const SiteVehicles =({projectId,projectPack})=>{
         {
             name: <b>Number of Vehicles(Excluding Worker Buses)</b>,
             selector: (row) => row.numberOfVehicles,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Distance Traveled for all Vehicles(Excluding Worker Buse) </b>,
             selector: (row) => row.distanceTraveledForAllVehicles,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Fuel Cunsumption(Excluding Worker Buse) </b>,
             selector: (row) => row.fuelConsumption,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>Supporting Document</b>,
             selector: (row) => row.supportingDocument,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {

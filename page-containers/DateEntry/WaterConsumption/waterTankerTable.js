@@ -23,53 +23,62 @@ const WaterTankerTable =()=>{
         {
             name: <b>Water Type</b>,
             selector: (row) => row.WaterType,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Drinking <br/>Non Drinking Water</b>,
             selector: (row) => row.Drinking,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Water Consumption<br />Amount</b>,
             selector: (row) => row.WaterConsumption,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Unit</b>,
             selector: (row) => row.unit,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         
         {
             name: <b>Tanker Capacity <br />(US Gallons)</b>,
             selector: (row) => row.TankerCapacity,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>No. of Trips</b>,
             selector: (row) => row.nooftrips,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <div style={{textAlign:"center"}}><b>Fuel Used</b> <br /><span>by Trucks(litres)(one full trip,
                 from source)</span></div>,
             selector: (row) => row.FuelUsed,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b style={{textAlign:"center"}}>Supporting <br/>Document</b>,
             selector: (row) => row.supporting,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>Action</b>,
             selector: (row) => row.Action,
-            wrap:"true",           
+            wrap:"true", 
+            sortable: true,          
         },
     ];
     
