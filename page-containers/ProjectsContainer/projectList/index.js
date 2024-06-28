@@ -437,8 +437,6 @@ const ProjectListTable =()=>{
               console.log("fghjk",error14);
               setError(error14);
               break;     
-          
-          
           default:
             let payload = formData
         console.log(payload,"LLLLL");
