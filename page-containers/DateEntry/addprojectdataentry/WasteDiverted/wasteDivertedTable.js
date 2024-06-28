@@ -636,48 +636,57 @@ const WasteDivertedTable = ({ projectId, projectPack }) => {
         {
             name: <b>Waste Type</b>,
             selector: (row) => row.wasteType,
-            wrap: "true"
+            wrap: "true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Kind of Waste </b>,
             selector: (row) => row.kindOfWaste,
-            wrap: "true"
+            wrap: "true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Main Collection <br />Company</b>,
             selector: (row) => row.mainCollectionCompany,
-            wrap: "true"
+            wrap: "true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Disposal Operation Type</b>,
             selector: (row) => row.divertedOperationType,
-            wrap: "true"
+            wrap: "true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Quantity</b>,
             selector: (row) => row.quantity,
-            wrap: "true"
+            wrap: "true",
+            sortable: true,
         },
         {
             name: <div className="text-center"><b>Unit Of Measurement</b></div>,
             selector: (row) => row.unit,
-            wrap: "true"
+            wrap: "true",
+            sortable: true,
         },
 
         {
             name: <b className="text-center">No. Of Trips</b>,
             selector: (row) => row.noOfTrips,
-            wrap: "true"
+            wrap: "true",
+            sortable: true,
         },
         {
             name: <div><b>Fuel Used By</b><br /> Trucks(litres)(one full trip, from source)</div>,
             selector: (row) => row.fuelUsed,
-            wrap: "true"
+            wrap: "true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Supporting Document</b>,
             selector: (row) => row.supportingDocument,
-            wrap: "true"
+            wrap: "true",
+            sortable: true,
         },
 
         {
@@ -696,8 +705,8 @@ const WasteDivertedTable = ({ projectId, projectPack }) => {
                 </div>
             ),
             wrap: true,
-            width: "180px"
-
+            width: "180px",
+            sortable: true,
         },
     ];
 

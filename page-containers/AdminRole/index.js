@@ -9,6 +9,7 @@ import { Modal, Button } from 'react-bootstrap';
 
 import { Popover, OverlayTrigger} from 'react-bootstrap';
 import {data} from "./data";
+import Addnewrole from "./addnewRole";
 
 const AdminRolesection =()=>{
 
@@ -51,37 +52,42 @@ const AdminRolesection =()=>{
 
 
     const columns = [
-    	
         {
             name: <b>User ID</b>,
             selector: (row) => row.userID,
             wrap:"true",
-            editable:"true"
+            editable:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">User Name</b>,
             selector: (row) => row.userName,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Email</b>,
             selector: (row) => row.userEmail,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Phone Number</b>,
             selector: (row) => row.phoneNumber,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <div className="text-center"><b>Role</b></div>,
             selector: (row) => row.Role,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Action</b>,
             selector: (row) => row.Action,
-            wrap:"true", 
+            wrap:"true",
+            sortable: true,
         },
     ];
     
@@ -97,8 +103,6 @@ const AdminRolesection =()=>{
                  <img src='/images/more-vertical.svg' alt=''/>
                 </OverlayTrigger>
                 </div>
-            
-            // Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}} onClick={handleShowEdit}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}} onClick={handleShowDelete}/> </div>
         },
 
         {
@@ -107,7 +111,9 @@ const AdminRolesection =()=>{
             userEmail: "janesmith@example.com",
             phoneNumber: "+1-234-567-8902",
             Role: "Editor",
-            Action: <div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}} onClick={handleShowEdit}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}} onClick={handleShowDelete}/> </div>
+            Action:<div className="more-vertical">
+                 <img src='/images/more-vertical.svg' alt=''/>
+                </div>
         },
         {
             userID: "0003",
@@ -115,7 +121,9 @@ const AdminRolesection =()=>{
             userEmail: "robertbrown@example.com",
             phoneNumber: "+1-234-567-8903",
             Role: "Viewer",
-            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}} onClick={handleShowEdit}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}} onClick={handleShowDelete}/> </div>
+            Action:<div className="more-vertical">
+            <img src='/images/more-vertical.svg' alt=''/>
+           </div>
         },
         {
             userID: "0004",
@@ -123,7 +131,9 @@ const AdminRolesection =()=>{
             userEmail: "emilydavis@example.com",
             phoneNumber: "+1-234-567-8904",
             Role: "Admin",
-            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}} onClick={handleShowEdit}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}} onClick={handleShowDelete}/> </div>
+            Action:<div className="more-vertical">
+            <img src='/images/more-vertical.svg' alt=''/>
+           </div>
         },
         {
             userID: "0005",
@@ -131,7 +141,9 @@ const AdminRolesection =()=>{
             userEmail: "davidmartin@example.com",
             phoneNumber: "+1-234-567-8905",
             Role: "Admin",
-            Action :<div className="d-flex align-items-center"><FaRegEdit style={{color:"secondary", fontSize:"20px"}} onClick={handleShowEdit}/>  <MdDeleteForever icon={faTimes} className="mx-2" style={{color:"red", fontSize:"20px"}} onClick={handleShowDelete}/> </div>
+            Action:<div className="more-vertical">
+            <img src='/images/more-vertical.svg' alt=''/>
+           </div>
         },
     ];
 
@@ -142,11 +154,10 @@ const AdminRolesection =()=>{
             }
         }
     }
-    
     return(
         <>
         <section>
-    <div className="row my-3 p-2">
+        <div className="row my-3 p-2">
           <div className="col-md-12">
             <div className="d-flex align-items-center justify-content-between">
               <div>
@@ -165,9 +176,9 @@ const AdminRolesection =()=>{
             </div>
             </div>
         </div>
+        
         <div className='row my-3 p-2'>
-        <div className='col-md-12'>
-            
+        <div className='col-md-12'>    
         <DataTable 
             columns={columns} 
             data={rows} 
@@ -179,6 +190,12 @@ const AdminRolesection =()=>{
 
             </div>
             </div>
+            
+            <div className='row my-3 p-2'>
+            <Addnewrole />
+            </div>
+
+
 
             <>
                 <Modal
@@ -373,10 +390,7 @@ const AdminRolesection =()=>{
                                 <input type="file" className="form-control" placeholder="Upload Documents" />
                             </div>
                         </div>
-
-                        
                        </div>
-
 
                     <div className="my-4 d-flex justify-content-between">
                     <div>
@@ -387,7 +401,6 @@ const AdminRolesection =()=>{
                     </div>
                     </div>
                        </>
-
                         </Modal.Body>
                 </Modal>
 

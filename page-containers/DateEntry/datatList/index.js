@@ -182,22 +182,26 @@ return
         {
             name: <b>Reporting Month</b>,
             selector: (row) => (row?.reportingMonthYear?formatDate(row?.reportingMonthYear):row?.reportingMonthYear),
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Packages Progress <br />This Month </b>,
             selector: (row) => row?.packagesProgressThisMonth,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Manhour During <br />This Month</b>,
             selector: (row) => (row?.cumulativeManhour ? row?.cumulativeManhour+" "+"Manhour":row?.cumulativeManhour),
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Reported By</b>,
             selector: (row) => (row?.reportedBy?.firstName ? row?.reportedBy?.firstName+" "+row?.reportedBy?.lastName:row?.reportedBy),
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         
         {
@@ -209,7 +213,8 @@ return
                     </button>
                 </div>
             ),
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
@@ -228,7 +233,8 @@ return
                 </div>
             ),
             wrap: true,
-            width: "180px"
+            width: "180px",
+            sortable: true,
         },
     ];
     

@@ -48,23 +48,27 @@ const WorkerTransportation =({projectId, projectPack})=>{
         {
             name: <b>Number of Trips by Buses</b>,
             selector: (row) => row.numberOfTripsByBuses,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Distance Travelled per One Trip by BUS </b>,
             selector: (row) => row.distanceTraveledPerOneTripByBus,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Fuel Cunsumption by Buses</b>,
             selector: (row) => row.fuelConsumption,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b>Supporting Document</b>,
             selector: (row) => row.supportingDocument,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b>Action</b>,
@@ -82,7 +86,8 @@ const WorkerTransportation =({projectId, projectPack})=>{
                 </div>
             ),
             wrap: true,
-            width: "180px"
+            width: "180px",
+            sortable: true,
         },
            
     ];
