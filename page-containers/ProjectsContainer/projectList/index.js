@@ -10,6 +10,7 @@ import {Loader} from "../../../comman/loader";
 import { Modal, Button, Form , Row, Col} from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import { useRouter } from "next/navigation";
+import styles from '../../AddProject/style.module.css'
 
 
 const ProjectListTable =()=>{
@@ -17,7 +18,7 @@ const ProjectListTable =()=>{
     const [isLoader, setIsLoader] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
     const navigate = useRouter();
-    const [errors, setErrors] = useState({})
+    const [error, setError] = useState({})
     const [formData, setFormData] = useState({
         referenceNo: '',
         projectName: '',
@@ -41,20 +42,173 @@ const ProjectListTable =()=>{
       const [projectId,setProjectId] = useState("")
 
 
+      const isSpecialChar =(char)=> {
+        return /[~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/.test(char);
+      }
+
       const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log(name, "KKKK",value);
-        if(typeof(value) === "number"){
-          let errorsCopy = {...errors, name:"please enter valid name"}
-          setErrors(errorsCopy)
-          console.log(errors)
-        } else {
-          setFormData({
-            ...formData,
-            [name]: value
-          });
-        }
+        console.log(name, "KKKK",value,pakageData);
+        // if(name==="projectPackageId"){
+        //   let selectedPackage= pakageData.find((ele)=> {
+        //     ele._id===value
+        //   })
+
+        // }
+        setFormData({
+        ...formData,
+        [name]: value
+      });
+      console.log("form data????????????",formData)
+        switch (name) {
+          case "projectName":
+            if ((!isNaN(value) && parseInt(value) ) || isSpecialChar(value) ) {
+              let error1= {...error,projectName:"Project Name should be characters."}
+              console.log("error1111111111")
+              setError(error1);
+              // setProjectName(value);
+            } else {
+              setError('');
+              // setProjectName(value);
+            }
+            break;
+            case "referenceNo":
+            if (isNaN(value) || isSpecialChar(value) ) {
+              let error1= {...error,referenceNo:"Project Reference No should be number."}
+              setError(error1);
+              // setProjectName(value);
+            } else {
+              setError('');
+              // setProjectName(value);
+            }
+            break;
+            case "projectPackageId":
+            e.preventDefault();
+            const selection1 = e.target.value;
+            console.log(selection1, "Selected Value");
+            if(selection1!==""){
+              let err = {...error}
+              err.projectPackageId=""
+              setError(err)
+            }
+          break;
+          case "packageCurrentProgress":
+          if (isNaN(value) || isSpecialChar(value)) {
+            let error1= {...error,packageCurrentProgress:"Package Current Progress* should be number."}
+            console.log("error3333333")
+            setError(error1);
+            // setPackageProgress(value);
+          } else {
+            setError('');
+            // setPackageProgress(value);
+          }
+          break;
+          case "cumulativeManhour":
+          if (isNaN(value) || isSpecialChar(value)) {
+            let error1= {...error,cumulativeManhour:"Cumulative Man hour* should be number."}
+            setError(error1);
+            // setCumulative(value);
+          } else {
+            setError('');
+            // setCumulative(value);
+          }
+          break;
+          case "plotArea":
+          if (isNaN(value) || isSpecialChar(value)) {
+            let error1= {...error,plotArea:"Plot Area(m2)* should be number."}
+            setError(error1);
+            // setPlot(value);
+          } else {
+            setError('');
+            // setPlot(value);
+          }
+          break;
+          case "gfa":
+          if (isNaN(value) || isSpecialChar(value)) {
+            let error1= {...error,gfa:"GFA(m2)* should be number."}
+            setError(error1);
+            // setGfa(value);
+          } else {
+            setError('');
+            // setGfa(value);
+          }
+          break;
+          case "roadLength":
+            e.preventDefault();
+            const selected = e.target.value;
+            console.log(selected, "Selected Value");
+            if(selected!==""){
+              let err = {...error}
+              err.roadLength=""
+              setError(err)
+            }
+          break;
+          case "infrastructure":
+            e.preventDefault();
+            const selectedValue = e.target.value;
+            console.log(selectedValue, "Selected Value");
+            if(selectedValue!==""){
+              let err = {...error}
+              err.infrastructure=""
+              setError(err)
+            }
+          break;
+          case "SubscriptionCatagory":
+            e.preventDefault();
+            const select = e.target.value;
+            console.log(select, "Selected Value");
+            if(select!==""){
+              let err = {...error}
+              err.SubscriptionCatagory=""
+              setError(err)
+            }
+          case "subscriptionTier":
+            e.preventDefault();
+            const selection = e.target.value;
+            console.log(selection, "Selected Value");
+            if(selection!==""){
+              let err = {...error}
+              err.subscriptionTier=""
+              setError(err)
+            }
+          break;
+          case "SustainabilityRating":
+          if (isNaN(value) || isSpecialChar(value)) {
+            let error1= {...error,SustainabilityRating:"Sustainability Rating* should be number."}
+            setError(error1);
+            // setSubscriptionRating(value);
+          } else {
+            setError('');
+            // setSubscriptionRating(value);
+          }
+          break;
+          case "mainContractor":
+          if ((!isNaN(value) && parseInt(value) ) || isSpecialChar(value) ) {
+            let error1= {...error,mainContractor:"Main Contractor* should be characters."}
+            setError(error1);
+            // setContacator(value);
+          } else {
+            setError('');
+            // setContacator(value);
+          }
+          break;
+          case "topology":
+          if ((!isNaN(value) && parseInt(value) ) || isSpecialChar(value) ) {
+            let error1= {...error,topology:"Package Typology* should be characters."}
+            setError(error1);
+            // setPackageTopo(value);
+          } else {
+            setError('');
+            // setPackageTopo(value);
+          }
+          break;  
+            default:
+              break;
         
+      }
+      
+      console.log("error",error )
+      
       };
     const handleClose = () => {
         setShowPopup(false);
@@ -231,7 +385,75 @@ const ProjectListTable =()=>{
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formData,"LLLLLL123");
-        let payload = formData
+        switch(""){
+          case formData.projectName:
+            let error1= {...error,projectName:"Project name is required"}
+            setError(error1);
+            break;
+            case formData.referenceNo:
+              let error2= {...error,referenceNo:"Project reference is required"}
+              setError(error2);
+              break;
+            case formData.projectPackageId:
+              let error3= {...error,projectPackageId:"Please select a project package"}
+              setError(error3);
+              break;
+            case formData.packageCurrentProgress:
+              let error4= {...error,packageCurrentProgress:"Package Current Progress is required*"}
+              setError(error4);
+              break;     
+            case formData.cumulativeManhour:
+              let error5= {...error,cumulativeManhour:"Cumulative Manhour is required*"}
+              setError(error5);
+              break;     
+            case formData.plotArea:
+              let error6= {...error,plotArea:"plotArea is required*"}
+              setError(error6);
+              break;     
+            case formData.gfa:
+              let error7= {...error,gfa:"GFA is required*"}
+              setError(error7);
+              break;     
+            case formData.roadLength:
+              let error8= {...error, roadLength:"Road Length(km) is required*"}
+              setError(error8);
+              break;     
+            case formData.infrastructure:
+              let error9= {...error, infrastructure:"Infrastructure is required*"}
+              setError(error9);
+              break;     
+            case formData.SubscriptionCategory:
+              console.log("fghjk");
+              let error10= {...error, SubscriptionCatagory:"Subscription Category is required*"}
+              console.log("fghjk",error10);
+              setError(error10);
+              break;     
+            case formData.subscriptionTier:
+              console.log("fghjk");
+              let error11= {...error, subscriptionTier:"Subscription Tier is required*"}
+              console.log("fghjk",error11);
+              setError(error11);
+              break;     
+            case formData.SustainabilityRating:
+              console.log("fghjk");
+              let error12= {...error, SustainabilityRating:"Sustainability Rating is required*"}
+              console.log("fghjk",error12);
+              setError(error12);
+              break;     
+            case formData.mainContractor:
+              console.log("fghjk");
+              let error13= {...error, mainContractor:"Main Contractor is required*"}
+              console.log("fghjk",error13);
+              setError(error13);
+              break;     
+            case formData.topology:
+              console.log("fghjk");
+              let error14= {...error, topology:"Package Typology is required*"}
+              console.log("fghjk",error14);
+              setError(error14);
+              break;     
+          default:
+            let payload = formData
         console.log(payload,"LLLLL");
         try {
           await ADMINAPI({
@@ -263,6 +485,44 @@ const ProjectListTable =()=>{
           toast.error(error?.message);
         }
       };
+        }
+
+
+
+
+
+      //   let payload = formData
+      //   console.log(payload,"LLLLL");
+      //   try {
+      //     await ADMINAPI({
+      //       url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/projects/${payload.projectId}`,
+      //       method: "put",
+      //       body: { ...payload },
+      //     }).then((data) => {
+      //       console.log(data,"KKKKKKKKKKKK");
+      //       if (data.status === true) {
+      //           setShowPopup(false)
+      //           handleFetchProject();
+      //         setTimeout(() => {
+      //           navigate.push("/projects", { scroll: false });
+      //         }, 100);
+      //       } else {
+      //           console.log(data?.message,"rtrttt");
+      //           setShowPopup(false)
+
+      //         toast.error(data?.message);
+      //       }
+      //     }).catch(err => {
+      //       setShowPopup(false)
+
+      //       console.log(err,"rtrttt");
+      //       toast.error(err?.message);
+      //     });
+      //   } catch (error) {
+      //       console.log(error,"KKKKK");
+      //     toast.error(error?.message);
+      //   }
+      // };
       const fetchPackageList = async () => {
 
         try {
@@ -389,11 +649,9 @@ const ProjectListTable =()=>{
               value={formData.projectName}
               onChange={handleChange}
               className="mb-2"
-              required
-
             />
-            {errors && errors.projectName && <span >{errors.projectName}</span>}
-          </Col>
+     {error && error.projectName && <p className={styles.errorMessage}>{error.projectName}</p>}
+     </Col>
           <Col md={4}>
             <label>Project Reference No*</label>
             <Form.Control
@@ -403,9 +661,8 @@ const ProjectListTable =()=>{
               value={formData.referenceNo}
               onChange={handleChange}
               className="mb-2"
-              required
-
-            />
+              />
+              {error && error.referenceNo && <p className={styles.errorMessage}>{error.referenceNo}</p>}
           </Col>
           <Col md={4}>
             <label>Project Package*</label>
@@ -413,17 +670,18 @@ const ProjectListTable =()=>{
             <Form.Control
               as="select"
               name="projectPackageId"
-              value={formData.projectPackageName}
+              value={formData.projectPackageId}
               onChange={handleChange}
               className="mb-2"
-              required
             >
+              <option value="">Please select Project Package</option>
               {pakageData?.map((category, indexCat) => (
                 <option key={indexCat} value={category?._id}>
                   {category?.name}
                 </option>
               ))}
             </Form.Control>
+            {error && error.projectPackageId && <p className={styles.errorMessage}>{error.projectPackageId}</p>}
           </Col>
         
         </Row>
@@ -437,9 +695,9 @@ const ProjectListTable =()=>{
               value={formData.packageCurrentProgress}
               onChange={handleChange}
               className="mb-2"
-              required
-
             />
+          {error && error.packageCurrentProgress && <p className={styles.errorMessage}>{error.packageCurrentProgress}</p>}
+
           </Col>
           <Col md={4}>
             <label>Cumulative Man hour*</label>
@@ -450,9 +708,9 @@ const ProjectListTable =()=>{
               value={formData.cumulativeManhour}
               onChange={handleChange}
               className="mb-2"
-              required
-
             />
+              {error && error.cumulativeManhour && <p className={styles.errorMessage}>{error.cumulativeManhour}</p>}      
+
           </Col>
           <Col md={4}>
             <label>Plot Area(m2)*</label>
@@ -463,9 +721,9 @@ const ProjectListTable =()=>{
               value={formData.plotArea}
               onChange={handleChange}
               className="mb-2"
-              required
-
             />
+                  {error && error.plotArea && <p className={styles.errorMessage}>{error.plotArea}</p>}
+
           </Col>
         </Row>
         <Row>
@@ -478,9 +736,9 @@ const ProjectListTable =()=>{
               value={formData.gfa}
               onChange={handleChange}
               className="mb-2"
-              required
+             />
+                     {error && error.gfa && <p className={styles.errorMessage}>{error.gfa}</p>}
 
-            />
           </Col>
           <Col md={4}>
             <label>Road Length(km)*</label>
@@ -490,14 +748,16 @@ const ProjectListTable =()=>{
               value={formData.roadLength}
               onChange={handleChange}
               className="mb-2"
-              required
             >
+              <option value={""}>Please select Road Length(km)</option>
                 {roadTier.map((category, indexCat) => (
           <option key={indexCat} value={category}>
             {category}
           </option>
         ))}
             </Form.Control>
+            {error && error.roadLength && <p className={styles.errorMessage}>{error.roadLength}</p>}
+
           </Col>
           <Col md={4}>
             <label>Infrastructure(Ha)*</label>
@@ -507,14 +767,16 @@ const ProjectListTable =()=>{
               value={formData.infrastructure}
               onChange={handleChange}
               className="mb-2"
-              required
             >
+              <option value="">Please select Infrastructure(Ha)</option>
                 {infrastructureValue.map((category, indexCat) => (
           <option key={indexCat} value={category}>
             {category}
           </option>
         ))}
             </Form.Control>
+            {error && error.infrastructure && <p className={styles.errorMessage}>{error.infrastructure}</p>}
+
           </Col>
         </Row>
         <Row>
@@ -526,14 +788,16 @@ const ProjectListTable =()=>{
               value={formData.SubscriptionCategory}
               onChange={handleChange}
               className="mb-2"
-              required
             >
+              <option value="">Please select Subscription Category </option>
                 {subscriptionCatagorgryValue.map((category, indexCat) => (
-          <option key={indexCat} value={category}>
+                  <option key={indexCat} value={category}>
             {category}
           </option>
         ))}
             </Form.Control>
+            {error && error.SubscriptionCategory && <p className={styles.errorMessage}>{error.SubscriptionCategory}</p>}
+
           </Col>
           <Col md={4}>
             <label>Subscription Tier*</label>
@@ -543,14 +807,16 @@ const ProjectListTable =()=>{
               value={formData.subscriptionTier}
               onChange={handleChange}
               className="mb-2"
-              required
-            >
+              >
+        <option value="">Please selectSubscription Tier*</option>
                 {tiers.map((category, indexCat) => (
           <option key={indexCat} value={category}>
             {category}
           </option>
         ))}
             </Form.Control>
+            {error && error.subscriptionTier && <p className={styles.errorMessage}>{error.subscriptionTier}</p>}
+
           </Col>
           <Col md={4}>
             <label>Sustainability Rating*</label>
@@ -561,9 +827,9 @@ const ProjectListTable =()=>{
               value={formData.SustainabilityRating}
               onChange={handleChange}
               className="mb-2"
-              required
+               />
+                       {error && error.SustainabilityRating && <p className={styles.errorMessage}>{error.SustainabilityRating}</p>}
 
-            />
           </Col>
         </Row>
         <Row>
@@ -576,9 +842,9 @@ const ProjectListTable =()=>{
               value={formData.mainContractor}
               onChange={handleChange}
               className="mb-2"
-              required
-
             />
+                    {error && error.mainContractor && <p className={styles.errorMessage}>{error.mainContractor}</p>}
+
           </Col>
           <Col md={4}>
             <label>Package Typology*</label>
@@ -589,11 +855,10 @@ const ProjectListTable =()=>{
               value={formData.topology}
               onChange={handleChange}
               className="mb-2"
-              required
-
             />
+          {error && error.topology && <p className={styles.errorMessage}>{error.topology}</p>}
           </Col>
-         
+
         </Row>
       </Form.Group>
       <button type="submit" className="btn btn-outline-success mt-3 w-100">Submit</button>

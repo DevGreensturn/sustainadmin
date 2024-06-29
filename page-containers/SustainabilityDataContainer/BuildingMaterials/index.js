@@ -1,10 +1,23 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Pie} from 'react-chartjs-2';
 import Materialpurchasedpie from "../charts/materialpurchased";
 import MaterialpurchasedTypepie from "../charts/materialpurchasedType";
+import { ADMINAPI } from "../../../apiWrapper";
 
-const BuildingMaterialChart =()=>{
+import { toast } from "react-toastify";
+
+
+const BuildingMaterialChart =({project,packageValue})=>{
     const [activeButton, setActiveButton] = useState("button1");
+
+    const [buildingData, setBuildingData] = useState([]);
+    const [buildingData1, setBuildingData1] = useState([]);
+    const [labelsData,setLabelData] = useState([])
+    const [labelsData1,setLabelData1] = useState([])
+
+
+
+
     const handleButtonClick =(button)=>{
       setActiveButton(button);
     };
@@ -23,20 +36,11 @@ const BuildingMaterialChart =()=>{
     
 
 const pieChartData5 = {
-  labels: [
-    "Rebar",
-    "Asphalt",
-    "Mortar",
-    "HDPE (for Pipes)",
-    "uPVC",
-    "Timber",
-    "Aggregate",
-    "Plywood"
-  ],
+  labels: labelsData1,
   datasets: [
     {
       label: "My Dataset",
-      data: [40, 20, 5, 20, 5, 10],
+      data: buildingData1,
       backgroundColor: [
         "#601A36",
         "#A54CFF",
@@ -50,18 +54,11 @@ const pieChartData5 = {
 };
 
     const pieChartData4 = {
-      labels: [
-        "Abu Dhabi",
-        "Dubai",
-        "Other Emirate",
-        "GCC",
-        "Internationally",
-        "Sourced Internally",
-      ],
+      labels: labelsData,
       datasets: [
         {
           label: "My Dataset",
-          data: [40, 20, 5, 20, 5, 10],
+          data: buildingData,
           backgroundColor: [
             "#601A36",
             "#A54CFF",
@@ -73,8 +70,85 @@ const pieChartData5 = {
         },
       ],
     };
-   
-    
+   const fetchBuildingPieChart = async() =>{
+    const payload ={
+      packageId:"60c72b2f9b1d4c44f8fa2b7b",
+      projectId:"60c72b319b1d4c44f8fa2b7c",
+      "dateRange": "2024-06-17T11:50:36.188Z"
+    };
+    console.log("payload",payload)
+
+    try {
+      await ADMINAPI({
+        url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/charts/building/pie`,
+        method: "POST",
+        body: { ...payload },
+      })
+        .then((data) => {
+          if (data.status === true) {
+         console.log(data,"JKLKLJL");
+            toast.success(data?.message);
+            let labels1=[]
+            let data1=[]
+            data.result.forEach(ele => {
+              labels1.push(ele.materialSource)
+              data1.push(ele.percentage)
+            });
+            setLabelData(labels1)
+            setBuildingData(data1)
+          } 
+        })
+        .catch((err) => {
+            toast.error(err?.message);
+        });
+    } catch (error) {
+      
+      console.log(error, "errorooo");
+    }
+   }
+   useEffect(() => {
+    console.log("tttttttttttttttt",packageValue)
+    fetchBuildingPieChart();
+    fetchBuildingtypePieChart();
+  }, [project,packageValue]);
+
+
+  const fetchBuildingtypePieChart = async() =>{
+    const payload ={
+      packageId:"60c72b2f9b1d4c44f8fa2b7b",
+      projectId:"60c72b319b1d4c44f8fa2b7c",
+      "dateRange": "2024-06-17T11:50:36.188Z"
+    };
+    console.log("payload",payload)
+
+    try {
+      await ADMINAPI({
+        url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/charts/building-type/pie`,
+        method: "POST",
+        body: { ...payload },
+      })
+        .then((data) => {
+          if (data.status === true) {
+         console.log(data,"JKLKLJL");
+            toast.success(data?.message);
+            let labels1=[]
+            let data1=[]
+            data.result.forEach(ele => {
+              labels1.push(ele.materialType)
+              data1.push(ele.percentage)
+            });
+            setLabelData1(labels1)
+            setBuildingData1(data1)
+          } 
+        })
+        .catch((err) => {
+            toast.error(err?.message);
+        });
+    } catch (error) {
+      
+      console.log(error, "errorooo");
+    }
+   }
 
     return(
         <section>

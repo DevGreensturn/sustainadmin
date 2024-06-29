@@ -140,7 +140,9 @@ export default function AddProject() {
           }
         
           break;
-    }    
+    }
+    
+       
       };
 
     const handleChangePackage = (e) =>{
