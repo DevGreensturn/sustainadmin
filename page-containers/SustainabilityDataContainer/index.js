@@ -37,7 +37,6 @@ const SustainabilityDataContainer = () => {
   } 
 
   const handleChangeDate = (date) =>{
-    console.log(date)
     const dateNew = new Date(date);
     const timeZoneOffset = dateNew.getTimezoneOffset();
     const adjustedDate = new Date(date.getTime() - (timeZoneOffset * 60000));
@@ -159,7 +158,7 @@ const SustainabilityDataContainer = () => {
       <WasteManagementChart />
       </div>
       <div className="mt-5">
-      <FuelComsumptionChart />
+      <FuelComsumptionChart project={project} packageValue={packageValue} selectedDate={selectedDate} />
       </div>
       <div className="mt-5">
       <EmissionManagementChart />
