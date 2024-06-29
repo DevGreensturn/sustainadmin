@@ -11,6 +11,9 @@ const WasteManagementChart =({project,packageValue})=>{
     const [totalWasteData,setTotalWasteData] = useState([])
     const [wasteDirectedData,setWasteDirectedData]=useState([])
     const[labelData,setLabelData]=useState([])
+    const[wasteDivirtedData,setWasteDivirtedData]=useState([])
+    const[labelData1,setLabelData1]=useState([])
+
    
     const handleButtonClick =(button)=>{
       setActiveButton(button);
@@ -46,15 +49,12 @@ const WasteManagementChart =({project,packageValue})=>{
     };
 
     const pieChartData7 = {
-      labels: [
-        "Preparation for reuse",
-        "Recycling",
-        "Other Recovery Operations"
-      ],
+      labels: labelData1,
+        
       datasets: [
         {
           label: "My Dataset",
-          data: [40, 40, 20],
+          data: wasteDivirtedData,
           backgroundColor: ["#007FFF", "#3B4B61", "#6495ED" ],
         },
       ],
@@ -114,8 +114,45 @@ const WasteManagementChart =({project,packageValue})=>{
     useEffect(() => {
       fetchWasteData();
       fetchWasteDirectedData();
+      fetchWasteDivertedData()
 
     }, [project,packageValue]);
+
+    const fetchWasteDivertedData=async()=>{
+      const payload={
+        dateRange: "2024-06-17T11:50:36.188Z",
+        "projectId": "60c72b445f1b2c001f8e4c58",
+        "packageId": "60c72b3a5f1b2c001f8e4c57"
+      };
+      console.log("payload",payload)
+      try {
+        const response= await ADMINAPI({
+       url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/charts/diverted/pie`,
+       method: "POST",
+       body: { ...payload },
+     })
+     console.log("response",response);
+     if (response) {
+       let labels2=[]
+       let data2=[]
+       response.result.forEach(ele => {
+         labels2.push(ele.type)
+         data2.push(ele.percentage)
+       });
+       setLabelData1(labels2)
+    
+       setWasteDivirtedData(data2)
+     } else {
+       console.error("Failed to fetch waste management data:", response.message);
+     }
+     
+   } catch (error) {
+     console.error("Error fetching waste management data:", error);
+   }
+
+    }
+
+
 
 
     const fetchWasteDirectedData=async()=>{
@@ -132,7 +169,6 @@ const WasteManagementChart =({project,packageValue})=>{
           method: "POST",
           body: { ...payload },
         })
-
         console.log("response",response);
         if (response) {
           let labels1=[]
@@ -153,8 +189,6 @@ const WasteManagementChart =({project,packageValue})=>{
       }
 
     }
-
-
     return(
         <section>
             <div className="row">
