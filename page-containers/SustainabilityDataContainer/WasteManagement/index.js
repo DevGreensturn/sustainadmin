@@ -9,7 +9,7 @@ import { ADMINAPI } from "../../../apiWrapper";
 const WasteManagementChart =()=>{
     const [activeButton, setActiveButton] = useState("button1");
     const [totalWasteData,setTotalWasteData] = useState([])
-    const [totalWasteLabels,setTotalWasteLabels] = useState([])
+   
     const handleButtonClick =(button)=>{
       setActiveButton(button);
     };
@@ -78,7 +78,7 @@ const WasteManagementChart =()=>{
       responsive: true,
       plugins: {
         legend: {
-          position: 'right', // Position the labels on the right side
+          position: 'right', 
           labels: {
             usePointStyle: true,
           },
@@ -88,7 +88,7 @@ const WasteManagementChart =()=>{
 
     const fetchWasteData = async () => {
       try {
-        // Example payload, adjust as per your API requirements
+        
         const payload = {
           "projectId": "60c72b339b1d4c44f8fa2b7d",
           "packageId": "60c72b319b1d4c44f8fa2b7c", // Replace with actual project ID
