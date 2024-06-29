@@ -74,7 +74,6 @@ const ConcreteMixChart =({project,packageValue,selectedDate})=>{
     };
 
     useEffect(() => {
-      console.log("tttttttttttttttt",packageValue)
       fetchConcretePieChart();
     }, [project,packageValue,selectedDate]);
 
