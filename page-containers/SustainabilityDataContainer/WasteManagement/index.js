@@ -136,7 +136,7 @@ const WasteManagementChart =({project,packageValue})=>{
        let labels2=[]
        let data2=[]
        response.result.forEach(ele => {
-         labels2.push(ele.type)
+         labels2.push(ele.divertedOperationType)
          data2.push(ele.percentage)
        });
        setLabelData1(labels2)
@@ -174,7 +174,7 @@ const WasteManagementChart =({project,packageValue})=>{
           let labels1=[]
           let data1=[]
           response.result.forEach(ele => {
-            labels1.push(ele.type)
+            labels1.push(ele.directedOperationType)
             data1.push(ele.percentage)
           });
           setLabelData(labels1)
