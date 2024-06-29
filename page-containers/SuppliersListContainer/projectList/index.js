@@ -31,6 +31,8 @@ const ProjectListTable =(projectId,packageId)=>{
       status: 'ACTIVE',
       packageEditId :''
     });
+     
+
 
     const handleChange = (e) => {
       const { name, value } = e.target;
@@ -201,8 +203,6 @@ const ProjectListTable =(projectId,packageId)=>{
         console.log('Delete row:', row);
         setSupplierId(row._id)
         setShowDeleteConfirmation(true)
-
-        
         // For example, you might show a confirmation dialog before deleting
     };
     const handleSubmit = async (e) => {
@@ -217,7 +217,6 @@ const ProjectListTable =(projectId,packageId)=>{
      "projectId":formData.projectId,// "6655751e60d4032ac67d8b2b",
      "loginType": "SUPPLIER",
      "status": "ACTIVE"
-
       }
       console.log(payload,"LLLLL");
       try {

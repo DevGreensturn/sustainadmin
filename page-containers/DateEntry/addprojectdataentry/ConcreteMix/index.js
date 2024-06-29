@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import ConcentrixMixTable from "./concentrixMixTable";
 
-const ConcereteMix =()=>{
+const ConcereteMix =({projectId, projectPack})=>{
  
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => {
@@ -31,7 +31,7 @@ const ConcereteMix =()=>{
            <div className="row mt-3">
             <div className="col-md-12">
                 <div className="mb-0">
-                <ConcentrixMixTable />
+                <ConcentrixMixTable projectId ={projectId} projectPack={projectPack}/>
                 </div>
             </div>
            </div>
