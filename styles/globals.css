@@ -331,6 +331,16 @@ span.signUpWith_Section {
 .togglePasswordVisibility div img{
   width: 30px;
 }
+
+.togglePasswordVisibilitys{
+  position: absolute;
+  bottom: 6px;
+  right: 3%;
+  cursor: pointer;
+}
+.togglePasswordVisibilitys div img{
+  width: 30px;
+}
 /* ==========Dashboard=========== */
 .dashboardList{
   display: flex;

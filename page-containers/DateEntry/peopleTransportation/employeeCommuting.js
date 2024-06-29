@@ -180,20 +180,21 @@ const EmployeeCommuting = ({ projectPack, projectId }) => {
         {
             name: <b>Number of Employees</b>,
             selector: (row) => row.numberOfEmployees,
-            wrap: "true"
+            wrap: "true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Number of Vehicles </b>,
             selector: (row) => row.numberOfVehicles,
-            wrap: "true"
+            wrap: "true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Average Distance Traveled for Vehicle </b>,
             selector: (row) => row.averageDistanceTravelledForVehicle,
-            wrap: "true"
+            wrap: "true",
+            sortable: true,
         },
-
-       
 
         {
             name: <b>Action</b>,
@@ -212,8 +213,8 @@ const EmployeeCommuting = ({ projectPack, projectId }) => {
                 </div>
             ),
             wrap: true,
-            width: "180px"
-
+            width: "180px",
+            sortable: true,
         },
     ];
 

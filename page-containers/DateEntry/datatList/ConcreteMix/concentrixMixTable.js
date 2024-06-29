@@ -24,61 +24,72 @@ const ConcentrixMixTable =()=>{
         {
             name: <b>Concrete <br />Mixes No.</b>,
             selector: (row) => row.ConcreteMix,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Type </b>,
             selector: (row) => row.type,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Volume</b>,
             selector: (row) => row.volume,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Proportion<br/> of Total used(%)</b>,
             selector: (row) => row.Proportion,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">28 Days<br /> Strength(N/mm2) </b>,
             selector: (row) => row.Strength,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b className="text-center">Cement Content <br/>(kg/m3)</b>,
             selector: (row) => row.CementContent,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Slag Content<br/>(Kg/m3)</b>,
             selector: (row) => row.SlagContent,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
         {
             name: <b className="text-center">Fly Ash Content <br />(Kg/m3)</b>,
             selector: (row) => row.FlyAshContent,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b className="text-center">Silica Fume<br /> Content(kg/m3)</b>,
             selector: (row) => row.SilicaFume,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b className="text-center">Slag Content<br/>(Kg/m3)</b>,
             selector: (row) => row.SlagContent,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         {
             name: <b className="text-center">Fly Ash Content<br/>(Kg/m3)</b>,
             selector: (row) => row.FlyAsh,
-            wrap:"true"
+            wrap:"true",
+            sortable: true,
         },
 
         // {

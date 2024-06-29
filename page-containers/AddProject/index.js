@@ -361,8 +361,9 @@ export default function AddProject() {
   return (
     <div >
         <div style={{ textAlign: "center" }} className='my-3'>
-    <h1>Add Project Details</h1>
-</div>
+        <h1>Add Project Details</h1>
+  </div>
+
 <ToastContainer/>
   <form onSubmit={handleSubmit} className=" mt-4 p-4" > 
   <div className="row my-3">
@@ -394,7 +395,7 @@ export default function AddProject() {
       <div className="col-md-4">
       <label>Project Package*</label>
       <select
-        className="form-control"
+        className="form-select"
         onChange={(e) => handleChangePackage(e)}
         name="category"
         id="category"
@@ -468,7 +469,7 @@ export default function AddProject() {
     <div className="col-md-4">
       <label>Road Length(km)*</label>
       <select
-        className="form-control"
+        className="form-select"
         onChange={handleChangeRoad}
         name="Road Length(km)"
         id="Road Length(km)"
@@ -486,7 +487,7 @@ export default function AddProject() {
       <div className="col-md-4">
       <label>Infrastructure(Ha)*</label>
       <select
-        className="form-control"
+        className="form-select"
         onChange={handleChangeInfrastructure}
         name="Infrastructure(Ha)"
         id="Infrastructure(Ha)"
@@ -507,7 +508,7 @@ export default function AddProject() {
   <div className="col-md-4">
       <label>Subscription Category*</label>
       <select
-        className="form-control"
+        className="form-select"
         onChange={handleChangeCatagory}
         name="Subscription Category"
         id="Subscription Category"
@@ -525,7 +526,7 @@ export default function AddProject() {
     <div className="col-md-4">
       <label>Subscription Tier*</label>
       <select
-        className="form-control"
+        className="form-select"
         onChange={handleChangeTier}
         name="Subscription Tier"
         id="Subscription Tier"
@@ -580,8 +581,8 @@ export default function AddProject() {
         {error && error.packageTopo && <p className={styles.errorMessage}>{error.packageTopo}</p>}
     </div>
   </div>
-  <div style={{ textAlign: "center" }}>
-  <button type="submit" className="btn btn-primary" disabled={isSubmitting}>Submit</button>
+  <div className='mt-3' style={{ textAlign: "center" }}>
+  <button type="submit" className="btn btn-primary w-100" disabled={isSubmitting}>Submit</button>
   </div>
  
 </form>
