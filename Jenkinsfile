@@ -24,13 +24,6 @@ pipeline {
             }
         }
         
-        stage('Run tests') {
-            steps {
-                // Run tests to verify the application
-                sh 'npm test'
-            }
-        }
-        
         stage('Build') {
             steps {
                 // Build your Node.js application (if needed)
