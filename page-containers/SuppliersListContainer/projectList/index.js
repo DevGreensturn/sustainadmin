@@ -266,8 +266,6 @@ const ProjectListTable =(projectId,packageId)=>{
         console.log('Delete row:', row);
         setSupplierId(row._id)
         setShowDeleteConfirmation(true)
-
-        
         // For example, you might show a confirmation dialog before deleting
     };
     const handleSubmit = async (e) => {

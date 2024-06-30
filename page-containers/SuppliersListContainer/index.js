@@ -4,6 +4,8 @@ import ProjectListTable from "./projectList";
 import { Modal, Button, Form , Row, Col} from 'react-bootstrap';
 import { ADMINAPI } from "../../apiWrapper/";
 import { useRouter } from "next/navigation";
+import styles from './projectList/styles.module.css'
+
 
 
 const SuppliersList = () => {
@@ -12,6 +14,11 @@ const SuppliersList = () => {
   const [pakageData, setPakageData] = useState([]);
   const [projectPack, setProjectPack] = useState('');
   const [projectPackNew, setProjectPackNew] = useState('');
+
+ 
+
+
+  const [error, setError] = useState({});
 
 
   const navigate = useRouter();
@@ -82,158 +89,136 @@ const SuppliersList = () => {
     status: 'ACTIVE',
   });
 
+  const isSpecialChar =(char)=> {
+    return /[~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/.test(char);
+  }
+
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(e.target)
+
+    
+    switch (name) {
+      case "supplierId":
+        if (isNaN(value) || isSpecialChar(value) ) {
+          console.log(name)
+          let error1= {...error,[name]:"SupplierId should only be a number"}
+          setError(error1);
+        } else {
+          setError('');
+          
+        }
+        break;
+        case "supplierName":
+          if ((!isNaN(value) && parseInt(value) ) || isSpecialChar(value) ) {
+            let error2= {...error,[name]:"SupplierName should only be a string"}
+            setError(error2);
+          } else {
+            let err= {...error}
+            err[name]= ""
+            setError(err);
+            
+          }
+          break;
+          case "supplierAddress":
+            if (!/^[a-zA-Z0-9]+$/.test(value) || isSpecialChar(value)) {
+              let error3= {...error,[name]:"SupplierAddress should only be alphanumerics"}
+              setError(error3);
+            }  else {
+              let err= {...error}
+              err[name]= ""
+              setError(err);
+              
+            }
+        break;
+        case "type":
+          if (!/^[a-zA-Z0-9]+$/.test(value) || isSpecialChar(value)) {
+            let error4= {...error,[name]:"Type should only be alphanumerics"}
+            setError(error4);
+          } else {
+            let err= {...error}
+            err[name]= ""
+            setError(err);
+            
+          }
+      break;
+      };
     setFormData({
       ...formData,
       [name]: value
     });
+    console.log("error>>>>>>>>>>>>>>>>>>>",error)
   };
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log(formData);
-    let payload ={
-  "supplierId": formData.supplierId,//1,
-  "name": formData.supplierName ,//"Acme Corporation",
-  "address": formData.supplierAddress,//"123 Elm Street",
-  "type":formData.type,// "Manufacturer",
-  "packageId": formData.selectFieldPackage,//"665486deed3a1b1774f9ae63",
-  "projectId": formData.selectFieldProject,//"6655751e60d4032ac67d8b2b",
-  "loginType": formData.loginType,//"SUPPLIER",
-  "status": formData.status,//"ACTIVE"
-}
-    // Handle form submission logic here
-    try {
-        
-      await ADMINAPI({
-        url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/suppliers`,
-        method: "POST",
-        body: { ...payload },
-      }).then((data) => {
-        setShowPopup(false);
-
-        if (data.status == true) {
-          setTimeout(() => {
-            navigate.push("/suppliersList", { scroll: false });
-          }, 100);
-        } else {
-          setShowPopup(false);
-          toast.error(data?.message);
-        }
-      });
-    } catch (error) {
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>",e.target,formData, error,formData.selectFieldProject);
+    if (!formData.selectFieldProject) {
+      setError({ ...error, selectFieldProject: "Please select a Project" });
       
-      console.log(error,"TTTTTT");
     }
+    if (!formData.selectFieldPackage) {
+      setError({ ...error, selectFieldPackage: "Please select a Package" });
+      
+    } else {
+      console.log("error",error)
+      switch ("") {
+        case formData.supplierId:
+          let error1= {...error,supplierId:"SupplierId is required"}
+          setError(error1);
+          break;
+        case  formData.supplierName:
+          let error2= {...error,supplierName:"Supplier Name  is required"}
+          setError(error2);
+        break;
+        case formData.supplierAddress:
+          let error3= {...error,supplierAddress:"SupplierAddress is required"}
+          setError(error3);
+        break;
+        case formData.type:
+          let error4= {...error,type:"Type  is required"}
+          setError(error4);
+        break;
+        default:
+          let payload ={
+            "supplierId": formData.supplierId,//1,
+            "name": formData.supplierName ,//"Acme Corporation",
+            "address": formData.supplierAddress,//"123 Elm Street",
+            "type":formData.type,// "Manufacturer",
+            "packageId": formData.selectFieldPackage,//"665486deed3a1b1774f9ae63",
+            "projectId": formData.selectFieldProject,//"6655751e60d4032ac67d8b2b",
+            "loginType": formData.loginType,//"SUPPLIER",
+            "status": formData.status,//"ACTIVE"
+          }
+            
+              try {
+                  
+                await ADMINAPI({
+                  url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/suppliers`,
+                  method: "POST",
+                  body: { ...payload },
+                }).then((data) => {
+                  setShowPopup(false);
+          
+                  if (data.status == true) {
+                    setTimeout(() => {
+                      navigate.push("/suppliersList", { scroll: false });
+                    }, 100);
+                  } else {
+                    setShowPopup(false);
+                    toast.error(data?.message);
+                  }
+                });
+              } catch (error) {
+                
+                console.log(error,"TTTTTT");
+              }
+      }
+    }
+    
+    
+    
   };
-
-  const data = [
-    {
-      id: 1,
-      name: "Supplier A",
-      address: "123 Main St",
-      date: "2024-04-29",
-      type: "Type A",
-      status: "Completed",
-    },
-    {
-      id: 2,
-      name: "Supplier B",
-      address: "456 Elm St",
-      date: "2024-04-30",
-      type: "Type B",
-      status: "Processing",
-    },
-    {
-      id: 3,
-      name: "Supplier C",
-      address: "789 Oak St",
-      date: "2024-05-01",
-      type: "Type C",
-      status: "Rejected",
-    },
-    {
-      id: 4,
-      name: "Supplier P",
-      address: "789 Oak St",
-      date: "2024-05-01",
-      type: "Type C",
-      status: "Completed",
-    },
-    {
-      id: 5,
-      name: "Supplier Y",
-      address: "789 Oak St",
-      date: "2024-05-01",
-      type: "Type C",
-      status: "Completed",
-    },
-    {
-      id: 6,
-      name: "Supplier C",
-      address: "789 Oak St",
-      date: "2024-05-01",
-      type: "Type C",
-      status: "Completed",
-    },
-    {
-      id: 7,
-      name: "Supplier F",
-      address: "789 Oak St",
-      date: "2024-05-01",
-      type: "Type C",
-      status: "Completed",
-    },
-    {
-      id: 1,
-      name: "Supplier A",
-      address: "123 Main St",
-      date: "2024-04-29",
-      type: "Type A",
-      status: "Completed",
-    },
-    {
-      id: 1,
-      name: "Supplier A",
-      address: "123 Main St",
-      date: "2024-04-29",
-      type: "Type A",
-      status: "Completed",
-    },
-    {
-      id: 1,
-      name: "Supplier A",
-      address: "123 Main St",
-      date: "2024-04-29",
-      type: "Type A",
-      status: "Completed",
-    },
-    {
-      id: 1,
-      name: "Supplier A",
-      address: "123 Main St",
-      date: "2024-04-29",
-      type: "Type A",
-      status: "Completed",
-    },
-    {
-      id: 1,
-      name: "Supplier A",
-      address: "123 Main St",
-      date: "2024-04-29",
-      type: "Type A",
-      status: "Completed",
-    },
-    {
-      id: 1,
-      name: "Supplier A",
-      address: "123 Main St",
-      date: "2024-04-29",
-      type: "Type A",
-      status: "Completed",
-    },
-  ];
 
   useEffect(() => {
     handleFetchProject();
@@ -252,19 +237,14 @@ const SuppliersList = () => {
           <div className="row my-3">
             <div className="col-md-4">
               <h3>Select Project</h3>
-            {/* <select className="form-select" aria-label="Default select example">
-              <option selected>Downtown Tower - Building</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select> */}
+           
             <select
         className="form-select" 
         aria-label="Default select example"
         onChange={(e) => handleChangeProject(e)}
         name="category"
         id="category"
-        value={projectPack} // Bind the state variable to the value prop
+        value={projectPack} 
       >
         <option value="">Project </option>
         {row?.map((category, indexCat) => (
@@ -276,19 +256,14 @@ const SuppliersList = () => {
             </div>
             <div className="col-md-4">
               <h3>Select Package</h3>
-            {/* <select className="form-select" aria-label="Default select example">
-              <option selected>Downtown Tower - Building</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select> */}
+           
             <select
         className="form-select" 
         aria-label="Default select example"
         onChange={(e) => handleChangePackageNew(e)}
         name="category"
         id="category"
-        value={projectPackNew} // Bind the state variable to the value prop
+        value={projectPackNew} 
       >
         <option value="">Project Package</option>
         {pakageData?.map((category, indexCat) => (
@@ -331,7 +306,7 @@ const SuppliersList = () => {
   onHide={handleClose}
   centered
   backdrop="static"
-  
+  size="lg"
 >
   <Modal.Header className="pb-0" closeButton style={{border:"0"}}></Modal.Header>
   <Modal.Body className="pt-0">
@@ -347,15 +322,15 @@ const SuppliersList = () => {
               value={formData.selectFieldProject}
               onChange={handleChange}
               className="mb-2"
-              required
             >
-              <option value="">Project</option>
+              <option value="">Please Select Project</option>
               {row?.map((category, indexCat) => (
                 <option key={indexCat} value={category?._id}>
                   {category?.projectName}
                 </option>
               ))}
             </Form.Control>
+            {error && error.selectFieldProject&& <span className={styles["error-message"]}>{error.selectFieldProject}</span>}
           </Col>
           <Col md={6}>
             <label>Package</label>
@@ -366,13 +341,14 @@ const SuppliersList = () => {
               onChange={handleChange}
               className="mb-2"
             >
-              <option value="">Package</option>
+              <option value="">Please Select Package</option>
               {pakageData?.map((category, indexCat) => (
                 <option key={indexCat} value={category?._id}>
                   {category?.name}
                 </option>
               ))}
             </Form.Control>
+            {error && error.selectFieldPackage && <span className={styles["error-message"]}>{error.selectFieldPackage}</span>}
           </Col>
         </Row>
         <Row>
@@ -385,9 +361,10 @@ const SuppliersList = () => {
               value={formData.supplierId}
               onChange={handleChange}
               className="mb-2"
-              required
+            
 
             />
+           {error && error.supplierId && <span className={styles["error-message"]}>{error.supplierId}</span>}
           </Col>
           <Col md={6}>
             <label>Supplier Name</label>
@@ -398,9 +375,10 @@ const SuppliersList = () => {
               value={formData.supplierName}
               onChange={handleChange}
               className="mb-2"
-              required
+             
 
             />
+            {error && error.supplierName && <span className={styles["error-message"]}>{error.supplierName}</span>}
           </Col>
         </Row>
         <Row>
@@ -413,9 +391,10 @@ const SuppliersList = () => {
               value={formData.supplierAddress}
               onChange={handleChange}
               className="mb-2"
-              required
+              
 
             />
+           {error && error.supplierAddress && <span className={styles["error-message"]}>{error.supplierAddress}</span>}
           </Col>
           <Col md={6}>
             <label>Type</label>
@@ -426,9 +405,11 @@ const SuppliersList = () => {
               value={formData.type}
               onChange={handleChange}
               className="mb-2"
-              required
+        
 
             />
+            {error && error.type && <span className={styles["error-message"]}>{error.type}</span>}
+            
           </Col>
         </Row>
       </Form.Group>
@@ -442,3 +423,4 @@ const SuppliersList = () => {
 };
 
 export default SuppliersList;
+
