@@ -2,8 +2,7 @@ pipeline {
     agent any
   
     tools {nodejs "nodejsv22.3.0"}
-    
-  stages {
+
     
     environment {
         // Define environment variables if needed
@@ -11,7 +10,7 @@ pipeline {
     }
     
     stages {
-        stage('Checkout') {
+        stage('CheCkout') {
             steps {
                 // Checkout the code from your version control system (e.g., Jenkis,Sonar,and svn,Git)
                 checkout scm
@@ -55,7 +54,6 @@ pipeline {
                 }
             }
         }
-    }
     
     stage('Deploy to UAT') {
             steps {
@@ -70,7 +68,7 @@ pipeline {
                 }
             }
         }
-    }
+        }
 
     post {
         success {
@@ -86,4 +84,5 @@ pipeline {
             )
         }
     }
-}
+    }
+    
