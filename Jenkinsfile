@@ -63,7 +63,7 @@ pipeline {
                 archiveArtifacts artifacts: 'build/**', allowEmptyArchive: true
 
                 // Deploy to UAT server
-                sshagent (credentials: ['sh]) {
+                sshagent (credentials: ['sshuat']) {
                     sh """
                         scp -r ./build/* ${env.UAT_SERVER}:${env.DEPLOY_DIR}
                     """
