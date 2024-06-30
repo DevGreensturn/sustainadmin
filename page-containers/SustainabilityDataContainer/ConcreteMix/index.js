@@ -1,20 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Pie} from 'react-chartjs-2';
 import ConcreteMixpie from "../charts/concereteMix";
+import { ADMINAPI } from "../../../apiWrapper";
+import { toast } from "react-toastify";
 
-const ConcreteMixChart =()=>{
+const ConcreteMixChart =({project,packageValue,selectedDate})=>{
     const [activeButton, setActiveButton] = useState("button1");
+    const [concreteData,setConcreteData] = useState([])
+    const [labelsData,setLabelData] = useState([])
+
     const handleButtonClick =(button)=>{
       setActiveButton(button);
     };
   
 
     const pieChartData3 = {
-      labels: ["Precast", "Cast-in-situ"],
+      labels: labelsData,
       datasets: [
         {
           label: "My Dataset",
-          data: [40, 60],
+          data: concreteData,
           backgroundColor: ["#EE7722", "#FB9A54"],
         },
       ],
@@ -31,6 +36,46 @@ const ConcreteMixChart =()=>{
         },
       },
     };
+
+    const fetchConcretePieChart = async () => {
+      const payload = {
+        packageId: packageValue,
+        projectId: project,
+        dateRange: selectedDate
+      };
+      console.log("payload",payload)
+      try {
+        await ADMINAPI({
+          url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/charts/concrete/pie`,
+          method: "POST",
+          body: { ...payload },
+        })
+          .then((data) => {
+            if (data.status === true) {
+           console.log(data,"ttttt");
+              toast.success(data?.message);
+              let labels1=[]
+              let data1=[]
+              data.result.forEach(ele => {
+                labels1.push(ele.type)
+                data1.push(ele.percentage)
+              });
+              setLabelData(labels1)
+              setConcreteData(data1)
+            } 
+          })
+          .catch((err) => {
+              toast.error(err?.message);
+          });
+      } catch (error) {
+        
+        console.log(error, "errorooo");
+      }
+    };
+
+    useEffect(() => {
+      fetchConcretePieChart();
+    }, [project,packageValue,selectedDate]);
 
     return(
         <section>
@@ -58,7 +103,7 @@ const ConcreteMixChart =()=>{
             <hr style={{opacity:".1"}}/>
           </div>
           <div className="d-flex justify-content-between" style={{maxWidth:"350px", width:"100%", margin:"0 auto", paddingBottom:"30px"}}>
-          <Pie data={pieChartData3} options={options}/>
+          <Pie data={pieChartData3} options={options} />
           </div>
         </div>  
         </div>

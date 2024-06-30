@@ -22,6 +22,7 @@ const ProjectListTable =(projectId,packageId)=>{
     const [showPopup, setShowPopup] = useState(false);
     const [pakageData, setPakageData] = useState([]);
     const [projectData, setProjectData] = useState([]);
+    const [errors, setErrors] = useState({})
     const [formData, setFormData] = useState({
       supplierId: '',
       supplierName: '',
@@ -31,12 +32,74 @@ const ProjectListTable =(projectId,packageId)=>{
       status: 'ACTIVE',
       packageEditId :''
     });
-     
 
+    const isSpecialChar =(char)=> {
+      return /[~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/.test(char);
+    }
 
     const handleChange = (e) => {
       const { name, value } = e.target;
       console.log(name, "KKKK",value);
+
+      switch (name) {
+        case "projectId" : 
+          if(value=="") {
+            let error1={...errors, [name]:"Project Name is required"}
+            setErrors(error1)
+          } else {
+            let error1={...errors, [name]:""}
+            setErrors(error1)
+          }
+          break;
+        case "packageId" : 
+          if(value=="") {
+            let error1={...errors, [name]:"Package Name is required"}
+            setErrors(error1)
+          } else {
+            let error1={...errors, [name]:""}
+            setErrors(error1)
+          } 
+          break;
+        case "supplierId" : 
+          if(isNaN(value) || isSpecialChar(value)) {
+            let error1={...errors, [name]:"Supplier id should be a number"}
+            setErrors(error1)
+          } else {
+            let error1={...errors, [name]:""}
+            setErrors(error1)
+          }
+          break;
+        case "supplierName" : 
+          if((!isNaN(value) && parseInt(value) ) || isSpecialChar(value)) {
+            let error1={...errors, [name]:"Supplier Name cannot be only numbers"}
+            setErrors(error1)
+          } else {
+            let error1={...errors, [name]:""}
+            setErrors(error1)
+          }
+          break;
+        case "supplierAddress" : 
+          if((!isNaN(value) && parseInt(value) ) || isSpecialChar(value)) {
+            let error1={...errors, [name]:"Supplier Address cannot be only numbers"}
+            setErrors(error1)
+          } else {
+            let error1={...errors, [name]:""}
+            setErrors(error1)
+          }
+          break;
+        case "type" : 
+          if((!isNaN(value) && parseInt(value) ) || isSpecialChar(value)) {
+            let error1={...errors, [name]:"type cannot be only numbers"}
+            setErrors(error1)
+          } else {
+            let error1={...errors, [name]:""}
+            setErrors(error1)
+          }
+          break;
+        default: 
+        break;
+      }
+
       setFormData({
         ...formData,
         [name]: value
@@ -174,10 +237,10 @@ const ProjectListTable =(projectId,packageId)=>{
     ];
     const handleEdit = async (row) => {
         // Logic to handle editing the row
-      
-        console.log('Edit row:uuuuuu', row);
+        console.log('Edit row:uuuuuu', row,packageId,projectId);
         await fetchPackageList();
         await  handleFetchProjectOnly();
+        
         setFormData({
           ...formData,
           supplierId: row?.supplierId,
@@ -208,46 +271,78 @@ const ProjectListTable =(projectId,packageId)=>{
     const handleSubmit = async (e) => {
       e.preventDefault();
       console.log(formData,"LLLLLL123");
-      let payload = {
-       "supplierId": formData.supplierId,
-     "name": formData.supplierName,//"Acme Corporation",
-     "address":formData.supplierAddress,// "123 Elm Street",
-     "type": formData.type,//"Manufacturer",
-     "packageId":formData.packageId,// "665486deed3a1b1774f9ae63",
-     "projectId":formData.projectId,// "6655751e60d4032ac67d8b2b",
-     "loginType": "SUPPLIER",
-     "status": "ACTIVE"
-      }
-      console.log(payload,"LLLLL");
-      try {
-        await ADMINAPI({
-          url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/suppliers/${formData.supplierIdNew}`,
-          method: "put",
-          body: { ...payload },
-        }).then((data) => {
-          console.log(data,"KKKKKKKKKKKK");
-          if (data.status === true) {
-              setShowPopup(false)
-              handleFetchProject();
-            setTimeout(() => {
-              navigate.push("/suppliersList", { scroll: false });
-            }, 100);
-          } else {
-              console.log(data?.message,"rtrttt");
-              setShowPopup(false)
 
-            toast.error(data?.message);
-          }
-        }).catch(err => {
-          setShowPopup(false)
-
-          console.log(err,"rtrttt");
-          toast.error(err?.message);
-        });
-      } catch (error) {
-          console.log(error,"KKKKK");
-        toast.error(error?.message);
+      switch ("") {
+        case formData.supplierId : 
+          let error1= {...errors, supplierId:"Supplier id is required"}
+          setErrors(error1);
+          break;
+        case formData.supplierName : 
+          let error2= {...errors, supplierId:"Supplier Name is required"}
+          setErrors(error2);
+          break;
+        case formData.supplierAddress : 
+          let error3= {...errors, supplierId:"Supplier Address is required"}
+          setErrors(error3);
+          break;
+        case formData.type : 
+          let error4= {...errors, type:"Type is required"}
+          setErrors(error4);
+          break;
+        case formData.packageId : 
+          let error5= {...errors, packageId:"Package is required"}
+          setErrors(error5);
+          break;
+          case formData.projectId : 
+          let error6= {...errors, projectId:"Package is required"}
+          setErrors(error6);
+          break;
+          default:
+            let payload = {
+              "supplierId": formData.supplierId,
+            "name": formData.supplierName,//"Acme Corporation",
+            "address":formData.supplierAddress,// "123 Elm Street",
+            "type": formData.type,//"Manufacturer",
+            "packageId":formData.packageId,// "665486deed3a1b1774f9ae63",
+            "projectId":formData.projectId,// "6655751e60d4032ac67d8b2b",
+            "loginType": "SUPPLIER",
+            "status": "ACTIVE"
+       
+             }
+             console.log(payload,"LLLLL");
+             try {
+               await ADMINAPI({
+                 url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3001/api/v1/suppliers/${formData.supplierIdNew}`,
+                 method: "put",
+                 body: { ...payload },
+               }).then((data) => {
+                 console.log(data,"KKKKKKKKKKKK");
+                 if (data.status === true) {
+                     setShowPopup(false)
+                     handleFetchProject();
+                   setTimeout(() => {
+                     navigate.push("/suppliersList", { scroll: false });
+                   }, 100);
+                 } else {
+                     console.log(data?.message,"rtrttt");
+                     setShowPopup(false)
+       
+                   toast.error(data?.message);
+                 }
+               }).catch(err => {
+                 setShowPopup(false)
+       
+                 console.log(err,"rtrttt");
+                 toast.error(err?.message);
+               });
+             } catch (error) {
+                 console.log(error,"KKKKK");
+               toast.error(error?.message);
+             }
+            break;
       }
+
+      
     };
     const rows = [
         {
@@ -419,7 +514,7 @@ const ProjectListTable =(projectId,packageId)=>{
   <Modal.Header className="pb-0" closeButton></Modal.Header>
   <Modal.Body className="pt-0">
     <h6 className="text-center">Edit Supplier </h6>
-    {console.log(row,"YYY",formData)}
+    {/* {console.log(row,"YYY",formData)} */}
     <Form onSubmit={handleSubmit} className="mt-2 p-2">
       <Form.Group>
         <Row>
@@ -428,10 +523,9 @@ const ProjectListTable =(projectId,packageId)=>{
             <Form.Control
               as="select"
               name="projectId"
-              value={formData.projectIdNew}
+              value={formData.projectId}
               onChange={handleChange}
               className="mb-2"
-              required
             >
               {projectData?.map((category, indexCat) => (
                 <option key={indexCat} value={category?._id}>
@@ -439,6 +533,7 @@ const ProjectListTable =(projectId,packageId)=>{
                 </option>
               ))}
             </Form.Control>
+            {errors && errors.projectId && <span>{errors.projectId}</span>}
           </Col>
           <Col md={6}>
           <label>Package</label>
@@ -455,6 +550,7 @@ const ProjectListTable =(projectId,packageId)=>{
                 </option>
               ))}
               </Form.Control>
+              {errors && errors.packageId && <span>{errors.packageId}</span>}
           </Col>
         
         </Row>
@@ -468,9 +564,10 @@ const ProjectListTable =(projectId,packageId)=>{
               value={formData.supplierId}
               onChange={handleChange}
               className="mb-2"
-              required
 
             />
+          {errors && errors.supplierId && <span>{errors.supplierId}</span>}
+
           </Col>
           <Col md={6}>
           <label>Supplier Name</label>
@@ -481,9 +578,9 @@ const ProjectListTable =(projectId,packageId)=>{
               value={formData.supplierName}
               onChange={handleChange}
               className="mb-2"
-              required
 
             />
+          {errors && errors.supplierName && <span>{errors.supplierName}</span>}
           </Col>
         </Row>
         <Row>
@@ -496,9 +593,9 @@ const ProjectListTable =(projectId,packageId)=>{
               value={formData.supplierAddress}
               onChange={handleChange}
               className="mb-2"
-              required
 
             />
+          {errors && errors.supplierAddress && <span>{errors.supplierAddress}</span>}
           </Col>
           <Col md={6}>
           <label>Type</label>
@@ -509,9 +606,10 @@ const ProjectListTable =(projectId,packageId)=>{
               value={formData.type}
               onChange={handleChange}
               className="mb-2"
-              required
 
             />
+          {errors && errors.type && <span>{errors.type}</span>}
+
           </Col>
          
         </Row>

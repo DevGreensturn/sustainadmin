@@ -13,12 +13,15 @@ import WasteManagementChart from "./WasteManagement";
 import FuelComsumptionChart from "./FuelConsumption";
 import EmissionManagementChart from "./Emissions";
 import { ADMINAPI } from "../../apiWrapper/";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const SustainabilityDataContainer = () => {
   const [project, setProject] = useState("");
   const [projectList, setProjectList] = useState([]);
   const [packageValue, setPackage] = useState("");
   const [packageList, setpackageList] = useState([]);
+  const [selectedDate,setSelectedDate] = useState("")
   const handleChangeProjectName = (e) => {
     e.preventDefault();
     const selectedValue = e.target.value;
@@ -32,6 +35,15 @@ const SustainabilityDataContainer = () => {
     console.log(selectedValue, "Selected Value");
     setPackage(selectedValue);
   } 
+
+  const handleChangeDate = (date) =>{
+    const dateNew = new Date(date);
+    const timeZoneOffset = dateNew.getTimezoneOffset();
+    const adjustedDate = new Date(date.getTime() - (timeZoneOffset * 60000));
+    const isoDateString = adjustedDate.toISOString();
+    console.log("selected date", isoDateString)
+    setSelectedDate(isoDateString)
+  }
 
   const fetchProject = async () => {
     try {
@@ -118,12 +130,15 @@ const SustainabilityDataContainer = () => {
         <div className="col-md-4">
           <div className="my-5">
             <h3>Select Month</h3>
-          <select className="form-select" aria-label="Default select example">
-            <option selected>April 2024</option>
-            <option value="1">March 2024</option>
-            <option value="2">Feb 2024</option>
-            <option value="3">Jan 2024</option>
-          </select>
+            <DatePicker
+              selected={selectedDate}
+              onChange={(date) => handleChangeDate(date)}
+              dateFormat="MM/yyyy"
+              className="form-select"
+              showMonthYearPicker
+              showFullMonthYearPicker
+              showFourColumnMonthYearPicker
+            />
           </div>
         </div>
       </div>
@@ -134,7 +149,7 @@ const SustainabilityDataContainer = () => {
       <WaterComsuption />
       </div>
       <div className="mt-3">
-        <ConcreteMixChart />
+        <ConcreteMixChart project={project} packageValue={packageValue} selectedDate={selectedDate} />
       </div>
       <div className="mt-5">
         <BuildingMaterialChart  project={project} packageValue={packageValue}/>
@@ -143,7 +158,7 @@ const SustainabilityDataContainer = () => {
       <WasteManagementChart />
       </div>
       <div className="mt-5">
-      <FuelComsumptionChart />
+      <FuelComsumptionChart project={project} packageValue={packageValue} selectedDate={selectedDate} />
       </div>
       <div className="mt-5">
       <EmissionManagementChart />

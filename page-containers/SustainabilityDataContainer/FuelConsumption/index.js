@@ -1,47 +1,56 @@
 import { Pie} from 'react-chartjs-2';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TranspotationFuelpie from "../charts/transpotationFuel";
 import FuelComsumptionpie from "../charts/fuelcomsuptionpie";
+import { ADMINAPI } from '../../../apiWrapper';
+import { toast } from 'react-toastify';
 
-const FuelComsumptionChart =()=>{
+const FuelComsumptionChart =({project,packageValue,selectedDate})=>{
     const [activeButton, setActiveButton] = useState("button1");
+    const [transportationLabels, setTransportationLabels] = useState([])
+    const [transportationData, setTransportationData] = useState([])
+    const [fuelLabels, setFuelLabels] = useState([])
+    const [fuelData, setFuleData] = useState([])
     const handleButtonClick =(button)=>{
       setActiveButton(button);
     };
   
     
     const pieChartData5 = {
-      labels: [
-        "Logistics: Fuel to site",
-        "Logistics: Building Material to site",
-        "Logistics: Concrete to site",
-        "Logistics: Water to site",
-        "Logistics: Waste from site",
-        "People Transportation: Workers from and to site",
-        "People Transportation: Employee Commuting",
-        "People Transportation: Site Vehicles",
-        "People Transportation: Business Travel"
-      ],
+      // labels: [
+      //   "Logistics: Fuel to site",
+      //   "Logistics: Building Material to site",
+      //   "Logistics: Concrete to site",
+      //   "Logistics: Water to site",
+      //   "Logistics: Waste from site",
+      //   "People Transportation: Workers from and to site",
+      //   "People Transportation: Employee Commuting",
+      //   "People Transportation: Site Vehicles",
+      //   "People Transportation: Business Travel"
+      // ],
+      labels:transportationLabels,
       datasets: [
         {
           label: "My Dataset",
-          data: [25, 10, 15, 10, 5, 5, 15, 5, 10],
+          data: transportationData,
           backgroundColor: ["#007FFF", "#00B69B", "#03488A", "#3B4B61", "#5000B6", "#EE7722", "#A54CFF", "#6495ED", "#9D9D9D"],
         },
       ],
     };
 
     const pieChartData6 = {
-      labels: [
-        "Transportation Fuel",
-        "Equipment",
-        "Generator"
-      ],
+      // labels: [
+      //   "Transportation Fuel",
+      //   "Equipment",
+      //   "Generator"
+      // ],
+
+      labels:fuelLabels,
       datasets: [
         {
           label: "My Dataset",
-          data: [40, 40, 20],
+          data: fuelData,
           backgroundColor: ["#007FFF", "#3B4B61", "#6495ED" ],
         },
       ],
@@ -58,6 +67,83 @@ const FuelComsumptionChart =()=>{
         },
       },
     };
+
+    const fetchTransportationPieChart = async () => {
+      const payload = {
+        packageId: packageValue,
+        projectId: project,
+        dateRange: selectedDate
+      };
+      console.log("payload",payload)
+      try {
+        await ADMINAPI({
+          url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/charts/transportation/pie`,
+          method: "POST",
+          body: { ...payload },
+        })
+          .then((data) => {
+            if (data.status === true) {
+           console.log(data,"ttttt");
+              toast.success(data?.message);
+              let labels1=[]
+              let data1=[]
+              data.result.forEach(ele => {
+                labels1.push(ele.model)
+                data1.push(ele.percentage)
+              });
+              setTransportationLabels(labels1)
+              setTransportationData(data1)
+            } 
+          })
+          .catch((err) => {
+              toast.error(err?.message);
+          });
+      } catch (error) {
+        
+        console.log(error, "errorooo");
+      }
+    };
+
+    const fetchFuelPieChart = async () => {
+      const payload = {
+        packageId: packageValue,
+        projectId: project,
+        dateRange: selectedDate
+      };
+      console.log("payload",payload)
+      try {
+        await ADMINAPI({
+          url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/charts/fuel-consumption/pie`,
+          method: "POST",
+          body: { ...payload },
+        })
+          .then((data) => {
+            if (data.status === true) {
+           console.log(data,"ttttt");
+              toast.success(data?.message);
+              let labels1=[]
+              let data1=[]
+              data.result.forEach(ele => {
+                labels1.push(ele.equipment)
+                data1.push(ele.percentage)
+              });
+              setFuelLabels(labels1)
+              setFuleData(data1)
+            } 
+          })
+          .catch((err) => {
+              toast.error(err?.message);
+          });
+      } catch (error) {
+        
+        console.log(error, "errorooo");
+      }
+    };
+
+    useEffect(() => {
+      fetchTransportationPieChart();
+      fetchFuelPieChart();
+    }, [project,packageValue,selectedDate]);
 
 
     return(
