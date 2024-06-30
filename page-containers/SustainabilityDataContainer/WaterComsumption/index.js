@@ -1,21 +1,26 @@
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Pie} from 'react-chartjs-2';
-
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ADMINAPI } from "../../../apiWrapper";
 import WaterComsuptionpie from "../charts/waterComsumption";
 const WaterComsuption =()=>{
     const [activeButton, setActiveButton] = useState("button1");
+    const [WaterData, setWaterData] = useState({
+
+    });
     const handleButtonClick =(button)=>{
       setActiveButton(button);
     };
   
-   
+   console.log(WaterData,"LLLLLL");
     const pieChartData2 = {
       labels: ["Drinking Water", "Non-Drinking Water"],
       datasets: [
         {
           label: "My Dataset",
-          data: [40, 60],
+          data: [WaterData.bottlePercentage, WaterData.totalWaterConsumption],
           backgroundColor: ["#4A3AFF", "#6183FF"],
         },
       ],
@@ -33,7 +38,44 @@ const WaterComsuption =()=>{
       },
     };
 
+    const fetchWaterPieChart = async () => {
+      const payload = {
+        packageId: "60d5ec49f7d5ab001c8d5dbf",
+        projectId: "60d5ec49f7d5ab001c8d5dc0",
+        "dateRange": "2024-06-17T11:50:36.188Z"
+      };
+      try {
+        await ADMINAPI({
+          url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/charts/water/pie`,
+          method: "POST",
+          body: { ...payload },
+        })
+          .then((data) => {
+            if (data.status === true) {
+           console.log(data,"waterAPi ");
+              toast.success(data?.message);
+              setWaterData({
+                "bottlePercentage": 11, //data.waterPercentage,//15.291540456380698,
+                "totalWaterConsumption": 89,//data.totalBottleConsumption,//0,
+              })
+    
+            } 
+          })
+          .catch((err) => {
+            console.log(err, "errorooo9000");
 
+              toast.error(err?.message);
+
+          });
+      } catch (error) {
+        
+        console.log(error, "errorooo9000");
+      }
+    };
+  
+    useEffect(() => {
+      fetchWaterPieChart();
+    }, []);
     return(
         <section>
             <div className="row">
