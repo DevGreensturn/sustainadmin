@@ -73,7 +73,7 @@ pipeline {
             emailext (
                 subject: "Failed: Deployment of UAT",
                 body: "Deployment of uat failed. Please check Jenkins for details.",
-                to: "dev1@greensturn.com, pradeep@greensturn.com, pragya@greensturn.com, prachi@greensturn.com, ", // List of email recipients
+                to: "dev1@greensturn.com, pradeep@greensturn.com, pragya@greensturn.com, ", // List of email recipients
             )
         }
     }
