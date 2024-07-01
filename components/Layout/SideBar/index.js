@@ -41,12 +41,12 @@ const Sidebar = () => {
             </Link>
           </li> 
           <hr />
-          <li key={sidebarItems[5].id} className={styles.list}>
+          {/* <li key={sidebarItems[5].id} className={styles.list}>
             <Link href={sidebarItems[5].link}>
             <img src="/images/settings.png" alt="" />
               {" "} {sidebarItems[5].title}
             </Link>
-          </li>
+          </li> */}
           <li key={sidebarItems[6].id} className={styles.list}>
             <Link href={sidebarItems[6].link}>
               <img src="/images/logout.png" alt="" />
