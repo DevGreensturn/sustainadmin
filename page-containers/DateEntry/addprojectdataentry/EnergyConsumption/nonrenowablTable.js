@@ -229,7 +229,7 @@ const NonrenowableTable =({projectId, projectPack})=>{
       
         try {
           await ADMINAPI({
-            url: 'http://35.154.130.173:3002/api/v1/data-entry/non-renewable',
+            url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/non-renewable`,
             method: "POST",
             body: { ...payload },
           })
@@ -248,7 +248,7 @@ const NonrenowableTable =({projectId, projectPack})=>{
               }
             })
             .catch((err) => {
-                toast.error(err?.message);
+                // toast.error(err?.message);
             });
         } catch (error) {
           console.log(error, "errorooo");
@@ -258,7 +258,7 @@ const NonrenowableTable =({projectId, projectPack})=>{
         try {
           await ADMINAPI({
             method: "GET",
-            url: 'http://35.154.130.173:3002/api/v1/data-entry/non-renewable'
+            url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/data-entry/non-renewable`
           }).then((data) => {
             let userData = data.response;
             console.log(userData)
@@ -292,7 +292,7 @@ const NonrenowableTable =({projectId, projectPack})=>{
                         console.log(data?.message,"rtrttt");
                         setShowDeleteConfirmation(false)
         
-                      toast.error(data?.message);
+                      // toast.error(data?.message);
                     }
                  }).catch(err =>{
                     setShowDeleteConfirmation(false)

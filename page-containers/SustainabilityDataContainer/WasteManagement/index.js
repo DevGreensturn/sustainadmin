@@ -6,7 +6,7 @@ import LiquidWastepie from "../charts/LiquidwasteRemovalpie";
 import SolidWatedisposalline from "../charts/Solidwatedisposal";
 import { ADMINAPI } from "../../../apiWrapper";
 
-const WasteManagementChart =({project,packageValue})=>{
+const WasteManagementChart =({project,packageValue,selectedDate})=>{
     const [activeButton, setActiveButton] = useState("button1");
     const [totalWasteData,setTotalWasteData] = useState([])
     const [wasteDirectedData,setWasteDirectedData]=useState([])
@@ -19,7 +19,7 @@ const WasteManagementChart =({project,packageValue})=>{
       setActiveButton(button);
     };
   
-    
+    console.log("pragya>>>>>>>>>>>>>>>>>>>>>",project,packageValue,selectedDate)
     const pieChartData5 = {
       labels: [
         "Liquid Waste Removed From Site",
@@ -112,11 +112,13 @@ const WasteManagementChart =({project,packageValue})=>{
     };
 
     useEffect(() => {
+
+      console.log("pragya>>>>>>>>>>>>>>>>>>>>>")
       fetchWasteData();
       fetchWasteDirectedData();
       fetchWasteDivertedData()
 
-    }, [project,packageValue]);
+    }, [project,packageValue,selectedDate]);
 
     const fetchWasteDivertedData=async()=>{
       const payload={
@@ -157,9 +159,9 @@ const WasteManagementChart =({project,packageValue})=>{
 
     const fetchWasteDirectedData=async()=>{
       const payload={
-        dateRange: "2024-06-17T11:50:36.188Z",
-        "projectId": "667ead487409ce1e50882d37",
-   "packageId": "665486fbed3a1b1774f9ae66"
+        packageId: packageValue,
+        projectId: project,
+        dateRange: selectedDate
       };
       console.log("payload",payload)
         

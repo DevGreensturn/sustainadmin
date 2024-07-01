@@ -206,7 +206,7 @@ const SuppliersList = () => {
                     }, 100);
                   } else {
                     setShowPopup(false);
-                    toast.error(data?.message);
+                    // toast.error(data?.message);
                   }
                 });
               } catch (error) {

@@ -155,7 +155,7 @@ const SustainabilityDataContainer = () => {
         <BuildingMaterialChart  project={project} packageValue={packageValue} selectedDate={selectedDate}/>
       </div>
       <div className="mt-5">
-      <WasteManagementChart />
+      <WasteManagementChart project={project} packageValue={packageValue} selectedDate={selectedDate} />
       </div>
       <div className="mt-5">
       <FuelComsumptionChart project={project} packageValue={packageValue} selectedDate={selectedDate} />

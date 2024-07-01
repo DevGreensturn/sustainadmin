@@ -10,6 +10,7 @@ import { ADMINAPI } from "../../../apiWrapper";
 import { Modal, Button, Form , Row, Col} from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import { useRouter } from "next/navigation";
+import styles from './styles.module.css'
 
 
 const ProjectListTable =(projectId,packageId)=>{
@@ -533,7 +534,7 @@ const ProjectListTable =(projectId,packageId)=>{
                 </option>
               ))}
             </Form.Control>
-            {errors && errors.projectId && <span>{errors.projectId}</span>}
+            {errors && errors.projectId && <span className={styles["error-message"]}>{errors.projectId}</span>}
           </Col>
           <Col md={6}>
           <label>Package</label>
@@ -550,7 +551,7 @@ const ProjectListTable =(projectId,packageId)=>{
                 </option>
               ))}
               </Form.Control>
-              {errors && errors.packageId && <span>{errors.packageId}</span>}
+              {errors && errors.packageId && <span  className={styles["error-message"]}>{errors.packageId}</span>}
           </Col>
         
         </Row>
@@ -566,7 +567,7 @@ const ProjectListTable =(projectId,packageId)=>{
               className="mb-2"
 
             />
-          {errors && errors.supplierId && <span>{errors.supplierId}</span>}
+          {errors && errors.supplierId && <span  className={styles["error-message"]}>{errors.supplierId}</span>}
 
           </Col>
           <Col md={6}>
@@ -580,7 +581,7 @@ const ProjectListTable =(projectId,packageId)=>{
               className="mb-2"
 
             />
-          {errors && errors.supplierName && <span>{errors.supplierName}</span>}
+          {errors && errors.supplierName && <span  className={styles["error-message"]}>{errors.supplierName}</span>}
           </Col>
         </Row>
         <Row>
@@ -595,7 +596,7 @@ const ProjectListTable =(projectId,packageId)=>{
               className="mb-2"
 
             />
-          {errors && errors.supplierAddress && <span>{errors.supplierAddress}</span>}
+          {errors && errors.supplierAddress && <span  className={styles["error-message"]}>{errors.supplierAddress}</span>}
           </Col>
           <Col md={6}>
           <label>Type</label>
@@ -608,7 +609,7 @@ const ProjectListTable =(projectId,packageId)=>{
               className="mb-2"
 
             />
-          {errors && errors.type && <span>{errors.type}</span>}
+          {errors && errors.type && <span  className={styles["error-message"]}>{errors.type}</span>}
 
           </Col>
          
