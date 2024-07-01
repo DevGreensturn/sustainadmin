@@ -259,13 +259,13 @@ import "react-toastify/dist/ReactToastify.css";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
-    userName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    userName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
     countryCode: "+91",
-    role: "",
-    country: "",
+    role: '',
+    country: '',
   });
   const [roles, setRoles] = useState([]);
   const [countries, setCountries] = useState([]);
@@ -347,7 +347,7 @@ const SignupForm = () => {
     e.preventDefault();
     const { name, value } = e.target;
     let updatedValue = value;
-    console.log("value", e.target);
+    console.log("value", e.target,"KKKKKK",name,"<<<<<",value);
     switch (name) {
       case "userName":
         if (value.length > 25) {
