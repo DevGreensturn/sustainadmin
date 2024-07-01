@@ -520,6 +520,7 @@ const SignupForm = () => {
               </div>
 
               <div className="mt-4">
+                {console.log(formData,"LLL",JSON.stringify(formData))}
                 <form onSubmit={handleSubmit} autoComplete="off">
                   <div className="row">
                     <div className="col-md-12">
