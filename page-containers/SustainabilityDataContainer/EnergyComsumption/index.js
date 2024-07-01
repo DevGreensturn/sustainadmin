@@ -104,7 +104,7 @@ const EnergyComsuption =({project,packageValue,selectedDate})=>{
 
   useEffect(() => {
     fetchEnergyPieChart();
-  }, []);
+  }, [project,packageValue,selectedDate]);
     return(
         <section>
             <div className="row">

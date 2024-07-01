@@ -110,7 +110,7 @@ const pieChartData5 = {
     console.log("tttttttttttttttt",packageValue)
     fetchBuildingPieChart();
     fetchBuildingtypePieChart();
-  }, [project,packageValue]);
+  }, [project,packageValue,selectedDate]);
 
 
   const fetchBuildingtypePieChart = async() =>{

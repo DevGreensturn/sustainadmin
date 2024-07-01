@@ -75,7 +75,7 @@ const WaterComsuption =({project,packageValue,selectedDate})=>{
   
     useEffect(() => {
       fetchWaterPieChart();
-    }, []);
+    }, [project,packageValue,selectedDate]);
     return(
         <section>
             <div className="row">
