@@ -10,7 +10,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ADMINAPI } from "../../../apiWrapper";
 
-const EnergyComsuption =()=>{
+const EnergyComsuption =({project,packageValue,selectedDate})=>{
     const [activeButton, setActiveButton] = useState("button1");
     const [energyData, setEnergyData] = useState({
 
@@ -68,9 +68,9 @@ const EnergyComsuption =()=>{
     };
   const fetchEnergyPieChart = async () => {
     const payload = {
-      packageId: "60d5ec49f7d5ab001c8d5dbf",
-      projectId: "60d5ec49f7d5ab001c8d5dc0",
-      "dateRange": "2024-06-17T11:50:36.188Z"
+      packageId: packageValue,
+      projectId: project,
+      dateRange: selectedDate
     };
     try {
       await ADMINAPI({

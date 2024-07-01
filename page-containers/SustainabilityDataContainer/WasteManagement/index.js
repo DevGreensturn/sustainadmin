@@ -89,9 +89,9 @@ const WasteManagementChart =({project,packageValue})=>{
       try {
         
         const payload = {
-          "projectId": "60c72b339b1d4c44f8fa2b7d",
-          "packageId": "60c72b319b1d4c44f8fa2b7c", 
-          dateRange: "2024-06-17T11:50:36.188Z", 
+          packageId: packageValue,
+          projectId: project,
+          dateRange: selectedDate
         };
         const response = await ADMINAPI({
           url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/charts/total-waste/pie`, // Adjust URL as per your backend endpoint
@@ -120,9 +120,9 @@ const WasteManagementChart =({project,packageValue})=>{
 
     const fetchWasteDivertedData=async()=>{
       const payload={
-        dateRange: "2024-06-17T11:50:36.188Z",
-        "projectId": "60c72b445f1b2c001f8e4c58",
-        "packageId": "60c72b3a5f1b2c001f8e4c57"
+        packageId: packageValue,
+      projectId: project,
+      dateRange: selectedDate
       };
       console.log("payload",payload)
       try {

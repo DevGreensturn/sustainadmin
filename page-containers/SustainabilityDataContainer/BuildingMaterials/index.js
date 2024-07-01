@@ -7,7 +7,7 @@ import { ADMINAPI } from "../../../apiWrapper";
 import { toast } from "react-toastify";
 
 
-const BuildingMaterialChart =({project,packageValue})=>{
+const BuildingMaterialChart =({project,packageValue,selectedDate})=>{
     const [activeButton, setActiveButton] = useState("button1");
 
     const [buildingData, setBuildingData] = useState([]);
@@ -72,9 +72,9 @@ const pieChartData5 = {
     };
    const fetchBuildingPieChart = async() =>{
     const payload ={
-      packageId:"60c72b2f9b1d4c44f8fa2b7b",
-      projectId:"60c72b319b1d4c44f8fa2b7c",
-      "dateRange": "2024-06-17T11:50:36.188Z"
+      packageId: packageValue,
+      projectId: project,
+      dateRange: selectedDate
     };
     console.log("payload",payload)
 
@@ -115,9 +115,9 @@ const pieChartData5 = {
 
   const fetchBuildingtypePieChart = async() =>{
     const payload ={
-      packageId:"60c72b2f9b1d4c44f8fa2b7b",
-      projectId:"60c72b319b1d4c44f8fa2b7c",
-      "dateRange": "2024-06-17T11:50:36.188Z"
+      packageId: packageValue,
+      projectId: project,
+      dateRange: selectedDate
     };
     console.log("payload",payload)
 
