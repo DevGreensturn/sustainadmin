@@ -5,7 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ADMINAPI } from "../../../apiWrapper";
 import WaterComsuptionpie from "../charts/waterComsumption";
-const WaterComsuption =()=>{
+const WaterComsuption =({project,packageValue,selectedDate})=>{
     const [activeButton, setActiveButton] = useState("button1");
     const [WaterData, setWaterData] = useState({
 
@@ -40,9 +40,9 @@ const WaterComsuption =()=>{
 
     const fetchWaterPieChart = async () => {
       const payload = {
-        packageId: "60d5ec49f7d5ab001c8d5dbf",
-        projectId: "60d5ec49f7d5ab001c8d5dc0",
-        "dateRange": "2024-06-17T11:50:36.188Z"
+        packageId: packageValue,
+      projectId: project,
+      dateRange: selectedDate
       };
       try {
         await ADMINAPI({
@@ -75,7 +75,7 @@ const WaterComsuption =()=>{
   
     useEffect(() => {
       fetchWaterPieChart();
-    }, []);
+    }, [project,packageValue,selectedDate]);
     return(
         <section>
             <div className="row">

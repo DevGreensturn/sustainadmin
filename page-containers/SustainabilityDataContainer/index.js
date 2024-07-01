@@ -144,15 +144,15 @@ const SustainabilityDataContainer = () => {
       </div>
 
       
-      <EnergyComsuption />
+      <EnergyComsuption project={project} packageValue={packageValue} selectedDate={selectedDate} />
       <div className="mt-3">
-      <WaterComsuption />
+      <WaterComsuption project={project} packageValue={packageValue} selectedDate={selectedDate} />
       </div>
       <div className="mt-3">
         <ConcreteMixChart project={project} packageValue={packageValue} selectedDate={selectedDate} />
       </div>
       <div className="mt-5">
-        <BuildingMaterialChart  project={project} packageValue={packageValue}/>
+        <BuildingMaterialChart  project={project} packageValue={packageValue} selectedDate={selectedDate}/>
       </div>
       <div className="mt-5">
       <WasteManagementChart project={project} packageValue={packageValue} selectedDate={selectedDate} />
@@ -161,7 +161,7 @@ const SustainabilityDataContainer = () => {
       <FuelComsumptionChart project={project} packageValue={packageValue} selectedDate={selectedDate} />
       </div>
       <div className="mt-5">
-      <EmissionManagementChart />
+      <EmissionManagementChart project={project} packageValue={packageValue} selectedDate={selectedDate}/>
       </div>
       </div>
       </section>

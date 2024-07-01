@@ -90,8 +90,8 @@ const WasteManagementChart =({project,packageValue,selectedDate})=>{
         
         const payload = {
           packageId: packageValue,
-        projectId: project,
-        dateRange: selectedDate
+          projectId: project,
+          dateRange: selectedDate
         };
         const response = await ADMINAPI({
           url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/charts/total-waste/pie`, // Adjust URL as per your backend endpoint
@@ -123,8 +123,8 @@ const WasteManagementChart =({project,packageValue,selectedDate})=>{
     const fetchWasteDivertedData=async()=>{
       const payload={
         packageId: packageValue,
-        projectId: project,
-        dateRange: selectedDate
+      projectId: project,
+      dateRange: selectedDate
       };
       console.log("payload",payload)
       try {

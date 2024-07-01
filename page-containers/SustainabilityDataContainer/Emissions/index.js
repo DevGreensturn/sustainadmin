@@ -7,7 +7,7 @@ import ConstructionEmmisionpie from "../charts/constuctionEmmision";
 import ConstructionEmissionpie from "../charts/constuctionEmmision";
 import Transportemmisionpie from "../charts/TransportEmission";
 
-const EmissionManagementChart =()=>{
+const EmissionManagementChart =({project,packageValue,selectedDate})=>{
     const [activeButton, setActiveButton] = useState("button1");
     const handleButtonClick =(button)=>{
       setActiveButton(button);
