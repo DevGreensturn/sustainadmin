@@ -487,6 +487,13 @@ const SignupForm = () => {
     setShowPassword(!showPassword);
   };
 
+ 
+  const [showCPassword, setShowCPassword] = useState(false);
+    const toggleCPasswordVisibility = () => {
+      setShowCPassword(!showCPassword);
+    };
+
+
   return (
     <section>
       <ToastContainer />
@@ -550,7 +557,7 @@ const SignupForm = () => {
                     </div>
 
                     <div className="col-md-12">
-                      <div className={styles.formGroup}>
+                      <div className={`position-relative ${styles.formGroup}`}>
                         <label htmlFor="password">Password</label>
                         <input
                          
@@ -564,6 +571,28 @@ const SignupForm = () => {
                           type={showPassword ? "text" : "password"}
 
                         />
+
+                        <div
+                          className="togglePasswordVisibilitys"
+                          onClick={togglePasswordVisibility}
+                        >
+                          <div>
+                            {showPassword ? (
+                              <img
+                                src="/images/showPassword.png"
+                                alt=""
+                                className="img-fluid"
+                              />
+                            ) : (
+                              <img
+                                src="/images/hidePassword.png"
+                                alt=""
+                                className="img-fluid"
+                              />
+                            )}
+                          </div>
+                        </div>
+
                       </div>
 
                       <div className={`position-relative ${styles.formGroup}`}>
@@ -579,15 +608,15 @@ const SignupForm = () => {
                           onChange={handleChange}
                           required
                           className="form-control"
-                          type={showPassword ? "text" : "password"}
+                          type={showCPassword ? "text" : "password"}
                         />
 
                         <div
                           className="togglePasswordVisibilitys"
-                          onClick={togglePasswordVisibility}
+                          onClick={toggleCPasswordVisibility}
                         >
                           <div>
-                            {showPassword ? (
+                            {showCPassword ? (
                               <img
                                 src="/images/showPassword.png"
                                 alt=""
