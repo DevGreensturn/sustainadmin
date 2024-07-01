@@ -256,7 +256,7 @@ const WaterTankerTable = () => {
         .then((data) => {
           if (data.status === true) {
             setShow(false);
-            toast.success(data?.message);
+            // toast.success(data?.message);
             fetchWaterTanker();
             setTimeout(() => {
               navigate.push("/addMonthlyData", { scroll: false });
@@ -321,7 +321,7 @@ const WaterTankerTable = () => {
           if (data.status === true) {
             setShow(false);
             handleCloseEdit();
-            toast.success(data?.message);
+            // toast.success(data?.message);
             fetchWaterTanker();
             setTimeout(() => {
               navigate.push("/addMonthlyData", { scroll: false });
@@ -348,7 +348,7 @@ const WaterTankerTable = () => {
           if (data.status === true) {
             setShowDelete(false);
             handleCloseDelete();
-            toast.success(data?.message);
+            // toast.success(data?.message);
             fetchWaterTanker();
             setTimeout(() => {
               navigate.push("/addMonthlyData", { scroll: false });
@@ -357,18 +357,18 @@ const WaterTankerTable = () => {
             console.log(data?.message, "rtrttt");
             setShowDeleteConfirmation(false);
 
-            toast.error(data?.message);
+            // toast.error(data?.message);
           }
         })
         .catch((err) => {
           setShowDeleteConfirmation(false);
 
           console.log(err, "rtrttt");
-          toast.error(err?.message);
+          // toast.error(err?.message);
         });
     } catch (error) {
       console.log(error, "errorooo");
-      toast.error(data?.message);
+      // toast.error(data?.message);
     }
   };
   useEffect(() => {
