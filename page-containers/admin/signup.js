@@ -552,7 +552,7 @@ const SignupForm = () => {
                       <div className={styles.formGroup}>
                         <label htmlFor="password">Password</label>
                         <input
-                          type="password"
+                         
                           id="password"
                           autoComplete="off"
                           name="password"
@@ -560,6 +560,8 @@ const SignupForm = () => {
                           onChange={handleChange}
                           required
                           className="form-control"
+                          type={showPassword ? "text" : "password"}
+
                         />
                       </div>
 
