@@ -126,13 +126,13 @@ const AddprojectEntry = () => {
                 navigate.push("/dataEntry", { scroll: false });
               }, 100);
             } else {
-              toast.error(data?.message);
+              // toast.error(data?.message);
             }
           }).catch(err => {
-            toast.error(err?.message);
+            // toast.error(err?.message);
           });
         } catch (error) {
-          toast.error(error?.message);
+          // toast.error(error?.message);
         }
       };
   
@@ -163,13 +163,13 @@ const AddprojectEntry = () => {
                 navigate.push("/dataEntry", { scroll: false });
               }, 100);
             } else {
-              toast.error(data?.message);
+              // toast.error(data?.message);
             }
           }).catch(err => {
-            toast.error(err?.message);
+            // toast.error(err?.message);
           });
         } catch (error) {
-          toast.error(error?.message);
+          // toast.error(error?.message);
         }
       };
       const handleDateChange = (date) => {

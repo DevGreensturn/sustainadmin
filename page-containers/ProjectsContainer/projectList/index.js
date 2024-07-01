@@ -472,17 +472,17 @@ const ProjectListTable =()=>{
                 console.log(data?.message,"rtrttt");
                 setShowPopup(false)
 
-              toast.error(data?.message);
+              // toast.error(data?.message);
             }
           }).catch(err => {
             setShowPopup(false)
 
             console.log(err,"rtrttt");
-            toast.error(err?.message);
+            // toast.error(err?.message);
           });
         } catch (error) {
             console.log(error,"KKKKK");
-          toast.error(error?.message);
+          // toast.error(error?.message);
         }
       };
         }
@@ -573,13 +573,13 @@ const ProjectListTable =()=>{
                             console.log(data?.message,"rtrttt");
                             setShowDeleteConfirmation(false)
             
-                          toast.error(data?.message);
+                          // toast.error(data?.message);
                         }
                      }).catch(err =>{
                         setShowDeleteConfirmation(false)
     
                 console.log(err,"rtrttt");
-                toast.error(err?.message);
+                // toast.error(err?.message);
                      })
                    
                  } catch (error) {
