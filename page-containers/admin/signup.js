@@ -555,7 +555,7 @@ const SignupForm = () => {
                         <input
                          
                           id="password"
-                          autoComplete="off"
+                          autoComplete="new-password"
                           name="password"
                           value={formData.password}
                           onChange={handleChange}
@@ -574,7 +574,7 @@ const SignupForm = () => {
                           // type="password"
                           id="confirmPassword"
                           name="confirmPassword"
-                          autoComplete="off"
+                          autoComplete="new-password"
                           value={formData.confirmPassword}
                           onChange={handleChange}
                           required
