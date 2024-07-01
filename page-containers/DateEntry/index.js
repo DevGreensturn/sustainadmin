@@ -220,9 +220,9 @@ const DataEntryContainer = () => {
                   <h2>Monthly Reports </h2>
                 </div>
                 <div className="d-flex">
-                  <button type="btn" className="btn btn-outline-success mx-3">
+                  {/* <button type="btn" className="btn btn-outline-success mx-3">
                     Filters
-                  </button>
+                  </button> */}
                   <Link href="/addMonthlyData">
                     <button type="btn" className="btn btn-outline-success">
                       Add Monthly Report

@@ -489,13 +489,13 @@ const ProjectListTable =(projectId,packageId)=>{
         centered
         backdrop="static"
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton style={{border:"0"}}>
           <Modal.Title>Confirm Deletion</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <p>Are you sure you want to delete?</p>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer style={{border:"0"}}>
           <Button variant="secondary" onClick={() => setShowDeleteConfirmation(false)}>
             No
           </Button>
@@ -510,11 +510,13 @@ const ProjectListTable =(projectId,packageId)=>{
   onHide={handleClose}
   centered
   backdrop="static"
-  size="xl"
+  size="lg"
 >
-  <Modal.Header className="pb-0" closeButton></Modal.Header>
+  <Modal.Header className="pb-0" closeButton style={{border:"0"}}>
+  <Modal.Title>Edit Supplier</Modal.Title>
+  </Modal.Header>
   <Modal.Body className="pt-0">
-    <h6 className="text-center">Edit Supplier </h6>
+    {/* <h6 className="text-center">Edit Supplier </h6> */}
     {/* {console.log(row,"YYY",formData)} */}
     <Form onSubmit={handleSubmit} className="mt-2 p-2">
       <Form.Group>
@@ -616,7 +618,10 @@ const ProjectListTable =(projectId,packageId)=>{
         </Row>
       
       </Form.Group>
-      <Button type="submit" variant="primary" className="w-100 mt-2">Submit</Button>
+      <hr/>
+      <div className="text-end">
+      <Button type="submit" variant="primary" className="btn btn-success mt-2">Submit</Button>
+      </div>
     </Form>
   </Modal.Body>
 </Modal>

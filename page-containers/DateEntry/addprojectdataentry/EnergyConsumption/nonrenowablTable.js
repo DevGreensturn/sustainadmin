@@ -436,13 +436,13 @@ const NonrenowableTable =({projectId, projectPack})=>{
                         </div>
                        </div>
 
-
-                    <div className="my-4 d-flex justify-content-between">
+                  <hr />
+                    <div className="my-4 d-flex justify-content-end">
                     <div>
-                    <button type="btn" className="btn btn-outline-secondary" onClick={handleClose}> Close </button>
+                    <button type="btn" className="btn btn-secondary" onClick={handleClose}> Close </button>
                     </div>
                     <div>
-                    <button type="btn" className="btn btn-outline-success" onClick={handleSaveChanges}> Save Changes </button>
+                    <button type="btn" className="btn btn-success mx-2" onClick={handleSaveChanges}> Save Changes </button>
                     </div>
                     </div>
                        </>

@@ -155,7 +155,7 @@ const ProjectsContainer = () => {
             <h2>Project Lists</h2>
           </div>
             <div className="d-flex">
-            <button type="btn" className="btn btn-outline-success mx-2"> <RiFilter2Fill />Filters</button>
+            {/* <button type="btn" className="btn btn-outline-success mx-2"> <RiFilter2Fill />Filters</button> */}
             <Link href="/addProject"><button type="btn" className="btn btn-outline-success">
             Add New </button></Link>
             </div>
