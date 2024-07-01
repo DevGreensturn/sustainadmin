@@ -520,7 +520,7 @@ const SignupForm = () => {
               </div>
 
               <div className="mt-4">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} autoComplete="off">
                   <div className="row">
                     <div className="col-md-12">
                       <div className={styles.formGroup}>
