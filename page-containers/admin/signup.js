@@ -478,10 +478,13 @@ const SignupForm = () => {
     };
 
     const [showPassword, setShowPassword] = useState(false);
-
-    
     const togglePasswordVisibility = () => {
       setShowPassword(!showPassword);
+    };
+
+    const [showCPassword, setShowCPassword] = useState(false);
+    const toggleCPasswordVisibility = () => {
+      setShowCPassword(!showCPassword);
     };
 
     return (
@@ -521,9 +524,27 @@ const SignupForm = () => {
                                         </div>
                                         
                                         <div className='col-md-12'>
-                                            <div className={styles.formGroup}>
+                                            <div className={`position-relative ${styles.formGroup}`}>
                                                 <label htmlFor="password">Password</label>
-                                                <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required className='form-control'/>
+
+                                                <input
+                                                // type="password"
+                                                id="password"
+                                                name="password"
+                                                value={formData.password}
+                                                onChange={handleChange}
+                                                required
+                                                className='form-control' 
+                                                type={showPassword ? 'text' : 'password'}
+                                                autocomplete="off"
+                                                />
+                                            
+                                            <div className="togglePasswordVisibilitys" onClick={togglePasswordVisibility}>
+                                                    <div>
+                                                        {showPassword ? (<img src="/images/showPassword.png" alt="" className="img-fluid"/>) : (<img src="/images/hidePassword.png" alt="" className="img-fluid"/>)}
+                                                        </div>
+                                                </div>
+
                                             </div>
 
                                             <div className={`position-relative ${styles.formGroup}`}>
@@ -536,12 +557,13 @@ const SignupForm = () => {
                                                 onChange={handleChange}
                                                 required
                                                 className='form-control'
-                                                type={showPassword ? 'text' : 'password'}
+                                                type={showCPassword ? 'text' : 'password'}
+                                                autocomplete="off"
                                                 />
                                             
-                                                <div className="togglePasswordVisibilitys" onClick={togglePasswordVisibility}>
+                                                <div className="togglePasswordVisibilitys" onClick={toggleCPasswordVisibility}>
                                                     <div>
-                                                        {showPassword ? (<img src="/images/showPassword.png" alt="" className="img-fluid"/>) : (<img src="/images/hidePassword.png" alt="" className="img-fluid"/>)}
+                                                        {showCPassword ? (<img src="/images/showPassword.png" alt="" className="img-fluid"/>) : (<img src="/images/hidePassword.png" alt="" className="img-fluid"/>)}
                                                         </div>
                                                 </div>
 
