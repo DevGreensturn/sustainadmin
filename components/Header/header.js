@@ -194,7 +194,7 @@ const HeaderSection =()=>{
                                 width={300}
                                 height={100}
                                 className="img-fluid dropMenuImage"
-                                src="/Images/Header/resource.png"
+                                src="/images/Header/resource.png"
                               />
                             </div>
 
@@ -238,7 +238,7 @@ const HeaderSection =()=>{
                                 width={300}
                                 height={100}
                                 className="img-fluid dropMenuImage"
-                                src="/Images/Header/resource.png"
+                                src="/images/Header/resource.png"
                               />
                             </div>
 

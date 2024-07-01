@@ -541,7 +541,7 @@ const SignupForm = () => {
                                             
                                                 <div className="togglePasswordVisibilitys" onClick={togglePasswordVisibility}>
                                                     <div>
-                                                        {showPassword ? (<img src="/Images/showPassword.png" alt="" className="img-fluid"/>) : (<img src="/Images/hidePassword.png" alt="" className="img-fluid"/>)}
+                                                        {showPassword ? (<img src="/images/showPassword.png" alt="" className="img-fluid"/>) : (<img src="/images/hidePassword.png" alt="" className="img-fluid"/>)}
                                                         </div>
                                                 </div>
 

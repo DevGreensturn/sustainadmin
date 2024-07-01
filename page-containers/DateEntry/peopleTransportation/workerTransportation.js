@@ -198,7 +198,7 @@ const WorkerTransportation =({projectId, projectPack})=>{
                         console.log(data?.message,"rtrttt");
                         setShowDeleteConfirmation(false)
         
-                      toast.error(data?.message);
+                      // toast.error(data?.message);
                     }
                  }).catch(err =>{
                     setShowDeleteConfirmation(false)

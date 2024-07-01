@@ -162,7 +162,7 @@ const handleClick =()=>{
                             <Dropdown.Menu className="userLoginsection">
                             {/* <Dropdown.Item onClick={handleLogOut}>
                                 <img
-                                  src="/Images/sign out.svg"
+                                  src="/images/sign out.svg"
                                   alt=""
                                   className="mx-2"
                                 />{" "}
@@ -233,7 +233,7 @@ const handleClick =()=>{
 
                   <div className="togglePasswordVisibility" onClick={togglePasswordVisibility}>
                     <div>
-                          {showPassword ? (<img src="/Images/showPassword.png" alt="" className="img-fluid"/>) : (<img src="/Images/hidePassword.png" alt="" className="img-fluid"/>)}
+                          {showPassword ? (<img src="/images/showPassword.png" alt="" className="img-fluid"/>) : (<img src="/images/hidePassword.png" alt="" className="img-fluid"/>)}
                         </div>
                   </div>
                   </div>
