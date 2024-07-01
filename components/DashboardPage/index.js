@@ -193,7 +193,7 @@ const ThreeContainers = () => {
                 </div>
 
               <div className='emission_by-carbon'>
-               {/* <img src='/Images/treePlant.svg' alt='' className='img-fluid'/> */}
+               {/* <img src='/images/treePlant.svg' alt='' className='img-fluid'/> */}
               </div>
                 
 
