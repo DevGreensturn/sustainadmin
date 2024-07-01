@@ -18,7 +18,7 @@ const LogoutComponent = () => {
   };
 
   return (
-    <section className={styles.adminLogin}>
+    <section className={` my-5 ${styles.adminLogin}`}>
          <div className="row justify-content-center">
          <div className="col-md-12 col-lg-9 col-xl-8">
     <div>
@@ -26,9 +26,8 @@ const LogoutComponent = () => {
         <div className={styles.adminLoginBox}>
           <h4>Are you sure you want to logout?</h4>
           <div className="col-md-6" style={{ paddingTop: '5%', display: 'flex', justifyContent: 'space-between' }}>
-          <button onClick={handleLogout} type='btn' className='btn btn-primary'>Yes</button>
-          <button onClick={toggleConfirmLogout} type='btn' className='btn btn-primary'>No</button>
-         
+          <button onClick={handleLogout} type='btn' className='btn btn-success'>Yes</button>
+          <button onClick={toggleConfirmLogout} type='btn' className='btn btn-success'>No</button>
           </div>
         </div>
       ) : (
