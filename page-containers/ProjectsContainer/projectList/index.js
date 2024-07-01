@@ -861,7 +861,10 @@ const ProjectListTable =()=>{
 
         </Row>
       </Form.Group>
-      <button type="submit" className="btn btn-outline-success mt-3 w-100">Submit</button>
+      <hr/>
+      <div className="text-end">
+      <button type="submit" className="btn btn-success mt-3 text-end">Submit</button>
+      </div>
       {/* <Button type="submit" variant="primary" className="w-100 mt-2">Submit</Button> */}
     </Form>
   </Modal.Body>
@@ -872,13 +875,14 @@ const ProjectListTable =()=>{
         centered
         backdrop="static"
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton style={{border:"0"}}>
           <Modal.Title>Confirm Deletion</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <p>Are you sure you want to delete?</p>
         </Modal.Body>
-        <Modal.Footer>
+
+        <Modal.Footer style={{border:"0"}} className="text-end">
           <Button variant="secondary" onClick={() => setShowDeleteConfirmation(false)}>
             No
           </Button>

@@ -283,7 +283,7 @@ const SuppliersList = () => {
               <h2>Supplier & Subcontractor List</h2>
               </div>
               <div className="d-flex">
-                <button type="btn" className="btn btn-outline-success mx-3">Filters</button>
+                {/* <button type="btn" className="btn btn-outline-success mx-3">Filters</button> */}
                 <button type="btn" className="btn btn-outline-success" onClick={openModel}>Add New</button>
               </div>
             </div>
@@ -308,9 +308,11 @@ const SuppliersList = () => {
   backdrop="static"
   size="lg"
 >
-  <Modal.Header className="pb-0" closeButton style={{border:"0"}}></Modal.Header>
+  <Modal.Header className="pb-0" closeButton style={{border:"0"}}>
+  <Modal.Title>Add New Supplier</Modal.Title>
+  </Modal.Header>
   <Modal.Body className="pt-0">
-    <h6 className="text-center">Add New Supplier</h6>
+    {/* <h6 className="text-center">Add New Supplier</h6> */}
     <Form onSubmit={handleSubmit} className="mt-4 p-4">
       <Form.Group>
         <Row>
@@ -413,7 +415,10 @@ const SuppliersList = () => {
           </Col>
         </Row>
       </Form.Group>
-      <Button type="submit" variant="primary" className="w-100 mt-2">Submit</Button>
+      <hr />
+      <div className="text-end">
+      <button type="submit"  className="btn btn-success mt-2">Submit</button>
+      </div>
     </Form>
   </Modal.Body>
 </Modal>

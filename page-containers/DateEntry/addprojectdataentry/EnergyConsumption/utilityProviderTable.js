@@ -630,12 +630,13 @@ const Utilityprovidertable = ({projectId, projectPack}) => {
 
             {/* Add other input fields as per your form */}
           </div>
+          <hr />
           {/* Buttons for add modal */}
-          <div className="my-4 d-flex justify-content-between">
-            <div>
+          <div className="my-4 d-flex justify-content-end">
+            <div className="">
               <button
                 type="button"
-                className="btn btn-outline-secondary"
+                className="btn btn-secondary"
                 onClick={handleClose}
               >
                 {" "}
@@ -645,7 +646,7 @@ const Utilityprovidertable = ({projectId, projectPack}) => {
             <div>
               <button
                 type="button"
-                className="btn btn-outline-success"
+                className="btn btn-success mx-2"
                 onClick={handleEditChanges}
               >
                 {" "}
@@ -672,11 +673,12 @@ const Utilityprovidertable = ({projectId, projectPack}) => {
             <h5>Are you sure you want to delete this record?</h5>
           </div>
           {/* Buttons for delete modal */}
-          <div className="mt-4 d-flex justify-content-between">
+         
+          <div className="mt-4 d-flex justify-content-end">
             <div>
               <button
                 type="button"
-                className="btn btn-outline-secondary rounded-pill"
+                className="btn btn-secondary"
                 onClick={handleCloseDelete}
               >
                 {" "}
@@ -686,7 +688,7 @@ const Utilityprovidertable = ({projectId, projectPack}) => {
             <div>
               <button
                 type="button"
-                className="btn btn-outline-success rounded-pill"
+                className="btn btn-success mx-2"
                 onClick={handleDeleteConfirm}
 
               >

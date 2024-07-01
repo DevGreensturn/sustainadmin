@@ -367,13 +367,13 @@ return
         centered
         backdrop="static"
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton style={{border:"0"}}>
           <Modal.Title>Confirm Deletion</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <p>Are you sure you want to delete?</p>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer style={{border:"0"}}>
           <Button variant="secondary" onClick={() => setShowDeleteConfirmation(false)}>
             No
           </Button>
@@ -474,7 +474,10 @@ return
         </Row>
        
       </Form.Group>
-      <Button type="submit" variant="primary" className="w-100 mt-2" onClick={handleEditData}>Submit</Button>
+      <hr />
+      <div className="text-end">
+      <button type="submit" className="btn btn-success mt-2" onClick={handleEditData}>Submit</button>
+      </div>
     </Form>
   </Modal.Body>
 </Modal>
