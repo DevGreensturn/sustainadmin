@@ -6,7 +6,7 @@ import LiquidWastepie from "../charts/LiquidwasteRemovalpie";
 import SolidWatedisposalline from "../charts/Solidwatedisposal";
 import { ADMINAPI } from "../../../apiWrapper";
 
-const WasteManagementChart =({project,packageValue})=>{
+const WasteManagementChart =({project,packageValue,selectedDate})=>{
     const [activeButton, setActiveButton] = useState("button1");
     const [totalWasteData,setTotalWasteData] = useState([])
     const [wasteDirectedData,setWasteDirectedData]=useState([])
@@ -19,7 +19,7 @@ const WasteManagementChart =({project,packageValue})=>{
       setActiveButton(button);
     };
   
-    
+    console.log("pragya>>>>>>>>>>>>>>>>>>>>>",project,packageValue,selectedDate)
     const pieChartData5 = {
       labels: [
         "Liquid Waste Removed From Site",
@@ -89,9 +89,9 @@ const WasteManagementChart =({project,packageValue})=>{
       try {
         
         const payload = {
-          "projectId": "60c72b339b1d4c44f8fa2b7d",
-          "packageId": "60c72b319b1d4c44f8fa2b7c", 
-          dateRange: "2024-06-17T11:50:36.188Z", 
+          packageId: packageValue,
+        projectId: project,
+        dateRange: selectedDate
         };
         const response = await ADMINAPI({
           url: `${process.env.NEXT_PUBLIC_API_BACKEND_URL}:3002/api/v1/charts/total-waste/pie`, // Adjust URL as per your backend endpoint
@@ -112,17 +112,19 @@ const WasteManagementChart =({project,packageValue})=>{
     };
 
     useEffect(() => {
+
+      console.log("pragya>>>>>>>>>>>>>>>>>>>>>")
       fetchWasteData();
       fetchWasteDirectedData();
       fetchWasteDivertedData()
 
-    }, [project,packageValue]);
+    }, [project,packageValue,selectedDate]);
 
     const fetchWasteDivertedData=async()=>{
       const payload={
-        dateRange: "2024-06-17T11:50:36.188Z",
-        "projectId": "60c72b445f1b2c001f8e4c58",
-        "packageId": "60c72b3a5f1b2c001f8e4c57"
+        packageId: packageValue,
+        projectId: project,
+        dateRange: selectedDate
       };
       console.log("payload",payload)
       try {
@@ -157,9 +159,9 @@ const WasteManagementChart =({project,packageValue})=>{
 
     const fetchWasteDirectedData=async()=>{
       const payload={
-        dateRange: "2024-06-17T11:50:36.188Z",
-        "projectId": "667ead487409ce1e50882d37",
-   "packageId": "665486fbed3a1b1774f9ae66"
+        packageId: packageValue,
+        projectId: project,
+        dateRange: selectedDate
       };
       console.log("payload",payload)
         
